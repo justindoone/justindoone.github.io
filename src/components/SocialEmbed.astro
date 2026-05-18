@@ -1,0 +1,68 @@
+---
+interface Props {
+  type: 'instagram' | 'linkedin' | 'facebook';
+  url: string;
+  caption?: string;
+}
+
+const { type, url, caption } = Astro.props;
+
+const fbEmbedSrc =
+  type === 'facebook'
+    ? `https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(
+        url
+      )}&width=500&show_text=true`
+    : '';
+---
+
+<figure class="social-embed">
+  {
+    type === 'instagram' && (
+      <blockquote
+        class="instagram-media"
+        data-instgrm-permalink={url}
+        data-instgrm-version="14"
+        style="background:#fff; border:0; margin: 0 auto; max-width:504px; min-width:280px; padding:0; width:100%;"
+      />
+    )
+  }
+
+  {
+    type === 'linkedin' && (
+      <iframe
+        src={url}
+        height="600"
+        width="504"
+        frameborder="0"
+        allowfullscreen
+        title="LinkedIn post"
+        loading="lazy"
+      />
+    )
+  }
+
+  {
+    type === 'facebook' && (
+      <iframe
+        src={fbEmbedSrc}
+        height="600"
+        width="500"
+        style="border:none;overflow:hidden"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        loading="lazy"
+        title="Facebook post"
+      />
+    )
+  }
+
+  {
+    caption && (
+      <figcaption class="text-xs text-ink-mute text-center mt-3">
+        {caption}
+      </figcaption>
+    )
+  }
+</figure>

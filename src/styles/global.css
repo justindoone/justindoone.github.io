@@ -232,6 +232,28 @@ body {
 }
 
 /* ========================================
+   SOCIAL EMBEDS
+   ======================================== */
+.social-embed {
+  width: 100%;
+  max-width: 504px;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.social-embed iframe {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+
+.social-embed .instagram-media {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 280px !important;
+}
+
+/* ========================================
    ASTRO VIEW TRANSITIONS
    ======================================== */
 ::view-transition-old(root),

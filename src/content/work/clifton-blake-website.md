@@ -17,6 +17,10 @@ cover: "/images/work/clifton-blake-website.jpg"
 featured: true
 order: 4
 accent: "#7a5b3e"
+socials:
+  - type: linkedin
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7395090700607889408"
+    caption: "Clifton Blake Corporate LinkedIn"
 ---
 
 Clifton Blake's old site told you what the firm had built. It didn't tell you why an institutional investor should trust them with capital. Those are two different jobs. The second is the one that actually matters for an LP sizing up a manager.

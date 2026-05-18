@@ -17,6 +17,10 @@ cover: "/images/work/greybrook-inside-track-2025.jpg"
 featured: true
 order: 1
 accent: "#b34a2a"
+socials:
+  - type: linkedin
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"
+    caption: "Greybrook Corporate LinkedIn"
 ---
 
 Inside Track is Greybrook's marquee investor event. One room, a few hours, an audience that doesn't gather again until the following year. The pattern before this round: months of prep, a strong day, and then most of the content was gone by Friday.

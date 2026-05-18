@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SocialEmbed from '../../components/SocialEmbed.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('work');
@@ -144,6 +145,27 @@ const num = String(entry.data.order).padStart(2, '0');
         <Content />
       </div>
     </section>
+
+    <!-- SOCIAL EMBEDS -->
+    {
+      entry.data.socials && entry.data.socials.length > 0 && (
+        <section
+          class="mx-auto max-w-6xl px-6 lg:px-12 py-16 rule-top"
+          data-reveal
+        >
+          <p class="eyebrow mb-10">Social</p>
+          <div class="flex flex-wrap justify-center gap-10 md:gap-12">
+            {entry.data.socials.map((social) => (
+              <SocialEmbed
+                type={social.type}
+                url={social.url}
+                caption={social.caption}
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <!-- NEXT -->
     <section class="mx-auto max-w-4xl px-6 lg:px-12 py-16 rule-top" data-reveal>

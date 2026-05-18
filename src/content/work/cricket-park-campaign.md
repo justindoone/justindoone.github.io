@@ -16,6 +16,10 @@ metrics:
 featured: true
 order: 7
 accent: "#b34a2a"
+socials:
+  - type: instagram
+    url: "https://www.instagram.com/p/C4rkQH_NOpb/"
+    caption: "Sample Instagram post from the launch run"
 ---
 
 A new consumer launch into a competitive Toronto market, with a six-month sales target and a marketing budget that wouldn't support a traditional paid stack across every channel.

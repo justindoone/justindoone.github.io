@@ -17,6 +17,10 @@ cover: "/images/work/clifton-blake-bnn-ad.jpg"
 featured: false
 order: 5
 accent: "#a14a3f"
+socials:
+  - type: facebook
+    url: "https://www.facebook.com/61554165899664/posts/122119584596138863"
+    caption: "Mortgage Fund paid campaign"
 ---
 
 A TV spot on BNN Bloomberg is a strong audience match for an asset manager. It's also a uniquely inefficient use of marketing budget if you treat the broadcast as the whole campaign.
