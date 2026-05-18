@@ -1,44 +1,45 @@
 ---
 title: "Boardroom Brief Series"
 client: "Greybrook Realty Partners"
-role: "Content strategy and series producer"
+role: "Producer and content strategist"
 date: "2025"
 year: 2025
-summary: "A short-form video series turning Greybrook's investment perspective into something the LinkedIn feed would actually watch."
-tags: ["Video", "Content", "LinkedIn"]
+summary: "Monthly long-form video series on YouTube and Greybrook's site, with shorts cut for LinkedIn and Instagram. A way for the firm to talk about market conditions in something more durable than a press release."
+tags: ["Video", "Content series", "Multi-channel"]
 metrics:
-  - value: "8"
-    label: "Episodes shipped"
-  - value: "60s"
-    label: "Average runtime"
-  - value: "4×"
-    label: "Host profile views"
+  - value: "30 min"
+    label: "Long-form episode"
+  - value: "Monthly"
+    label: "Production cadence"
+  - value: "4"
+    label: "Distribution surfaces"
 cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 order: 3
 accent: "#f47654"
 ---
 
-Greybrook had real takes. Land development, market timing, where capital was actually going. They just didn't have a format that made room for them outside of a press release or a quarterly letter.
+Greybrook had real takes on what was happening in the market. They needed a format that could hold a longer conversation and a way to package it for people who weren't going to sit through thirty minutes of it.
 
-We landed on a video series. Sixty seconds, one host, one question. Shot in batches, edited on a template, captioned, native to LinkedIn.
+What we ended up with was a multi-format series. Each episode ran about thirty minutes, hosted on YouTube and on Greybrook's own site with a companion blog post for each one. From every long-form recording I cut shorter clips for LinkedIn and Instagram, which is where most of the audience actually lived.
 
-The pitch internally wasn't "make great content." It was "build something the team is still doing in month six." That's a different problem than it sounds like. Most internal video series die quietly between episode three and five. Someone's calendar fills up. Someone gets promoted. Someone decides their next take needs a teleprompter. Production overhead eats it.
+The format settled into a regular rhythm:
 
-So the format was chosen for survivability first, not for craft.
+- Same host paired with the CEO, with occasional guests
+- Each episode anchored on what was happening in the market that month, with Greybrook's own positioning showing up where it was relevant
+- Recorded monthly, edited and distributed across the four surfaces (YouTube, site, LinkedIn, IG) over the following two weeks
 
-What we did to dodge the usual death:
+My role was producing and content strategy. We brought in a video agency to film and do the first long-form cut. I managed that engagement, then took over to write the blog companion, cut the shorts, and run the distribution on social.
 
-- **Batched shoots.** A single afternoon produced four episodes. The team cleared one block per month instead of four. Hosts didn't have to context-switch every week.
-- **Native uploads only.** LinkedIn deprioritizes posts that link out. Embedding the video directly killed the "watch the full version on YouTube" temptation that nobody actually clicks.
-- **One host per episode, no rotation.** Splitting prep across hosts felt egalitarian and doubled the work. Engagement didn't move either way.
+The series was measured on brand awareness, which in practice meant views and subscriber growth. Leads were a secondary metric, but attribution on brand-awareness video is the kind of thing nobody wins an argument about, so we kept the headline focus on the numbers we could actually count.
 
-Things we tried that didn't work:
+What worked:
 
-- Episode 2 ran to 1:40 after edits. Engagement halved. We hard-capped at 75 seconds and the rhythm came back.
-- The intro animation we tried in episode 4 added five hours per cut and made the videos look like ads. We dropped it by episode 5.
-- We tried scheduling at LinkedIn's "optimal times." The data was noise. Going back to "whenever it's edited" made no measurable difference.
+- **Same host + CEO every episode.** The familiarity built audience expectation. New viewers didn't have to figure out who was talking before they figured out what was being said.
+- **The blog companion.** Each episode got a written post that summarized the conversation. Most search traffic landed on the blog before it landed on the video, which gave the SEO team a real reason to care about the series.
+- **Shorts as the entry point.** Nobody on LinkedIn or IG commits to thirty minutes cold. The shorts did the introducing; the long-form did the depth.
 
-Eight episodes shipped on the planned cadence. Host profile views climbed roughly 4× over the run. The series became something the sales team could drop into one-on-one conversations.
+What was hard:
 
-The actual win wasn't the views. It was that nobody had to talk anyone into shipping episode 9.
+- Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
+- Topical relevance has a half-life. "What's going on in the market" sounds evergreen but isn't. Episodes that focused on enduring structural questions held up; the ones tied to a specific quarter's news cycle aged faster.
