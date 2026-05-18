@@ -61,19 +61,19 @@ const num = String(entry.data.order).padStart(2, '0');
       </div>
     </section>
 
-    <!-- COVER IMAGE (constrained, max 60vh tall, preserves aspect) -->
+    <!-- COVER IMAGE (wider container, taller cap, cinematic) -->
     {
       entry.data.cover && (
         <section
-          class="mx-auto max-w-5xl px-6 lg:px-12 pt-12 md:pt-16"
+          class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 md:pt-16"
           data-reveal
         >
-          <div class="overflow-hidden shadow-xl bg-paper-soft">
+          <div class="overflow-hidden shadow-2xl bg-paper-soft rounded-sm">
             <img
               src={entry.data.cover}
               alt={entry.data.title}
               loading="lazy"
-              class="block max-h-[60vh] w-auto max-w-full mx-auto"
+              class="block w-full max-h-[80vh] object-contain mx-auto"
             />
           </div>
         </section>
@@ -112,6 +112,7 @@ const num = String(entry.data.order).padStart(2, '0');
               <div data-reveal data-reveal-delay={i + 1}>
                 <p
                   class="heading-display text-5xl md:text-6xl mb-2 text-accent"
+                  data-animate-value={m.value}
                 >
                   {m.value}
                 </p>

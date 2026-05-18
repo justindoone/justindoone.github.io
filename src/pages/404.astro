@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Not found - Justin Doone"
+  description="This page does not exist."
+>
+  <section class="dark-section relative min-h-[80vh] flex items-center overflow-hidden">
+    <div class="hero-orb" style="top: -20%; right: -10%;"></div>
+    <div class="hero-orb" style="bottom: -20%; left: -5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-5xl px-6 lg:px-12 w-full">
+      <p class="hero-line eyebrow mb-8" data-line="0">Error 404</p>
+      <h1
+        class="hero-line heading-display text-[7rem] md:text-[12rem] lg:text-[16rem] leading-[0.85] mb-10"
+        data-line="1"
+        style="color: var(--color-on-dark);"
+      >
+        Not here.
+      </h1>
+      <p
+        class="hero-line text-xl md:text-2xl leading-relaxed max-w-2xl mb-12"
+        data-line="2"
+        style="color: var(--color-on-dark-soft);"
+      >
+        Wherever you were trying to go, that URL doesn't have anything at it. The work that does exist is on the home page or under <a href="/work" class="link-underline hover:text-accent transition-colors" style="color: var(--color-on-dark);">/work</a>.
+      </p>
+      <div class="hero-line flex flex-wrap gap-6 items-center" data-line="3">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
+        >
+          Take me home
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="mailto:justindoone@gmail.com"
+          class="link-underline text-sm hover:text-accent transition-colors"
+          style="color: var(--color-on-dark-soft);"
+        >
+          Or email me if you think something's broken
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

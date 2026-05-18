@@ -89,11 +89,76 @@ const canonical = new URL(pathname, Astro.site).toString();
         }
       }
 
+      function setupCountUp() {
+        const els = document.querySelectorAll(
+          '[data-animate-value]:not([data-animated])'
+        );
+        if (!els.length) return;
+
+        // Pre-set numeric values to 0 so they don't flash the final number
+        els.forEach((el) => {
+          const original = el.getAttribute('data-animate-value');
+          const match = original.match(/^([^\d.-]*)([\d.]+)(.*)$/);
+          if (!match) return;
+          const prefix = match[1];
+          const numberStr = match[2];
+          const suffix = match[3];
+          const decimals = numberStr.includes('.')
+            ? numberStr.split('.')[1].length
+            : 0;
+          el.textContent = prefix + (0).toFixed(decimals) + suffix;
+        });
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target;
+              if (el.dataset.animated) return;
+              el.dataset.animated = 'true';
+
+              const original = el.getAttribute('data-animate-value');
+              const match = original.match(/^([^\d.-]*)([\d.]+)(.*)$/);
+              if (!match) {
+                el.textContent = original;
+                observer.unobserve(el);
+                return;
+              }
+              const prefix = match[1];
+              const target = parseFloat(match[2]);
+              const numberStr = match[2];
+              const suffix = match[3];
+              const decimals = numberStr.includes('.')
+                ? numberStr.split('.')[1].length
+                : 0;
+
+              const duration = 1500;
+              const start = performance.now();
+              function tick(now) {
+                const t = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - t, 3);
+                const value = target * eased;
+                el.textContent = prefix + value.toFixed(decimals) + suffix;
+                if (t < 1) requestAnimationFrame(tick);
+                else el.textContent = original;
+              }
+              requestAnimationFrame(tick);
+              observer.unobserve(el);
+            });
+          },
+          { threshold: 0.4 }
+        );
+
+        els.forEach((el) => observer.observe(el));
+      }
+
       setupReveal();
       loadInstagram();
+      setupCountUp();
       document.addEventListener('astro:page-load', () => {
         setupReveal();
         loadInstagram();
+        setupCountUp();
       });
     </script>
   </body>

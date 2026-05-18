@@ -23,11 +23,7 @@ Greybrook had real takes. Land development, market timing, where capital was act
 
 We landed on a video series. Sixty seconds, one host, one question. Shot in batches, edited on a template, captioned, native to LinkedIn.
 
-The pitch internally wasn't "make great content."
-
-> Build something the team is still doing in month six.
-
-That's a different problem than it sounds like. Most internal video series die quietly between episode three and five. Someone's calendar fills up. Someone gets promoted. Someone decides their next take needs a teleprompter. Production overhead eats it.
+The pitch internally wasn't "make great content." It was "build something the team is still doing in month six." That's a different problem than it sounds like. Most internal video series die quietly between episode three and five. Someone's calendar fills up. Someone gets promoted. Someone decides their next take needs a teleprompter. Production overhead eats it.
 
 So the format was chosen for survivability first, not for craft.
 
