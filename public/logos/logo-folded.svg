@@ -1,9 +1,0 @@
-<svg viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="140" fill="#16181c"/>
-  <!-- Mark: coral square with one corner "folded" / cut diagonally -->
-  <path d="M 30 40 L 75 40 L 90 55 L 90 100 L 30 100 Z" fill="#f47654"/>
-  <!-- Inner fold detail -->
-  <path d="M 75 40 L 90 55 L 75 55 Z" fill="#0e0f12" opacity="0.35"/>
-  <!-- Wordmark -->
-  <text x="110" y="92" font-family="Inter, sans-serif" font-size="58" font-weight="700" fill="#f0ebe1" letter-spacing="-2">Justin Doone</text>
-</svg>

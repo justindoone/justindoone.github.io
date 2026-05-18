@@ -10,17 +10,25 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-40 bg-paper/85 backdrop-blur-sm">
+<header class="dark-section sticky top-0 z-40 backdrop-blur-md bg-dark/90">
   <div class="mx-auto max-w-7xl px-6 lg:px-12">
     <nav
-      class="flex h-16 items-center justify-between border-b border-rule"
+      class="flex h-16 items-center justify-between"
+      style="border-bottom: 1px solid var(--color-rule-dark);"
       aria-label="Primary"
     >
       <a
         href="/"
-        class="text-ink font-serif text-xl tracking-tight hover:text-accent transition-colors"
+        class="flex items-center hover:opacity-80 transition-opacity"
+        aria-label="Justin Doone"
       >
-        Justin Doone
+        <img
+          src="/logos/logo-mark.png"
+          alt="Justin Doone"
+          width="40"
+          height="40"
+          style="height: 36px; width: auto; display: block;"
+        />
       </a>
       <ul class="flex items-center gap-8 text-sm">
         {
@@ -30,10 +38,13 @@ const links = [
                 href={link.href}
                 class:list={[
                   'transition-colors hover:text-accent',
-                  isActive(link.href)
-                    ? 'text-ink font-medium'
-                    : 'text-ink-soft',
+                  isActive(link.href) ? 'font-medium' : '',
                 ]}
+                style={
+                  isActive(link.href)
+                    ? 'color: var(--color-on-dark);'
+                    : 'color: var(--color-on-dark-soft);'
+                }
               >
                 {link.label}
               </a>
