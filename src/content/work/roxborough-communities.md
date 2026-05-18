@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/roxborough-communities.jpg"
 featured: false
 order: 6
-accent: "#8ec39c"
+accent: "#f47654"
 ---
 
 Roxborough serves two genuinely different audiences. The old site treated them as the same person, which meant it served neither well. The brief was to give each audience its own clear path through the site without the brand surface fracturing in the process.

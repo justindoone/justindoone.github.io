@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/clifton-blake-website.jpg"
 featured: true
 order: 4
-accent: "#cc9762"
+accent: "#f47654"
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"

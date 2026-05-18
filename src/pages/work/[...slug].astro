@@ -27,22 +27,25 @@ const num = String(entry.data.order).padStart(2, '0');
   description={entry.data.summary}
 >
   <article>
-    <!-- COLORED HERO BLOCK -->
+    <!-- HERO (cover image as bg if present, else dark) -->
     <section
-      class="case-hero pt-24 md:pt-36 pb-20 md:pb-28"
-      style={`--hero-accent: ${entry.data.accent};`}
+      class:list={[
+        'case-hero pt-32 md:pt-44 pb-24 md:pb-36',
+        entry.data.cover && 'has-cover',
+      ]}
+      style={entry.data.cover ? `background-image: url('${entry.data.cover}');` : ''}
     >
       <span class="case-hero-num" aria-hidden="true">{num}</span>
       <div class="mx-auto max-w-5xl px-6 lg:px-12">
         <a
           href="/work"
-          class="eyebrow inline-block mb-8 text-paper opacity-70 hover:opacity-100 transition-opacity"
+          class="eyebrow inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
           style="color: var(--color-on-accent);"
         >
           ← All work
         </a>
         <p
-          class="eyebrow mb-6 flex flex-wrap gap-x-3 text-paper opacity-80"
+          class="eyebrow mb-6 flex flex-wrap gap-x-3 opacity-80"
           style="color: var(--color-on-accent);"
         >
           <span>{entry.data.client}</span>
@@ -50,38 +53,19 @@ const num = String(entry.data.order).padStart(2, '0');
           <span>{entry.data.date}</span>
         </p>
         <h1
-          class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95] text-paper"
+          class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95]"
           style="color: var(--color-on-accent);"
         >
           {entry.data.title}
         </h1>
         <p
-          class="text-xl md:text-2xl leading-relaxed max-w-3xl text-paper opacity-90"
+          class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90"
           style="color: var(--color-on-accent);"
         >
           {entry.data.summary}
         </p>
       </div>
     </section>
-
-    <!-- COVER IMAGE -->
-    {
-      entry.data.cover && (
-        <section
-          class="mx-auto max-w-6xl px-6 lg:px-12 -mt-12 md:-mt-20 relative z-20"
-          data-reveal
-        >
-          <div class="overflow-hidden shadow-2xl bg-paper-soft">
-            <img
-              src={entry.data.cover}
-              alt={entry.data.title}
-              loading="lazy"
-              class="w-full h-auto block"
-            />
-          </div>
-        </section>
-      )
-    }
 
     <!-- META STRIP -->
     <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-16 pb-8" data-reveal>
@@ -114,8 +98,7 @@ const num = String(entry.data.order).padStart(2, '0');
             {entry.data.metrics.map((m, i) => (
               <div data-reveal data-reveal-delay={i + 1}>
                 <p
-                  class="heading-display text-5xl md:text-6xl mb-2"
-                  style={`color: ${entry.data.accent};`}
+                  class="heading-display text-5xl md:text-6xl mb-2 text-accent"
                 >
                   {m.value}
                 </p>

@@ -15,7 +15,7 @@ metrics:
     label: "Campaign model"
 featured: true
 order: 0.5
-accent: "#8775c5"
+accent: "#f47654"
 ---
 
 Evolve operates a lineup of ETFs covering thematic, dividend, and fixed income strategies. Each fund has its own audience, sales cycle, and seasonal rhythm. They all share the same marketing budget and the same compliance constraints.

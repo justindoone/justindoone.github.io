@@ -16,7 +16,11 @@ metrics:
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: true
 order: 2
-accent: "#9bbd6a"
+accent: "#f47654"
+socials:
+  - type: linkedin
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7364379406498217984"
+    caption: "$31.5M Markham deal on LinkedIn"
 ---
 
 Every strategic investment Greybrook made came with the same coordinated comms package. The components didn't change much from one release to the next. What changed was the deal, the dollar figure, and the specific market or asset class.

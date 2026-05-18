@@ -15,7 +15,7 @@ metrics:
     label: "Of projected curve"
 featured: true
 order: 7
-accent: "#f8c053"
+accent: "#f47654"
 socials:
   - type: instagram
     url: "https://www.instagram.com/p/C4rkQH_NOpb/"

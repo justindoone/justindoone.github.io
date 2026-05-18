@@ -48,19 +48,13 @@ const num = String(index + 1).padStart(2, '0');
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div
-              class="w-full h-full relative"
-              style={`background: ${accent};`}
-            >
+            <div class="w-full h-full relative bg-paper-soft flex items-center justify-center px-4">
               <div
                 class="absolute inset-0 opacity-30"
-                style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0); background-size: 18px 18px;"
+                style="background-image: radial-gradient(circle at 1px 1px, rgba(240,235,225,0.08) 1px, transparent 0); background-size: 14px 14px;"
               />
-              <span
-                class="absolute bottom-3 right-4 font-serif text-5xl opacity-50"
-                style="color: var(--color-on-accent);"
-              >
-                {num}
+              <span class="relative font-serif text-xl md:text-2xl text-ink-soft text-center leading-tight">
+                {client}
               </span>
             </div>
           )

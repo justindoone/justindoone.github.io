@@ -170,19 +170,41 @@ footer {
    CASE STUDY HERO
    ======================================== */
 .case-hero {
-  background-color: var(--hero-accent, #1a1a1a);
+  background-color: #16181c;
   color: var(--color-on-accent);
   position: relative;
   overflow: hidden;
 }
 
-.case-hero::before {
+.case-hero.has-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* dark overlay for readability over photos */
+.case-hero.has-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 15, 18, 0.55) 0%,
+    rgba(14, 15, 18, 0.75) 60%,
+    rgba(14, 15, 18, 0.92) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* subtle texture when no cover */
+.case-hero:not(.has-cover)::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(255, 255, 255, 0.14) 1px,
+    rgba(255, 255, 255, 0.05) 1px,
     transparent 0
   );
   background-size: 28px 28px;
@@ -201,7 +223,7 @@ footer {
   position: absolute;
   right: -0.05em;
   bottom: -0.18em;
-  color: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.1);
   font-weight: 400;
   z-index: 0;
   pointer-events: none;

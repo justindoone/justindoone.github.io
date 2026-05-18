@@ -9,7 +9,7 @@ tags: ["Brand", "Hospitality", "Pandemic-era"]
 cover: "/images/work/minihotel-hk.png"
 featured: false
 order: 9
-accent: "#5fa3c4"
+accent: "#f47654"
 ---
 
 Launching a hospitality brand into a market shaped by closed borders, fluctuating restrictions, and a public mood that ranged from cautious to exhausted. Every existing playbook for hospitality marketing (community, gathering, indulgence) was either inappropriate or actively counterproductive.

@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 order: 3
-accent: "#6ba3c9"
+accent: "#f47654"
 ---
 
 Investment firms have plenty to say. The hard part is saying it on a regular cadence, in a format the audience will actually watch, without burning out the executives whose calendars you're borrowing from.
