@@ -14,6 +14,7 @@ metrics:
   - value: "11"
     label: "Weeks of campaign tail"
 cover: "/images/work/clifton-blake-bnn-ad.jpg"
+video: "/videos/clifton-blake-bnn-spot.mp4"
 featured: false
 order: 5
 accent: "#f47654"

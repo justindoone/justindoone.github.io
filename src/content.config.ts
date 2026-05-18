@@ -23,6 +23,7 @@ const work = defineCollection({
     order: z.number().default(99),
     accent: z.string().default('#b34a2a'),
     cover: z.string().optional(),
+    video: z.string().optional(),
     socials: z
       .array(
         z.object({

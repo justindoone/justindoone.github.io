@@ -110,6 +110,29 @@ const num = String(entry.data.order).padStart(2, '0');
       )
     }
 
+    <!-- VIDEO PLAYER (if any) -->
+    {
+      entry.data.video && (
+        <section
+          class="mx-auto max-w-5xl px-6 lg:px-12 pt-4 pb-12"
+          data-reveal
+        >
+          <div class="overflow-hidden shadow-2xl bg-paper-soft">
+            <video
+              controls
+              preload="metadata"
+              playsinline
+              poster={entry.data.cover}
+              class="w-full h-auto block"
+            >
+              <source src={entry.data.video} type="video/mp4" />
+              Your browser doesn't support HTML5 video.
+            </video>
+          </div>
+        </section>
+      )
+    }
+
     <!-- BODY -->
     <section class="mx-auto max-w-3xl px-6 lg:px-12 pt-8 pb-20" data-reveal>
       <div
