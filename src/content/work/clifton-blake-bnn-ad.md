@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/clifton-blake-bnn-ad.jpg"
 featured: false
 order: 5
-accent: "#a14a3f"
+accent: "#d45a8e"
 socials:
   - type: facebook
     url: "https://www.facebook.com/61554165899664/posts/122119584596138863"

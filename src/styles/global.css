@@ -2,13 +2,23 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-paper: #f6f3ed;
-  --color-paper-soft: #ece7dc;
-  --color-ink: #1a1a1a;
-  --color-ink-soft: #4a4a4a;
-  --color-ink-mute: #8a8580;
-  --color-accent: #b34a2a;
-  --color-rule: #d8d2c4;
+  /* DARK BASE PALETTE */
+  --color-paper: #0e0f12;        /* base background, very dark warm */
+  --color-paper-soft: #181a1f;   /* slightly lighter surface */
+  --color-paper-warm: #1f2128;   /* warmer card surface */
+
+  --color-ink: #f0ebe1;          /* warm off-white text */
+  --color-ink-soft: #b8b2a6;     /* secondary text */
+  --color-ink-mute: #7a746a;     /* muted text */
+
+  --color-accent: #f47654;       /* brighter coral, primary accent */
+  --color-accent-2: #f5b342;     /* warm amber, secondary accent */
+  --color-accent-cool: #6ba3c9;  /* cool steel blue, third accent */
+
+  --color-rule: #2a2b30;         /* subtle border on dark */
+  --color-rule-strong: #3a3b40;  /* stronger border */
+
+  --color-on-accent: #f8f5ef;    /* text on colored backgrounds, always near-white */
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, sans-serif;
@@ -29,16 +39,53 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
   background-image: radial-gradient(
-    circle at 1px 1px,
-    rgba(26, 26, 26, 0.05) 1px,
-    transparent 0
-  );
-  background-size: 28px 28px;
+      circle at 1px 1px,
+      rgba(240, 235, 225, 0.04) 1px,
+      transparent 0
+    );
+  background-size: 32px 32px;
   background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ambient glow blobs in the page background */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  background: radial-gradient(circle, var(--color-accent), transparent 70%);
+  top: -25vw;
+  right: -15vw;
+}
+
+body::after {
+  background: radial-gradient(circle, var(--color-accent-cool), transparent 70%);
+  bottom: -25vw;
+  left: -15vw;
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
 }
 
 ::selection {
-  background-color: var(--color-ink);
+  background-color: var(--color-accent);
   color: var(--color-paper);
 }
 
@@ -119,50 +166,11 @@ body {
 }
 
 /* ========================================
-   MARQUEE
-   ======================================== */
-.marquee {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 80px,
-    black calc(100% - 80px),
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    black 80px,
-    black calc(100% - 80px),
-    transparent 100%
-  );
-}
-
-.marquee-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: marquee 45s linear infinite;
-  width: max-content;
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ========================================
    CASE STUDY HERO
    ======================================== */
 .case-hero {
   background-color: var(--hero-accent, #1a1a1a);
-  color: var(--color-paper);
+  color: var(--color-on-accent);
   position: relative;
   overflow: hidden;
 }
@@ -173,7 +181,7 @@ body {
   inset: 0;
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(246, 243, 237, 0.1) 1px,
+    rgba(255, 255, 255, 0.14) 1px,
     transparent 0
   );
   background-size: 28px 28px;
@@ -192,7 +200,7 @@ body {
   position: absolute;
   right: -0.05em;
   bottom: -0.18em;
-  color: rgba(246, 243, 237, 0.12);
+  color: rgba(255, 255, 255, 0.16);
   font-weight: 400;
   z-index: 0;
   pointer-events: none;
@@ -232,6 +240,27 @@ body {
 }
 
 /* ========================================
+   HERO ACCENT ORB
+   ======================================== */
+.hero-orb {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    var(--color-accent),
+    transparent 60%
+  );
+  z-index: 0;
+}
+
+/* ========================================
    SOCIAL EMBEDS
    ======================================== */
 .social-embed {
@@ -245,6 +274,8 @@ body {
   max-width: 100%;
   width: 100%;
   display: block;
+  background: var(--color-paper-soft);
+  border-radius: 4px;
 }
 
 .social-embed .instagram-media {
@@ -291,9 +322,6 @@ body {
     animation: none;
     transition: none;
   }
-  .marquee-track {
-    animation: none;
-  }
   .work-card-bar {
     transform: scaleY(1);
   }
@@ -305,6 +333,10 @@ body {
   }
   ::view-transition-old(root),
   ::view-transition-new(root) {
+    animation: none;
+  }
+  body::before,
+  body::after {
     animation: none;
   }
 }

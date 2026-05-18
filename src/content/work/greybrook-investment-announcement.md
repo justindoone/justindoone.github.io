@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: true
 order: 2
-accent: "#5d6f4a"
+accent: "#9bbd6a"
 ---
 
 A $31.5M strategic investment earns coverage on its own merits. Earned coverage is only half the job, though. The other half is the investor audience that needs the announcement framed as informative rather than promotional, and the comms have to hold up under compliance review on the first read.

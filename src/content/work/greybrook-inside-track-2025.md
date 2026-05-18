@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/greybrook-inside-track-2025.jpg"
 featured: true
 order: 1
-accent: "#b34a2a"
+accent: "#f47654"
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"

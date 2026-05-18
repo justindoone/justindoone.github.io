@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WorkCard from '../components/WorkCard.astro';
-import Marquee from '../components/Marquee.astro';
 
 const all = await getCollection('work');
 const featured = all
@@ -13,37 +12,39 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
 
 <BaseLayout>
   <!-- HERO -->
-  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-32 pb-16 md:pb-24">
-    <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>
-    <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl text-ink max-w-5xl mb-10" data-line="1">
-      Marketing for firms with something complicated to sell.
-    </h1>
-    <p class="hero-line text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed mb-12" data-line="2">
-      Mostly investment firms and financial services so far. Tech and other complicated categories are what I'm curious about next. Brand strategy on one side, performance and measurement on the other. I do the work hands-on.
-    </p>
-    <div class="hero-line flex flex-wrap gap-6 items-center" data-line="3">
-      <a
-        href="/work"
-        class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-accent transition-colors"
-      >
-        See work
-        <span aria-hidden="true">→</span>
-      </a>
-      <a
-        href="mailto:justindoone@gmail.com"
-        class="text-ink-soft link-underline text-sm hover:text-accent transition-colors"
-      >
-        justindoone@gmail.com
-      </a>
+  <section class="relative mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-32 pb-24 md:pb-32 overflow-hidden">
+    <div class="hero-orb" style="top: -10%; right: -10%;"></div>
+    <div class="hero-orb" style="bottom: 0%; left: 10%; opacity: 0.18; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10">
+      <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>
+      <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl text-ink max-w-5xl mb-10" data-line="1">
+        Marketing for firms with something complicated to sell.
+      </h1>
+      <p class="hero-line text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed mb-12" data-line="2">
+        Mostly investment firms and financial services so far. Tech and other complicated categories are what I'm curious about next. Brand strategy on one side, performance and measurement on the other. I do the work hands-on.
+      </p>
+      <div class="hero-line flex flex-wrap gap-6 items-center" data-line="3">
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-2 transition-colors"
+        >
+          See work
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="mailto:justindoone@gmail.com"
+          class="text-ink-soft link-underline text-sm hover:text-accent transition-colors"
+        >
+          justindoone@gmail.com
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <Marquee />
-
   <!-- SELECTED WORK -->
-  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 pb-20">
-    <div class="flex items-end justify-between mb-8" data-reveal>
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 pb-20 rule-top">
+    <div class="flex items-end justify-between mb-8 mt-12" data-reveal>
       <div>
         <p class="eyebrow mb-3">Selected work</p>
         <h2 class="heading-display text-4xl md:text-5xl text-ink">
@@ -90,15 +91,15 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
   </section>
 
   <!-- CTA -->
-  <section class="mx-auto max-w-7xl px-6 lg:px-12 py-20 md:py-32" data-reveal>
-    <div class="rule-top pt-16">
+  <section class="relative mx-auto max-w-7xl px-6 lg:px-12 py-20 md:py-32 overflow-hidden" data-reveal>
+    <div class="rule-top pt-16 relative">
       <p class="eyebrow mb-6">Currently</p>
       <p class="heading-display text-3xl md:text-5xl text-ink max-w-4xl leading-tight">
         Open to consulting work and the right in-house role.
       </p>
       <a
         href="mailto:justindoone@gmail.com"
-        class="inline-flex items-center gap-2 mt-10 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-accent transition-colors"
+        class="inline-flex items-center gap-2 mt-10 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-2 transition-colors"
       >
         Start a conversation
         <span aria-hidden="true">→</span>

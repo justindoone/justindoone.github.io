@@ -9,7 +9,7 @@ tags: ["Strategy", "Market entry", "Consumer"]
 cover: "/images/work/saturnbird-marketing-plan.png"
 featured: false
 order: 8
-accent: "#6b5a8f"
+accent: "#a895d4"
 ---
 
 Saturnbird had product-market fit at home and a strong intuition that the same proposition would resonate in North America. They had no proof of it yet, and a budget that would only stretch far enough to be wrong once.
