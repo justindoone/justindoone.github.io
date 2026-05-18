@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const options = [
+  {
+    id: 'logo-modern',
+    name: 'Option 1 — Modern',
+    desc: 'Solid coral square mark with "Justin Doone" in Inter Black, tight tracking. Reads like a product brand (Stripe / Linear / Brex).',
+  },
+  {
+    id: 'logo-editorial',
+    name: 'Option 2 — Editorial',
+    desc: '"Justin Doone" in Fraunces serif (the site\'s display font) with a raised coral asterisk and a short coral rule beneath. Reads like a writer / strategist masthead.',
+  },
+];
+---
+
+<BaseLayout title="Logo options - Justin Doone" description="Internal page for picking a logo direction.">
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-16 pb-12">
+    <p class="eyebrow mb-6">Internal</p>
+    <h1 class="heading-display text-4xl md:text-6xl text-ink mb-6">Logo options</h1>
+    <p class="text-lg text-ink-soft max-w-2xl leading-relaxed">
+      Each option is shown at three sizes: the size it would render in the site header (~32px tall), a mid display size, and the largest size you might use on a business card or social header.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-32">
+    {
+      options.map((opt) => (
+        <div class="rule-top py-12">
+          <div class="grid md:grid-cols-12 gap-6 mb-8">
+            <div class="md:col-span-3">
+              <p class="eyebrow mb-2">{opt.name.split('—')[0].trim()}</p>
+              <h2 class="font-serif text-2xl text-ink mb-3">
+                {opt.name.split('—')[1]?.trim() || opt.name}
+              </h2>
+              <p class="text-ink-soft text-sm leading-relaxed">{opt.desc}</p>
+            </div>
+            <div class="md:col-span-9 space-y-6">
+              <div>
+                <p class="eyebrow mb-2">Small (header use ~32px)</p>
+                <img
+                  src={`/logos/${opt.id}.svg`}
+                  alt={opt.name}
+                  style="height: 32px; width: auto; display: block;"
+                />
+              </div>
+              <div>
+                <p class="eyebrow mb-2">Medium (footer / signature ~64px)</p>
+                <img
+                  src={`/logos/${opt.id}.svg`}
+                  alt={opt.name}
+                  style="height: 64px; width: auto; display: block;"
+                />
+              </div>
+              <div>
+                <p class="eyebrow mb-2">Large (hero / share card)</p>
+                <img
+                  src={`/logos/${opt.id}.svg`}
+                  alt={opt.name}
+                  style="height: 140px; width: auto; display: block;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+
+    <div class="rule-top pt-12 mt-12">
+      <p class="eyebrow mb-4">When you've decided</p>
+      <p class="text-lg text-ink-soft max-w-2xl leading-relaxed">
+        Tell me which one (or "neither, try a third direction") and I'll build it out into the full system: horizontal lockup, stacked variant, mark-only, plus a new favicon to match.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
