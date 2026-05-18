@@ -1,10 +1,10 @@
 ---
-title: "Dual-audience Website"
-client: "Roxborough Communities"
+title: "Roxborough Communities Website"
+client: "Clifton Blake"
 role: "Strategy, IA, and content lead"
 date: "August 2024"
 year: 2024
-summary: "New website for a firm serving two distinct customer types with very different jobs-to-be-done. Designed each path independently while keeping the brand surface coherent."
+summary: "New website for one of Clifton Blake's property brands. Two distinct customer types, very different jobs-to-be-done. Each path designed independently without the brand surface fracturing."
 tags: ["Web", "B2B and B2C", "Information architecture"]
 metrics:
   - value: "2"
@@ -19,7 +19,7 @@ order: 6
 accent: "#f47654"
 ---
 
-Roxborough serves two genuinely different audiences. The old site treated them as the same person, which meant it served neither well. The brief was to give each audience its own clear path through the site without the brand surface fracturing in the process.
+Roxborough Communities is one of Clifton Blake's property brands, and it serves two audiences that aren't really the same person. The old site treated them as one, which meant it served neither well. The brief was to give each its own clear path through the site without the brand surface fracturing in the process.
 
 The unlock was accepting that two different audiences need two different paths. One side wanted photos, neighbourhoods, and a fast route to availability. The other side wanted specs, drawings, square footage, and the leasing contact's email. Those aren't variations on the same job.
 
