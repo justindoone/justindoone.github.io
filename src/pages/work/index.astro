@@ -35,6 +35,7 @@ const entries = (await getCollection('work')).sort(
             href={`/work/${entry.id}`}
             tags={entry.data.tags}
             accent={entry.data.accent}
+            cover={entry.data.cover}
             index={i}
           />
         </div>

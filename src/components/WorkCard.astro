@@ -8,6 +8,7 @@ interface Props {
   href: string;
   tags: string[];
   accent?: string;
+  cover?: string;
   index: number;
 }
 
@@ -19,7 +20,8 @@ const {
   summary,
   href,
   tags,
-  accent = '#b34a2a',
+  accent = '#f47654',
+  cover,
   index,
 } = Astro.props;
 
@@ -32,8 +34,39 @@ const num = String(index + 1).padStart(2, '0');
   style={`--accent: ${accent};`}
 >
   <span class="work-card-bar"></span>
-  <div class="work-card-inner grid md:grid-cols-12 gap-6 md:gap-10 items-start">
-    <div class="md:col-span-1 eyebrow pt-2">{num}</div>
+  <div class="work-card-inner grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+    <div class="md:col-span-1 eyebrow self-start pt-2">{num}</div>
+
+    <div class="md:col-span-3 relative">
+      <div class="aspect-[4/3] overflow-hidden rounded-sm bg-paper-soft">
+        {
+          cover ? (
+            <img
+              src={cover}
+              alt={title}
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div
+              class="w-full h-full relative"
+              style={`background: ${accent};`}
+            >
+              <div
+                class="absolute inset-0 opacity-30"
+                style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0); background-size: 18px 18px;"
+              />
+              <span
+                class="absolute bottom-3 right-4 font-serif text-5xl opacity-50"
+                style="color: var(--color-on-accent);"
+              >
+                {num}
+              </span>
+            </div>
+          )
+        }
+      </div>
+    </div>
 
     <div class="md:col-span-7">
       <p class="eyebrow mb-2 flex flex-wrap gap-x-3 gap-y-1">
@@ -46,20 +79,19 @@ const num = String(index + 1).padStart(2, '0');
       >
         {title}
       </h3>
-      <p class="text-ink-soft max-w-prose leading-relaxed">{summary}</p>
+      <p class="text-ink-soft max-w-prose leading-relaxed mb-4">{summary}</p>
+      <div class="flex flex-wrap gap-1.5">
+        {
+          tags.map((tag) => (
+            <span class="text-xs text-ink-mute border border-rule rounded-full px-2.5 py-0.5">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
     </div>
 
-    <div class="md:col-span-3 flex flex-wrap gap-1.5 md:pt-2">
-      {
-        tags.map((tag) => (
-          <span class="text-xs text-ink-mute border border-rule rounded-full px-2.5 py-0.5">
-            {tag}
-          </span>
-        ))
-      }
-    </div>
-
-    <div class="md:col-span-1 md:text-right pt-2">
+    <div class="md:col-span-1 md:text-right">
       <span
         class="inline-block text-ink-mute text-xl transition-all duration-300 group-hover:text-[var(--accent)] group-hover:translate-x-2"
         aria-hidden="true"

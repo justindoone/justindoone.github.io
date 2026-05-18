@@ -19,8 +19,8 @@ order: 1
 accent: "#f47654"
 socials:
   - type: linkedin
-    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"
-    caption: "Greybrook Corporate LinkedIn"
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7395090700607889408"
+    caption: "Greybrook Realty Partners on LinkedIn"
 ---
 
 Inside Track is Greybrook's marquee investor event. One room, a few hours, an audience that doesn't gather again until the following year. The pattern before this round: months of prep, a strong day, and then most of the content was gone by Friday.
