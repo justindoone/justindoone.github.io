@@ -1,0 +1,132 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const all = (await getCollection('work')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const idx = all.findIndex((e) => e.id === entry.id);
+const next = all[(idx + 1) % all.length];
+---
+
+<BaseLayout
+  title={`${entry.data.title} — Justin Doone`}
+  description={entry.data.summary}
+>
+  <article>
+    <!-- HEADER -->
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-20 md:pt-32 pb-12">
+      <a
+        href="/work"
+        class="eyebrow inline-block mb-8 hover:text-accent transition-colors"
+      >
+        ← All work
+      </a>
+      <p class="eyebrow mb-4 flex flex-wrap gap-x-3">
+        <span>{entry.data.client}</span>
+        <span class="text-rule">/</span>
+        <span>{entry.data.date}</span>
+      </p>
+      <h1
+        class="heading-display text-4xl md:text-6xl text-ink mb-8 leading-[1.02]"
+      >
+        {entry.data.title}
+      </h1>
+      <p class="text-xl text-ink-soft leading-relaxed max-w-3xl">
+        {entry.data.summary}
+      </p>
+    </section>
+
+    <!-- META STRIP -->
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 pb-12">
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 rule-top pt-8 text-sm"
+      >
+        <div>
+          <p class="eyebrow mb-1.5">Client</p>
+          <p class="text-ink">{entry.data.client}</p>
+        </div>
+        <div>
+          <p class="eyebrow mb-1.5">Role</p>
+          <p class="text-ink">{entry.data.role}</p>
+        </div>
+        <div>
+          <p class="eyebrow mb-1.5">Year</p>
+          <p class="text-ink">{entry.data.year}</p>
+        </div>
+        <div>
+          <p class="eyebrow mb-1.5">Tags</p>
+          <p class="text-ink">{entry.data.tags.join(', ')}</p>
+        </div>
+      </div>
+    </section>
+
+    {
+      entry.data.metrics && entry.data.metrics.length > 0 && (
+        <section class="mx-auto max-w-4xl px-6 lg:px-12 pb-12">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-y-8 rule-top pt-8">
+            {entry.data.metrics.map((m) => (
+              <div>
+                <p
+                  class="heading-display text-4xl md:text-5xl mb-2"
+                  style={`color: ${entry.data.accent};`}
+                >
+                  {m.value}
+                </p>
+                <p class="eyebrow">{m.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-6 lg:px-12 pt-8 pb-20">
+      <div
+        class="prose prose-lg max-w-none
+          prose-headings:font-serif prose-headings:text-ink prose-headings:font-normal prose-headings:tracking-tight
+          prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+          prose-p:text-ink-soft prose-p:leading-relaxed
+          prose-strong:text-ink prose-strong:font-medium
+          prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+          prose-blockquote:border-accent prose-blockquote:text-ink
+          prose-blockquote:font-serif prose-blockquote:not-italic
+          prose-li:text-ink-soft
+          prose-hr:border-rule"
+      >
+        <Content />
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 py-12 rule-top">
+      <p class="eyebrow mb-4">Next case study</p>
+      <a
+        href={`/work/${next.id}`}
+        class="group block"
+      >
+        <p class="eyebrow mb-2 flex flex-wrap gap-x-3">
+          <span>{next.data.client}</span>
+          <span class="text-rule">/</span>
+          <span>{next.data.date}</span>
+        </p>
+        <h2 class="heading-display text-3xl md:text-5xl text-ink group-hover:text-accent transition-colors">
+          {next.data.title} <span aria-hidden="true" class="inline-block group-hover:translate-x-1 transition-transform">→</span>
+        </h2>
+      </a>
+    </section>
+  </article>
+</BaseLayout>

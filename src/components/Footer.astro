@@ -1,0 +1,46 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-32 rule-top">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+    <div class="grid gap-8 md:grid-cols-3 md:items-end">
+      <div>
+        <p class="eyebrow mb-3">Get in touch</p>
+        <a
+          href="mailto:hello@justindoone.com"
+          class="font-serif text-2xl text-ink link-underline"
+        >
+          hello@justindoone.com
+        </a>
+      </div>
+      <div>
+        <p class="eyebrow mb-3">Elsewhere</p>
+        <ul class="space-y-1.5 text-ink-soft">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/justindoone"
+              target="_blank"
+              rel="noopener"
+              class="link-underline hover:text-accent transition-colors"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener"
+              class="link-underline hover:text-accent transition-colors"
+              >Instagram</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="md:text-right text-sm text-ink-mute">
+        <p>Toronto, ON</p>
+        <p>© {year} Justin Doone</p>
+      </div>
+    </div>
+  </div>
+</footer>

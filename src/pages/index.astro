@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const all = await getCollection('work');
+const featured = all
+  .filter((w) => w.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.order - b.data.order).slice(0, 4);
+---
+
+<BaseLayout>
+  <!-- HERO -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-32 pb-20 md:pb-32">
+    <p class="eyebrow mb-8">Toronto · Digital Marketing Strategist</p>
+    <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl text-ink max-w-5xl mb-10">
+      Integrated marketing for <em class="text-accent not-italic font-serif">asset management</em> and <em class="text-accent not-italic font-serif">real estate</em>.
+    </h1>
+    <p class="text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed mb-12">
+      I help investment firms and developers turn complex offerings into clear stories — and clear stories into measurable performance. Campaigns, brand systems, and the analytics behind them.
+    </p>
+    <div class="flex flex-wrap gap-6 items-center">
+      <a
+        href="/work"
+        class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-accent transition-colors"
+      >
+        See selected work
+        <span aria-hidden="true">→</span>
+      </a>
+      <a
+        href="mailto:hello@justindoone.com"
+        class="text-ink-soft link-underline text-sm hover:text-accent transition-colors"
+      >
+        hello@justindoone.com
+      </a>
+    </div>
+  </section>
+
+  <!-- METRICS STRIP -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 mb-24 md:mb-32">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 rule-top pt-10">
+      <div>
+        <p class="heading-display text-4xl md:text-5xl text-ink mb-2">10×</p>
+        <p class="eyebrow">Traffic growth</p>
+      </div>
+      <div>
+        <p class="heading-display text-4xl md:text-5xl text-ink mb-2">300%</p>
+        <p class="eyebrow">Engagement lift</p>
+      </div>
+      <div>
+        <p class="heading-display text-4xl md:text-5xl text-ink mb-2">1.7M</p>
+        <p class="eyebrow">Campaign impressions</p>
+      </div>
+      <div>
+        <p class="heading-display text-4xl md:text-5xl text-ink mb-2">$31.5M</p>
+        <p class="eyebrow">Investment announced</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-20">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <p class="eyebrow mb-3">Selected work</p>
+        <h2 class="heading-display text-4xl md:text-5xl text-ink">
+          Recent case studies
+        </h2>
+      </div>
+      <a
+        href="/work"
+        class="hidden md:inline-block text-sm text-ink-soft link-underline hover:text-accent transition-colors"
+      >
+        View all →
+      </a>
+    </div>
+
+    <div>
+      {
+        showcase.map((entry, i) => (
+          <WorkCard
+            title={entry.data.title}
+            client={entry.data.client}
+            role={entry.data.role}
+            date={entry.data.date}
+            summary={entry.data.summary}
+            href={`/work/${entry.id}`}
+            tags={entry.data.tags}
+            accent={entry.data.accent}
+            index={i}
+          />
+        ))
+      }
+      <div class="rule-top"></div>
+    </div>
+
+    <div class="mt-12 md:hidden">
+      <a
+        href="/work"
+        class="text-sm text-ink-soft link-underline hover:text-accent transition-colors"
+      >
+        View all work →
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 py-20 md:py-32">
+    <div class="rule-top pt-16">
+      <p class="eyebrow mb-6">Currently</p>
+      <p class="heading-display text-3xl md:text-5xl text-ink max-w-4xl leading-tight">
+        Open to consulting and full-time roles in marketing strategy, content systems, and brand growth.
+      </p>
+      <a
+        href="mailto:hello@justindoone.com"
+        class="inline-flex items-center gap-2 mt-10 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-accent transition-colors"
+      >
+        Start a conversation
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
