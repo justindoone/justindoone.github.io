@@ -2,7 +2,7 @@
 title: "Boardroom Brief Series"
 client: "Greybrook Realty Partners"
 role: "Content strategy and series producer"
-date: "June 2025"
+date: "2025"
 year: 2025
 summary: "Short-form video series turning the firm's internal investment perspective into a public-facing format. Built for the LinkedIn feed first, the website second."
 tags: ["Video", "Content", "LinkedIn"]

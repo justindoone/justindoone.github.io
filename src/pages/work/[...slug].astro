@@ -27,14 +27,8 @@ const num = String(entry.data.order).padStart(2, '0');
   description={entry.data.summary}
 >
   <article>
-    <!-- HERO (cover image as bg if present, else dark) -->
-    <section
-      class:list={[
-        'case-hero pt-32 md:pt-44 pb-24 md:pb-36',
-        entry.data.cover && 'has-cover',
-      ]}
-      style={entry.data.cover ? `background-image: url('${entry.data.cover}');` : ''}
-    >
+    <!-- HERO (dark only — cover image renders below the meta strip) -->
+    <section class="case-hero pt-32 md:pt-44 pb-24 md:pb-36">
       <span class="case-hero-num" aria-hidden="true">{num}</span>
       <div class="mx-auto max-w-5xl px-6 lg:px-12">
         <a
@@ -67,8 +61,27 @@ const num = String(entry.data.order).padStart(2, '0');
       </div>
     </section>
 
+    <!-- COVER IMAGE (constrained, max 60vh tall, preserves aspect) -->
+    {
+      entry.data.cover && (
+        <section
+          class="mx-auto max-w-5xl px-6 lg:px-12 pt-12 md:pt-16"
+          data-reveal
+        >
+          <div class="overflow-hidden shadow-xl bg-paper-soft">
+            <img
+              src={entry.data.cover}
+              alt={entry.data.title}
+              loading="lazy"
+              class="block max-h-[60vh] w-auto max-w-full mx-auto"
+            />
+          </div>
+        </section>
+      )
+    }
+
     <!-- META STRIP -->
-    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-16 pb-8" data-reveal>
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-12 pb-8" data-reveal>
       <div
         class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm"
       >

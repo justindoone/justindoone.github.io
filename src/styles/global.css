@@ -176,29 +176,8 @@ footer {
   overflow: hidden;
 }
 
-.case-hero.has-cover {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* dark overlay for readability over photos */
-.case-hero.has-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 15, 18, 0.55) 0%,
-    rgba(14, 15, 18, 0.75) 60%,
-    rgba(14, 15, 18, 0.92) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* subtle texture when no cover */
-.case-hero:not(.has-cover)::before {
+/* subtle texture */
+.case-hero::before {
   content: "";
   position: absolute;
   inset: 0;
