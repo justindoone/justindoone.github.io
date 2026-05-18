@@ -2,21 +2,22 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-32 rule-top">
-  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-12">
+<footer class="dark-section mt-24 relative">
+  <div class="mx-auto max-w-7xl px-6 lg:px-12 py-16 relative z-10">
     <div class="grid gap-8 md:grid-cols-3 md:items-end">
       <div>
         <p class="eyebrow mb-3">Get in touch</p>
         <a
           href="mailto:justindoone@gmail.com"
-          class="font-serif text-2xl text-ink link-underline"
+          class="font-serif text-2xl link-underline transition-colors hover:text-accent"
+          style="color: var(--color-on-dark);"
         >
           justindoone@gmail.com
         </a>
       </div>
       <div>
         <p class="eyebrow mb-3">Elsewhere</p>
-        <ul class="space-y-1.5 text-ink-soft">
+        <ul class="space-y-1.5" style="color: var(--color-on-dark-soft);">
           <li>
             <a
               href="https://www.linkedin.com/in/jdoone"
@@ -28,7 +29,7 @@ const year = new Date().getFullYear();
           </li>
         </ul>
       </div>
-      <div class="md:text-right text-sm text-ink-mute">
+      <div class="md:text-right text-sm" style="color: var(--color-on-dark-mute);">
         <p>Toronto, ON</p>
         <p>© {year} Justin Doone</p>
       </div>

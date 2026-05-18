@@ -49,18 +49,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="mx-auto max-w-4xl px-6 lg:px-12 py-16 rule-top" data-reveal>
-    <p class="eyebrow mb-6">Get in touch</p>
-    <h2 class="heading-display text-4xl md:text-5xl text-ink mb-8">
-      If you have something complicated to sell, I can probably help.
-    </h2>
-    <a
-      href="mailto:justindoone@gmail.com"
-      class="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 text-sm font-medium hover:bg-accent transition-colors"
-    >
-      justindoone@gmail.com
-      <span aria-hidden="true">→</span>
-    </a>
+  <!-- CTA (dark) -->
+  <section class="dark-section relative py-24 md:py-32 mt-20" data-reveal>
+    <div class="hero-orb" style="top: 0%; right: -10%; opacity: 0.3;"></div>
+    <div class="relative z-10 mx-auto max-w-4xl px-6 lg:px-12">
+      <p class="eyebrow mb-6">Get in touch</p>
+      <h2 class="heading-display text-4xl md:text-5xl mb-8" style="color: var(--color-on-dark);">
+        If you have something complicated to sell, I can probably help.
+      </h2>
+      <a
+        href="mailto:justindoone@gmail.com"
+        class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
+      >
+        justindoone@gmail.com
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </section>
 </BaseLayout>

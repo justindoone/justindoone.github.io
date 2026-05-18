@@ -2,23 +2,31 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* DARK BASE PALETTE */
-  --color-paper: #0e0f12;        /* base background, very dark warm */
-  --color-paper-soft: #181a1f;   /* slightly lighter surface */
-  --color-paper-warm: #1f2128;   /* warmer card surface */
+  /* WARM CREAM BASE */
+  --color-paper: #f4ede1;
+  --color-paper-soft: #ebe2cf;
+  --color-paper-warm: #f7f1e6;
 
-  --color-ink: #f0ebe1;          /* warm off-white text */
-  --color-ink-soft: #b8b2a6;     /* secondary text */
-  --color-ink-mute: #7a746a;     /* muted text */
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #4a4a4a;
+  --color-ink-mute: #7a7670;
 
-  --color-accent: #f47654;       /* brighter coral, primary accent */
-  --color-accent-2: #f5b342;     /* warm amber, secondary accent */
-  --color-accent-cool: #6ba3c9;  /* cool steel blue, third accent */
+  /* DARK SECTIONS (hero, CTAs, footer) */
+  --color-dark: #14161a;
+  --color-dark-soft: #1d1f24;
+  --color-on-dark: #f0ebe1;
+  --color-on-dark-soft: #b8b2a6;
+  --color-on-dark-mute: #7a746a;
+  --color-rule-dark: #2a2b30;
 
-  --color-rule: #2a2b30;         /* subtle border on dark */
-  --color-rule-strong: #3a3b40;  /* stronger border */
+  /* ACCENTS */
+  --color-accent: #f47654;
+  --color-accent-warm: #f5b342;
+  --color-accent-cool: #6ba3c9;
 
-  --color-on-accent: #f8f5ef;    /* text on colored backgrounds, always near-white */
+  /* MISC */
+  --color-rule: #d4cdb9;
+  --color-on-accent: #ffffff;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, sans-serif;
@@ -39,49 +47,12 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
   background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(240, 235, 225, 0.04) 1px,
-      transparent 0
-    );
+    circle at 1px 1px,
+    rgba(26, 26, 26, 0.04) 1px,
+    transparent 0
+  );
   background-size: 32px 32px;
   background-attachment: fixed;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* ambient glow blobs in the page background */
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  width: 60vw;
-  height: 60vw;
-  max-width: 900px;
-  max-height: 900px;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::before {
-  background: radial-gradient(circle, var(--color-accent), transparent 70%);
-  top: -25vw;
-  right: -15vw;
-}
-
-body::after {
-  background: radial-gradient(circle, var(--color-accent-cool), transparent 70%);
-  bottom: -25vw;
-  left: -15vw;
-}
-
-main,
-header,
-footer {
-  position: relative;
-  z-index: 1;
 }
 
 ::selection {
@@ -104,6 +75,11 @@ footer {
   color: var(--color-ink-mute);
 }
 
+/* dark-section eyebrow override */
+.dark-section .eyebrow {
+  color: var(--color-on-dark-mute);
+}
+
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
@@ -119,6 +95,36 @@ footer {
 
 .rule-top {
   border-top: 1px solid var(--color-rule);
+}
+
+.dark-section {
+  background-color: var(--color-dark);
+  color: var(--color-on-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-section .rule-top {
+  border-top-color: var(--color-rule-dark);
+}
+
+/* ambient accent orb for hero / CTA sections */
+.hero-orb {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    var(--color-accent),
+    transparent 60%
+  );
+  z-index: 0;
 }
 
 /* ========================================
@@ -158,6 +164,7 @@ footer {
 .hero-line[data-line="2"] { animation-delay: 0.55s; }
 .hero-line[data-line="3"] { animation-delay: 0.8s; }
 .hero-line[data-line="4"] { animation-delay: 1.05s; }
+.hero-line[data-line="5"] { animation-delay: 1.3s; }
 
 @keyframes hero-reveal {
   to {
@@ -170,13 +177,12 @@ footer {
    CASE STUDY HERO
    ======================================== */
 .case-hero {
-  background-color: #16181c;
-  color: var(--color-on-accent);
+  background-color: var(--color-dark);
+  color: var(--color-on-dark);
   position: relative;
   overflow: hidden;
 }
 
-/* subtle texture */
 .case-hero::before {
   content: "";
   position: absolute;
@@ -202,7 +208,7 @@ footer {
   position: absolute;
   right: -0.05em;
   bottom: -0.18em;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.08);
   font-weight: 400;
   z-index: 0;
   pointer-events: none;
@@ -239,27 +245,6 @@ footer {
 
 .work-card:hover .work-card-inner {
   transform: translateX(12px);
-}
-
-/* ========================================
-   HERO ACCENT ORB
-   ======================================== */
-.hero-orb {
-  position: absolute;
-  width: 50vw;
-  height: 50vw;
-  max-width: 700px;
-  max-height: 700px;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  pointer-events: none;
-  background: radial-gradient(
-    circle,
-    var(--color-accent),
-    transparent 60%
-  );
-  z-index: 0;
 }
 
 /* ========================================
@@ -335,10 +320,6 @@ footer {
   }
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation: none;
-  }
-  body::before,
-  body::after {
     animation: none;
   }
 }

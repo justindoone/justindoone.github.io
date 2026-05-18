@@ -11,30 +11,34 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
 ---
 
 <BaseLayout>
-  <!-- HERO -->
-  <section class="relative mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-32 pb-24 md:pb-32 overflow-hidden">
-    <div class="hero-orb" style="top: -10%; right: -10%;"></div>
-    <div class="hero-orb" style="bottom: 0%; left: 10%; opacity: 0.18; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+  <!-- HERO (dark, with personal intro) -->
+  <section class="dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
+    <div class="hero-orb" style="top: -15%; right: -10%;"></div>
+    <div class="hero-orb" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
 
-    <div class="relative z-10">
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
       <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>
-      <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl text-ink max-w-5xl mb-10" data-line="1">
+      <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" data-line="1" style="color: var(--color-on-dark);">
         Marketing for firms with something complicated to sell.
       </h1>
-      <p class="hero-line text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed mb-12" data-line="2">
-        Mostly investment firms and financial services so far. The same approach applies in tech and other categories where the product needs some explaining before it sells. Brand strategy on one side, performance and measurement on the other. I do the work hands-on.
+      <p class="hero-line text-lg md:text-xl max-w-3xl leading-relaxed mb-6" data-line="2" style="color: var(--color-on-dark);">
+        I'm currently the digital marketing manager at Evolve ETFs. Past stops include Greybrook Realty Partners, Clifton Blake, and Roxborough Communities, plus consulting for a few consumer brands.
       </p>
-      <div class="hero-line flex flex-wrap gap-6 items-center" data-line="3">
+      <p class="hero-line text-lg md:text-xl max-w-2xl leading-relaxed mb-12" data-line="3" style="color: var(--color-on-dark-soft);">
+        Mostly investment firms and financial services so far. The same approach applies in tech and other categories where the product needs explaining before it sells. Brand strategy on one side, performance and measurement on the other. I do the work hands-on.
+      </p>
+      <div class="hero-line flex flex-wrap gap-6 items-center" data-line="4">
         <a
           href="/work"
-          class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-2 transition-colors"
+          class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
         >
           See work
           <span aria-hidden="true">→</span>
         </a>
         <a
           href="mailto:justindoone@gmail.com"
-          class="text-ink-soft link-underline text-sm hover:text-accent transition-colors"
+          class="link-underline text-sm hover:text-accent transition-colors"
+          style="color: var(--color-on-dark-soft);"
         >
           justindoone@gmail.com
         </a>
@@ -42,9 +46,9 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
     </div>
   </section>
 
-  <!-- SELECTED WORK -->
-  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 pb-20 rule-top">
-    <div class="flex items-end justify-between mb-8 mt-12" data-reveal>
+  <!-- SELECTED WORK (light) -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-28 pb-20">
+    <div class="flex items-end justify-between mb-8" data-reveal>
       <div>
         <p class="eyebrow mb-3">Recent work</p>
         <h2 class="heading-display text-4xl md:text-5xl text-ink">
@@ -78,7 +82,7 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
           </div>
         ))
       }
-      <div class="rule-top"></div>
+      <div class="border-t border-rule"></div>
     </div>
 
     <div class="mt-12 md:hidden">
@@ -91,16 +95,17 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="relative mx-auto max-w-7xl px-6 lg:px-12 py-20 md:py-32 overflow-hidden" data-reveal>
-    <div class="rule-top pt-16 relative">
+  <!-- CTA (dark) -->
+  <section class="dark-section relative py-24 md:py-32" data-reveal>
+    <div class="hero-orb" style="top: 20%; right: -5%; opacity: 0.3;"></div>
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
       <p class="eyebrow mb-6">Currently</p>
-      <p class="heading-display text-3xl md:text-5xl text-ink max-w-4xl leading-tight">
+      <p class="heading-display text-3xl md:text-5xl max-w-4xl leading-tight" style="color: var(--color-on-dark);">
         Open to consulting work and the right in-house role.
       </p>
       <a
         href="mailto:justindoone@gmail.com"
-        class="inline-flex items-center gap-2 mt-10 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-2 transition-colors"
+        class="inline-flex items-center gap-2 mt-10 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
       >
         Start a conversation
         <span aria-hidden="true">→</span>
