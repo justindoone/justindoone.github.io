@@ -7,13 +7,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Get in touch about consulting work, marketing strategy, or in-house roles."
 >
   <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-20 md:pt-32 pb-20">
-    <p class="eyebrow mb-8">Contact</p>
-    <h1 class="heading-display text-5xl md:text-7xl text-ink mb-12 leading-[0.95]">
+    <p class="hero-line eyebrow mb-8" data-line="0">Contact</p>
+    <h1 class="hero-line heading-display text-5xl md:text-7xl text-ink mb-12 leading-[0.95]" data-line="1">
       Get in touch.
     </h1>
 
     <div class="grid md:grid-cols-2 gap-12 rule-top pt-12">
-      <div>
+      <div data-reveal data-reveal-delay="1">
         <p class="eyebrow mb-4">Email</p>
         <a
           href="mailto:justindoone@gmail.com"
@@ -26,7 +26,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </p>
       </div>
 
-      <div>
+      <div data-reveal data-reveal-delay="2">
         <p class="eyebrow mb-4">LinkedIn</p>
         <a
           href="https://www.linkedin.com/in/jdoone"
@@ -42,7 +42,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
 
-    <div class="rule-top mt-16 pt-12">
+    <div class="rule-top mt-16 pt-12" data-reveal>
       <p class="eyebrow mb-4">Currently</p>
       <p class="text-lg text-ink-soft leading-relaxed max-w-2xl">
         Open to consulting work and the right in-house role. Most interesting to me right now: financial services, tech, and other product categories that take some explaining.

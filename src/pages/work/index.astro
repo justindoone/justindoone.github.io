@@ -13,11 +13,11 @@ const entries = (await getCollection('work')).sort(
   description="Selected case studies. Mostly investment firms and B2B, with a few consumer brands."
 >
   <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-32 pb-12">
-    <p class="eyebrow mb-8">Work</p>
-    <h1 class="heading-display text-5xl md:text-7xl text-ink mb-10 leading-[0.95] max-w-4xl">
+    <p class="hero-line eyebrow mb-8" data-line="0">Work</p>
+    <h1 class="hero-line heading-display text-5xl md:text-7xl text-ink mb-10 leading-[0.95] max-w-4xl" data-line="1">
       Selected case studies.
     </h1>
-    <p class="text-lg text-ink-soft max-w-2xl leading-relaxed">
+    <p class="hero-line text-lg text-ink-soft max-w-2xl leading-relaxed" data-line="2">
       Mostly investment firms and B2B teams, with a few consumer brands at the expansion stage. Most projects sit somewhere between brand and performance, usually with a foot in both.
     </p>
   </section>
@@ -25,17 +25,19 @@ const entries = (await getCollection('work')).sort(
   <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-24">
     {
       entries.map((entry, i) => (
-        <WorkCard
-          title={entry.data.title}
-          client={entry.data.client}
-          role={entry.data.role}
-          date={entry.data.date}
-          summary={entry.data.summary}
-          href={`/work/${entry.id}`}
-          tags={entry.data.tags}
-          accent={entry.data.accent}
-          index={i}
-        />
+        <div data-reveal data-reveal-delay={Math.min(i + 1, 4)}>
+          <WorkCard
+            title={entry.data.title}
+            client={entry.data.client}
+            role={entry.data.role}
+            date={entry.data.date}
+            summary={entry.data.summary}
+            href={`/work/${entry.id}`}
+            tags={entry.data.tags}
+            accent={entry.data.accent}
+            index={i}
+          />
+        </div>
       ))
     }
     <div class="rule-top"></div>
