@@ -1,6 +1,6 @@
 ---
-title: "Instagram-first Consumer Launch"
-client: "Cricket Park"
+title: "Cricket Park Campaign"
+client: "Clifton Blake"
 role: "Campaign strategy and content lead"
 date: "March to August 2024"
 year: 2024
@@ -22,7 +22,7 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-A new consumer launch into a competitive Toronto market, with a six-month sales target and a marketing budget that wouldn't support a traditional paid stack across every channel.
+Cricket Park is one of Clifton Blake's developments. New consumer launch into a competitive Toronto market, six-month sales target, and a marketing budget that wouldn't support a traditional paid stack across every channel.
 
 The brief: find one channel, invest in it deeply, and outperform a broader thinner buy somewhere else.
 
