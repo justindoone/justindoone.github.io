@@ -4,11 +4,11 @@ client: "Greybrook Realty Partners"
 role: "Content strategy and series producer"
 date: "2025"
 year: 2025
-summary: "Short-form video series turning the firm's internal investment perspective into a public-facing format. Built for the LinkedIn feed first, the website second."
+summary: "A short-form video series turning Greybrook's investment perspective into something the LinkedIn feed would actually watch."
 tags: ["Video", "Content", "LinkedIn"]
 metrics:
   - value: "8"
-    label: "Episodes"
+    label: "Episodes shipped"
   - value: "60s"
     label: "Average runtime"
   - value: "4×"
@@ -19,17 +19,30 @@ order: 3
 accent: "#f47654"
 ---
 
-Investment firms have plenty to say. The hard part is saying it on a regular cadence, in a format the audience will actually watch, without burning out the executives whose calendars you're borrowing from.
+Greybrook had real takes. Land development, market timing, where capital was actually going. They just didn't have a format that made room for them outside of a press release or a quarterly letter.
 
-Most internal video programs die in their first quarter. The team gets excited for episode one, ships three, and then the production overhead grinds it down. So the brief here wasn't "make a great video series." It was "engineer the production model so the team is still shipping in month six."
+We landed on a video series. Sixty seconds, one host, one question. Shot in batches, edited on a template, captioned, native to LinkedIn.
 
-The format was deliberately minimal:
+The pitch internally wasn't "make great content."
 
-- One host, one camera, one question per episode
-- About sixty seconds
-- Shot in batches so a single afternoon produced a month of content
-- Captioned, native-uploaded to LinkedIn, no YouTube redirects
+> Build something the team is still doing in month six.
 
-The thesis behind the choices: people on LinkedIn don't follow polished broadcast content. They follow people who sound like people. We engineered the friction down low enough that the series could survive its first quarter without a heroic effort from anyone.
+That's a different problem than it sounds like. Most internal video series die quietly between episode three and five. Someone's calendar fills up. Someone gets promoted. Someone decides their next take needs a teleprompter. Production overhead eats it.
 
-Eight episodes shipped on schedule across the first run. Host profile views and follower counts climbed measurably, and the series became a recurring asset the sales team could share into one-on-one conversations. The team kept shipping after I rolled off the day-to-day.
+So the format was chosen for survivability first, not for craft.
+
+What we did to dodge the usual death:
+
+- **Batched shoots.** A single afternoon produced four episodes. The team cleared one block per month instead of four. Hosts didn't have to context-switch every week.
+- **Native uploads only.** LinkedIn deprioritizes posts that link out. Embedding the video directly killed the "watch the full version on YouTube" temptation that nobody actually clicks.
+- **One host per episode, no rotation.** Splitting prep across hosts felt egalitarian and doubled the work. Engagement didn't move either way.
+
+Things we tried that didn't work:
+
+- Episode 2 ran to 1:40 after edits. Engagement halved. We hard-capped at 75 seconds and the rhythm came back.
+- The intro animation we tried in episode 4 added five hours per cut and made the videos look like ads. We dropped it by episode 5.
+- We tried scheduling at LinkedIn's "optimal times." The data was noise. Going back to "whenever it's edited" made no measurable difference.
+
+Eight episodes shipped on the planned cadence. Host profile views climbed roughly 4× over the run. The series became something the sales team could drop into one-on-one conversations.
+
+The actual win wasn't the views. It was that nobody had to talk anyone into shipping episode 9.
