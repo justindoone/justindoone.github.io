@@ -1,46 +1,34 @@
 ---
 title: "Boardroom Brief Series"
 client: "Greybrook"
-role: "Content strategy & series producer"
+role: "Content strategy and series producer"
 date: "June 2025"
 year: 2025
-summary: "A short-form video series turning Greybrook's internal investment perspective into a recurring public-facing format — built for the LinkedIn feed first, the website second."
-tags: ["Video", "Content series", "LinkedIn"]
+summary: "Short-form video series turning the firm's internal investment perspective into a public-facing format. Built for the LinkedIn feed first, the website second."
+tags: ["Video", "Content", "LinkedIn"]
 metrics:
   - value: "8"
-    label: "Episodes shipped"
+    label: "Episodes"
   - value: "60s"
     label: "Average runtime"
   - value: "4×"
-    label: "Profile view lift, hosts"
+    label: "Host profile views"
 featured: false
 order: 3
 accent: "#3a5a6c"
 ---
 
-## The brief
+Investment firms have plenty to say. The hard part is saying it on a regular cadence, in a format the audience will actually watch, without burning out the executives whose calendars you're borrowing from.
 
-Asset managers have plenty to say. The hard part is saying it on a regular cadence, in a format the audience will actually watch — without burning out the executives whose calendars you're borrowing from.
+Most internal video programs die in their first quarter. The team gets excited for episode one, ships three, and then the production overhead grinds it down. So the brief here wasn't "make a great video series." It was "engineer the production model so the team is still shipping in month six."
 
-The brief: build a sustainable short-form video series that turned the firm's internal investment thinking into a public-facing point of view, *without* requiring a TV studio's worth of production overhead.
-
-## The approach
-
-We designed for the constraint, not around it. The format was intentionally minimal:
+The format was deliberately minimal:
 
 - One host, one camera, one question per episode
-- Sixty seconds, give or take
+- About sixty seconds
 - Shot in batches so a single afternoon produced a month of content
-- Captioned, native-uploaded to LinkedIn (no YouTube link-outs)
+- Captioned, native-uploaded to LinkedIn, no YouTube redirects
 
-The thesis: people don't follow polished broadcast content on LinkedIn. They follow people who sound like people. The brief was to **engineer the friction down low enough that the series would survive its first quarter** — most internal video programs don't.
+The thesis behind the choices: people on LinkedIn don't follow polished broadcast content. They follow people who sound like people. We engineered the friction down low enough that the series could survive its first quarter without a heroic effort from anyone.
 
-## What it produced
-
-Eight episodes shipped on schedule across the first run. Host profile views and follower counts climbed measurably, and the series became a recurring asset the sales team could share into one-on-one conversations — extending the value well beyond the original feed performance.
-
-More importantly: the production model held. The team kept shipping after I stepped back from day-to-day production.
-
-## What I'd do again
-
-Design the production model with the *most-burnt-out version of the team* in mind. If episode 12 doesn't ship as easily as episode 1, the format is wrong — not the team.
+Eight episodes shipped on schedule across the first run. Host profile views and follower counts climbed measurably, and the series became a recurring asset the sales team could share into one-on-one conversations. The team kept shipping after I rolled off the day-to-day.

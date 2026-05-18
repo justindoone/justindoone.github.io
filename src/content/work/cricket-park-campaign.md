@@ -1,46 +1,36 @@
 ---
-title: "Cricket Park — Instagram-first Rental Launch"
+title: "Instagram-first Consumer Launch"
 client: "Cricket Park"
-role: "Campaign strategy & content lead"
-date: "March – August 2024"
+role: "Campaign strategy and content lead"
+date: "March to August 2024"
 year: 2024
-summary: "An Instagram-first launch campaign for a new residential rental development that generated 1.7M+ impressions and filled the building ahead of the projected lease-up curve."
-tags: ["Social-first", "Real estate", "Performance"]
+summary: "Instagram-first launch for a new consumer property. Generated 1.7M impressions and outpaced the projected sales curve with one channel doing the work of five."
+tags: ["Social-first", "Consumer launch", "Performance"]
 metrics:
   - value: "1.7M"
     label: "Impressions"
   - value: "Instagram"
     label: "Primary channel"
   - value: "Ahead"
-    label: "Of lease-up curve"
+    label: "Of projected curve"
 featured: true
 order: 7
 accent: "#b34a2a"
 ---
 
-## The brief
+A new consumer launch into a competitive Toronto market, with a six-month sales target and a marketing budget that wouldn't support a traditional paid stack across every channel.
 
-A new residential rental development entering a competitive Toronto submarket, with a six-month lease-up target and a marketing budget that wouldn't support a traditional paid media stack across every channel.
+The brief: find one channel, invest in it deeply, and outperform a broader thinner buy somewhere else.
 
-The brief was to find one channel, invest in it deeply, and outperform a broader, thinner buy elsewhere.
+We bet on Instagram. Not as a single-channel campaign in isolation, but as the anchor channel with everything else (website, email, in-person sales) feeding into and out of it.
 
-## The approach
+The content engine:
 
-We bet on Instagram. Not as a single-channel campaign — as the *anchor channel* with everything else (website, email, in-person leasing) feeding into and out of it.
+- Unit-of-the-week features that turned each available product into a micro-story
+- Neighbourhood content that sold the area, not just the product. That's the question every prospective customer actually asks first.
+- Customer-perspective content as the launch matured, building social proof into the funnel
+- Paid amplification that prioritized depth (engagement, save, share) over reach metrics
 
-### The content engine
+The plan was deliberately narrow. One channel, one editorial voice, one funnel, and a sales team trained to recognize and respond to inbound from that channel quickly.
 
-- **Unit-of-the-week** style photo and video features that turned each suite into its own micro-story
-- **Neighbourhood content** that sold the area, not just the building — the question every prospective renter actually asks
-- **Resident-perspective content** as the building filled, building social proof into the funnel
-- **Paid amplification** that prioritized depth (engagement, save, share) over reach metrics
-
-The plan was deliberately narrow. One channel, one editorial voice, one funnel — and a leasing team trained to recognize and respond to inbound from that channel quickly.
-
-## What it produced
-
-1.7M+ impressions across the campaign window, and — more importantly — a lease-up that ran ahead of the original projection. The Instagram funnel became the *primary* leasing channel, not a supporting one.
-
-## What I'd do again
-
-When the budget is constrained, **go narrower, not broader**. A great campaign on one channel almost always beats a thin campaign across five.
+1.7M+ impressions across the campaign window, and a sales curve that ran ahead of the original projection. Instagram became the primary lead source for the launch, not a supporting channel.

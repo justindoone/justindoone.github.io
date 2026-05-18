@@ -4,41 +4,31 @@ client: "Greybrook"
 role: "Investor communications lead"
 date: "August 2025"
 year: 2025
-summary: "An investor communications package balancing the precision of compliance with the warmth of narrative — covering a $31.5M strategic investment from announcement through follow-on coverage."
-tags: ["Investor relations", "Compliance writing", "PR"]
+summary: "Investor comms package for a strategic investment announcement. The goal was a release that read like news, not marketing, and that cleared compliance on the first pass."
+tags: ["Investor relations", "Compliance", "PR"]
 metrics:
   - value: "$31.5M"
     label: "Investment announced"
-  - value: "0"
-    label: "Compliance revisions on first pass"
+  - value: "Zero"
+    label: "Compliance revisions"
   - value: "9"
-    label: "Earned media placements"
+    label: "Earned placements"
 featured: true
 order: 2
 accent: "#5d6f4a"
 ---
 
-## The brief
+A $31.5M strategic investment earns coverage on its own merits. Earned coverage is only half the job, though. The other half is the investor audience that needs the announcement framed as informative rather than promotional, and the comms have to hold up under compliance review on the first read.
 
-A $31.5M strategic investment is the kind of news that earns coverage on its own merits — but earned coverage is only half the job. The other half is the investor audience that needs the announcement framed in a way that's *informative without being promotional*, and that holds up to compliance scrutiny on the first read.
+I wrote from the outside in. Started with the journalist's lead (who, what, how much, why now) and worked backward toward the investor-facing version. That order mattered. If the lead reads cleanly, everything downstream inherits the same clarity.
 
-The brief was to land both at once: a press release and supporting comms that read like news, not marketing.
+What we shipped:
 
-## The approach
+- The press release, in AP style and pre-cleared for compliance
+- An LP email for the existing limited partner base with more thesis context
+- A LinkedIn announcement for leadership, edited to sound like the people it was attributed to
+- An internal one-pager for client-facing teams who would inevitably be asked about it
 
-We wrote from the outside in. Started with the journalist's lead — who, what, how much, why now — and worked backward toward the investor-facing narrative. That order mattered. If the lead reads cleanly, everything downstream (LinkedIn posts, email sends, internal talking points) inherits the same clarity.
+The release went out clean on the first pass. No last-minute compliance edits, no revisions to the public version after it hit the wire. The story got picked up across nine financial and trade publications, and the LP email landed above the firm's historical open rate.
 
-### What we built
-
-- **Press release**, written to AP style and pre-cleared for compliance
-- **Investor email** for the existing limited partner base — a longer-form version of the same story with more context on the thesis
-- **LinkedIn announcement post** for leadership, edited to sound like the people whose names were on it
-- **Internal one-pager** for client-facing teams who would inevitably be asked about it
-
-## What it produced
-
-The release went out clean on the first pass — no last-minute compliance back-and-forth, no revisions to the public version after it hit the wire. The story was picked up across nine financial and real estate publications, and the LP email had open and engagement rates well above the firm's historical baseline.
-
-## What I'd do again
-
-Treat compliance as a *reader*, not a gate. The pieces that get cleared fastest are the ones written with the reviewer's eye already in mind.
+Releases that have to be rewritten after legal review tend to read worse, because they get edited by committee instead of by an editor. Writing with the compliance reviewer in mind from the first draft is the cheapest place to spend the extra hour.
