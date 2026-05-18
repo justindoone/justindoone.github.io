@@ -13,6 +13,7 @@ metrics:
     label: "Brand surface"
   - value: "45%"
     label: "Form completion lift"
+cover: "/images/work/roxborough-communities.jpg"
 featured: false
 order: 6
 accent: "#4f6b5a"

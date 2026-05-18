@@ -13,6 +13,7 @@ metrics:
     label: "Distribution channels"
   - value: "11"
     label: "Weeks of campaign tail"
+cover: "/images/work/clifton-blake-bnn-ad.jpg"
 featured: false
 order: 5
 accent: "#a14a3f"

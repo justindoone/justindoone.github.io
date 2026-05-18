@@ -13,6 +13,7 @@ metrics:
     label: "Content cuts"
   - value: "3×"
     label: "Engagement vs. last year"
+cover: "/images/work/greybrook-inside-track-2025.jpg"
 featured: true
 order: 1
 accent: "#b34a2a"

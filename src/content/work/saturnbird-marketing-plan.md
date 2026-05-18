@@ -6,6 +6,7 @@ date: "October 2024"
 year: 2024
 summary: "Market-entry plan for a consumer brand expanding into North America. Designed to validate fit cheaply before committing the heavy spend."
 tags: ["Strategy", "Market entry", "Consumer"]
+cover: "/images/work/saturnbird-marketing-plan.png"
 featured: false
 order: 8
 accent: "#6b5a8f"

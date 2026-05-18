@@ -13,6 +13,7 @@ metrics:
     label: "Session duration"
   - value: "65%"
     label: "Bounce rate drop"
+cover: "/images/work/clifton-blake-website.jpg"
 featured: true
 order: 4
 accent: "#7a5b3e"

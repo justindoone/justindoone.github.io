@@ -6,6 +6,7 @@ date: "October 2024"
 year: 2024
 summary: "Branding for a Hong Kong boutique hospitality concept built during COVID. Found a position the brand could honestly hold, and a tone that still worked when conditions changed."
 tags: ["Brand", "Hospitality", "Pandemic-era"]
+cover: "/images/work/minihotel-hk.png"
 featured: false
 order: 9
 accent: "#2f5b73"

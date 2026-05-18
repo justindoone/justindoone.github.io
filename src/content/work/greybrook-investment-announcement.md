@@ -13,6 +13,7 @@ metrics:
     label: "Compliance revisions"
   - value: "9"
     label: "Earned placements"
+cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: true
 order: 2
 accent: "#5d6f4a"

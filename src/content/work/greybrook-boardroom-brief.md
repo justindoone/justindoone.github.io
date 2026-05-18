@@ -13,6 +13,7 @@ metrics:
     label: "Average runtime"
   - value: "4×"
     label: "Host profile views"
+cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 order: 3
 accent: "#3a5a6c"

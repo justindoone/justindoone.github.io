@@ -63,8 +63,27 @@ const num = String(entry.data.order).padStart(2, '0');
       </div>
     </section>
 
+    <!-- COVER IMAGE -->
+    {
+      entry.data.cover && (
+        <section
+          class="mx-auto max-w-6xl px-6 lg:px-12 -mt-12 md:-mt-20 relative z-20"
+          data-reveal
+        >
+          <div class="overflow-hidden shadow-2xl bg-paper-soft">
+            <img
+              src={entry.data.cover}
+              alt={entry.data.title}
+              loading="lazy"
+              class="w-full h-auto block"
+            />
+          </div>
+        </section>
+      )
+    }
+
     <!-- META STRIP -->
-    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-12 pb-8" data-reveal>
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-16 pb-8" data-reveal>
       <div
         class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm"
       >
