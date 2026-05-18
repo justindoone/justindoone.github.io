@@ -1,6 +1,6 @@
 ---
 title: "Boardroom Brief Series"
-client: "Greybrook"
+client: "Greybrook Realty Partners"
 role: "Content strategy and series producer"
 date: "June 2025"
 year: 2025

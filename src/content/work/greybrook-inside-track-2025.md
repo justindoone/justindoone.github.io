@@ -1,6 +1,6 @@
 ---
 title: "Inside Track 2025"
-client: "Greybrook"
+client: "Greybrook Realty Partners"
 role: "Content strategy and distribution"
 date: "October 2025"
 year: 2025

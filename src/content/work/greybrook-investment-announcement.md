@@ -1,6 +1,6 @@
 ---
 title: "$31.5M Investment Announcement"
-client: "Greybrook"
+client: "Greybrook Realty Partners"
 role: "Investor communications lead"
 date: "August 2025"
 year: 2025
