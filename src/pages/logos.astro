@@ -3,24 +3,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const options = [
   {
-    id: 'logo-modern',
-    name: 'Option 1 — Modern',
-    desc: 'Solid coral square mark with "Justin Doone" in Inter Black, tight tracking. Reads like a product brand (Stripe / Linear / Brex).',
+    id: 'logo-folded',
+    name: 'Mark 1 — Folded',
+    desc: 'A coral square with one corner cut diagonally, like a folded page or label tag. Reads as document / strategy paper / brief. Most stable at very small sizes.',
   },
   {
-    id: 'logo-editorial',
-    name: 'Option 2 — Editorial',
-    desc: '"Justin Doone" in Fraunces serif (the site\'s display font) with a raised coral asterisk and a short coral rule beneath. Reads like a writer / strategist masthead.',
+    id: 'logo-asterisk',
+    name: 'Mark 2 — Asterisk',
+    desc: 'A custom six-arm asterisk built from three crossed coral bars at 60° angles. Reads as editorial / footnote / strategist mark. Pairs naturally with the serif headings on the site.',
+  },
+  {
+    id: 'logo-focal',
+    name: 'Mark 3 — Focal',
+    desc: 'Two concentric coral outlined squares with a solid coral block deliberately off-center. Reads as focus / audience target without the generic bullseye cliché.',
   },
 ];
 ---
 
-<BaseLayout title="Logo options - Justin Doone" description="Internal page for picking a logo direction.">
+<BaseLayout
+  title="Logo options - Justin Doone"
+  description="Internal page for picking a logo direction."
+>
   <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-16 pb-12">
     <p class="eyebrow mb-6">Internal</p>
     <h1 class="heading-display text-4xl md:text-6xl text-ink mb-6">Logo options</h1>
     <p class="text-lg text-ink-soft max-w-2xl leading-relaxed">
-      Each option is shown at three sizes: the size it would render in the site header (~32px tall), a mid display size, and the largest size you might use on a business card or social header.
+      Three custom marks paired with the same wordmark. Each shown at three sizes: header (~32px), footer / signature (~64px), and hero / social share (140px). The mark is what makes it a logo rather than typography.
     </p>
   </section>
 
@@ -70,7 +78,7 @@ const options = [
     <div class="rule-top pt-12 mt-12">
       <p class="eyebrow mb-4">When you've decided</p>
       <p class="text-lg text-ink-soft max-w-2xl leading-relaxed">
-        Tell me which one (or "neither, try a third direction") and I'll build it out into the full system: horizontal lockup, stacked variant, mark-only, plus a new favicon to match.
+        Tell me which one (or "none of these, try a different direction") and I'll build it out into the full system: horizontal lockup, stacked variant, mark-only, plus a new favicon to match.
       </p>
     </div>
   </section>

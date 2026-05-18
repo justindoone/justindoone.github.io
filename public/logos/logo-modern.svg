@@ -1,7 +1,0 @@
-<svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg">
-  <rect width="720" height="140" fill="#16181c"/>
-  <!-- coral square mark -->
-  <rect x="30" y="48" width="44" height="44" fill="#f47654"/>
-  <!-- wordmark -->
-  <text x="94" y="92" font-family="Inter, system-ui, sans-serif" font-size="60" font-weight="800" fill="#f0ebe1" letter-spacing="-3">Justin Doone</text>
-</svg>

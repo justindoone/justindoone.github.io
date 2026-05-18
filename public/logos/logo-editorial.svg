@@ -1,7 +1,0 @@
-<svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg">
-  <rect width="720" height="160" fill="#16181c"/>
-  <!-- wordmark with raised coral asterisk -->
-  <text x="36" y="100" font-family="Fraunces, 'Iowan Old Style', Georgia, serif" font-size="68" font-weight="400" fill="#f0ebe1" letter-spacing="-2">Justin Doone<tspan fill="#f47654" font-size="44" dy="-22" dx="6">*</tspan></text>
-  <!-- short coral rule beneath -->
-  <rect x="36" y="118" width="72" height="2" fill="#f47654"/>
-</svg>
