@@ -9,10 +9,10 @@ tags: ["Property marketing", "Social", "Paid media"]
 metrics:
   - value: "1.7M"
     label: "Impressions"
-  - value: "Instagram"
-    label: "Anchor channel"
-  - value: "6 months"
-    label: "Launch to 90%+ occupancy"
+  - value: "90%+"
+    label: "Occupancy"
+  - value: "6 mo"
+    label: "From launch"
 cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
 order: 7
@@ -23,7 +23,7 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-Cricket Park is one of the Roxborough properties. The reason it's the case study and not one of the others: it's the one I ran end-to-end, from pre-launch through to the 90%+ occupancy mark Roxborough properties typically hit within six months.
+Cricket Park is one of the Roxborough properties. Roxborough is Clifton Blake's residential property management arm: a portfolio of developments managed under one brand. The reason this is the case study and not one of the other Roxborough properties: it's the one I ran end-to-end, from pre-launch through to the 90%+ occupancy mark Roxborough properties typically hit within six months.
 
 The marketing setup followed the same playbook used across Roxborough's residential portfolio. Instagram as the anchor channel (organic), paid running alongside on Meta and the other surfaces. Same agency partner.
 

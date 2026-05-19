@@ -19,7 +19,7 @@ order: 6
 accent: "#f47654"
 ---
 
-Roxborough Communities is one of Clifton Blake's property brands. Multiple developments sit under it: Cricket Park, College West, and others across the portfolio, with a mix of residential, commercial, and mixed-use. There had been an older site once, but it had been taken down. This was effectively a fresh launch.
+Roxborough Communities is Clifton Blake's residential property management arm. Multiple developments sit under it: Cricket Park, College West, and others, with a mix of residential, commercial, and mixed-use buildings. There had been an older site once, but it had been taken down. This was effectively a fresh launch.
 
 I owned the marketing side for residential tenants and worked with an agency on the build. The commercial side was managed separately.
 
