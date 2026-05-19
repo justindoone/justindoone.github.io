@@ -194,7 +194,7 @@ const canonical = new URL(pathname, Astro.site).toString();
 
       let navScrollHandler = null;
       function setupNavContext() {
-        const probeY = 48;
+        const probeY = 40;
         const darkSections = Array.from(
           document.querySelectorAll('.dark-section')
         );
@@ -205,6 +205,10 @@ const canonical = new URL(pathname, Astro.site).toString();
             return rect.top <= probeY && rect.bottom > probeY;
           });
           document.documentElement.classList.toggle('nav-on-dark', isDark);
+          document.documentElement.classList.toggle(
+            'is-scrolled',
+            window.scrollY > 16
+          );
         }
 
         update();
@@ -231,6 +235,7 @@ const canonical = new URL(pathname, Astro.site).toString();
           const path = new URL(event.to).pathname;
           const startsDark = path === '/' || path.indexOf('/work/') === 0;
           document.documentElement.classList.toggle('nav-on-dark', startsDark);
+          document.documentElement.classList.remove('is-scrolled');
         } catch (e) {}
       });
 
