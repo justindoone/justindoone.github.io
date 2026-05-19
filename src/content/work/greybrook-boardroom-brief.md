@@ -11,7 +11,7 @@ metrics:
     label: "Long-form episode"
   - value: "Monthly"
     label: "Production cadence"
-  - value: "4"
+  - value: "5"
     label: "Distribution surfaces"
 cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
@@ -27,7 +27,7 @@ The format settled into a regular rhythm:
 
 - Same host paired with the CEO, with occasional guests
 - Each episode anchored on what was happening in the market that month, with Greybrook's own positioning showing up where it was relevant
-- Recorded monthly, edited and distributed across the four surfaces (YouTube, site, LinkedIn, IG) over the following two weeks
+- Recorded monthly, edited and distributed across five surfaces (email, blog, YouTube, LinkedIn, IG) over the following two weeks
 
 My role was producing and content strategy. We brought in a video agency to film and do the first long-form cut. I managed that engagement, then took over to write the blog companion, cut the shorts, and run the distribution on social.
 
@@ -42,4 +42,4 @@ What worked:
 What was hard:
 
 - Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
-- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, shorts, and social posts across all four surfaces fast enough that the take didn't age out before it landed. A week is an eternity in market commentary. The version of an opinion that ships seven days late is a different opinion.
+- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, email, shorts, and social posts across all five surfaces fast enough that the take didn't age out before it landed. A week is an eternity in market commentary. The version of an opinion that ships seven days late is a different opinion.
