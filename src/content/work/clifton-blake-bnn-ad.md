@@ -1,18 +1,18 @@
 ---
-title: "BNN B-TV Ad Spot"
+title: "Mortgage Fund Campaign"
 client: "Clifton Blake"
 role: "Campaign lead"
 date: "October 2024"
 year: 2024
-summary: "Integrated brand campaign anchored by a BNN Bloomberg TV spot. Planned the production day so a single 30-second buy would feed months of cross-channel material."
-tags: ["Broadcast", "Brand", "Integrated"]
+summary: "Three-month paid push for Clifton Blake's Mortgage Fund, timed for RRSP season. BNN Bloomberg was the hero buy; Meta, Google, and LinkedIn ran alongside."
+tags: ["Paid media", "Broadcast", "Financial services"]
 metrics:
-  - value: "30s"
-    label: "Hero spot"
-  - value: "6"
-    label: "Distribution channels"
-  - value: "11"
-    label: "Weeks of campaign tail"
+  - value: "4"
+    label: "Paid channels"
+  - value: "3 months"
+    label: "Campaign run"
+  - value: "RRSP season"
+    label: "Timing window"
 cover: "/images/work/clifton-blake-bnn-ad.jpg"
 video: "/videos/clifton-blake-bnn-spot.mp4"
 featured: false
@@ -21,19 +21,13 @@ accent: "#f47654"
 socials:
   - type: facebook
     url: "https://www.facebook.com/61554165899664/posts/122119584596138863"
-    caption: "Mortgage Fund paid campaign"
+    caption: "Mortgage Fund campaign on Meta"
 ---
 
-A TV spot on BNN Bloomberg is a strong audience match for an asset manager. It's also a uniquely inefficient use of marketing budget if you treat the broadcast as the whole campaign.
+The Mortgage Fund needed a push leading into RRSP season. We ran a three-month campaign across BNN Bloomberg, Meta, Google, and LinkedIn.
 
-The brief was to plan the spot from day one as the hero asset of a much larger campaign. The shoot day got built around three downstream uses, not one.
+BNN was the hero placement: a single buy running six-to-eight weeks. The other three channels ran the full window. I led the campaign alongside the SVP of Investor Relations.
 
-- The 30-second TV cut, the public anchor
-- Vertical and square edits for paid social and LinkedIn
-- Stills, B-roll, and voiceover takes that fed sales decks, the website refresh, and conference materials for the next year
+The video itself was a previously produced spot, lightly retouched by BNN's production team for the broadcast format. The original footage was something I'd arranged with an agency on a separate project. Reusing it meant no production cost for this campaign.
 
-Every editorial decision (pacing, framing, what the host said and didn't) got made with the multi-channel pipeline already in view.
-
-Most of the campaign's value lived in the asset library that came out of the same day's production, not in the broadcast window itself. The same spot continued surfacing across paid social, the website hero, and IR materials for nearly a quarter after the original air date.
-
-Don't shoot a TV ad. Shoot a content day that also produces a TV ad. Same crew, same day, ten times the asset library.
+BNN ran for credibility. The other channels ran for conversion.
