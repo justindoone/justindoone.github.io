@@ -1,18 +1,19 @@
 ---
 title: "Cricket Park Campaign"
 client: "Clifton Blake"
-role: "Campaign strategy and content lead"
+role: "Marketing lead, with agency partner"
 date: "March to August 2024"
 year: 2024
-summary: "Instagram-first launch for a new consumer property. Generated 1.7M impressions and outpaced the projected sales curve with one channel doing the work of five."
-tags: ["Social-first", "Consumer launch", "Performance"]
+summary: "Property launch campaign for Cricket Park, one of the Roxborough developments. Instagram-anchored, with paid alongside. Showcased here because it's the one I ran end-to-end, from launch through to near-full occupancy."
+tags: ["Property marketing", "Social", "Paid media"]
 metrics:
   - value: "1.7M"
     label: "Impressions"
   - value: "Instagram"
-    label: "Primary channel"
-  - value: "Ahead"
-    label: "Of projected curve"
+    label: "Anchor channel"
+  - value: "6 months"
+    label: "Launch to 90%+ occupancy"
+cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
 order: 7
 accent: "#f47654"
@@ -22,19 +23,10 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-Cricket Park is one of Clifton Blake's developments. New consumer launch into a competitive Toronto market, six-month sales target, and a marketing budget that wouldn't support a traditional paid stack across every channel.
+Cricket Park is one of the Roxborough properties. The reason it's the case study and not one of the others: it's the one I ran end-to-end, from pre-launch through to the 90%+ occupancy mark Roxborough properties typically hit within six months.
 
-The brief: find one channel, invest in it deeply, and outperform a broader thinner buy somewhere else.
+The marketing setup followed the same playbook used across Roxborough's residential portfolio. Instagram as the anchor channel (organic), paid running alongside on Meta and the other surfaces. Same agency partner.
 
-We bet on Instagram. Not as a single-channel campaign in isolation, but as the anchor channel with everything else (website, email, in-person sales) feeding into and out of it.
+Budget was the middle band: not tight, not generous. We picked the channels that fit the audience and went deep there.
 
-The content engine:
-
-- Unit-of-the-week features that turned each available product into a micro-story
-- Neighbourhood content that sold the area, not just the product. That's the question every prospective customer actually asks first.
-- Customer-perspective content as the launch matured, building social proof into the funnel
-- Paid amplification that prioritized depth (engagement, save, share) over reach metrics
-
-The plan was deliberately narrow. One channel, one editorial voice, one funnel, and a sales team trained to recognize and respond to inbound from that channel quickly.
-
-1.7M+ impressions across the campaign window, and a sales curve that ran ahead of the original projection. Instagram became the primary lead source for the launch, not a supporting channel.
+The Instagram run did roughly 1.7M impressions across the campaign window.
