@@ -286,8 +286,10 @@ body {
    SITE NAV (transparent + context-aware)
    ======================================== */
 .site-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 40;
   background-color: transparent;
   border-bottom: 1px solid transparent;
