@@ -36,10 +36,10 @@ The series was measured on brand awareness, which in practice meant views and su
 What worked:
 
 - **Same host + CEO every episode.** The familiarity built audience expectation. New viewers didn't have to figure out who was talking before they figured out what was being said.
-- **The blog companion.** Each episode got a written post that summarized the conversation. Most search traffic landed on the blog before it landed on the video, which gave the SEO team a real reason to care about the series.
+- **The blog companion + email blast.** Each episode got a written post that summarized the conversation. That post was the landing page for the email blast we sent the day of release. Readers got the news in their inbox, clicked through to the blog, and watched the video from there. SEO traffic showed up later on the long tail.
 - **Shorts as the entry point.** Nobody on LinkedIn or IG commits to thirty minutes cold. The shorts did the introducing; the long-form did the depth.
 
 What was hard:
 
 - Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
-- Topical relevance has a half-life. "What's going on in the market" sounds evergreen but isn't. Episodes that focused on enduring structural questions held up; the ones tied to a specific quarter's news cycle aged faster.
+- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, shorts, and social posts across all four surfaces fast enough that the take didn't age out before it landed. A week is an eternity in market commentary. The version of an opinion that ships seven days late is a different opinion.
