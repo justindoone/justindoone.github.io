@@ -28,7 +28,7 @@ socials:
 
 Greybrook had real takes on what was happening in the market. They needed a format that could hold a longer conversation and a way to package it for people who weren't going to sit through thirty minutes of it.
 
-What we ended up with was a multi-format series. Each episode ran about thirty minutes, hosted on YouTube and on Greybrook's own site with a companion blog post for each one. From every long-form recording I cut shorter clips for LinkedIn and Instagram, which is where most of the audience actually lived.
+I built the format and ran it. Each episode runs about thirty minutes, hosted on YouTube and on Greybrook's own site with a companion blog post for each one. From every long-form recording I cut shorter clips for LinkedIn and Instagram, where most of the audience actually lived.
 
 The format settled into a regular rhythm:
 
@@ -36,7 +36,7 @@ The format settled into a regular rhythm:
 - Each episode anchored on what was happening in the market that month, with Greybrook's own positioning showing up where it was relevant
 - Recorded monthly, edited and distributed across five surfaces (email, blog, YouTube, LinkedIn, IG) over the following two weeks
 
-My role was producing and content strategy. We brought in a video agency to film and do the first long-form cut. I managed that engagement, then took over to write the blog companion, cut the shorts, and run the distribution on social.
+The format, the editorial direction, and the distribution playbook were mine. We brought in a video agency to film and produce the first long-form cut, which I managed. The blog companion, the social cuts, and the cross-surface distribution were my work.
 
 The series was measured on brand awareness: views, subscriber growth on YouTube, engagement across the social cuts. Leads were a secondary metric.
 
