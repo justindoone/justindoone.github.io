@@ -24,6 +24,7 @@ const canonical = new URL(pathname, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0){document.documentElement.classList.add('nav-on-dark');}})();`}</script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -43,6 +44,13 @@ const canonical = new URL(pathname, Astro.site).toString();
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    {import.meta.env.PROD && (
+      <>
+        <script is:inline>{`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wtcuckhv3l");`}</script>
+        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9RX181F5KL"></script>
+        <script is:inline>{`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js', new Date());gtag('config', 'G-9RX181F5KL', { send_page_view: false });`}</script>
+      </>
+    )}
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">
@@ -174,10 +182,63 @@ const canonical = new URL(pathname, Astro.site).toString();
         }, 1500);
       }
 
+      function trackPageView() {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'page_view', {
+            page_path: window.location.pathname + window.location.search,
+            page_title: document.title,
+            page_location: window.location.href,
+          });
+        }
+      }
+
+      let navScrollHandler = null;
+      function setupNavContext() {
+        const probeY = 48;
+        const darkSections = Array.from(
+          document.querySelectorAll('.dark-section')
+        );
+
+        function update() {
+          const isDark = darkSections.some((el) => {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= probeY && rect.bottom > probeY;
+          });
+          document.documentElement.classList.toggle('nav-on-dark', isDark);
+        }
+
+        update();
+
+        if (navScrollHandler) {
+          window.removeEventListener('scroll', navScrollHandler);
+        }
+
+        let ticking = false;
+        navScrollHandler = () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              update();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+        window.addEventListener('scroll', navScrollHandler, { passive: true });
+      }
+
+      document.addEventListener('astro:before-preparation', (event) => {
+        try {
+          const path = new URL(event.to).pathname;
+          const startsDark = path === '/' || path.indexOf('/work/') === 0;
+          document.documentElement.classList.toggle('nav-on-dark', startsDark);
+        } catch (e) {}
+      });
+
       handleSplash();
       setupReveal();
       loadInstagram();
       setupCountUp();
+      setupNavContext();
       document.addEventListener('astro:page-load', () => {
         // Splash never returns on subsequent navigations within the session.
         const splash = document.getElementById('splash');
@@ -186,6 +247,8 @@ const canonical = new URL(pathname, Astro.site).toString();
         setupReveal();
         loadInstagram();
         setupCountUp();
+        setupNavContext();
+        trackPageView();
       });
     </script>
   </body>

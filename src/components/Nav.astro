@@ -10,37 +10,26 @@ const links = [
 ];
 ---
 
-<header
-  class="sticky top-0 z-40 backdrop-blur-md"
-  style="background-color: rgb(20 22 26 / 0.9); color: var(--color-on-dark);"
->
+<header class="site-nav">
   <div class="mx-auto max-w-7xl px-6 lg:px-12">
     <nav
       class="flex h-24 items-center justify-between"
-      style="border-bottom: 1px solid var(--color-rule-dark);"
       aria-label="Primary"
     >
-      <a
-        href="/"
-        aria-label="Justin Doone"
-        class="hover:opacity-80 transition-opacity"
-        style="display: block; width: 88px; height: 72px; background-image: url('/logos/logo-full.png?v=1'); background-size: contain; background-position: center; background-repeat: no-repeat;"
-      ></a>
-      <ul class="flex items-center gap-8 text-sm">
+      <a href="/" aria-label="Justin Doone" class="nav-logo-wrap">
+        <span class="nav-logo nav-logo--for-light" aria-hidden="true"></span>
+        <span class="nav-logo nav-logo--for-dark" aria-hidden="true"></span>
+      </a>
+      <ul class="flex items-center gap-3">
         {
           links.map((link) => (
             <li>
               <a
                 href={link.href}
                 class:list={[
-                  'transition-colors hover:text-accent',
-                  isActive(link.href) ? 'font-medium' : '',
+                  'nav-button',
+                  isActive(link.href) ? 'is-active' : '',
                 ]}
-                style={
-                  isActive(link.href)
-                    ? 'color: var(--color-on-dark);'
-                    : 'color: var(--color-on-dark-soft);'
-                }
               >
                 {link.label}
               </a>
