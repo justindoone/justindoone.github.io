@@ -26,7 +26,7 @@ socials:
 
 The Mortgage Fund needed a push leading into RRSP season. We ran a three-month campaign across BNN Bloomberg, Meta, Google, and LinkedIn.
 
-BNN was the hero placement: a single buy running six-to-eight weeks. The other three channels ran the full window. I led the campaign alongside the SVP of Investor Relations.
+BNN was the hero placement: a buy that ran in specific time slots across a six-to-eight-week window. The other three channels ran the full campaign. I led the work alongside the SVP of Investor Relations.
 
 The video itself was a previously produced spot, lightly retouched by BNN's production team for the broadcast format. The original footage was something I'd arranged with an agency on a separate project. Reusing it meant no production cost for this campaign.
 
