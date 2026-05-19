@@ -1,39 +1,37 @@
 ---
 title: "Investor Announcements"
 client: "Greybrook Realty Partners"
-role: "Investor communications lead"
+role: "Investor communications"
 date: "2025"
 year: 2025
-summary: "Investor communications system built around Greybrook's strategic investment releases. Each announcement followed the same coordinated structure. The $31.5M Markham deal was one example."
+summary: "A few investment announcements went out a year, depending on what got done in market. The package was always the same shape. The $31.5M Markham deal was one example."
 tags: ["Investor relations", "Compliance", "PR"]
 metrics:
-  - value: "Recurring"
-    label: "Release cadence"
-  - value: "First pass"
-    label: "Standard compliance outcome"
+  - value: "4"
+    label: "Pieces per release"
+  - value: "PR Newswire"
+    label: "Wire service"
   - value: "$31.5M"
     label: "Example deal size"
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: true
 order: 2
 accent: "#f47654"
-socials:
-  - type: linkedin
-    url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7364379406498217984"
-    caption: "$31.5M Markham deal on LinkedIn"
 ---
 
-Every strategic investment Greybrook made came with the same coordinated comms package. The components didn't change much from one release to the next. What changed was the deal, the dollar figure, and the specific market or asset class.
+How often Greybrook released an investment announcement depended on the market. A few a year, mostly when a deal actually closed. Build-progress and operational updates happened more often than that, but they lived inside investor reports rather than going out on the wire.
 
-The standard release format:
+For actual deal closings, the package was always the same shape:
 
-- A public press release in AP style, pre-cleared with compliance
-- An LP email for existing limited partners with more thesis context
-- A LinkedIn announcement for leadership, edited to sound like the people whose names were on it
-- An internal one-pager for client-facing teams who would inevitably get asked about it
+- A press release distributed via **PR Newswire**, pre-cleared with in-house counsel
+- An LP email blast to the existing limited partner base, with more thesis context than the public version
+- A leadership LinkedIn post from whichever exec the announcement was attributed to
+- A blog post on Greybrook's site that hosted the full narrative for anyone arriving from search or email
 
-The $31.5M Markham investment in August 2025 was one example. The same shape applied to smaller and larger deals across the lineup, and to non-deal announcements like fund-level updates or strategy expansions.
+The $31.5M Markham investment in August 2025 was one example. The same shape applied to smaller and larger deals across the lineup.
 
-What compounded was the system itself. Each release inherited the format, tone, and compliance posture of the previous ones, so announcements became recognizable to the firm's regular audience. Pre-cleared structure also meant fewer last-minute revisions during legal review, which is where most investment announcements get held up in regulated industries.
+My piece of the work split along authoring lines. I helped draft and edit the press release and the LP email; in-house counsel had the final say on what shipped publicly. The LinkedIn posts and the blog versions I wrote myself, since both ran on owned channels and didn't have the same compliance posture as the wire release.
 
-What got refined release by release: how the lead read for a journalist, how the LP email opened (leading with the LP's perspective rather than the firm's news), the level of compliance hedging on the LinkedIn version. None of that was finished. Each release moved the standard forward a small amount.
+What compounded was the format. Each release inherited the structure of the one before it. Internal review got faster because nothing in the structure was new. And on the public side, journalists who'd seen a Greybrook release before knew where to find the dollar figure, the asset, and the boilerplate — which made the wire pickup more reliable than it would have been with a one-off format every time.
+
+The piece of the job that doesn't show up in any case study by default: most of the actual work isn't writing the release. It's getting four pieces to ship on the same day with the same facts after legal has read all of them. The orchestration is the job.
