@@ -46,6 +46,13 @@ const canonical = new URL(pathname, Astro.site).toString();
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">
+    <div id="splash" class="splash-overlay" aria-hidden="true">
+      <img
+        src="/logos/logo-full.png?v=1"
+        alt=""
+        class="splash-logo"
+      />
+    </div>
     <Nav />
     <main class="flex-1">
       <slot />
@@ -152,10 +159,30 @@ const canonical = new URL(pathname, Astro.site).toString();
         els.forEach((el) => observer.observe(el));
       }
 
+      function handleSplash() {
+        const splash = document.getElementById('splash');
+        if (!splash) return;
+        if (sessionStorage.getItem('jd-splash-shown')) {
+          document.documentElement.classList.add('no-splash');
+          splash.remove();
+          return;
+        }
+        sessionStorage.setItem('jd-splash-shown', 'true');
+        setTimeout(() => {
+          splash.classList.add('hidden');
+          setTimeout(() => splash.remove(), 700);
+        }, 1500);
+      }
+
+      handleSplash();
       setupReveal();
       loadInstagram();
       setupCountUp();
       document.addEventListener('astro:page-load', () => {
+        // Splash never returns on subsequent navigations within the session.
+        const splash = document.getElementById('splash');
+        if (splash) splash.remove();
+        document.documentElement.classList.add('no-splash');
         setupReveal();
         loadInstagram();
         setupCountUp();
