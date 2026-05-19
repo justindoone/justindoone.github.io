@@ -13,7 +13,7 @@ metrics:
     label: "Pandemic-era positioning"
   - value: "Strategy + execution"
     label: "Role scope"
-cover: "/images/work/minihotel-hk.png"
+cover: "/images/work/minihotel-hk.jpg"
 featured: false
 order: 9
 accent: "#f47654"
@@ -28,3 +28,5 @@ The pivot wasn't a second rebrand. We kept the new identity. It was a targeting 
 I handled both strategy and execution, working alongside the Director of Sales and the Director of Hotel Operations. The rebrand was the bigger strategy lift. The staycation pivot was the bigger execution lift, since everything had to ship under a constantly-shifting set of public-health restrictions.
 
 The brand survived the pandemic without a second rebrand. The staycation positioning carried the business through the period when international travel wasn't an option.
+
+![A piece of the staycation-era creative, with the brand's "much more than the size" tagline](/images/work/minihotel-hk-tagline.png)
