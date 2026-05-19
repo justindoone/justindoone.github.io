@@ -1,32 +1,27 @@
 ---
-title: "Multi-channel Marketing for an ETF Lineup"
+title: "Marketing at Evolve ETFs"
 client: "Evolve ETFs"
 role: "Digital Marketing Manager"
-date: "2024 to present"
-year: 2024
-summary: "Running paid acquisition and brand awareness across Reddit, Google, Meta, LinkedIn, and YouTube for a lineup of ETFs spanning thematic, dividend, and fixed income strategies."
-tags: ["Paid media", "Multi-channel", "Financial services"]
+date: "2026 to present"
+year: 2026
+summary: "Digital marketing for a Canadian ETF firm with 44 funds across the lineup. Lean team. I own website, social, and paid, reporting to the CMO."
+tags: ["Financial services", "ETFs", "Digital marketing"]
 metrics:
-  - value: "5+"
-    label: "Active ad channels"
-  - value: "10+"
-    label: "Funds supported"
-  - value: "Always-on"
-    label: "Campaign model"
+  - value: "44"
+    label: "Funds in lineup"
+  - value: "3"
+    label: "Always-on paid channels"
+  - value: "$0.5B"
+    label: "AUM growth since joining"
 featured: true
-order: 0.5
+order: 0
 accent: "#f47654"
 ---
 
-Evolve operates a lineup of ETFs covering thematic, dividend, and fixed income strategies. Each fund has its own audience, sales cycle, and seasonal rhythm. They all share the same marketing budget and the same compliance constraints.
+I'm the digital marketing manager at Evolve ETFs, reporting to the CMO. The team is lean: I share an intern with the rest of marketing and otherwise own the digital footprint myself. Website, social, paid, the rest of it.
 
-The day-to-day:
+Evolve runs 44 funds across thematic, fixed-income, and dividend strategies. They share a marketing budget and the same compliance constraints, but each fund has its own audience and seasonal rhythm.
 
-- Always-on campaigns for the core lineup. Reddit and Google Ads for direct response, LinkedIn for advisor audiences, Meta for brand reinforcement.
-- Seasonal pushes around fund launches, distribution announcements, and macro themes (rate decisions, sector rotations, market events).
-- Brand awareness work supporting recognition in a competitive ETF category.
-- Compliance review for every creative variant before launch.
+Three paid channels currently run always-on. The setup is the way a fund-marketing program usually works at this scale: campaign-level budgets with monthly caps, creative-freshness safeguards, weekly status, monthly re-anchoring.
 
-Most of the operational complexity isn't in the campaigns themselves. It's in the budget structure. Campaign-level budgets, CBO budgets, monthly accumulation caps, and an automated 45-day creative refresh safeguard so no campaign goes stale without somebody noticing.
-
-The thing that's hard to describe in a portfolio is the rhythm. Every Monday is a status check. Every Friday is a tweak. Every month is a renaming and re-anchoring pass. The work isn't a campaign; it's a system that runs continuously and gets corrected as it goes.
+AUM is up roughly half a billion since I joined two months ago. Most of that is market conditions and fund performance, not marketing. The digital programs are part of the engine that keeps the lineup visible to retail and advisor audiences while the rest happens.
