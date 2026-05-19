@@ -17,6 +17,13 @@ cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 order: 3
 accent: "#f47654"
+socials:
+  - type: linkedin
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7341874154352099330"
+    caption: "EP 08 short on LinkedIn"
+  - type: instagram
+    url: "https://www.instagram.com/reel/DQ6vx3kDZUX/"
+    caption: "EP 08 short on Instagram"
 ---
 
 Greybrook had real takes on what was happening in the market. They needed a format that could hold a longer conversation and a way to package it for people who weren't going to sit through thirty minutes of it.
@@ -43,3 +50,7 @@ What was hard:
 
 - Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
 - Beating the news cycle. The hardest operational piece was getting filming, editing, blog, email, shorts, and social posts across all five surfaces fast enough that the take didn't age out before it landed. A week is an eternity in market commentary. The version of an opinion that ships seven days late is a different opinion.
+
+---
+
+EP 08, "Investing With Geographic Perspective," is the example: [read the blog version](https://greybrook.com/boardroom-brief-ep-08-investing-with-geographic-perspective/), then watch the LinkedIn and Instagram cuts below — all pulled from the same long-form episode.
