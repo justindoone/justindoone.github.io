@@ -4,7 +4,7 @@ client: "Clifton Blake"
 role: "Marketing lead, with agency partner"
 date: "March to August 2024"
 year: 2024
-summary: "Property launch campaign for Cricket Park, one of the Roxborough developments. Instagram-anchored, with paid alongside. Showcased here because it's the one I ran end-to-end, from launch through to near-full occupancy."
+summary: "Property launch campaign for Cricket Park, one of the Roxborough developments. Instagram-anchored, with paid alongside. Pre-launch to 90%+ occupancy in six months."
 tags: ["Property marketing", "Social", "Paid media"]
 metrics:
   - value: "1.7M"
@@ -23,10 +23,8 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-Cricket Park is one of the Roxborough properties. Roxborough is Clifton Blake's residential property management arm: a portfolio of developments managed under one brand. The reason this is the case study and not one of the other Roxborough properties: it's the one I ran end-to-end, from pre-launch through to the 90%+ occupancy mark Roxborough properties typically hit within six months.
+I led marketing for Cricket Park from pre-launch through to 90%+ occupancy in six months. Cricket Park is one of the developments under Roxborough Communities, Clifton Blake's residential brand.
 
-The marketing setup followed the same playbook used across Roxborough's residential portfolio. Instagram as the anchor channel (organic), paid running alongside on Meta and the other surfaces. Same agency partner.
+The setup followed the playbook used across Roxborough's residential portfolio. Instagram as the anchor channel (organic), paid running alongside on Meta and the other surfaces, same agency partner on production.
 
-Budget was the middle band: not tight, not generous. We picked the channels that fit the audience and went deep there.
-
-The Instagram run did roughly 1.7M impressions across the campaign window.
+The Instagram run did roughly 1.7M impressions across the campaign window. Paid converted those into showings; the leasing team converted showings into signed leases. The property hit 90%+ occupancy six months from launch.

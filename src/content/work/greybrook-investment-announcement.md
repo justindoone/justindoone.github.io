@@ -30,6 +30,6 @@ For actual deal closings, the package was always the same shape:
 
 The $31.5M Markham investment in August 2025 was one example. The same shape applied to smaller and larger deals across the lineup.
 
-My piece of the work split along authoring lines. I helped draft and edit the press release and the LP email; in-house counsel had the final say on what shipped publicly. The LinkedIn posts and the blog versions I wrote myself, since both ran on owned channels and didn't have the same compliance posture as the wire release.
+My piece of the work split along authoring lines. I drafted and edited the press release and the LP email, then ran the cycle through in-house counsel for sign-off. The LinkedIn posts and the blog versions I wrote myself, since owned channels didn't carry the same compliance posture as the wire release.
 
-Because the structure didn't change release to release, internal review got faster every time. Most of the actual work wasn't writing the release. It was getting four pieces to ship on the same day with the same facts after legal had read all of them.
+Because the structure didn't change release to release, internal review got faster every cycle. The hardest part of the job was operational: getting four pieces to ship on the same day, all aligned to the same facts, after legal had read every word of every version.

@@ -38,7 +38,7 @@ The format settled into a regular rhythm:
 
 My role was producing and content strategy. We brought in a video agency to film and do the first long-form cut. I managed that engagement, then took over to write the blog companion, cut the shorts, and run the distribution on social.
 
-The series was measured on brand awareness, which in practice meant views and subscriber growth. Leads were a secondary metric, but attribution on brand-awareness video is the kind of thing nobody wins an argument about, so we kept the headline focus on the numbers we could actually count.
+The series was measured on brand awareness: views, subscriber growth on YouTube, engagement across the social cuts. Leads were a secondary metric.
 
 What worked:
 
@@ -49,7 +49,7 @@ What worked:
 What was hard:
 
 - Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
-- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, email, shorts, and social posts across all five surfaces fast enough that the take didn't age out before it landed. A week is an eternity in market commentary. The version of an opinion that ships seven days late is a different opinion.
+- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, email, shorts, and social posts shipped across all five surfaces fast enough that the take still mattered when it landed. A week-late version of a market take rarely earns the audience's attention twice.
 
 ---
 

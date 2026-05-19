@@ -23,10 +23,10 @@ minihotel is a Hong Kong boutique hotel. Small rooms, exceptional location. It w
 
 The rebrand wrapped up just before COVID. Then international travel collapsed.
 
-The pivot wasn't a second rebrand. We kept the new identity. It was a targeting strategy change: with foreign travel off the table, we positioned minihotel as a staycation property for locals. Hong Kong residents who couldn't travel but wanted the feeling of having gone somewhere. A short walk from where you actually live, but a different room than yours.
+We kept the new identity and pivoted the targeting strategy. With foreign travel off the table, we positioned minihotel as a staycation property for locals. Hong Kong residents who couldn't travel but wanted the feeling of having gone somewhere. A short walk from where you live, with a different room than yours.
 
 I handled both strategy and execution, working alongside the Director of Sales and the Director of Hotel Operations. The rebrand was the bigger strategy lift. The staycation pivot was the bigger execution lift, since everything had to ship under a constantly-shifting set of public-health restrictions.
 
-The brand survived the pandemic without a second rebrand. The staycation positioning carried the business through the period when international travel wasn't an option.
+The brand carried through the pandemic on the strength of the new identity. The staycation positioning kept the business running through the period when international travel wasn't an option.
 
 ![A piece of the staycation-era creative, with the brand's "much more than the size" tagline](/images/work/minihotel-hk-tagline.png)
