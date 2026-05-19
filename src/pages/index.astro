@@ -11,10 +11,12 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
 ---
 
 <BaseLayout>
-  <!-- HERO (dark, with personal intro) -->
+  <!-- HERO (layered: bg image + dark overlay + drifting orbs) -->
   <section class="dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
-    <div class="hero-orb" style="top: -15%; right: -10%;"></div>
-    <div class="hero-orb" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+    <div class="hero-bg-image" style="background-image: url('/images/hero-toronto.jpg');"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-orb hero-orb-a" style="top: -15%; right: -10%;"></div>
+    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
 
     <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
       <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>

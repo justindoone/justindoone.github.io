@@ -108,6 +108,34 @@ body {
   border-top-color: var(--color-rule-dark);
 }
 
+/* layered hero bg: image + dark overlay + drifting orbs */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  animation: ken-burns 36s ease-in-out infinite alternate;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 16, 26, 0.78) 0%,
+    rgba(14, 16, 26, 0.88) 55%,
+    rgba(14, 16, 26, 0.96) 100%
+  );
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1.5%, -1.5%); }
+}
+
 /* ambient accent orb for hero / CTA sections */
 .hero-orb {
   position: absolute;
@@ -124,7 +152,33 @@ body {
     var(--color-accent),
     transparent 60%
   );
-  z-index: 0;
+  z-index: 2;
+}
+
+.hero-orb-a {
+  animation: orb-drift-a 38s ease-in-out infinite alternate;
+}
+
+.hero-orb-b {
+  animation: orb-drift-b 30s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-a {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-6%, 8%); }
+}
+
+@keyframes orb-drift-b {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(8%, -6%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-image,
+  .hero-orb-a,
+  .hero-orb-b {
+    animation: none;
+  }
 }
 
 /* ========================================
