@@ -13,7 +13,7 @@ metrics:
     label: "Compensation model"
   - value: "NA"
     label: "Target market"
-cover: "/images/work/saturnbird-marketing-plan.png"
+cover: "/images/work/saturnbird-marketing-plan.jpg"
 featured: false
 order: 8
 accent: "#f47654"
