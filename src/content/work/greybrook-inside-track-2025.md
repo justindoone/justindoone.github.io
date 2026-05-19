@@ -1,40 +1,34 @@
 ---
 title: "Inside Track 2025"
 client: "Greybrook Realty Partners"
-role: "Content strategy and distribution"
+role: "Producer and content strategist"
 date: "October 2025"
 year: 2025
-summary: "Event content strategy for Greybrook's flagship investor event. The goal was to make the room last a quarter, not a day."
-tags: ["Content strategy", "Events", "Investor relations"]
+summary: "Greybrook's annual invite-only investor event. Around 400 in the room. Pre-event comms, day-of capture, multi-week post-event distribution."
+tags: ["Events", "Investor relations", "Content"]
 metrics:
+  - value: "400"
+    label: "Investors in the room"
   - value: "5"
-    label: "Channels"
-  - value: "12+"
-    label: "Content cuts"
-  - value: "3×"
-    label: "Engagement vs. last year"
+    label: "Distribution surfaces"
+  - value: "3"
+    label: "Content phases"
 cover: "/images/work/greybrook-inside-track-2025.jpg"
 featured: true
-order: 1
-accent: "#f47654"
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387201543516774401"
     caption: "Inside Track post on LinkedIn"
+order: 1
+accent: "#f47654"
 ---
 
-Inside Track is Greybrook's marquee investor event. One room, a few hours, an audience that doesn't gather again until the following year. The pattern before this round: months of prep, a strong day, and then most of the content was gone by Friday.
+Inside Track is Greybrook's annual invite-only event for investors. 2025 had around 400 in the room. I helped produce the event itself (setup, messaging, run-of-show) and ran the content strategy around it.
 
-The brief: get more out of the event than the event itself.
+The content program ran in three phases:
 
-We rebuilt the event as a content pipeline rather than a single broadcast. Every session got planned twice. Once for the room, once for the distribution arc that came after.
+- **Pre-event.** Save-the-date and reminder emails to the invite list, plus a teaser piece a couple weeks out.
+- **Day of.** I was managing the flow and capturing content as it happened. Panels, audience reactions, side conversations with guests and staff.
+- **Post-event.** Edited highlights from the panel, plus the interviews we recorded on the day. Distributed across email, blog, the site, LinkedIn, and Instagram for a few weeks after.
 
-Pre-event: speaker spotlights, agenda teasers, and short-form thesis posts seeded on LinkedIn and email.
-
-Day-of: real-time clips, quote cards, and behind-the-scenes shots designed for next-day publication.
-
-Post-event: long-form recaps, edited keynote cuts, and a downloadable summary positioned as the "if you missed it" artifact for the broader investor audience.
-
-The shift wasn't tactical. It was treating the event as the production engine and the calendar afterward as the actual product.
-
-The event ran cleaner because the content team's needs were in the run-of-show from week one. No scrambling for B-roll, no missed soundbites. The distribution arc generated triple the post-event engagement of the prior year, and shifted Greybrook's marketing rhythm from "one big day" to a recurring content cadence.
+It wasn't measured externally, since it was a private event for LPs. The win was making the room last past the day.
