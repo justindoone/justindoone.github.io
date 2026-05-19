@@ -1,44 +1,38 @@
 ---
-title: "Website Redesign"
+title: "Clifton Blake Website"
 client: "Clifton Blake"
-role: "Digital strategy and UX lead"
+role: "Strategy lead and agency management"
 date: "September 2024"
 year: 2024
-summary: "Full redesign of Clifton Blake's site. Repositioned the firm from a project showcase into a credibility platform for institutional capital."
-tags: ["Web", "UX", "Brand"]
+summary: "Refresh of Clifton Blake's corporate site. The old design was from the firm's launch era; the new site had to match where the company had actually grown to."
+tags: ["Web", "Strategy", "Brand"]
 metrics:
-  - value: "10×"
-    label: "Organic traffic"
-  - value: "3.2×"
-    label: "Session duration"
-  - value: "65%"
-    label: "Bounce rate drop"
+  - value: "4"
+    label: "Audience tracks"
+  - value: "Cross-stakeholder"
+    label: "Approval process"
+  - value: "Corporate"
+    label: "Scope (not sub-brands)"
 cover: "/images/work/clifton-blake-website.jpg"
 featured: true
-order: 4
-accent: "#f47654"
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"
     caption: "Clifton Blake on LinkedIn"
+order: 4
+accent: "#f47654"
 ---
 
-Clifton Blake's old site told you what the firm had built. It didn't tell you why an institutional investor should trust them with capital. Those are two different jobs. The second is the one that actually matters for an LP sizing up a manager.
+Clifton Blake's corporate site hadn't been refreshed since the firm launched. The look, the structure, the copy — all of it was from a younger version of the company. The audience had matured well past what the original site was built to serve.
 
-The work started with audit, not aesthetics. I sat down with the leadership team, the IR team, and a sample of recent investors and walked through:
+I helped lead the strategy and managed the agency that built it. A lot of the actual work was getting stakeholder buy-in across leadership, IR, and the sales side on what the site needed to communicate to which audience.
 
-- What questions came up most often in pitch meetings?
-- What did the firm spend the most time explaining after the deck?
-- Where did prospects go quiet and we lose momentum?
+The audience map landed at:
 
-The new site became the answer to those questions, in the order people actually asked them. Information architecture before visuals. Visuals before copy. Copy before final design.
+- **Institutional capital**, the primary read
+- **Retail and HNW investors**, secondary, with their own paths through the site
+- **Advisors** working with clients in the firm's products
 
-Structural shifts:
+The site wasn't built for tenants or property-side audiences. Clifton Blake has separate brands and sites for those.
 
-- Track record up front. Institutional readers want evidence before philosophy.
-- Process before product. How the firm sources, underwrites, and executes.
-- Quiet design. Sparse layouts that earned trust through restraint rather than motion.
-
-Organic traffic grew an order of magnitude in the first six months. Some of that was the site finally being indexable; some was the content actually answering the search queries that mattered. Bounce rate dropped sharply, average session time more than tripled, and the IR team started routing prospects to specific pages of the site as part of their normal sales flow.
-
-The first week was with the sales team, not the design team. That part matters. The site exists to remove friction from a conversation that's already happening, and the people in that conversation know exactly where the friction lives.
+The bigger lift wasn't visual. It was getting the firm to align on what it wanted to say about itself in 2024 versus what it had been comfortable saying when it launched.
