@@ -19,11 +19,11 @@ order: 3
 accent: "#f47654"
 socials:
   - type: linkedin
-    url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7341874154352099330"
-    caption: "EP 08 short on LinkedIn"
+    url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7381667213767979008"
+    caption: "EP 09 short on LinkedIn"
   - type: instagram
-    url: "https://www.instagram.com/reel/DQ6vx3kDZUX/"
-    caption: "EP 08 short on Instagram"
+    url: "https://www.instagram.com/reel/DQJtzSTCVXl/"
+    caption: "EP 09 short on Instagram"
 ---
 
 Greybrook had real takes on what was happening in the market. They needed a format that could hold a longer conversation and a way to package it for people who weren't going to sit through thirty minutes of it.
@@ -53,4 +53,4 @@ What was hard:
 
 ---
 
-EP 08, "Investing With Geographic Perspective," is the example: [read the blog version](https://greybrook.com/boardroom-brief-ep-08-investing-with-geographic-perspective/), then watch the LinkedIn and Instagram cuts below — all pulled from the same long-form episode.
+EP 09, "How Federal Action Could Change Canada's Housing Game," is the example: [read the blog version](https://greybrook.com/boardroom-brief-ep-09/), then watch the LinkedIn and Instagram cuts below. All three pulled from the same long-form episode.
