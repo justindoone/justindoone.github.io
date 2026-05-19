@@ -1,32 +1,28 @@
 ---
-title: "International Expansion Plan"
+title: "Saturnbird North American Expansion"
 client: "Saturnbird"
-role: "Strategy consultant"
+role: "Freelance, performance-based"
 date: "October 2024"
 year: 2024
-summary: "Market-entry plan for a consumer brand expanding into North America. Designed to validate fit cheaply before committing the heavy spend."
+summary: "Market-entry strategy for an instant coffee brand looking at North America. Deal was performance-based — I built the plan, they ran it, payout tied to NA sales."
 tags: ["Strategy", "Market entry", "Consumer"]
+metrics:
+  - value: "Freelance"
+    label: "Engagement type"
+  - value: "Performance"
+    label: "Compensation model"
+  - value: "NA"
+    label: "Target market"
 cover: "/images/work/saturnbird-marketing-plan.png"
 featured: false
 order: 8
 accent: "#f47654"
 ---
 
-Saturnbird had product-market fit at home and a strong intuition that the same proposition would resonate in North America. They had no proof of it yet, and a budget that would only stretch far enough to be wrong once.
+Saturnbird is an instant coffee brand. They were looking at North American expansion and brought me in on freelance terms to develop the market-entry plan. They'd handle implementation themselves. Payout was tied to NA sales.
 
-The plan ran in two phases with a hard checkpoint between them.
+Performance-based engagements are rare in marketing consulting, mostly because consultants don't usually want their pay tied to something they don't control. It changes how you write a plan. You stop optimizing for what's interesting and start optimizing for what's going to actually move a number you'll never personally touch.
 
-Phase one, validate:
+The plan covered positioning for the NA market, channel sequencing, rough budget allocation, and a defined go/no-go checkpoint between an early validation phase and a heavier commit. The validation phase was designed so that if the test failed, we'd know which assumption was wrong, not just that the campaign hadn't worked.
 
-- Tightly geo-targeted paid social in two metro markets
-- One landing page, three creative directions, identical CTAs
-- A clear written definition of "this worked" set before the buy went live
-
-Phase two, commit (conditional):
-
-- Predefined creative and channel mix triggered only if Phase 1 hit specific thresholds
-- A defined "redirect the budget" path with equal weight. This is usually the missing half of expansion plans.
-
-The work that mattered most wasn't the campaign design. It was getting the leadership team to agree, in advance and in writing, on what "the test failed" would mean. That clarity is what turns a marketing budget into a decision instead of an opinion.
-
-What got delivered: a clean go/no-go framework, three creative directions ready to run, and a leadership team aligned on what success and failure would each look like before any money was spent.
+I haven't tracked the implementation, so I can't claim outcomes here.
