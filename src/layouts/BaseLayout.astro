@@ -24,7 +24,7 @@ const canonical = new URL(pathname, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0){document.documentElement.classList.add('nav-on-dark');}})();`}</script>
+    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0||p.indexOf('/about')===0){document.documentElement.classList.add('nav-on-dark');}})();`}</script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -196,7 +196,7 @@ const canonical = new URL(pathname, Astro.site).toString();
       function setupNavContext() {
         const probeY = 40;
         const darkSections = Array.from(
-          document.querySelectorAll('.dark-section')
+          document.querySelectorAll('.dark-section, .case-hero')
         );
 
         function update() {
@@ -233,7 +233,10 @@ const canonical = new URL(pathname, Astro.site).toString();
       document.addEventListener('astro:before-preparation', (event) => {
         try {
           const path = new URL(event.to).pathname;
-          const startsDark = path === '/' || path.indexOf('/work/') === 0;
+          const startsDark =
+            path === '/' ||
+            path.indexOf('/work/') === 0 ||
+            path.indexOf('/about') === 0;
           document.documentElement.classList.toggle('nav-on-dark', startsDark);
           document.documentElement.classList.remove('is-scrolled');
         } catch (e) {}

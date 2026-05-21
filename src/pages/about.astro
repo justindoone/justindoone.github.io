@@ -4,52 +4,80 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="About - Justin Doone"
-  description="Digital marketing manager at Evolve ETFs. Past work at Greybrook Realty Partners and Clifton Blake, with consulting for consumer brands."
+  description="Marketing manager at Evolve ETFs. Started in hospitality marketing in Hong Kong; built through Greybrook Realty Partners and Clifton Blake before landing in ETFs."
 >
-  <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-20 md:pt-32 pb-16">
-    <img
-      src="/images/profile.jpg"
-      alt="Justin Doone"
-      width="200"
-      height="200"
-      class="hero-line w-36 h-36 md:w-44 md:h-44 rounded-full object-cover mb-10 ring-1 ring-rule"
-      data-line="0"
-    />
-    <p class="hero-line eyebrow mb-8" data-line="0">About</p>
-    <h1 class="hero-line heading-display text-5xl md:text-7xl text-ink mb-10 leading-[0.95]" data-line="1">
-      I do marketing for firms with something complicated to sell.
-    </h1>
-    <p class="hero-line text-xl text-ink-soft leading-relaxed mb-6" data-line="2">
-      Toronto-based. Currently running digital marketing at Evolve ETFs.
-    </p>
-    <p class="hero-line text-lg text-ink-soft leading-relaxed" data-line="3">
-      Before Evolve: <strong class="text-ink font-medium">Greybrook Realty Partners</strong> and <strong class="text-ink font-medium">Clifton Blake</strong>. Consumer brand consulting alongside.
-    </p>
-    <p class="hero-line text-lg text-ink-soft leading-relaxed mt-6" data-line="4">
-      The average day is split between writing copy, working through compliance edits, and arguing with a chart that says something I don't believe. The actual job lives across that whole spectrum, not just at the strategy meeting.
-    </p>
-  </section>
+  <!-- HERO (dark) -->
+  <section class="dark-section relative pt-24 md:pt-36 pb-12 md:pb-16">
+    <div class="hero-orb hero-orb-a" style="top: -10%; right: -15%;"></div>
+    <div
+      class="hero-orb hero-orb-b"
+      style="bottom: -25%; left: 0%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"
+    ></div>
 
-  <!-- HOW I WORK -->
-  <section class="mx-auto max-w-4xl px-6 lg:px-12 py-16 rule-top" data-reveal>
-    <p class="eyebrow mb-8">How I work</p>
-    <div class="space-y-8 text-ink-soft leading-relaxed text-lg">
-      <p data-reveal data-reveal-delay="1">
-        I do the analytics part myself. SQL, dashboards, the meeting where someone argues their channel deserves more credit. Used to be a separate function in most marketing teams; on a lean one it's the same person. The strategy is sharper when I can see what the data is doing, and harder to lie to.
+    <div class="relative z-10 mx-auto max-w-4xl px-6 lg:px-12">
+      <img
+        src="/images/profile.jpg"
+        alt="Justin Doone"
+        width="200"
+        height="200"
+        class="hero-line w-36 h-36 md:w-44 md:h-44 rounded-full object-cover mb-10 ring-1 ring-on-dark-mute"
+        data-line="0"
+      />
+      <p class="hero-line eyebrow mb-8" data-line="0">About</p>
+      <h1
+        class="hero-line heading-display text-5xl md:text-7xl mb-10 leading-[0.95]"
+        data-line="1"
+        style="color: var(--color-on-dark);"
+      >
+        The job has gotten more <em style="color: var(--color-accent); font-style: italic;">technical</em> every year I've done it.
+      </h1>
+      <p
+        class="hero-line text-xl leading-relaxed mb-6"
+        data-line="2"
+        style="color: var(--color-on-dark);"
+      >
+        I came up in hospitality marketing in Hong Kong, working at a boutique hotel through a rebrand and the staycation pivot that followed it. Real estate marketing at Greybrook and Clifton Blake came next. ETF marketing at Evolve, where I run digital end-to-end for a 44-fund lineup, is the most technical version of the work I've done so far.
       </p>
-      <p data-reveal data-reveal-delay="2">
-        I work mostly in financial services and other regulated rooms. That's trained me to write to the compliance line, not over it. The difference between launching this quarter and launching next is usually one careful first draft.
+      <p
+        class="hero-line text-lg leading-relaxed"
+        data-line="3"
+        style="color: var(--color-on-dark-soft);"
+      >
+        Each step has required more analytics and more in-house tooling than the last.
       </p>
     </div>
   </section>
 
+  <!-- HOW I WORK (dark, continued) -->
+  <section class="dark-section relative py-16 md:py-20" data-reveal>
+    <div
+      class="relative z-10 mx-auto max-w-4xl px-6 lg:px-12 rule-top pt-16"
+    >
+      <p class="eyebrow mb-8">How I work</p>
+      <div
+        class="space-y-8 leading-relaxed text-lg"
+        style="color: var(--color-on-dark-soft);"
+      >
+        <p data-reveal data-reveal-delay="1">
+          I do the analytics part myself. SQL, dashboards, the meeting where someone argues their channel deserves more credit. Used to be a separate function in most marketing teams; on a lean one it's the same person. The strategy is sharper when I can see what the data is doing, and harder to lie to.
+        </p>
+        <p data-reveal data-reveal-delay="2">
+          I work mostly in financial services and other regulated rooms. That's trained me to write to the compliance line, not over it. The difference between launching this quarter and launching next is usually one careful first draft.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA (dark) -->
-  <section class="dark-section relative py-24 md:py-32 mt-20" data-reveal>
+  <section class="dark-section relative py-24 md:py-32" data-reveal>
     <div class="hero-orb" style="top: 0%; right: -10%; opacity: 0.3;"></div>
     <div class="relative z-10 mx-auto max-w-4xl px-6 lg:px-12">
       <p class="eyebrow mb-6">Get in touch</p>
-      <h2 class="heading-display text-4xl md:text-5xl mb-8" style="color: var(--color-on-dark);">
-        If you have something complicated to sell, I can probably help.
+      <h2
+        class="heading-display text-4xl md:text-5xl mb-8"
+        style="color: var(--color-on-dark);"
+      >
+        Tell me what you're trying to ship.
       </h2>
       <a
         href="mailto:justindoone@gmail.com"
