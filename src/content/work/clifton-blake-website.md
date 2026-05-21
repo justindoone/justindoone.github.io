@@ -23,9 +23,9 @@ order: 4
 accent: "#f47654"
 ---
 
-Clifton Blake's corporate site hadn't been refreshed since the firm launched. Look, structure, and copy were all from a younger version of the company, and the audience had matured well past what the original site was built to serve.
+Clifton Blake's corporate site hadn't been refreshed since the firm launched. The look, the IA, the copy: all of it was from a younger version of the company that had since outgrown what the original site was built to serve.
 
-I led the strategy and managed the agency that built it. A lot of the actual work was getting stakeholder buy-in across leadership, IR, and the sales side on what the site needed to communicate to which audience.
+I led the strategy and managed the agency that built it. Most of the actual work was political: getting leadership, IR, and the sales side aligned on what the new site needed to say, and to whom.
 
 The audience map landed at:
 
@@ -35,4 +35,4 @@ The audience map landed at:
 
 The site wasn't built for tenants or property-side audiences. Clifton Blake has separate brands and sites for those.
 
-The visual refresh was the smaller half of the project. The real lift was aligning the firm on what it wanted to say about itself in 2024 versus what it had been comfortable saying at launch.
+The visual refresh was the smaller piece. The harder work was getting the firm to agree on what it wanted to say about itself in 2024, versus what it had been comfortable saying at launch.

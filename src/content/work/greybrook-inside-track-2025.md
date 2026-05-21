@@ -23,12 +23,12 @@ order: 1
 accent: "#f47654"
 ---
 
-Inside Track is Greybrook's annual invite-only event for investors. 2025 had around 400 in the room. I produced the event itself (setup, messaging, run-of-show) and ran the content strategy around it.
+Inside Track is Greybrook's annual invite-only event for investors. 2025 had around 400 in the room. I produced the event (setup, messaging, run-of-show) and built the content program around it.
 
 The content program ran in three phases:
 
 - **Pre-event.** Save-the-date and reminder emails to the invite list, plus a teaser piece a couple weeks out.
-- **Day of.** Running the flow and capturing content as it happened. Panels, audience reactions, side conversations with guests and staff.
+- **Day of.** Managing the flow and capturing content as it happened. Panels, audience reactions, side conversations with guests and staff.
 - **Post-event.** Edited highlights from the panel, plus the interviews we recorded on the day. Distributed across email, blog, the site, LinkedIn, and Instagram for several weeks after.
 
-The room landed. The post-event program kept the conversation running across Greybrook's owned channels for weeks afterward, with material pulled directly from the day rather than retrofitted from a press release.
+The room landed on the day. The harder work was after: pulling material from the event and pushing it across five surfaces over the next few weeks. Most of the content ran in the two weeks following.

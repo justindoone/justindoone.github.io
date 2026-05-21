@@ -23,8 +23,8 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-I led marketing for Cricket Park from pre-launch through to 90%+ occupancy in six months. Cricket Park is one of the developments under Roxborough Communities, Clifton Blake's residential brand.
+Cricket Park's one of the buildings in Clifton Blake's residential portfolio (Roxborough is the brand). I ran the launch marketing on it specifically, pre-launch through to about 90% occupied. Six months end to end.
 
-The setup followed the playbook used across Roxborough's residential portfolio. Instagram as the anchor channel (organic), paid running alongside on Meta and the other surfaces, same agency partner on production.
+Setup followed the same playbook the other Roxborough properties used. Organic Instagram as the anchor. Paid on Meta around it. Same production agency we'd used on the rest of the portfolio.
 
-The Instagram run did roughly 1.7M impressions across the campaign window. Paid converted those into showings; the leasing team converted showings into signed leases. The property hit 90%+ occupancy six months from launch.
+Instagram pulled roughly 1.7M impressions over the run. Paid drove people to in-person showings. Leasing took it from there.

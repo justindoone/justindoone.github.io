@@ -19,8 +19,8 @@ order: 8
 accent: "#f47654"
 ---
 
-Saturnbird is an instant coffee brand. They were looking at North American expansion and brought me in on freelance terms to build the market-entry plan. The deal was performance-based, with payout tied to NA sales.
+Saturnbird sells instant coffee. They were looking at North American expansion and brought me in to build the market-entry plan. Freelance engagement, performance-based, with payout tied to NA sales.
 
-Performance-based engagements are rare in marketing consulting because consultants don't usually want their pay tied to something they don't control. Taking the deal changed how the plan got written. You stop optimizing for what's interesting and start optimizing for what's going to move a number you'll never personally touch.
+Performance-based is rare in this kind of consulting. Most consultants don't want their pay tied to a number the client controls. Taking the deal changed how the plan got written; you write for what moves the number, even when that's less interesting than the strategy version.
 
-The plan covered positioning for the NA market, channel sequencing, rough budget allocation, and a defined go/no-go checkpoint between an early validation phase and a heavier commit. The validation phase was designed to surface which assumption broke if the early test failed, so the second phase wouldn't repeat it.
+The plan covered positioning for the NA market, channel sequencing, rough budget allocation, and a go/no-go gate between the validation phase and the heavier spend. The validation phase was designed to isolate which assumption was wrong if the test failed, so the second phase wouldn't repeat the same mistake.

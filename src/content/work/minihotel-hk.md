@@ -19,14 +19,14 @@ order: 9
 accent: "#f47654"
 ---
 
-minihotel is a Hong Kong boutique hotel. Small rooms, exceptional location. It was one of several hotels owned by the same group, and I was stationed at minihotel specifically when they decided it was time for the brand to grow up.
+minihotel is a Hong Kong boutique. Small rooms, very good location. It was one of several hotels in the same group, and I was stationed at minihotel specifically when the group decided it was time for the brand to grow up.
 
-The rebrand wrapped up just before COVID. Then international travel collapsed.
+The rebrand wrapped just before COVID. Then international travel collapsed.
 
-We kept the new identity and pivoted the targeting strategy. With foreign travel off the table, we positioned minihotel as a staycation property for locals. Hong Kong residents who couldn't travel but wanted the feeling of having gone somewhere. A short walk from where you live, with a different room than yours.
+We kept the new identity and changed who we were selling to. With foreign travel off the table, the targeting shifted to locals. Hong Kong residents who couldn't travel but wanted a different room than the one in their apartment.
 
-I handled both strategy and execution, working alongside the Director of Sales and the Director of Hotel Operations. The rebrand was the bigger strategy lift. The staycation pivot was the bigger execution lift, since everything had to ship under a constantly-shifting set of public-health restrictions.
+Strategy and execution were both mine, working with the Director of Sales and the Director of Hotel Operations. The rebrand was the heavier strategy work; the staycation pivot was the heavier execution work, because everything had to ship under constantly-shifting public-health restrictions.
 
-The brand carried through the pandemic on the strength of the new identity. The staycation positioning kept the business running through the period when international travel wasn't an option.
+The new identity carried the brand through the pandemic. The staycation positioning is what kept revenue coming in while international travel was off the table.
 
 ![A piece of the staycation-era creative, with the brand's "much more than the size" tagline](/images/work/minihotel-hk-tagline.png)

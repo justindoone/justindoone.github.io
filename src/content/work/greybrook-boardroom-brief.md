@@ -26,30 +26,30 @@ socials:
     caption: "EP 09 short on Instagram"
 ---
 
-Greybrook had real takes on what was happening in the market. They needed a format that could hold a longer conversation and a way to package it for people who weren't going to sit through thirty minutes of it.
+Greybrook had real takes on the market and needed a format that could hold a longer conversation, plus a way to package it for the audience that wouldn't sit through thirty minutes cold.
 
-I built the format and ran it. Each episode runs about thirty minutes, hosted on YouTube and on Greybrook's own site with a companion blog post for each one. From every long-form recording I cut shorter clips for LinkedIn and Instagram, where most of the audience actually lived.
+I built the format and ran it. Episodes ran about thirty minutes, hosted on YouTube and Greybrook's site, with a companion blog post for each one. Off every long-form recording I cut shorter clips for LinkedIn and Instagram, since most of the audience actually lived there.
 
-The format settled into a regular rhythm:
+The format settled into a rhythm:
 
-- Same host paired with the CEO, with occasional guests
-- Each episode anchored on what was happening in the market that month, with Greybrook's own positioning showing up where it was relevant
-- Recorded monthly, edited and distributed across five surfaces (email, blog, YouTube, LinkedIn, IG) over the following two weeks
+- Same host paired with the CEO, occasional guests
+- Each episode anchored on what was happening in the market that month, with Greybrook's positioning showing up where it was relevant
+- Recorded monthly, edited and shipped across five surfaces (email, blog, YouTube, LinkedIn, IG) over the following two weeks
 
-The format, the editorial direction, and the distribution playbook were mine. We brought in a video agency to film and produce the first long-form cut, which I managed. The blog companion, the social cuts, and the cross-surface distribution were my work.
+Format, editorial direction, and distribution playbook were mine. We brought in a video agency to film and produce the first long-form cut, which I managed. The blog companion, the social cuts, and the distribution I handled myself.
 
-The series was measured on brand awareness: views, subscriber growth on YouTube, engagement across the social cuts. Leads were a secondary metric.
+The series was measured on brand awareness: views, subscriber growth on YouTube, engagement on the social cuts. Leads sat as a secondary metric.
 
 What worked:
 
-- **Same host + CEO every episode.** The familiarity built audience expectation. New viewers didn't have to figure out who was talking before they figured out what was being said.
-- **The blog companion + email blast.** Each episode got a written post that summarized the conversation. That post was the landing page for the email blast we sent the day of release. Readers got the news in their inbox, clicked through to the blog, and watched the video from there. SEO traffic showed up later on the long tail.
-- **Shorts as the entry point.** Nobody on LinkedIn or IG commits to thirty minutes cold. The shorts did the introducing; the long-form did the depth.
+- **Same host + CEO every episode.** Built audience expectation. Viewers didn't have to figure out who was talking each time.
+- **Blog companion + email blast.** Each episode got a written post that summarized the conversation. That post was the landing page for the email blast we sent on release day. SEO traffic showed up later on the long tail.
+- **Shorts as the entry point.** Nobody on LinkedIn or IG commits to a thirty-minute video cold. The shorts pulled people in, the long-form did the depth.
 
 What was hard:
 
-- Coordinating a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the topic for that month wasn't quite there yet.
-- Beating the news cycle. The hardest operational piece was getting filming, editing, blog, email, shorts, and social posts shipped across all five surfaces fast enough that the take still mattered when it landed. A week-late version of a market take rarely earns the audience's attention twice.
+- Booking a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the month's topic wasn't quite there yet.
+- Outrunning the news cycle. Filming, editing, blog, email, shorts, social: all five surfaces had to ship fast enough for the take to still be the take when it landed. We typically had a week to do all of it.
 
 ---
 
