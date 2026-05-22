@@ -14,17 +14,18 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-const all = (await getCollection('work')).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const all = (await getCollection('work'))
+  .filter((e) => !e.data.hidden)
+  .sort((a, b) => a.data.order - b.data.order);
 const idx = all.findIndex((e) => e.id === entry.id);
-const next = all[(idx + 1) % all.length];
+const next = all.length > 0 ? all[((idx === -1 ? 0 : idx + 1) % all.length)] : null;
 const num = String(entry.data.order).padStart(2, '0');
 ---
 
 <BaseLayout
   title={`${entry.data.title} - Justin Doone`}
   description={entry.data.summary}
+  noindex={entry.data.hidden}
 >
   <article>
     <!-- HERO (dark only — cover image renders below the meta strip) -->
@@ -107,18 +108,33 @@ const num = String(entry.data.order).padStart(2, '0');
     {
       entry.data.metrics && entry.data.metrics.length > 0 && (
         <section class="mx-auto max-w-4xl px-6 lg:px-12 pb-12" data-reveal>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-y-8 rule-top pt-10">
-            {entry.data.metrics.map((m, i) => (
-              <div data-reveal data-reveal-delay={i + 1}>
-                <p
-                  class="heading-display text-5xl md:text-6xl mb-2 text-accent"
-                  data-animate-value={m.value}
-                >
-                  {m.value}
-                </p>
-                <p class="eyebrow">{m.label}</p>
-              </div>
-            ))}
+          <div
+            class:list={[
+              'gap-y-8 rule-top pt-10 grid',
+              entry.data.metrics.length === 2
+                ? 'grid-cols-1 sm:grid-cols-2'
+                : 'grid-cols-2 md:grid-cols-3',
+            ]}
+          >
+            {entry.data.metrics.map((m, i) => {
+              const isNumeric = /^[\d.$+%-]/.test(m.value);
+              return (
+                <div data-reveal data-reveal-delay={i + 1}>
+                  <p
+                    class:list={[
+                      'heading-display mb-2 text-accent',
+                      isNumeric
+                        ? 'text-5xl md:text-6xl'
+                        : 'text-3xl md:text-4xl',
+                    ]}
+                    data-animate-value={m.value}
+                  >
+                    {m.value}
+                  </p>
+                  <p class="eyebrow">{m.label}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
       )
@@ -192,6 +208,7 @@ const num = String(entry.data.order).padStart(2, '0');
     }
 
     <!-- NEXT -->
+    {next && (
     <section class="mx-auto max-w-4xl px-6 lg:px-12 py-16 rule-top" data-reveal>
       <p class="eyebrow mb-4">Next case study</p>
       <a
@@ -213,5 +230,6 @@ const num = String(entry.data.order).padStart(2, '0');
         </h2>
       </a>
     </section>
+    )}
   </article>
 </BaseLayout>

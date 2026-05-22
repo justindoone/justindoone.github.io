@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WorkCard from '../../components/WorkCard.astro';
 
-const entries = (await getCollection('work')).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const entries = (await getCollection('work'))
+  .filter((e) => !e.data.hidden)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout

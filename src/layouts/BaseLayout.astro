@@ -8,12 +8,14 @@ interface Props {
   title?: string;
   description?: string;
   pathname?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'Justin Doone - Marketing Strategist',
   description = 'Marketing strategist working with investment firms and complex B2B teams. Based in Toronto.',
   pathname = Astro.url.pathname,
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(pathname, Astro.site).toString();
@@ -29,6 +31,7 @@ const canonical = new URL(pathname, Astro.site).toString();
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
