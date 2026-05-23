@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/roxborough-communities.jpg"
 featured: false
 order: 8
-accent: "#112337"
+accent: "#606060"
 accentSecondary: "#D6B57D"
 ---
 
