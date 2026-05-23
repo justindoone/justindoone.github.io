@@ -293,17 +293,17 @@ body {
   z-index: 40;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  color: var(--color-ink);
+  color: var(--color-on-dark);
   transition: background-color 0.4s ease, backdrop-filter 0.4s ease,
     -webkit-backdrop-filter 0.4s ease, border-color 0.4s ease,
     color 0.4s ease;
 }
 
 html.is-scrolled .site-nav {
-  background-color: rgba(244, 237, 225, 0.7);
+  background-color: rgba(20, 22, 26, 0.7);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border-bottom-color: rgba(26, 26, 26, 0.06);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 html.nav-on-dark .site-nav {
@@ -335,7 +335,7 @@ html.is-scrolled.nav-on-dark .site-nav {
   background-size: contain;
   background-position: left center;
   background-repeat: no-repeat;
-  filter: invert(1);
+  filter: invert(0);
   transition: filter 0.5s ease;
   pointer-events: none;
 }
@@ -348,11 +348,11 @@ html.nav-on-dark .nav-logo {
   display: inline-block;
   padding: 0.5rem 1.15rem;
   border-radius: 9999px;
-  border: 1px solid rgba(26, 26, 26, 0.18);
+  border: 1px solid rgba(240, 235, 225, 0.28);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.01em;
-  color: var(--color-ink-soft);
+  color: var(--color-on-dark);
   white-space: nowrap;
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
@@ -365,8 +365,8 @@ html.nav-on-dark .nav-logo {
 }
 
 .nav-button.is-active {
-  color: var(--color-ink);
-  border-color: rgba(26, 26, 26, 0.5);
+  color: var(--color-on-dark);
+  border-color: rgba(240, 235, 225, 0.6);
 }
 
 html.nav-on-dark .nav-button {
