@@ -6,11 +6,6 @@ date: "2026"
 year: 2026
 summary: "Reddit takeover for BANK, Evolve's Canadian banks and lifecos enhanced yield index fund. Four creative units sequenced across feed placements on the Canadian investing communities."
 tags: ["Paid media", "Reddit", "Financial services"]
-metrics:
-  - value: "4"
-    label: "Creative units"
-  - value: "BANK"
-    label: "Featured ETF"
 cover: "/images/work/evolve-reddit-bank/1.png"
 featured: true
 order: 1

@@ -11,8 +11,6 @@ metrics:
     label: "Per-property occupancy"
   - value: "6 months"
     label: "From launch to that"
-  - value: "Multi-property"
-    label: "Brand portfolio"
 cover: "/images/work/roxborough-communities.jpg"
 featured: false
 order: 8

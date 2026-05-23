@@ -11,9 +11,6 @@ metrics:
     label: "Ad platforms unified"
   - value: "5+"
     label: "Tools in stack"
-  - value: "1 AI sub"
-    label: "Replacing SaaS lineup"
-cover: "/images/work/evolve-logo-cover.svg"
 featured: true
 order: 0
 accent: "#1B3D6E"

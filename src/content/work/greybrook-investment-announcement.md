@@ -9,8 +9,6 @@ tags: ["Investor relations", "Compliance", "PR"]
 metrics:
   - value: "4"
     label: "Pieces per release"
-  - value: "PR Newswire"
-    label: "Wire service"
   - value: "$31.5M"
     label: "Example deal size"
 cover: "/images/work/greybrook-investment-announcement.jpg"

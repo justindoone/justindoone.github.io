@@ -6,13 +6,6 @@ date: "October 2024"
 year: 2024
 summary: "Market-entry strategy for an instant coffee brand entering North America. Performance-based engagement, payout tied to NA sales. I built the plan, they ran it."
 tags: ["Strategy", "Market entry", "Consumer"]
-metrics:
-  - value: "Freelance"
-    label: "Engagement type"
-  - value: "Performance"
-    label: "Compensation model"
-  - value: "NA"
-    label: "Target market"
 cover: "/images/work/saturnbird-marketing-plan.jpg"
 featured: false
 hidden: true
