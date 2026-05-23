@@ -1,5 +1,5 @@
 ---
-title: "Evergreen Content Play"
+title: "Evolve Content Strategy"
 client: "Evolve ETFs"
 role: "Content strategy lead"
 date: "2026, ongoing"
