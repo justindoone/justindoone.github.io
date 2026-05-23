@@ -11,6 +11,7 @@ metrics:
     label: "Audit channels"
   - value: "3"
     label: "Strategic objectives"
+cardCover: "/images/work/greybrook-logo-cover.svg"
 featured: true
 order: 3
 accent: "#232323"

@@ -10,6 +10,7 @@ interface Props {
   accent?: string;
   accentSecondary?: string;
   cover?: string;
+  cardCover?: string;
   index: number;
 }
 
@@ -24,8 +25,11 @@ const {
   accent = '#f47654',
   accentSecondary,
   cover,
+  cardCover,
   index,
 } = Astro.props;
+
+const displayCover = cardCover ?? cover;
 
 const num = String(index + 1).padStart(2, '0');
 ---
@@ -42,9 +46,9 @@ const num = String(index + 1).padStart(2, '0');
     <div class="md:col-span-3 relative">
       <div class="aspect-[4/3] overflow-hidden rounded-sm bg-paper-soft">
         {
-          cover ? (
+          displayCover ? (
             <img
-              src={cover}
+              src={displayCover}
               alt={title}
               loading="lazy"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
