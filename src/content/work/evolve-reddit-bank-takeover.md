@@ -34,7 +34,7 @@ Four creative units, each doing a different job in the sequence:
 
 ![Performance creative with 13.31% trailing yield and annualized returns](/images/work/evolve-reddit-bank/03-performance.png)
 
-**4. Holdings.** Big Six banks and four lifecos named directly. Composition is the proof point on an index fund — investors want to see the underlying names, not a category description.
+**4. Holdings.** Big Six banks and four lifecos named directly. Composition is the proof point on an index fund. Investors want to see the underlying names.
 
 ![Holdings creative naming the Big Six banks and four lifecos](/images/work/evolve-reddit-bank/04-holdings.png)
 

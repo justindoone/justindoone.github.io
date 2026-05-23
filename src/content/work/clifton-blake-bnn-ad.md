@@ -4,7 +4,7 @@ client: "Clifton Blake"
 role: "Campaign lead"
 date: "October 2024"
 year: 2024
-summary: "Three-month paid push for Clifton Blake's Mortgage Fund, timed for RRSP season. BNN Bloomberg was the hero buy; Meta, Google, and LinkedIn ran alongside."
+summary: "Three-month paid push for Clifton Blake's Mortgage Fund, timed for RRSP season. BNN Bloomberg was the hero buy. Meta, Google, and LinkedIn ran alongside."
 tags: ["Paid media", "Broadcast", "Financial services"]
 metrics:
   - value: "4"
@@ -28,6 +28,6 @@ The Mortgage Fund needed a push leading into RRSP season. We ran a three-month c
 
 BNN was the hero placement, a buy that ran in specific time slots across a six-to-eight-week window. The other three channels ran the full campaign. I led the work with the SVP of Investor Relations.
 
-The video was a previously produced spot, lightly retouched by BNN's production team for broadcast format. The original footage came from an earlier campaign I'd contracted with the same agency, so reusing it meant no production cost on this one.
+The video itself was a previously produced spot, lightly retouched by BNN's production team for broadcast format. The original footage came from an earlier campaign I'd contracted with the same agency, so reusing it meant no production cost on this one. That part of the math was what got the BNN buy approved.
 
-BNN ran for credibility. The other three channels handled conversion.
+BNN's job in the mix was credibility. Mortgage Fund prospects checking out the firm wanted to see it covered in places they already trusted, and BNN sits in the slot a fund's institutional respectability gets measured against in Canada. The digital channels handled the volume side, where we could track the leads cleanly.

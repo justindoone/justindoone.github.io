@@ -4,7 +4,7 @@ client: "Clifton Blake"
 role: "Strategy lead and agency management"
 date: "September 2024"
 year: 2024
-summary: "Refresh of Clifton Blake's corporate site. The old design was from the firm's launch era; the new site had to match where the company had actually grown to."
+summary: "Refresh of Clifton Blake's corporate site. The old design was from the firm's launch era. The new site had to match where the company had actually grown to."
 tags: ["Web", "Strategy", "Brand"]
 metrics:
   - value: "4"
@@ -12,7 +12,7 @@ metrics:
   - value: "Cross-stakeholder"
     label: "Approval process"
   - value: "Corporate"
-    label: "Scope (not sub-brands)"
+    label: "Site scope"
 cover: "/images/work/clifton-blake-website.jpg"
 featured: true
 socials:
@@ -23,9 +23,9 @@ order: 4
 accent: "#f47654"
 ---
 
-Clifton Blake's corporate site hadn't been refreshed since the firm launched. The look, the IA, the copy: all of it was from a younger version of the company that had since outgrown what the original site was built to serve.
+Clifton Blake's corporate site hadn't been refreshed since the firm launched. The look, the IA, and the copy were all from a younger version of the company that had since outgrown what the original site was built to serve.
 
-I led the strategy and managed the agency that built it. My boss was focused on investor relations, so the marketing function ran from my desk. Most of the actual work was political: getting leadership, IR, and the sales side aligned on what the new site needed to say, and to whom.
+I led the strategy and managed the agency that built it. My boss was focused on investor relations, so the marketing function ran from my desk. Most of the actual work was political. Getting leadership, IR, and the sales side aligned on what the new site needed to say, and to whom, took more time than the visual or technical execution.
 
 The audience map landed at:
 
@@ -35,4 +35,4 @@ The audience map landed at:
 
 The site wasn't built for tenants or property-side audiences. Clifton Blake has separate brands and sites for those.
 
-The visual refresh was the smaller piece. The harder work was getting the firm to agree on what it wanted to say about itself in 2024, versus what it had been comfortable saying at launch.
+The visual refresh was the lighter piece of the work. The harder part was the internal alignment on what the firm wanted to say about itself in 2024.

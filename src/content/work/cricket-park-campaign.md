@@ -23,8 +23,8 @@ socials:
     caption: "Sample Instagram post from the launch run"
 ---
 
-Cricket Park's one of the buildings in Clifton Blake's residential portfolio (Roxborough is the brand). I ran the launch marketing on it specifically, pre-launch through to about 90% occupied. Six months end to end.
+March to August 2024. The playbook came over from the other Roxborough buildings: organic Instagram as the anchor, paid Meta around it, same production agency. Six months end to end.
 
-Setup followed the same playbook the other Roxborough properties used. Organic Instagram as the anchor. Paid on Meta around it. Same production agency we'd used on the rest of the portfolio.
+1.7 million impressions on Instagram over the run, most of it organic. Paid spend stayed pointed at booking in-person showings, and Meta sent us a steady volume of them. I'd argued against running brand-awareness paid alongside, since the building's bottleneck was foot traffic.
 
-Instagram pulled roughly 1.7M impressions over the run. Paid drove people to in-person showings. Leasing took it from there.
+By August the building was 90%+ occupied. Marketing's job was getting showings on the calendar, and the leasing team closed from there.
