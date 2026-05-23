@@ -2,15 +2,15 @@
 title: "Boardroom Brief Series"
 client: "Greybrook Realty Partners"
 role: "Producer and content strategist"
-date: "2025"
+date: "March to December 2025"
 year: 2025
-summary: "Monthly long-form video series on YouTube and Greybrook's site, with shorts cut for LinkedIn and Instagram. A way for the firm to talk about market conditions in something more durable than a press release."
+summary: "Took over Greybrook's long-form video program in March 2025 and ran it through the year. Added the social-cuts layer that took each ~30-minute recording from two distribution surfaces to five."
 tags: ["Video", "Content series", "Multi-channel"]
 metrics:
-  - value: "30 min"
-    label: "Long-form episode"
-  - value: "Monthly"
-    label: "Production cadence"
+  - value: "6"
+    label: "Episodes I produced"
+  - value: "5-6 wks"
+    label: "Active cadence"
   - value: "5"
     label: "Distribution surfaces"
 cover: "/images/work/greybrook-boardroom-brief.jpg"
@@ -26,31 +26,16 @@ socials:
     caption: "EP 09 short on Instagram"
 ---
 
-Greybrook had real takes on the market and needed a format that could hold a longer conversation, plus a way to package it for the audience that wouldn't sit through thirty minutes cold.
+Boardroom Brief is Greybrook Realty Partners' long-form video series. It launched in August 2024, hosted by Sasha Cucuz (CEO, Greybrook Securities) and Brandon Crombeen (ED, Private Capital Markets), with one ~30-minute episode every five to six weeks on YouTube and Greybrook.com.
 
-I built the format and ran it. Episodes ran about thirty minutes, hosted on YouTube and Greybrook's site, with a companion blog post for each one. Off every long-form recording I cut shorter clips for LinkedIn and Instagram, since most of the audience actually lived there.
+By the time I joined the firm in March 2025, five episodes had aired. The format, the hosts, the blog companion per episode, and the release-day email blast were all in place. EP 06 was the first one under my watch.
 
-The format settled into a rhythm:
+I ran the editorial and production cycle from there. The piece I added was the social-cuts layer. Each long-form recording got cut into shorter pieces sized for LinkedIn and Instagram feeds, where most of the audience for Greybrook's takes actually scrolled. The shorts pulled in viewers who weren't going to commit to thirty minutes of YouTube cold, and they became the entry point into the long-form.
 
-- Same host paired with the CEO, occasional guests
-- Each episode anchored on what was happening in the market that month, with Greybrook's positioning showing up where it was relevant
-- Recorded monthly, edited and shipped across five surfaces (email, blog, YouTube, LinkedIn, IG) over the following two weeks
+Once the cuts were in the cycle, every recording started shipping across five surfaces instead of two. Production was about a week from recording to last surface shipped, on a calendar pre-booked a quarter out.
 
-Format, editorial direction, and distribution playbook were mine. We brought in a video agency to film and produce the first long-form cut, which I managed. The blog companion, the social cuts, and the distribution I handled myself.
+Six episodes shipped under my watch between March and December 2025. The five-to-six-week cadence held through the active periods, with one programming pause over the summer when broader market conditions slowed the firm's content plans.
 
-The series was measured on brand awareness: views, subscriber growth on YouTube, engagement on the social cuts. Leads sat as a secondary metric.
+The video agency that filmed and produced the long-form had been working with Greybrook before I joined, and I managed that relationship. The social cuts I edited internally to keep the per-episode cost manageable.
 
-What worked:
-
-- **Same host + CEO every episode.** Built audience expectation. Viewers didn't have to figure out who was talking each time.
-- **Blog companion + email blast.** Each episode got a written post that summarized the conversation. That post was the landing page for the email blast we sent on release day. SEO traffic showed up later on the long tail.
-- **Shorts as the entry point.** Nobody on LinkedIn or IG commits to a thirty-minute video cold. The shorts pulled people in, the long-form did the depth.
-
-What was hard:
-
-- Booking a monthly recording around the CEO's calendar. We pre-booked dates a quarter ahead and held them, even when the month's topic wasn't quite there yet.
-- Outrunning the news cycle. Filming, editing, blog, email, shorts, social: all five surfaces had to ship fast enough for the take to still be the take when it landed. We typically had a week to do all of it.
-
----
-
-EP 09, "How Federal Action Could Change Canada's Housing Game," is the example: [read the blog version](https://greybrook.com/boardroom-brief-ep-09/), then watch the LinkedIn and Instagram cuts below. All three pulled from the same long-form episode.
+EP 09, "How Federal Action Could Change Canada's Housing Game," is the public example. [Read the blog version](https://greybrook.com/boardroom-brief-ep-09/), then watch the LinkedIn and Instagram cuts below. All three came from the same recording.
