@@ -73,16 +73,7 @@ const num = String(index + 1).padStart(2, '0');
       >
         {title}
       </h3>
-      <p class="text-ink-soft max-w-prose leading-relaxed mb-4">{summary}</p>
-      <div class="flex flex-wrap gap-1.5">
-        {
-          tags.map((tag) => (
-            <span class="text-xs text-ink-mute border border-rule rounded-full px-2.5 py-0.5">
-              {tag}
-            </span>
-          ))
-        }
-      </div>
+      <p class="text-ink-soft max-w-prose leading-relaxed">{summary}</p>
     </div>
 
     <div class="md:col-span-1 md:text-right">

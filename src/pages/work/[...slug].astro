@@ -84,7 +84,7 @@ const num = String(entry.data.order).padStart(2, '0');
     <!-- META STRIP -->
     <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-12 pb-8" data-reveal>
       <div
-        class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm"
+        class="grid grid-cols-3 gap-6 text-sm"
       >
         <div>
           <p class="eyebrow mb-1.5">Company</p>
@@ -97,10 +97,6 @@ const num = String(entry.data.order).padStart(2, '0');
         <div>
           <p class="eyebrow mb-1.5">Year</p>
           <p class="text-ink">{entry.data.year}</p>
-        </div>
-        <div>
-          <p class="eyebrow mb-1.5">Tags</p>
-          <p class="text-ink">{entry.data.tags.join(', ')}</p>
         </div>
       </div>
     </section>
@@ -164,7 +160,7 @@ const num = String(entry.data.order).padStart(2, '0');
     }
 
     <!-- BODY -->
-    <section class="mx-auto max-w-3xl px-6 lg:px-12 pt-8 pb-20" data-reveal>
+    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-8 pb-20" data-reveal>
       <div
         class="prose prose-lg max-w-none
           prose-headings:font-serif prose-headings:text-ink prose-headings:font-normal prose-headings:tracking-tight
