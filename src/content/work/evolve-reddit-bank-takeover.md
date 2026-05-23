@@ -11,7 +11,7 @@ metrics:
     label: "Creative units"
   - value: "BANK"
     label: "Featured ETF"
-cover: "/images/work/evolve-reddit-bank/01-bank-on-it.png"
+cover: "/images/work/evolve-logo-cover.svg"
 featured: true
 order: 1
 accent: "#1B3D6E"

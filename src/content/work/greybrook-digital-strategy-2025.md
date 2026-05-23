@@ -13,6 +13,7 @@ metrics:
     label: "Strategic objectives"
   - value: "H2 plan"
     label: "Mid-year refresh"
+cover: "/images/work/greybrook-logo-cover.png"
 featured: true
 order: 3
 accent: "#232323"
