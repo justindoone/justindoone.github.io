@@ -27,6 +27,9 @@ Other pieces in the stack:
 - **A competitive-intel pipeline** that pulls SEMrush data on what other Canadian ETF firms are running in market, with month-by-month caching to control API costs
 - **A LinkedIn post decoder** that recovers exact post timestamps from the URN, used to track the sales team's posting cadence as a KPI without manual logging
 - **WordPress custom endpoints** that automate recurring content chores like TablePress fund-history writes, EOM distribution updates, and Yoast meta management
+- **AEO and schema audits** that identify FAQ-schema and structured-data gaps competitors aren't filling, so the fund pages get picked up by answer engines and AI search
 - **Funnel diagnostics** built ad-hoc when the GA4 setup is doing something I don't trust
+
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two.
 
 The throughline is cost-efficiency through AI-assisted infrastructure. Each tool above would have meant a separate SaaS subscription, vendor onboarding, or engineering ticket. AI assist makes them buildable in days, on one subscription.

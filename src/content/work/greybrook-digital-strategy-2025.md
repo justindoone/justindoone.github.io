@@ -20,7 +20,7 @@ accent: "#232323"
 accentSecondary: "#929292"
 ---
 
-First step was the audit. The firm's website, LinkedIn, Instagram, and YouTube each got a separate read on where they were performing and where the existing setup was leaving opportunity on the table. Recommendations ranged from technical SEO fixes through to platform-specific content variation.
+First step was the audit. The firm's website, LinkedIn, Instagram, and YouTube each got a separate read on where they were performing and where the existing setup was leaving opportunity on the table. The biggest opening was on the video side. Boardroom Brief was producing thirty-minute long-form for YouTube and Greybrook.com, but nothing downstream for the LinkedIn and Instagram audiences that wouldn't sit through that length cold. Closing that distribution gap became one of the workstreams below.
 
 The content strategy that came out of the audit organized around three objectives: thought leadership, investor engagement, and brand awareness. Content types broke into market analysis, project spotlights, community engagement, and educational resources, with platform-specific treatments for LinkedIn, Instagram, and the website blog.
 
