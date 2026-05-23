@@ -19,9 +19,9 @@
   --color-on-dark-mute: #7a746a;
   --color-rule-dark: #2a2b30;
 
-  /* ACCENTS (muted burgundy — subtle color emphasis, editorial, not orange) */
-  --color-accent: #a36868;
-  --color-accent-warm: #b87878;
+  /* ACCENTS (sage green — subtle, editorial, distinct from per-firm palettes) */
+  --color-accent: #87a06b;
+  --color-accent-warm: #97b07b;
   --color-accent-cool: #6ba3c9;
 
   /* MISC */
