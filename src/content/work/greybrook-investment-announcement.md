@@ -28,7 +28,7 @@ For actual closings, the package was always the same four pieces:
 - A leadership LinkedIn post from whichever executive the announcement was attributed to
 - A blog post on Greybrook's site, hosting the full narrative for readers arriving from search or email
 
-The $31.5M Markham investment in August 2025 is one example from my tenure. Larger and smaller deals followed the same structure.
+The $31.525M Markham investment in August 2025 is one example from my tenure, with the LP-side communications going to limited partners across 30+ countries. Larger and smaller deals followed the same structure.
 
 I drafted and edited the press release and the LP email, then ran both through in-house counsel for sign-off. The LinkedIn posts and the blog versions I wrote myself. Owned channels don't carry the same compliance posture as a wire release, which gave me more latitude on tone and structure there.
 

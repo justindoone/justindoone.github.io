@@ -9,10 +9,10 @@ tags: ["Property marketing", "Social", "Paid media"]
 metrics:
   - value: "1.7M"
     label: "Impressions"
+  - value: "<$1.50"
+    label: "Cost per click"
   - value: "90%+"
-    label: "Occupancy"
-  - value: "6 mo"
-    label: "From launch"
+    label: "Occupancy in 6 mo"
 cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
 order: 7
@@ -25,6 +25,6 @@ socials:
 
 March to August 2024. The playbook came over from the other Roxborough buildings: organic Instagram as the anchor, paid Meta around it, same production agency. Six months end to end.
 
-1.7 million impressions on Instagram over the run, most of it organic. Paid spend stayed pointed at booking in-person showings, and Meta sent us a steady volume of them. I'd argued against running brand-awareness paid alongside, since the building's bottleneck was foot traffic.
+1.7 million impressions on Instagram over the run, most of it organic. The paid layer ran at a 3% CTR and a sub-$1.50 CPC, pointed at booking in-person showings. I'd argued against running brand-awareness paid alongside, since the building's bottleneck was foot traffic, not visibility.
 
 By August the building was 90%+ occupied. Marketing's job was getting showings on the calendar, and the leasing team closed from there.

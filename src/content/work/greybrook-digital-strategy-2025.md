@@ -29,4 +29,4 @@ Execution ran across three workstreams. The video program ran on a near-monthly 
 
 Mid-year, I ran a Q1-vs-Q2 performance review. LinkedIn engagement rates had moved up. Instagram engagement had softened with higher posting volume. The H2 plan focused on quality over quantity, platform-native video formats, shareability-focused content like carousels and quote cards, and a tighter publishing cadence to avoid follower fatigue. Targets were specific: +150 Instagram followers and +700 LinkedIn followers, 5.0% engagement on Instagram and 12.5% on LinkedIn, and a 25% lift on combined shares.
 
-I left in January 2026 before the full-year review, so the Q4 numbers aren't mine to publish.
+By the year-end window I was tracking, LinkedIn engagement was up roughly 300% year-over-year on Greybrook's corporate channel, with share volume up 152% and reach up 164%. I left in January 2026 before the final full-year review, so the Q4 numbers aren't all mine to publish.
