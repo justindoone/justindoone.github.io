@@ -17,7 +17,8 @@ cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 hidden: true
 order: 3
-accent: "#f47654"
+accent: "#232323"
+accentSecondary: "#929292"
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:share:7381667213767979008"

@@ -15,7 +15,8 @@ metrics:
     label: "Mid-year refresh"
 featured: true
 order: 3
-accent: "#f47654"
+accent: "#232323"
+accentSecondary: "#929292"
 ---
 
 I took over Greybrook Realty Partners' digital marketing function in March 2025 and ran it through to my departure in January 2026.

@@ -14,7 +14,8 @@ metrics:
 cover: "/images/work/evolve-reddit-bank/01-bank-on-it.png"
 featured: true
 order: 1
-accent: "#f47654"
+accent: "#1b36de"
+accentSecondary: "#e57725"
 ---
 
 BANK is Evolve's Canadian banks and insurance enhanced yield index fund. This was the first Reddit takeover I'd produced end to end at Evolve. We built it as a team, with design, copy, fund-data review, and compliance sign-off all coordinated through one cycle.

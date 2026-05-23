@@ -8,6 +8,7 @@ interface Props {
   href: string;
   tags: string[];
   accent?: string;
+  accentSecondary?: string;
   cover?: string;
   index: number;
 }
@@ -21,6 +22,7 @@ const {
   href,
   tags,
   accent = '#f47654',
+  accentSecondary,
   cover,
   index,
 } = Astro.props;
@@ -31,7 +33,7 @@ const num = String(index + 1).padStart(2, '0');
 <a
   href={href}
   class="work-card group block rule-top py-8 md:py-10"
-  style={`--accent: ${accent};`}
+  style={`--accent: ${accent}; --accent-secondary: ${accentSecondary ?? accent};`}
 >
   <span class="work-card-bar"></span>
   <div class="work-card-inner grid md:grid-cols-12 gap-6 md:gap-8 items-center">

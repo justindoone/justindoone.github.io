@@ -16,7 +16,8 @@ metrics:
 cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
 order: 2
-accent: "#f47654"
+accent: "#112337"
+accentSecondary: "#D6B57D"
 socials:
   - type: instagram
     url: "https://www.instagram.com/p/C4rkQH_NOpb/"

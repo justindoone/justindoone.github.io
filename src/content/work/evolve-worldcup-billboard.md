@@ -9,7 +9,8 @@ tags: ["OOH", "Brand", "Financial services"]
 cover: "/images/work/evolve/worldcup-billboard.png"
 featured: false
 order: 9
-accent: "#f47654"
+accent: "#1b36de"
+accentSecondary: "#e57725"
 ---
 
 The placement is a single billboard south of the 401 near Yorkdale in Toronto. Super-wide format because the headline has to read at road speeds from a distance.

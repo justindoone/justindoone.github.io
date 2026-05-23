@@ -16,7 +16,8 @@ metrics:
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: false
 order: 7
-accent: "#f47654"
+accent: "#232323"
+accentSecondary: "#929292"
 ---
 
 Greybrook released investment announcements when deals closed, which meant a few a year. Build-progress and operational updates happened more often, but those lived inside investor reports and didn't go out on the wire.

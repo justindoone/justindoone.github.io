@@ -16,7 +16,8 @@ metrics:
 cover: "/images/work/roxborough-communities.jpg"
 featured: false
 order: 8
-accent: "#f47654"
+accent: "#112337"
+accentSecondary: "#D6B57D"
 ---
 
 Roxborough Communities is Clifton Blake's purpose-built-rental brand. Cricket Park, College West, and a handful of others sit under it, across a mix of residential and mixed-use buildings. The brand had had a website once. By the time we picked it up it had been taken down, so this was effectively a fresh launch.

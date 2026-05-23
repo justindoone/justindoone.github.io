@@ -20,7 +20,8 @@ socials:
     url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387201543516774401"
     caption: "Inside Track post on LinkedIn"
 order: 4
-accent: "#f47654"
+accent: "#232323"
+accentSecondary: "#929292"
 ---
 
 Inside Track is Greybrook Realty Partners' annual invite-only investor event. Roughly 400 in the room in October 2025. I produced it and ran the content program around the day.

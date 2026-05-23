@@ -16,6 +16,7 @@ metrics:
 featured: true
 order: 0
 accent: "#1b36de"
+accentSecondary: "#e57725"
 ---
 
 Most marketing functions pay for several SaaS subscriptions to cover reporting, competitive intel, analytics, and automation. The math adds up. AI assist makes it possible to build equivalent tools in-house, so the team operates on one AI subscription instead of several recurring SaaS bills.
