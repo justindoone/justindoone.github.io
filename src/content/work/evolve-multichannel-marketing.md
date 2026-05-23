@@ -11,6 +11,7 @@ metrics:
     label: "ETFs in the lineup"
   - value: "3"
     label: "Always-on paid channels"
+cover: "/images/work/evolve/worldcup-billboard.png"
 featured: true
 order: 0
 accent: "#f47654"
@@ -23,3 +24,7 @@ Digital marketing manager at Evolve, reporting to the CMO. Small team. End-to-en
 The setup: always-on paid with campaign-level budget caps, automated creative-freshness checks on a 45-day window, weekly status to the CMO, monthly re-anchoring against fund-level performance.
 
 A lot of what makes that cadence run is small AI-built tools. Quick scripts and dashboards that pull from Google Ads, Reddit, Meta, GA4, and the WordPress site into reporting I can read at a glance. Building specific things with AI assist is faster than waiting for off-the-shelf to fit a Canadian ETF firm at this team size.
+
+## Public work
+
+**World Cup billboard (above).** Highway placement during the tournament. Super-wide format so the headline reads at road speeds. The Evolve "O" stands in for the soccer ball in the GOOOOOAAAALLL. Lineup pitch uses "40+" instead of an exact count, so a fund add or closure doesn't kill the creative.
