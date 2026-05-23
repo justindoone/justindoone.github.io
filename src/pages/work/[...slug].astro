@@ -69,14 +69,12 @@ const num = String(entry.data.order).padStart(2, '0');
           class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 md:pt-16"
           data-reveal
         >
-          <div class="overflow-hidden shadow-2xl bg-paper-soft rounded-sm">
-            <img
-              src={entry.data.cover}
-              alt={entry.data.title}
-              loading="lazy"
-              class="block w-full max-h-[80vh] object-contain mx-auto"
-            />
-          </div>
+          <img
+            src={entry.data.cover}
+            alt={entry.data.title}
+            loading="lazy"
+            class="block w-full max-h-[80vh] object-contain mx-auto shadow-2xl rounded-sm"
+          />
         </section>
       )
     }
