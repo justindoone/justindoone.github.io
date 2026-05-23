@@ -14,7 +14,7 @@ metrics:
 cover: "/images/work/evolve-reddit-bank/01-bank-on-it.png"
 featured: true
 order: 1
-accent: "#1b36de"
+accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 

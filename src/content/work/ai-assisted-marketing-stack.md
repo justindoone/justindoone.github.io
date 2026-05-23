@@ -15,7 +15,7 @@ metrics:
     label: "Replacing SaaS lineup"
 featured: true
 order: 0
-accent: "#1b36de"
+accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 

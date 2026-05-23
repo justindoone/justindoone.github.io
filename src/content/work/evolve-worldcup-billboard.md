@@ -9,7 +9,7 @@ tags: ["OOH", "Brand", "Financial services"]
 cover: "/images/work/evolve/worldcup-billboard.png"
 featured: false
 order: 9
-accent: "#1b36de"
+accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
