@@ -20,8 +20,8 @@ socials:
     url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"
     caption: "Clifton Blake on LinkedIn"
 order: 5
-accent: "#263238"
-accentSecondary: "#FFFFFF"
+accent: "#001B28"
+accentSecondary: "#6489A6"
 ---
 
 Clifton Blake's corporate site hadn't been refreshed since the firm launched. The look, the IA, and the copy were all from a younger version of the company that had since outgrown what the original site was built to serve.

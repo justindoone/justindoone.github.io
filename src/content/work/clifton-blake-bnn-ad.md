@@ -17,8 +17,8 @@ cover: "/images/work/clifton-blake-bnn-ad.jpg"
 video: "/videos/clifton-blake-bnn-spot.mp4"
 featured: false
 order: 6
-accent: "#263238"
-accentSecondary: "#FFFFFF"
+accent: "#001B28"
+accentSecondary: "#6489A6"
 socials:
   - type: facebook
     url: "https://www.facebook.com/61554165899664/posts/122119584596138863"
