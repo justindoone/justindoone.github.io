@@ -19,7 +19,7 @@ order: 9
 accent: "#f47654"
 ---
 
-minihotel is a Hong Kong boutique. Small rooms, very good location. It was one of several hotels in the same group, and I was stationed at minihotel specifically when the group decided it was time for the brand to grow up.
+minihotel is a Hong Kong boutique. Small rooms, very good location. It was the hospitality piece of a multinational real estate developer with operations across Hong Kong, China, the Philippines, and Papua New Guinea. The developer also ran residential, property management, coworking, and retail. I was stationed at minihotel specifically when the group decided it was time for the brand to grow up.
 
 The rebrand wrapped just before COVID. Then international travel collapsed.
 

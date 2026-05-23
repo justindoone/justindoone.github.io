@@ -28,6 +28,6 @@ The Mortgage Fund needed a push leading into RRSP season. We ran a three-month c
 
 BNN was the hero placement, a buy that ran in specific time slots across a six-to-eight-week window. The other three channels ran the full campaign. I led the work with the SVP of Investor Relations.
 
-The video was a previously produced spot, lightly retouched by BNN's production team for broadcast format. The original footage I'd arranged with an agency on a separate project, so reusing it meant no production cost on this campaign.
+The video was a previously produced spot, lightly retouched by BNN's production team for broadcast format. The original footage came from an earlier campaign I'd contracted with the same agency, so reusing it meant no production cost on this one.
 
 BNN ran for credibility. The other three channels handled conversion.
