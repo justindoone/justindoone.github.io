@@ -113,7 +113,7 @@ body {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center 25%;
   background-repeat: no-repeat;
   z-index: 0;
   animation: ken-burns 36s ease-in-out infinite alternate;
