@@ -66,19 +66,15 @@ const num = String(entry.data.order).padStart(2, '0');
     {
       entry.data.cover && (
         <section
-          class="pt-12 md:pt-16"
+          class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 md:pt-16"
           data-reveal
-          style="background-color: var(--accent);"
         >
-          <div class="mx-auto max-w-7xl">
-            <img
-              src={entry.data.cover}
-              alt={entry.data.title}
-              loading="lazy"
-              class="block w-full max-h-[80vh] object-contain mx-auto"
-              style="background-color: var(--accent);"
-            />
-          </div>
+          <img
+            src={entry.data.cover}
+            alt={entry.data.title}
+            loading="lazy"
+            class="block w-full max-h-[80vh] object-cover rounded-sm shadow-2xl"
+          />
         </section>
       )
     }
