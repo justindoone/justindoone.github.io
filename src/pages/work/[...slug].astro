@@ -40,8 +40,8 @@ const num = String(entry.data.order).padStart(2, '0');
           ← All work
         </a>
         <p
-          class="eyebrow mb-6 flex flex-wrap gap-x-3 opacity-80"
-          style="color: var(--color-on-dark);"
+          class="eyebrow mb-6 flex flex-wrap gap-x-3"
+          style="color: var(--accent-secondary);"
         >
           <span>{entry.data.client}</span>
           <span class="opacity-50">/</span>
@@ -118,11 +118,12 @@ const num = String(entry.data.order).padStart(2, '0');
                 <div data-reveal data-reveal-delay={i + 1}>
                   <p
                     class:list={[
-                      'heading-display mb-2 text-accent',
+                      'heading-display mb-2',
                       isNumeric
                         ? 'text-5xl md:text-6xl'
                         : 'text-3xl md:text-4xl',
                     ]}
+                    style="color: var(--accent-secondary);"
                     data-animate-value={m.value}
                   >
                     {m.value}
