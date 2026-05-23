@@ -15,6 +15,7 @@ metrics:
     label: "Target market"
 cover: "/images/work/saturnbird-marketing-plan.jpg"
 featured: false
+hidden: true
 order: 8
 accent: "#f47654"
 ---

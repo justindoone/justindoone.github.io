@@ -15,6 +15,7 @@ metrics:
     label: "Role scope"
 cover: "/images/work/minihotel-hk.jpg"
 featured: false
+hidden: true
 order: 9
 accent: "#f47654"
 ---

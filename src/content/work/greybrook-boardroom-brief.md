@@ -26,7 +26,7 @@ socials:
     caption: "EP 09 short on Instagram"
 ---
 
-Boardroom Brief is Greybrook Realty Partners' long-form video series. It launched in August 2024, hosted by Sasha Cucuz (CEO, Greybrook Securities) and Brandon Crombeen (ED, Private Capital Markets), with one ~30-minute episode every five to six weeks on YouTube and Greybrook.com.
+Boardroom Brief is Greybrook Realty Partners' long-form video series. It launched in August 2024, with one ~30-minute episode every five to six weeks on YouTube and Greybrook.com.
 
 By the time I joined the firm in March 2025, five episodes had aired. The format, the hosts, the blog companion per episode, and the release-day email blast were all in place. EP 06 was the first one under my watch.
 
