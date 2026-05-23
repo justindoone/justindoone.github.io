@@ -24,20 +24,20 @@ The takeover was built around the income story: monthly distributions, a double-
 
 Four creative units, each doing a different job in the sequence:
 
-**1. Brand hook.** Opens with the "Bank on it" tagline, setting the brand voice for the rest of the takeover.
+**1. Distribution.** $0.132 per unit on the front, with the "BANK" 3D treatment and three supporting ticks below (monthly distributions, Big Six banks and lifecos, maximize passive income). Income investors on Reddit will check the distribution number before they read anything else, so it leads.
 
-![Opening creative with the "Bank on it" tagline](/images/work/evolve-reddit-bank/1.png)
+![Distribution hero creative with $0.132 per unit](/images/work/evolve-reddit-bank/1.png)
 
-**2. Distribution.** The per-unit number is the headline. Income investors on Reddit will check the distribution before they read anything else, so it goes on the front of the creative.
+**2. Performance.** Trailing 12-month yield of 13.31% as the headline, with 1-year, 3-year, and since-inception annualized returns underneath. The proof piece.
 
-![Distribution creative with $0.132 per unit](/images/work/evolve-reddit-bank/2.png)
+![Performance creative with 13.31% trailing yield and annualized returns](/images/work/evolve-reddit-bank/2.png)
 
-**3. Performance.** Trailing 12-month yield and annualized returns since inception. The proof piece.
+**3. Holdings.** Big Six banks (BMO, CIBC, National, RBC, Scotiabank, TD) and four lifecos (Great-West, Manulife, Power Corp, Sun Life) named directly. Composition is the proof point on an index fund. Investors want to see the underlying names.
 
-![Performance creative with 13.31% trailing yield and annualized returns](/images/work/evolve-reddit-bank/3.png)
+![Holdings creative naming the Big Six banks and four lifecos](/images/work/evolve-reddit-bank/3.png)
 
-**4. Holdings, AUM, and disclaimers.** Big Six banks and four lifecos named directly, the $1B AUM milestone, and the required disclaimers stack. Closes the sequence with the institutional context and the legal copy regulators expect.
+**4. Brand close.** "You can BANK on it" tagline, the $1B Fund Total Net Assets milestone, an Invest Now CTA, and the required disclaimers stack. Closes the sequence with institutional scale and the legal copy regulators expect.
 
-![Closing creative naming the holdings, with $1B AUM milestone and disclaimers](/images/work/evolve-reddit-bank/4.png)
+![Closing creative with the "You can BANK on it" tagline, $1B AUM milestone, and disclaimers](/images/work/evolve-reddit-bank/4.png)
 
-Targeting ran against the Canadian retail-investor subreddits where dividend and yield conversations actually happen. Each unit was sized for feed placement and the sequence ran from brand hook through to institutional close.
+Targeting ran against the Canadian retail-investor subreddits where dividend and yield conversations actually happen. Each unit was sized for feed placement and the sequence ran from income hook through to institutional close: distribution, performance, holdings, brand close.
