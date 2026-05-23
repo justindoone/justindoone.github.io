@@ -7,8 +7,8 @@ year: 2026
 summary: "Highway billboard timed to the 2026 World Cup tournament window. Goal mark substitutes for the soccer ball. '40+' framing on the lineup count so the creative survives lineup changes."
 tags: ["OOH", "Brand", "Financial services"]
 cover: "/images/work/evolve/worldcup-billboard.png"
-featured: true
-order: 0
+featured: false
+order: 8
 accent: "#f47654"
 ---
 

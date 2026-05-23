@@ -13,9 +13,8 @@ metrics:
     label: "Strategic objectives"
   - value: "H2 plan"
     label: "Mid-year refresh"
-featured: false
-hidden: true
-order: 99
+featured: true
+order: 2
 accent: "#f47654"
 ---
 

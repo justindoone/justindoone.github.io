@@ -15,7 +15,7 @@ metrics:
     label: "Brand portfolio"
 cover: "/images/work/roxborough-communities.jpg"
 featured: false
-order: 6
+order: 7
 accent: "#f47654"
 ---
 

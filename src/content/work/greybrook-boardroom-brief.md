@@ -15,6 +15,7 @@ metrics:
     label: "Distribution surfaces"
 cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
+hidden: true
 order: 3
 accent: "#f47654"
 socials:

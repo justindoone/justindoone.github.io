@@ -14,8 +14,8 @@ metrics:
   - value: "$31.5M"
     label: "Example deal size"
 cover: "/images/work/greybrook-investment-announcement.jpg"
-featured: true
-order: 2
+featured: false
+order: 6
 accent: "#f47654"
 ---
 

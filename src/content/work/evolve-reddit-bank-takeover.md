@@ -12,13 +12,14 @@ metrics:
   - value: "BANK"
     label: "Featured ETF"
 cover: "/images/work/evolve-reddit-bank/01-bank-on-it.png"
-featured: false
-hidden: true
-order: 99
+featured: true
+order: 0
 accent: "#f47654"
 ---
 
-BANK is Evolve's Canadian banks and insurance enhanced yield index fund. The takeover was built around the income story: monthly distributions, a double-digit trailing yield, and the Big Six banks plus four lifecos as the holdings.
+BANK is Evolve's Canadian banks and insurance enhanced yield index fund. This was the first Reddit takeover I'd produced end to end at Evolve. We built it as a team, with design, copy, fund-data review, and compliance sign-off all coordinated through one cycle.
+
+The takeover was built around the income story: monthly distributions, a double-digit trailing yield, and the Big Six banks plus four lifecos as the holdings.
 
 Four creative units, each doing a different job in the sequence:
 

@@ -15,7 +15,7 @@ metrics:
     label: "Occupancy in 6 mo"
 cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
-order: 7
+order: 1
 accent: "#f47654"
 socials:
   - type: instagram
