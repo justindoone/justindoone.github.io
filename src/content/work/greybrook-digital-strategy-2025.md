@@ -14,7 +14,7 @@ metrics:
   - value: "H2 plan"
     label: "Mid-year refresh"
 featured: true
-order: 2
+order: 3
 accent: "#f47654"
 ---
 

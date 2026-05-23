@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/clifton-blake-bnn-ad.jpg"
 video: "/videos/clifton-blake-bnn-spot.mp4"
 featured: false
-order: 5
+order: 6
 accent: "#f47654"
 socials:
   - type: facebook

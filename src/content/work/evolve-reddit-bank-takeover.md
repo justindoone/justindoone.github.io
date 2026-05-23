@@ -13,7 +13,7 @@ metrics:
     label: "Featured ETF"
 cover: "/images/work/evolve-reddit-bank/01-bank-on-it.png"
 featured: true
-order: 0
+order: 1
 accent: "#f47654"
 ---
 

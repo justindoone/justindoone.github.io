@@ -19,7 +19,7 @@ socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387201543516774401"
     caption: "Inside Track post on LinkedIn"
-order: 3
+order: 4
 accent: "#f47654"
 ---
 
