@@ -12,6 +12,10 @@ order: 0
 accent: "#f47654"
 ---
 
-Super-wide format, because highway placement means the headline has to read at road speeds from a distance. The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headline. One visual joke handling brand identification and campaign hook at once.
+The placement is a single billboard south of the 401 near Yorkdale in Toronto. Super-wide format because the headline has to read at road speeds from a distance.
+
+The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headline. One visual joke handling brand identification and campaign hook at once.
 
 Lineup pitch uses "40+" instead of an exact count. The lineup shifts occasionally with fund adds or closures, and "40+" survives those.
+
+The billboard runs alongside a social campaign through the tournament window.
