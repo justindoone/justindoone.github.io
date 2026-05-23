@@ -15,7 +15,7 @@ metrics:
     label: "Occupancy in 6 mo"
 cover: "/images/work/cricket-park-campaign.jpg"
 featured: true
-order: 2
+order: 3
 accent: "#606060"
 accentSecondary: "#D6B57D"
 socials:

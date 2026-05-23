@@ -12,7 +12,7 @@ socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7246560424945451008"
     caption: "Clifton Blake on LinkedIn"
-order: 5
+order: 6
 accent: "#001B28"
 accentSecondary: "#6489A6"
 ---

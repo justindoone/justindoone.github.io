@@ -15,7 +15,7 @@ metrics:
     label: "Reach YoY"
 cardCover: "/images/work/greybrook-logo-cover.png"
 featured: true
-order: 3
+order: 4
 accent: "#232323"
 accentSecondary: "#929292"
 ---

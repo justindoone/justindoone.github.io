@@ -13,7 +13,7 @@ metrics:
     label: "Example deal size"
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: false
-order: 7
+order: 8
 accent: "#232323"
 accentSecondary: "#929292"
 ---
