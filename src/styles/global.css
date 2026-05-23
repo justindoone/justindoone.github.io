@@ -2,16 +2,16 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* WARM CREAM BASE */
-  --color-paper: #f4ede1;
-  --color-paper-soft: #ebe2cf;
-  --color-paper-warm: #f7f1e6;
+  /* DARK BASE (was warm cream — flipped to dark) */
+  --color-paper: #14161a;
+  --color-paper-soft: #1d1f24;
+  --color-paper-warm: #1a1c20;
 
-  --color-ink: #1a1a1a;
-  --color-ink-soft: #4a4a4a;
-  --color-ink-mute: #7a7670;
+  --color-ink: #f0ebe1;
+  --color-ink-soft: #b8b2a6;
+  --color-ink-mute: #7a746a;
 
-  /* DARK SECTIONS (hero, CTAs, footer) */
+  /* DARK SECTIONS (now matches base — kept for compatibility) */
   --color-dark: #14161a;
   --color-dark-soft: #1d1f24;
   --color-on-dark: #f0ebe1;
@@ -19,14 +19,14 @@
   --color-on-dark-mute: #7a746a;
   --color-rule-dark: #2a2b30;
 
-  /* ACCENTS */
-  --color-accent: #f47654;
-  --color-accent-warm: #f5b342;
+  /* ACCENTS (muted burgundy — subtle color emphasis, editorial, not orange) */
+  --color-accent: #a36868;
+  --color-accent-warm: #b87878;
   --color-accent-cool: #6ba3c9;
 
   /* MISC */
-  --color-rule: #d4cdb9;
-  --color-on-accent: #ffffff;
+  --color-rule: #2a2b30;
+  --color-on-accent: #14161a;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, sans-serif;
@@ -48,7 +48,7 @@ body {
   font-feature-settings: "ss01", "cv11";
   background-image: radial-gradient(
     circle at 1px 1px,
-    rgba(26, 26, 26, 0.04) 1px,
+    rgba(240, 235, 225, 0.04) 1px,
     transparent 0
   );
   background-size: 32px 32px;

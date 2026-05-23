@@ -24,9 +24,9 @@ The takeover was built around the income story: monthly distributions, a double-
 
 Four creative units, each doing a different job in the sequence:
 
-**1. Brand intro.** $1B AUM milestone on the front. Establishes the fund as institutional-scale before any number-by-number arguments land.
+**1. Brand hook.** Opens with the "Bank on it" tagline, setting the brand voice for the rest of the takeover.
 
-![Brand intro creative with $1B AUM milestone](/images/work/evolve-reddit-bank/01-bank-on-it.png)
+![Opening creative with the "Bank on it" tagline](/images/work/evolve-reddit-bank/01-bank-on-it.png)
 
 **2. Distribution.** The per-unit number is the headline. Income investors on Reddit will check the distribution before they read anything else, so it goes on the front of the creative.
 
@@ -36,8 +36,8 @@ Four creative units, each doing a different job in the sequence:
 
 ![Performance creative with 13.31% trailing yield and annualized returns](/images/work/evolve-reddit-bank/03-performance.png)
 
-**4. Holdings.** Big Six banks and four lifecos named directly. Composition is the proof point on an index fund. Investors want to see the underlying names.
+**4. Holdings, AUM, and disclaimers.** Big Six banks and four lifecos named directly, the $1B AUM milestone, and the required disclaimers stack. Closes the sequence with the institutional context and the legal copy regulators expect.
 
-![Holdings creative naming the Big Six banks and four lifecos](/images/work/evolve-reddit-bank/04-holdings.png)
+![Closing creative naming the holdings, with $1B AUM milestone and disclaimers](/images/work/evolve-reddit-bank/04-holdings.png)
 
-Targeting ran against the Canadian retail-investor subreddits where dividend and yield conversations actually happen. Each unit was sized for feed placement and the sequence matched how a Reddit user encounters a takeover: first impression, then the headline number, then the proof, then the composition.
+Targeting ran against the Canadian retail-investor subreddits where dividend and yield conversations actually happen. Each unit was sized for feed placement and the sequence ran from brand hook through to institutional close.
