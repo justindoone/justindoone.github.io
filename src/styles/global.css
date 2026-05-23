@@ -389,7 +389,7 @@ html.nav-on-dark .nav-button.is-active {
    CASE STUDY HERO
    ======================================== */
 .case-hero {
-  background-color: var(--color-dark);
+  background-color: var(--accent, var(--color-dark));
   color: var(--color-on-dark);
   position: relative;
   overflow: hidden;
