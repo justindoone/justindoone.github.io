@@ -22,6 +22,8 @@ Most marketing functions pay for several SaaS subscriptions to cover reporting, 
 
 The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle.
 
+![Performance dashboard: KPI strip (total spend, sessions, paid CTR, conversions, paid-vs-organic split), sessions and conversions trend, traffic mix by channel group, and a per-fund breakdown table](/images/work/ai-stack/dashboard.png)
+
 Other pieces in the stack:
 
 - **A competitive-intel pipeline** that pulls SEMrush data on what other Canadian ETF firms are running in market, with month-by-month caching to control API costs
@@ -30,6 +32,12 @@ Other pieces in the stack:
 - **AEO and schema audits** that identify FAQ-schema and structured-data gaps competitors aren't filling, so the fund pages get picked up by answer engines and AI search
 - **Funnel diagnostics** built ad-hoc when the GA4 setup is doing something I don't trust
 
-The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two.
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. The PLU DIUO tab takes the two monthly source files (or a folder containing them), auto-detects the as-at date from the filenames, and outputs the InDesign-merge file directly.
+
+![PLU DIUO Update tab: drop zone for the monthly performance and marketing-data files, with auto-filled as-at date and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
+
+The Reddit monthly-update flow follows the same shape. Drop the month's ABMs folder, the tool groups creative by fund using the ticker convention in the filenames, and generates the per-fund refresh.
+
+![Reddit Monthly Update tab: drop zone for the month's ABMs folder or files, with a known-funds counter, local-path option, and auto-split logic for CTR and impression thresholds](/images/work/ai-stack/reddit-monthly.png)
 
 The throughline is cost-efficiency through AI-assisted infrastructure. Each tool above would have meant a separate SaaS subscription, vendor onboarding, or engineering ticket. AI assist makes them buildable in days, on one subscription.
