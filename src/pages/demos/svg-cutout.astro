@@ -27,12 +27,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Cutout overlay: SVG mask creates a "window" in a fullscreen dark panel -->
+  <!-- Cutout overlay: SVG mask + SMIL animate for cross-browser reliable
+       attribute animation. The window grows from a small center
+       rectangle, stretches horizontally, then expands to fullscreen. -->
   <svg class="cutout-overlay" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
       <mask id="cutoutMask">
         <rect width="100" height="100" fill="white" />
-        <rect class="cutout-hole" x="49.5" y="49" width="1" height="2" fill="black" />
+        <rect x="49.5" y="49" width="1" height="2" fill="black">
+          <animate attributeName="x"      dur="2.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.28;0.55;1"
+                   values="49.5;49.5;30;0"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="y"      dur="2.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.28;0.55;1"
+                   values="49;49;47;0"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="width"  dur="2.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.28;0.55;1"
+                   values="1;1;40;100"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="height" dur="2.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.28;0.55;1"
+                   values="2;2;6;100"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+        </rect>
       </mask>
     </defs>
     <rect width="100" height="100" fill="#14161a" mask="url(#cutoutMask)" />
@@ -46,15 +65,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       height: 100vh;
       z-index: 90;
       pointer-events: none;
-    }
-    .cutout-hole {
-      animation: cutout-grow 2.4s cubic-bezier(0.65, 0, 0.2, 1) forwards;
-    }
-    @keyframes cutout-grow {
-      0%   { x: 49.5; y: 49; width: 1; height: 2; }
-      28%  { x: 49.5; y: 49; width: 1; height: 2; }
-      55%  { x: 30; y: 47; width: 40; height: 6; }
-      100% { x: 0; y: 0; width: 100; height: 100; }
     }
     .cutout-content {
       animation: cutout-content-rise 1.5s 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
