@@ -6,6 +6,8 @@ date: "2026, ongoing"
 year: 2026
 summary: "Getting Evolve's longer-form surfaces treated as compounding assets. Building an evergreen YouTube content backlog against a 45-day refresh policy that's better suited to paid creative, plus AEO and schema work for the answer-engine audience that's increasingly discovering ETFs through AI search."
 tags: ["Content", "Strategy", "Compliance"]
+cover: "/images/work/evolve-logo-cover.png"
+cardCover: "/images/work/evolve-logo-cover.png"
 featured: true
 order: 1
 accent: "#1B3D6E"
