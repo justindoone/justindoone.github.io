@@ -28,5 +28,3 @@ The audience map landed at:
 - **Advisors** working with clients in the firm's products
 
 The site wasn't built for tenants or property-side audiences. Clifton Blake has separate brands and sites for those.
-
-The visual refresh was the lighter piece of the work. The harder part was the internal alignment on what the firm wanted to say about itself in 2024.

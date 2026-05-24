@@ -31,6 +31,11 @@ const personSchema = {
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <!-- Preload the LCP hero image (WebP first, with JPG fallback via image-set) -->
+    <link rel="preload" as="image" type="image/webp" href="/images/hero-toronto.webp" />
+  </Fragment>
+
   <script
     type="application/ld+json"
     is:inline
@@ -45,13 +50,13 @@ const personSchema = {
 
     <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
       <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>
-      <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" data-line="1" data-letter-reveal style="color: var(--color-on-dark);">
-        <span data-letter-text>Marketing for </span><em data-letter-text data-letter-accent style="color: var(--color-accent); font-style: italic;">financial services</em><span data-letter-text> and complex B2B.</span>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10 text-on-dark" data-letter-reveal>
+        <span data-letter-text>Marketing for </span><em data-letter-text data-letter-accent class="text-accent" style="font-style: italic;">high-trust products</em><span data-letter-text> and complex B2B.</span>
       </h1>
-      <p class="hero-line text-lg md:text-xl max-w-3xl leading-relaxed mb-6" data-line="2" style="color: var(--color-on-dark);">
+      <p class="hero-line text-lg md:text-xl max-w-3xl leading-relaxed mb-6 text-on-dark" data-line="2">
         I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
       </p>
-      <p class="hero-line text-lg md:text-xl max-w-2xl leading-relaxed mb-12" data-line="3" style="color: var(--color-on-dark-soft);">
+      <p class="hero-line text-lg md:text-xl max-w-2xl leading-relaxed mb-12 text-on-dark-soft" data-line="3">
         Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
       </p>
       <div class="hero-line flex flex-wrap gap-6 items-center" data-line="4">
@@ -65,8 +70,7 @@ const personSchema = {
         </a>
         <a
           href="mailto:justindoone@gmail.com"
-          class="link-underline text-sm hover:text-accent transition-colors"
-          style="color: var(--color-on-dark-soft);"
+          class="link-underline text-sm text-on-dark-soft hover:text-accent transition-colors"
         >
           justindoone@gmail.com
         </a>
@@ -129,8 +133,8 @@ const personSchema = {
   <section class="dark-section relative py-24 md:py-32" data-reveal>
     <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
       <p class="eyebrow mb-6">Currently</p>
-      <p class="heading-display text-3xl md:text-5xl max-w-4xl leading-tight" style="color: var(--color-on-dark);">
-        Open to consulting work and the right in-house role.
+      <p class="heading-display text-3xl md:text-5xl max-w-4xl leading-tight text-on-dark">
+        Open to consulting and in-house roles.
       </p>
       <a
         href="mailto:justindoone@gmail.com"

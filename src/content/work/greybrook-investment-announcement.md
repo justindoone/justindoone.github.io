@@ -31,4 +31,4 @@ The $31.525M Markham investment in August 2025 is one example from my tenure, wi
 
 I drafted and edited the press release and the LP email, then ran both through in-house counsel for sign-off. The LinkedIn posts and the blog versions I wrote myself. Owned channels don't carry the same compliance posture as a wire release, which gave me more latitude on tone and structure there.
 
-The hardest part of the job was operational. Four pieces shipping on the same day, all aligned to the same facts, after legal had read every word of every version.
+Most of the job was operational. Four pieces shipping on the same day, all aligned to the same facts, after legal had read every word of every version.

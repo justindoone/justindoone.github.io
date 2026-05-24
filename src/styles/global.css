@@ -247,23 +247,21 @@ body {
   animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* On first visit, hero entrance defocus runs ~1.7s starting at 0.1s.
-   Hero text animations stagger in alongside it (starting around 0.7s)
-   so by the time the bg is sharp, the text is in place too. On repeat
-   visits (.no-splash set), delays collapse to a tight stagger. */
+/* First visit: hero text staggers in alongside the bg defocus reveal
+   (0.1s start, 1.7s duration) so by the time the bg is sharp, text
+   is in place. SPA navigations back to home set .no-splash on
+   astro:after-swap → collapsed stagger so re-entry is snappy. */
 .hero-line[data-line="0"] { animation-delay: 0.7s; }
 .hero-line[data-line="1"] { animation-delay: 0.85s; }
 .hero-line[data-line="2"] { animation-delay: 1.7s; }
 .hero-line[data-line="3"] { animation-delay: 1.95s; }
 .hero-line[data-line="4"] { animation-delay: 2.15s; }
-.hero-line[data-line="5"] { animation-delay: 2.35s; }
 
 .no-splash .hero-line[data-line="0"] { animation-delay: 0.1s; }
 .no-splash .hero-line[data-line="1"] { animation-delay: 0.3s; }
 .no-splash .hero-line[data-line="2"] { animation-delay: 0.55s; }
 .no-splash .hero-line[data-line="3"] { animation-delay: 0.8s; }
 .no-splash .hero-line[data-line="4"] { animation-delay: 1.05s; }
-.no-splash .hero-line[data-line="5"] { animation-delay: 1.3s; }
 
 /* ========================================
    HOME HERO ENTRANCE (first visit only)
@@ -605,12 +603,10 @@ article .prose blockquote {
   }
 }
 
-/* Letter-by-letter reveal on H1 — clean translateY only, no blur/rotate */
-[data-letter-reveal] {
-  opacity: 1;
-  transform: none;
-  animation: none;
-}
+/* Letter-by-letter reveal on H1 — clean translateY only, no blur/rotate.
+   Container is hidden via inline critical CSS (head <style>) until JS
+   wraps text and sets data-letter-ready. No need for an opacity override
+   here — that just fought with the inline rule. */
 
 .letter-word {
   display: inline-block;

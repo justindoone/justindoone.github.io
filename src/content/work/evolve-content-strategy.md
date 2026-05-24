@@ -21,4 +21,4 @@ I've been arguing internally that the 45-day rule is a marketing-conduct standar
 
 The same logic shows up on the AEO and schema side. ETF buyers increasingly check ChatGPT and other answer engines before they look at a fund's actual site. Most Canadian ETF issuers haven't set up the FAQ schema or structured data those engines look for. I'm building the audit layer that maps where Evolve's fund pages can be picked up, where competitors have left gaps, and what schema patterns improve placement.
 
-The throughline is content that compounds. A YouTube video that stays live long enough to build search ranking, a fund page that gets picked up by answer engines. Each piece of content needs to do more work over time, not get restarted on someone else's timer.
+The aim is content that compounds. YouTube videos that stay live long enough to build search ranking. Fund pages that get picked up by answer engines.

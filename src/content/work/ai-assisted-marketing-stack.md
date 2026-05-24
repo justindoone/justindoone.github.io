@@ -20,7 +20,7 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-Most marketing functions pay for several SaaS subscriptions to cover reporting, competitive intel, analytics, and automation. The math adds up. AI assist makes it possible to build equivalent tools in-house, so the team operates on one AI subscription instead of several recurring SaaS bills.
+Most marketing functions pay for several SaaS subscriptions to cover reporting, competitive intel, analytics, and automation. AI assist makes it possible to build equivalent tools in-house, so the team operates on one AI subscription instead of several recurring SaaS bills.
 
 The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle.
 
@@ -42,4 +42,4 @@ The Reddit monthly-update flow follows the same shape. A refresh cycle touches a
 
 ![Reddit Monthly Update interface: known-funds counter, drop zone for the month's ABMs folder, local-path option, and Auto split logic for CTR and impression thresholds](/images/work/ai-stack/reddit-monthly.png)
 
-The throughline is cost-efficiency through AI-assisted infrastructure. Each tool above would have meant a separate SaaS subscription, vendor onboarding, or engineering ticket. AI assist makes them buildable in days, on one subscription.
+Each tool above would have meant a separate SaaS subscription, vendor onboarding, or engineering ticket. AI assist makes them buildable in days, on one subscription.
