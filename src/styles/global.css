@@ -525,12 +525,11 @@ html.nav-on-dark .nav-button.is-active {
    ======================================== */
 .case-body > p:first-of-type::first-letter {
   font-family: var(--font-serif);
-  font-weight: 400;
-  font-size: 4.5em;
-  line-height: 0.85;
+  font-weight: 500;
+  font-size: 3.6em;
+  line-height: 0.95;
   float: left;
-  padding: 0.08em 0.12em 0 0;
-  margin-top: 0.08em;
+  padding: 0.18em 0.12em 0 0;
   color: var(--accent-secondary, var(--accent, var(--color-accent)));
 }
 
