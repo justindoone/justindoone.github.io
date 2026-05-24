@@ -78,6 +78,55 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <Footer />
 
     <script>
+      function setupLetterReveal() {
+        const containers = document.querySelectorAll(
+          '[data-letter-reveal]:not([data-letter-ready])'
+        );
+        if (!containers.length) return;
+        containers.forEach((h) => {
+          let i = 0;
+          const splitNode = (node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              const frag = document.createDocumentFragment();
+              const text = node.textContent || '';
+              for (const ch of text) {
+                if (ch === ' ') {
+                  // preserve whitespace without animating it
+                  frag.appendChild(document.createTextNode(' '));
+                } else {
+                  const span = document.createElement('span');
+                  span.className = 'letter-char';
+                  span.style.setProperty('--char-i', String(i++));
+                  span.textContent = ch;
+                  frag.appendChild(span);
+                }
+              }
+              node.parentNode.replaceChild(frag, node);
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+              // recurse into element children (preserves <em> etc)
+              Array.from(node.childNodes).forEach(splitNode);
+            }
+          };
+          Array.from(h.childNodes).forEach(splitNode);
+          h.setAttribute('data-letter-ready', 'true');
+        });
+      }
+
+      function setupCardImageMasks() {
+        // Inject a sage mask overlay into each work card's image container
+        // so the card image reveals via mask-sweep when the card enters view.
+        const cards = document.querySelectorAll(
+          '.work-card [class*="aspect-"]:not([data-mask-ready])'
+        );
+        cards.forEach((box) => {
+          const mask = document.createElement('span');
+          mask.className = 'card-image-mask';
+          mask.setAttribute('aria-hidden', 'true');
+          box.appendChild(mask);
+          box.setAttribute('data-mask-ready', 'true');
+        });
+      }
+
       function setupReveal() {
         const targets = document.querySelectorAll(
           '[data-reveal]:not(.in-view)'
@@ -264,6 +313,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       });
 
       handleSplash();
+      setupLetterReveal();
+      setupCardImageMasks();
       setupReveal();
       loadInstagram();
       setupCountUp();
@@ -273,6 +324,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         const splash = document.getElementById('splash');
         if (splash) splash.remove();
         document.documentElement.classList.add('no-splash');
+        setupLetterReveal();
+        setupCardImageMasks();
         setupReveal();
         loadInstagram();
         setupCountUp();

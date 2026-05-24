@@ -618,6 +618,53 @@ html.is-transitioning::before {
   100% { background-position: -120% 0; }
 }
 
+/* Letter-by-letter reveal on H1 — modern editorial typography move.
+   .letter-char spans are inserted by JS; CSS handles the choreography. */
+[data-letter-reveal] {
+  /* Override the .hero-line block-fade animation when letters are doing it */
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.letter-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em) rotate(2deg);
+  filter: blur(8px);
+  animation: letter-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* --char-i set inline per span via JS */
+  animation-delay: calc(var(--char-i, 0) * 25ms + var(--char-base, 1.7s));
+}
+
+.no-splash .letter-char {
+  animation-delay: calc(var(--char-i, 0) * 25ms + 0.2s);
+}
+
+@keyframes letter-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    filter: blur(0);
+  }
+}
+
+/* Scroll-revealed work card image: sage panel sweeps off when in view */
+.card-image-mask {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent, var(--color-accent));
+  z-index: 4;
+  pointer-events: none;
+  transform-origin: right center;
+  transform: scaleX(1);
+  transition: transform 1s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+[data-reveal].in-view .card-image-mask {
+  transform: scaleX(0);
+}
+
 /* Home hero curtain reveal — sage panel sweeps right→left to reveal */
 .hero-curtain {
   position: absolute;
@@ -676,5 +723,15 @@ html.is-transitioning::before {
   html.is-transitioning::before {
     animation: none;
     display: none;
+  }
+  .letter-char {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .card-image-mask {
+    transform: scaleX(0);
+    transition: none;
   }
 }
