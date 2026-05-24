@@ -277,17 +277,17 @@ body {
   pointer-events: none;
 }
 
-.splash-logo {
-  width: min(48vw, 320px);
+.splash-mark {
+  width: min(14vw, 110px);
   height: auto;
   opacity: 0;
-  transform: scale(0.94);
-  animation: splash-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(8px);
+  animation: splash-mark-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes splash-enter {
-  0% { opacity: 0; transform: scale(0.94); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes splash-mark-enter {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .no-splash .splash-overlay {
@@ -295,7 +295,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash-logo {
+  .splash-mark {
     animation: none;
     opacity: 1;
     transform: none;

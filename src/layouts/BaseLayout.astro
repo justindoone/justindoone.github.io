@@ -66,9 +66,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
   <body class="min-h-screen flex flex-col">
     <div id="splash" class="splash-overlay" aria-hidden="true">
       <img
-        src="/logos/logo-full.png?v=1"
+        src="/logos/logo-mark.png"
         alt=""
-        class="splash-logo"
+        class="splash-mark"
       />
     </div>
     <Nav />
@@ -376,6 +376,45 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         if (!cursorRAF) tick();
       }
 
+      // ============ HERO ORB PARALLAX ============
+      // Subtle cursor-tracked offset on hero orbs for depth without noise.
+      function setupHeroParallax() {
+        if (prefersReducedMotion) return;
+        const hero = document.querySelector('.dark-section .hero-bg-image')
+          ?.parentElement;
+        if (!hero) return;
+        const orbA = hero.querySelector('.hero-orb-a');
+        const orbB = hero.querySelector('.hero-orb-b');
+        const bg = hero.querySelector('.hero-bg-image');
+        if (!orbA && !orbB && !bg) return;
+        let raf = null;
+        let tx = 0, ty = 0; // target
+        let cx = 0, cy = 0; // current
+        const onMove = (e) => {
+          const rect = hero.getBoundingClientRect();
+          if (e.clientY > rect.bottom || e.clientY < rect.top) return;
+          // -1..1 from center
+          const nx = (e.clientX / window.innerWidth) * 2 - 1;
+          const ny = (e.clientY / rect.height) * 2 - 1;
+          tx = nx;
+          ty = ny;
+          if (!raf) raf = requestAnimationFrame(tick);
+        };
+        function tick() {
+          cx += (tx - cx) * 0.08;
+          cy += (ty - cy) * 0.08;
+          if (orbA) orbA.style.transform = `translate(${cx * 22}px, ${cy * 16}px)`;
+          if (orbB) orbB.style.transform = `translate(${-cx * 18}px, ${-cy * 14}px)`;
+          if (bg) bg.style.transform = `scale(1.04) translate(${-cx * 6}px, ${-cy * 5}px)`;
+          if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+            raf = requestAnimationFrame(tick);
+          } else {
+            raf = null;
+          }
+        }
+        window.addEventListener('mousemove', onMove, { passive: true });
+      }
+
       // ============ MAGNETIC CTAS ============
       function setupMagnetic() {
         const els = document.querySelectorAll('[data-magnetic]:not([data-magnetic-ready])');
@@ -416,6 +455,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       setupCursor();
       setupLetterReveal();
       setupMagnetic();
+      setupHeroParallax();
       setupReveal();
       loadInstagram();
       setupCountUp();
@@ -428,6 +468,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         // Lenis persists; just re-init the per-page systems
         setupLetterReveal();
         setupMagnetic();
+        setupHeroParallax();
         setupReveal();
         loadInstagram();
         setupCountUp();
