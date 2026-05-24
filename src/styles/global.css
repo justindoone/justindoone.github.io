@@ -627,6 +627,11 @@ html.is-transitioning::before {
   animation: none;
 }
 
+.letter-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .letter-char {
   display: inline-block;
   opacity: 0;

@@ -89,16 +89,25 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
             if (node.nodeType === Node.TEXT_NODE) {
               const frag = document.createDocumentFragment();
               const text = node.textContent || '';
-              for (const ch of text) {
-                if (ch === ' ') {
-                  // preserve whitespace without animating it
-                  frag.appendChild(document.createTextNode(' '));
+              // Split into runs of whitespace vs. word characters so we can
+              // wrap each word in an atomic nowrap container — prevents the
+              // browser from breaking mid-word at our inline-block char spans.
+              const parts = text.split(/(\s+)/);
+              for (const part of parts) {
+                if (!part) continue;
+                if (/^\s+$/.test(part)) {
+                  frag.appendChild(document.createTextNode(part));
                 } else {
-                  const span = document.createElement('span');
-                  span.className = 'letter-char';
-                  span.style.setProperty('--char-i', String(i++));
-                  span.textContent = ch;
-                  frag.appendChild(span);
+                  const wordSpan = document.createElement('span');
+                  wordSpan.className = 'letter-word';
+                  for (const ch of part) {
+                    const charSpan = document.createElement('span');
+                    charSpan.className = 'letter-char';
+                    charSpan.style.setProperty('--char-i', String(i++));
+                    charSpan.textContent = ch;
+                    wordSpan.appendChild(charSpan);
+                  }
+                  frag.appendChild(wordSpan);
                 }
               }
               node.parentNode.replaceChild(frag, node);
