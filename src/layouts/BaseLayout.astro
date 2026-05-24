@@ -77,12 +77,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     </main>
     <Footer />
 
-    <!-- Custom cursor (hidden on touch + reduced-motion via CSS) -->
-    <div class="custom-cursor" id="customCursor" aria-hidden="true">
-      <div class="custom-cursor-dot"></div>
-      <div class="custom-cursor-ring"></div>
-    </div>
-
     <script>
       import Lenis from 'lenis';
       function setupLetterReveal() {
@@ -325,57 +319,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         requestAnimationFrame(raf);
       }
 
-      // ============ CUSTOM CURSOR ============
-      let cursorRAF = null;
-      function setupCursor() {
-        const cursor = document.getElementById('customCursor');
-        if (!cursor) return;
-        // Disable on touch-only inputs
-        if (window.matchMedia('(hover: none)').matches) {
-          cursor.style.display = 'none';
-          return;
-        }
-        let targetX = window.innerWidth / 2;
-        let targetY = window.innerHeight / 2;
-        let currentX = targetX;
-        let currentY = targetY;
-        let ringX = targetX;
-        let ringY = targetY;
-
-        const onMove = (e) => {
-          targetX = e.clientX;
-          targetY = e.clientY;
-        };
-        window.addEventListener('mousemove', onMove, { passive: true });
-
-        // Hover-target interaction
-        const interactiveSel = 'a, button, [data-magnetic], .work-card, .nav-button';
-        document.addEventListener('mouseover', (e) => {
-          if (e.target.closest && e.target.closest(interactiveSel)) {
-            cursor.classList.add('is-hover');
-          }
-        });
-        document.addEventListener('mouseout', (e) => {
-          if (e.target.closest && e.target.closest(interactiveSel)) {
-            cursor.classList.remove('is-hover');
-          }
-        });
-
-        function tick() {
-          // Dot follows tighter, ring follows looser for parallax feel
-          currentX += (targetX - currentX) * 0.5;
-          currentY += (targetY - currentY) * 0.5;
-          ringX += (targetX - ringX) * 0.15;
-          ringY += (targetY - ringY) * 0.15;
-          cursor.style.setProperty('--cx', `${currentX}px`);
-          cursor.style.setProperty('--cy', `${currentY}px`);
-          cursor.style.setProperty('--rx', `${ringX}px`);
-          cursor.style.setProperty('--ry', `${ringY}px`);
-          cursorRAF = requestAnimationFrame(tick);
-        }
-        if (!cursorRAF) tick();
-      }
-
       // ============ HERO ORB PARALLAX ============
       // Subtle cursor-tracked offset on hero orbs for depth without noise.
       function setupHeroParallax() {
@@ -452,7 +395,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       // ============ BOOT ============
       handleSplash();
       initLenis();
-      setupCursor();
       setupLetterReveal();
       setupMagnetic();
       setupHeroParallax();
