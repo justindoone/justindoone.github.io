@@ -13,7 +13,6 @@ metrics:
     label: "Ad platforms unified"
   - value: "5+"
     label: "Tools in stack"
-cover: "/images/work/ai-stack/cover.png"
 cardCover: "/images/work/ai-stack/cover.png"
 featured: true
 order: 0
@@ -25,7 +24,7 @@ Most marketing functions pay for several SaaS subscriptions to cover reporting, 
 
 The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle.
 
-![Performance dashboard: KPI strip (total spend, sessions, paid CTR, conversions, paid-vs-organic split), sessions and conversions trend, traffic mix by channel group, and a per-fund breakdown table](/images/work/ai-stack/dashboard.png)
+![Charts panel from the Performance dashboard: 12-month sessions and conversions trend bar+line chart, and a donut of traffic mix by channel group](/images/work/ai-stack/dashboard.png)
 
 Other pieces in the stack:
 
@@ -37,10 +36,10 @@ Other pieces in the stack:
 
 The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
 
-![PLU DIUO Update tab: drop zone for the monthly performance and marketing-data files, with auto-filled as-at date and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
+![PLU DIUO Update interface: drop zone for the two monthly source files, auto-filled as-at date, and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 
 The Reddit monthly-update flow follows the same shape. A refresh cycle touches around 180 creative assets. Six fund campaigns, two ad groups each (keyword and retargeting), three Reddit sizes per ad group, five or six images per size. Drop the month's ABMs folder, the tool groups creative by fund using the ticker convention in the filenames, and generates the per-fund refresh in one pass.
 
-![Reddit Monthly Update tab: drop zone for the month's ABMs folder or files, with a known-funds counter, local-path option, and auto-split logic for CTR and impression thresholds](/images/work/ai-stack/reddit-monthly.png)
+![Reddit Monthly Update interface: known-funds counter, drop zone for the month's ABMs folder, local-path option, and Auto split logic for CTR and impression thresholds](/images/work/ai-stack/reddit-monthly.png)
 
 The throughline is cost-efficiency through AI-assisted infrastructure. Each tool above would have meant a separate SaaS subscription, vendor onboarding, or engineering ticket. AI assist makes them buildable in days, on one subscription.
