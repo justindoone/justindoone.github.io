@@ -390,6 +390,86 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         }
       }
 
+      function trackEvent(name, params) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', name, params || {});
+        }
+      }
+
+      function setupEventTracking() {
+        // Contact clicks: email + LinkedIn. Captured wherever they appear.
+        document.querySelectorAll('a[href^="mailto:"]:not([data-track-ready])').forEach((a) => {
+          a.setAttribute('data-track-ready', 'true');
+          a.addEventListener('click', () => {
+            trackEvent('contact_click', {
+              method: 'email',
+              page_path: location.pathname,
+            });
+          });
+        });
+        document.querySelectorAll('a[href*="linkedin.com"]:not([data-track-ready])').forEach((a) => {
+          a.setAttribute('data-track-ready', 'true');
+          a.addEventListener('click', () => {
+            trackEvent('contact_click', {
+              method: 'linkedin',
+              page_path: location.pathname,
+            });
+          });
+        });
+
+        // Case study clicks: any /work/SLUG link tags the slug + source page.
+        document.querySelectorAll('a[href^="/work/"]:not([data-track-ready])').forEach((a) => {
+          const href = a.getAttribute('href') || '';
+          const match = href.match(/^\/work\/([^\/]+)/);
+          if (!match) return;
+          a.setAttribute('data-track-ready', 'true');
+          a.addEventListener('click', () => {
+            trackEvent('case_click', {
+              case_id: match[1],
+              from: location.pathname,
+            });
+          });
+        });
+
+        // Work index filter usage: which categories get filtered by.
+        document.querySelectorAll('.filter-chip:not([data-track-ready])').forEach((c) => {
+          c.setAttribute('data-track-ready', 'true');
+          c.addEventListener('click', () => {
+            const tag = c.getAttribute('data-filter') || '*';
+            trackEvent('filter_use', {
+              filter_tag: tag === '*' ? 'all' : tag,
+            });
+          });
+        });
+
+        // Case body read depth: fire once when 75% of the body has scrolled
+        // past the bottom of the viewport. Skips if already tracked.
+        const body = document.querySelector('.case-body:not([data-read-tracked])');
+        if (body) {
+          body.setAttribute('data-read-tracked', 'true');
+          const slug = location.pathname
+            .replace(/^\/work\//, '')
+            .replace(/\/$/, '');
+          let fired = false;
+          const onScroll = () => {
+            if (fired) return;
+            const rect = body.getBoundingClientRect();
+            const bodyTop = rect.top + window.scrollY;
+            const bodyHeight = rect.height;
+            if (bodyHeight === 0) return;
+            const scrollBottom = window.scrollY + window.innerHeight;
+            const ratio = (scrollBottom - bodyTop) / bodyHeight;
+            if (ratio >= 0.75) {
+              fired = true;
+              trackEvent('case_read', { case_id: slug, depth: '75pct' });
+              window.removeEventListener('scroll', onScroll);
+            }
+          };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        }
+      }
+
       let navScrollHandler = null;
       function setupNavContext() {
         const probeY = 40;
@@ -550,6 +630,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       setupImageCaptions();
       setupBackToTop();
       setupDemoControls();
+      setupEventTracking();
       setupHeroParallax();
       setupReveal();
       loadInstagram();
@@ -571,6 +652,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         loadInstagram();
         setupCountUp();
         setupNavContext();
+        setupEventTracking();
         trackPageView();
       });
     </script>
