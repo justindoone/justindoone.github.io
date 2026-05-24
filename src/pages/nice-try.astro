@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nice try - Justin Doone"
+  description=""
+  noindex={true}
+>
+  <section class="nice-try-wrap">
+    <div class="nice-try-inner">
+      <p class="eyebrow mb-6">Caught one</p>
+      <h1 class="heading-display text-4xl md:text-6xl text-ink mb-8 leading-[0.95]">
+        Did you really think it'd be that <em class="text-accent" style="font-style: italic;">easy</em>?
+      </h1>
+      <p class="text-lg text-ink-soft max-w-xl leading-relaxed mb-6">
+        That was either <code class="nice-try-code">admin</code> or <code class="nice-try-code">password</code>. Bold guess. Not the password.
+      </p>
+      <p class="text-base text-ink-mute max-w-xl leading-relaxed mb-12">
+        For the curious: I run digital marketing for a 41-fund lineup, which means I deal with credential hygiene rules from compliance. "password" hasn't been the password since around 2003.
+      </p>
+      <div class="flex gap-4 items-center">
+        <a href="/admin" class="nice-try-btn">Try again</a>
+        <a href="/" class="link-underline text-sm text-ink-soft hover:text-accent transition-colors">Go home</a>
+      </div>
+    </div>
+  </section>
+
+  <style is:inline>
+    body { background-color: var(--color-paper); }
+    .nice-try-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+    }
+    .nice-try-inner {
+      max-width: 700px;
+      width: 100%;
+    }
+    .nice-try-code {
+      font-family: var(--font-mono);
+      font-size: 0.95em;
+      padding: 0.1em 0.4em;
+      background-color: var(--color-paper-soft);
+      border: 1px solid var(--color-rule);
+      color: var(--color-ink);
+      border-radius: 3px;
+    }
+    .nice-try-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.4rem;
+      background-color: var(--color-accent);
+      color: var(--color-paper);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .nice-try-btn:hover {
+      background-color: var(--color-accent-warm);
+    }
+  </style>
+</BaseLayout>

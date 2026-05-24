@@ -41,6 +41,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <button class="admin-range-btn is-active" data-range="7d">7d</button>
           <button class="admin-range-btn" data-range="30d">30d</button>
           <button class="admin-range-btn" data-range="90d">90d</button>
+          <button id="adminLogout" class="admin-logout-btn" aria-label="Log out">Log out</button>
         </div>
       </header>
 
@@ -253,6 +254,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border-color: var(--color-accent);
       color: var(--color-paper);
     }
+    .admin-logout-btn {
+      margin-left: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      border: 1px solid var(--color-rule);
+      background: transparent;
+      color: var(--color-ink-mute);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .admin-logout-btn:hover {
+      color: var(--color-ink);
+      border-color: var(--color-ink-soft);
+    }
     .admin-range-label {
       color: var(--color-ink-mute);
       font-family: var(--font-mono);
@@ -352,10 +371,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </style>
 
   <script>
-    // Cosmetic password gate. SHA-256 hash of "preview" (placeholder).
+    // Cosmetic password gate (client-side, bypassable — for the public
+    // it's just "you shouldn't be here"). The plaintext never appears
+    // in the bundle, only its SHA-256 hash.
     // To change: run `python -c "import hashlib; print(hashlib.sha256('NEWPW'.encode()).hexdigest())"`
-    // and paste the result here. The plaintext password never appears in the bundle.
-    const PASSWORD_HASH = '5975cf1bba432391c94667f5886225f69377c0aa8b9fa21fddfb21c89bcf9092';
+    const PASSWORD_HASH = '51f6c69911e1cd1d26d7934acd08a4fb712103f10b3e2a3a9830c40f0c3b5c37';
+    // Joke traps — anyone trying these obvious guesses gets redirected
+    // to /nice-try instead of the standard "wrong password" message.
+    const TRAP_HASHES = [
+      '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', // "admin"
+      '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', // "password"
+    ];
 
     async function sha256(text: string) {
       const buf = new TextEncoder().encode(text);
@@ -387,12 +413,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           sessionStorage.setItem('jd-admin-unlocked', '1');
           gate.classList.add('hidden');
           dash.classList.remove('hidden');
+        } else if (TRAP_HASHES.indexOf(hash) !== -1) {
+          // Caught the obvious-guess attempt — redirect to the joke page
+          window.location.href = '/nice-try';
         } else {
           if (errorEl) errorEl.classList.remove('hidden');
           input.value = '';
           input.focus();
         }
       });
+
+      // Logout button on the dashboard
+      const logoutBtn = document.getElementById('adminLogout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          sessionStorage.removeItem('jd-admin-unlocked');
+          gate.classList.remove('hidden');
+          dash.classList.add('hidden');
+          if (input) {
+            input.value = '';
+            input.focus();
+          }
+        });
+      }
 
       // Range buttons (placeholder behavior — just toggles active state)
       document.querySelectorAll('.admin-range-btn').forEach((btn) => {
