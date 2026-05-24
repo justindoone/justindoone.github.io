@@ -71,25 +71,13 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       rel="stylesheet"
     />
     <slot name="head" />
-    {import.meta.env.PROD && (
-      <>
-        <script is:inline>
-          (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-          })(window, document, "clarity", "script", "wtcuckhv3l");
-        </script>
-        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-9RX181F5KL"></script>
-        <script is:inline>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-9RX181F5KL', { send_page_view: false });
-        </script>
-      </>
-    )}
+    {/*
+      Analytics temporarily disabled while Justin sets up separate
+      Clarity + GA4 properties for the portfolio (the wtcuckhv3l and
+      G-9RX181F5KL IDs were Evolve's properties — keeping them here
+      would pollute Evolve's data now that the inline-script bug is
+      fixed). Re-enable once new IDs are in hand.
+    */}
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">
