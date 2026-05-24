@@ -24,24 +24,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       />
       <p class="hero-line eyebrow mb-8" data-line="0">About</p>
       <h1
-        class="hero-line heading-display text-5xl md:text-7xl mb-10 leading-[0.95]"
+        class="hero-line heading-display text-5xl md:text-7xl mb-10 leading-[0.95] text-on-dark"
         data-line="1"
-        style="color: var(--color-on-dark);"
       >
-        15+ years marketing <em style="color: var(--color-accent); font-style: italic;">high-trust products</em> and complex B2B.
+        15+ years marketing <em class="text-accent" style="font-style: italic;">high-trust products</em> and complex B2B.
       </h1>
-      <p
-        class="hero-line text-xl leading-relaxed mb-6"
-        data-line="2"
-        style="color: var(--color-on-dark);"
-      >
+      <p class="hero-line text-xl leading-relaxed mb-6 text-on-dark" data-line="2">
         Mostly financial services and complex B2B. Started in Hong Kong on the agency side of financial communications, then in-house IR, then marketing for a pan-Asian real estate developer. Moved to Toronto for real estate PE/AM at Greybrook and Clifton Blake. Currently at Evolve ETFs, running digital marketing for a 41-fund lineup.
       </p>
-      <p
-        class="hero-line text-lg leading-relaxed"
-        data-line="3"
-        style="color: var(--color-on-dark-soft);"
-      >
+      <p class="hero-line text-lg leading-relaxed text-on-dark-soft" data-line="3">
         Mostly lean teams. More of the marketing function on me than the title would suggest, and more tooling I've built because off-the-shelf didn't fit.
       </p>
     </div>
@@ -59,7 +50,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           I build small tools for the team because off-the-shelf usually doesn't fit. Reporting consolidations, competitive-intel pipelines, automation for the recurring chores, and ad-hoc diagnostics. AI assist makes that possible in days, which used to take a quarter of engineering bandwidth to get scheduled.
         </p>
         <p data-reveal data-reveal-delay="3">
-          Most of my work has been in regulated industries. You learn to write copy with legal in mind from the first draft, since skipping that step usually means launching a quarter late after compliance kicks it back.        </p>
+          Most of my work has been in regulated industries. You learn to write copy with legal in mind from the first draft, since skipping that step usually means launching a quarter late after compliance kicks it back.
+        </p>
       </div>
     </div>
   </section>
@@ -68,10 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="dark-section relative py-24 md:py-32" data-reveal>
     <div class="relative z-10 mx-auto max-w-4xl px-6 lg:px-12">
       <p class="eyebrow mb-6">Get in touch</p>
-      <h2
-        class="heading-display text-4xl md:text-5xl mb-8"
-        style="color: var(--color-on-dark);"
-      >
+      <h2 class="heading-display text-4xl md:text-5xl mb-8 text-on-dark">
         Tell me what you're trying to ship.
       </h2>
       <a
