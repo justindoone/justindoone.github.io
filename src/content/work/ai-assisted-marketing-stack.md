@@ -35,7 +35,7 @@ Other pieces in the stack:
 - **AEO and schema audits** that identify FAQ-schema and structured-data gaps competitors aren't filling, so the fund pages get picked up by answer engines and AI search
 - **Funnel diagnostics** built ad-hoc when the GA4 setup is doing something I don't trust
 
-The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. The PLU DIUO tab takes the two monthly source files (or a folder containing them), auto-detects the as-at date from the filenames, and outputs the InDesign-merge file directly.
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
 
 ![PLU DIUO Update tab: drop zone for the monthly performance and marketing-data files, with auto-filled as-at date and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 
