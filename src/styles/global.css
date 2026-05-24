@@ -65,6 +65,7 @@ body {
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 0.95;
+  text-wrap: balance;
 }
 
 .eyebrow {
@@ -392,7 +393,8 @@ html.nav-on-dark .nav-logo {
 
 .nav-button.is-active {
   color: var(--color-on-dark);
-  border-color: rgba(240, 235, 225, 0.6);
+  border-color: var(--color-accent);
+  background-color: rgba(135, 160, 107, 0.08);
 }
 
 html.nav-on-dark .nav-button {
@@ -408,7 +410,8 @@ html.nav-on-dark .nav-button:hover {
 
 html.nav-on-dark .nav-button.is-active {
   color: var(--color-on-dark);
-  border-color: rgba(240, 235, 225, 0.5);
+  border-color: var(--color-accent);
+  background-color: rgba(135, 160, 107, 0.12);
 }
 
 @media (max-width: 480px) {
@@ -518,30 +521,71 @@ html.nav-on-dark .nav-button.is-active {
 }
 
 /* ========================================
+   CASE STUDY BODY (dropcap + per-case accent)
+   ======================================== */
+.case-body > p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 4.5em;
+  line-height: 0.85;
+  float: left;
+  padding: 0.08em 0.12em 0 0;
+  margin-top: 0.08em;
+  color: var(--accent-secondary, var(--accent, var(--color-accent)));
+}
+
+article .prose a {
+  color: var(--accent-secondary, var(--accent, var(--color-accent)));
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 2px;
+}
+
+article .prose a:hover {
+  background-size: 100% 1px;
+}
+
+article .prose blockquote {
+  border-left-color: var(--accent-secondary, var(--accent, var(--color-accent))) !important;
+}
+
+/* ========================================
    ASTRO VIEW TRANSITIONS
    ======================================== */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.4s;
+  animation-duration: 0.5s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 ::view-transition-old(root) {
-  animation-name: fade-out;
+  animation-name: page-out;
 }
 
 ::view-transition-new(root) {
-  animation-name: fade-in;
+  animation-name: page-in;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(8px); }
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+@keyframes page-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Hero image: WebP with JPG fallback for older browsers */
+.hero-bg-image {
+  background-image: image-set(
+    url('/images/hero-toronto.webp') type('image/webp'),
+    url('/images/hero-toronto.jpg') type('image/jpeg')
+  );
 }
 
 /* ========================================
