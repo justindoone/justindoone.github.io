@@ -555,46 +555,89 @@ article .prose blockquote {
 
 /* ========================================
    ASTRO VIEW TRANSITIONS
+   Cinematic: old page rises out as new page rises in, with a sage
+   accent stroke flashing across mid-transition for a theatrical cut.
    ======================================== */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.65s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 ::view-transition-old(root) {
-  animation-name: page-out;
+  animation: page-out 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
 }
 
 ::view-transition-new(root) {
-  animation-name: page-in;
-}
-
-@keyframes page-in {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(0.985);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
+  animation: page-in 0.7s 0.15s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 @keyframes page-out {
-  from {
+  0% {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
   }
-  to {
+  100% {
     opacity: 0;
-    transform: translateY(-12px) scale(1.015);
-    filter: blur(4px);
+    transform: translateY(-3vh) scale(0.98);
+    filter: blur(8px);
   }
 }
+
+@keyframes page-in {
+  0% {
+    opacity: 0;
+    transform: translateY(4vh) scale(0.985);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Sage flash sweep — sits on top of the view-transition root during transition.
+   Uses :root::before so the sweep is independent of page content. */
+html.is-transitioning::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(135, 160, 107, 0.85) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  animation: sage-sweep 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes sage-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -120% 0; }
+}
+
+/* Home hero curtain reveal — sage panel sweeps right→left to reveal */
+.hero-curtain {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: right center;
+  animation: curtain-reveal 1.1s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+
+@keyframes curtain-reveal {
+  0%   { transform: scaleX(1); }
+  100% { transform: scaleX(0); }
+}
+
+/* On first visit, the splash holds ~1.5s, so the curtain enters after.
+   On subsequent visits (no-splash), the curtain triggers immediately. */
+.hero-curtain { animation-delay: 1.5s; }
+.no-splash .hero-curtain { animation-delay: 0s; }
 
 
 /* Hero image: WebP with JPG fallback for older browsers */
@@ -628,5 +671,10 @@ article .prose blockquote {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+  .hero-curtain,
+  html.is-transitioning::before {
+    animation: none;
+    display: none;
   }
 }

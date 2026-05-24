@@ -249,7 +249,18 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
             path.indexOf('/about') === 0;
           document.documentElement.classList.toggle('nav-on-dark', startsDark);
           document.documentElement.classList.remove('is-scrolled');
+          // Trigger sage sweep overlay for the duration of the transition
+          document.documentElement.classList.add('is-transitioning');
         } catch (e) {}
+      });
+
+      document.addEventListener('astro:after-swap', () => {
+        // Remove the sweep class after the new page is in place — sweep
+        // animation has forwards fill so it stays at end-state, then we strip
+        // the class so it's ready to re-trigger on the next navigation.
+        setTimeout(() => {
+          document.documentElement.classList.remove('is-transitioning');
+        }, 800);
       });
 
       handleSplash();
