@@ -15,6 +15,6 @@ accent: "#f47654"
 
 Saturnbird sells instant coffee. They were planning a North American expansion and brought me in to build the market-entry plan. Freelance, performance-based, with payout tied to NA sales.
 
-Performance-based is rare in this kind of consulting. Most consultants won't tie their pay to a number the client controls. Taking the deal changed how the plan got written. You write for what moves the number, even when that version is less interesting than the strategy one.
+Performance-based is rare in this kind of consulting. Most consultants won't tie their pay to a number the client controls. Taking the deal meant writing for what would move the number.
 
 The plan covered positioning for the NA market, channel sequencing, rough budget allocation, and a go/no-go gate between the validation phase and the heavier spend. The validation phase was designed to isolate which assumption was wrong if the test failed, so the next phase could be redesigned around what the data showed.

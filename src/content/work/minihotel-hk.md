@@ -19,8 +19,8 @@ The rebrand wrapped just before COVID. Then international travel collapsed.
 
 We kept the new identity and changed who we were selling to. With foreign travel off the table, targeting shifted to local Hong Kong residents looking for a different room than the one in their apartment.
 
-Strategy and execution were both mine, working with the Director of Sales and the Director of Hotel Operations. The rebrand was the heavier strategy work. The staycation pivot was the heavier execution work, since everything had to ship under public-health restrictions that kept shifting under us.
+Strategy and execution were both mine, working with the Director of Sales and the Director of Hotel Operations. Rebrand was mostly strategy. Staycation was mostly execution, with public-health restrictions shifting under us.
 
-The new identity carried the brand through the pandemic, and the staycation positioning was what brought local revenue in while international travel was off the table.
+The new identity carried the brand through the pandemic. Staycation positioning brought in local revenue.
 
 ![A piece of the staycation-era creative, with the brand's "much more than the size" tagline](/images/work/minihotel-hk-tagline.png)
