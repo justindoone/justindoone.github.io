@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Demo: SVG cutout reveal - Justin Doone"
+  description="Hero entrance mockup"
+  noindex={true}
+>
+  <section class="demo-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32 overflow-hidden">
+    <div class="hero-bg-image cutout-bg"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 cutout-content">
+      <p class="eyebrow mb-8">Toronto. Marketing strategist.</p>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" style="color: var(--color-on-dark);">
+        Marketing for <em style="color: var(--color-accent); font-style: italic;">financial services</em> and complex B2B.
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl leading-relaxed mb-6" style="color: var(--color-on-dark);">
+        I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
+        Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
+      </p>
+      <p><a href="/demos" class="link-underline text-sm" style="color: var(--color-on-dark-soft);">← Back to mockups</a></p>
+    </div>
+  </section>
+
+  <!-- Cutout overlay: SVG mask creates a "window" in a fullscreen dark panel -->
+  <svg class="cutout-overlay" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <mask id="cutoutMask">
+        <rect width="100" height="100" fill="white" />
+        <rect class="cutout-hole" x="49.5" y="49" width="1" height="2" fill="black" />
+      </mask>
+    </defs>
+    <rect width="100" height="100" fill="#14161a" mask="url(#cutoutMask)" />
+  </svg>
+
+  <style is:inline>
+    .cutout-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 90;
+      pointer-events: none;
+    }
+    .cutout-hole {
+      animation: cutout-grow 2.4s cubic-bezier(0.65, 0, 0.2, 1) forwards;
+    }
+    @keyframes cutout-grow {
+      0%   { x: 49.5; y: 49; width: 1; height: 2; }
+      28%  { x: 49.5; y: 49; width: 1; height: 2; }
+      55%  { x: 30; y: 47; width: 40; height: 6; }
+      100% { x: 0; y: 0; width: 100; height: 100; }
+    }
+    .cutout-content {
+      animation: cutout-content-rise 1.5s 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+    @keyframes cutout-content-rise {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cutout-bg {
+      animation: cutout-bg-pan 3.2s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+    @keyframes cutout-bg-pan {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1); }
+    }
+  </style>
+</BaseLayout>

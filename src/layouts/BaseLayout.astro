@@ -397,6 +397,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       function initLenis() {
         if (prefersReducedMotion) return;
         if (lenisInstance) return; // persist across navigations
+        // Skip on demo pages so they can use native scroll events
+        if (location.pathname.indexOf('/demos') === 0) return;
         lenisInstance = new Lenis({
           duration: 1.15,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -415,6 +417,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       // Subtle cursor-tracked offset on hero orbs for depth without noise.
       function setupHeroParallax() {
         if (prefersReducedMotion) return;
+        // Skip on demo pages so it doesn't fight with their custom animations
+        if (location.pathname.indexOf('/demos') === 0) return;
         const hero = document.querySelector('.dark-section .hero-bg-image')
           ?.parentElement;
         if (!hero) return;

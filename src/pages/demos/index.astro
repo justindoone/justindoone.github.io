@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const demos = [
+  {
+    href: '/demos/letter-center-rise',
+    label: 'Center-out letter rise',
+    blurb: "Middle characters rise first; motion radiates outward. Less left-to-right-everywhere feel."
+  },
+  {
+    href: '/demos/word-reassembly',
+    label: 'Characters reassemble into words',
+    blurb: 'Chars start scattered; slide into formation. Type setting itself.'
+  },
+  {
+    href: '/demos/svg-cutout',
+    label: 'Center-out cutout reveal',
+    blurb: 'Dark overlay with a window growing from the middle. Hero is already alive behind it.'
+  },
+  {
+    href: '/demos/scroll-entrance',
+    label: 'Scroll-driven reveal (no auto-play)',
+    blurb: "Hero sits still on load. Your first scroll IS the entrance."
+  },
+];
+---
+
+<BaseLayout
+  title="Entrance mockups - Justin Doone"
+  description="Four hero entrance variants to choose between."
+  noindex={true}
+>
+  <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-32 pb-20">
+    <p class="eyebrow mb-6">Mockups</p>
+    <h1 class="heading-display text-4xl md:text-5xl mb-10">Pick an entrance.</h1>
+    <p class="text-ink-soft mb-12 max-w-2xl">
+      Each link opens a full hero with that technique applied. Reload to replay. The "no animation" baseline is the current site.
+    </p>
+    <ul class="space-y-6">
+      {demos.map((d) => (
+        <li class="rule-top pt-6">
+          <a href={d.href} class="group block">
+            <h2 class="heading-display text-2xl md:text-3xl text-ink mb-2 group-hover:text-accent transition-colors">
+              {d.label}
+              <span aria-hidden="true" class="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
+            </h2>
+            <p class="text-ink-soft max-w-2xl">{d.blurb}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

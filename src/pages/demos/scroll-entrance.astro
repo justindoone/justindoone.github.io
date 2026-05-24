@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Demo: scroll-driven entrance - Justin Doone"
+  description="Hero entrance mockup"
+  noindex={true}
+>
+  <section class="se-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
+    <div class="hero-bg-image se-bg"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 se-content">
+      <p class="eyebrow mb-8">Toronto. Marketing strategist.</p>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" style="color: var(--color-on-dark);">
+        Marketing for <em style="color: var(--color-accent); font-style: italic;">financial services</em> and complex B2B.
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl leading-relaxed mb-6" style="color: var(--color-on-dark);">
+        I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
+        Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
+      </p>
+      <p class="se-hint" style="color: var(--color-on-dark-mute); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">
+        Scroll to reveal ↓
+      </p>
+    </div>
+  </section>
+
+  <!-- Sentinel space so there's room to scroll and watch the reveal -->
+  <section class="mx-auto max-w-4xl px-6 lg:px-12 py-32">
+    <p class="text-ink-soft mb-6">You've scrolled. The reveal completes as you progress.</p>
+    <a href="/demos" class="link-underline text-sm text-ink-soft">← Back to mockups</a>
+  </section>
+
+  <style is:inline>
+    .se-bg {
+      transform: scale(calc(1 + (1 - var(--reveal, 0)) * 0.1));
+      filter: blur(calc((1 - var(--reveal, 0)) * 8px));
+      transition: none;
+    }
+    .se-content {
+      opacity: calc(0.35 + var(--reveal, 0) * 0.65);
+      transform: translateY(calc((1 - var(--reveal, 0)) * 12px));
+      transition: none;
+    }
+    .se-hint {
+      opacity: calc(1 - var(--reveal, 0));
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const hero = document.querySelector('.se-hero');
+      if (!hero) return;
+      function tick() {
+        const rect = hero.getBoundingClientRect();
+        const total = rect.height * 0.55; // reveal completes in first 55% of hero scroll
+        const scrolled = Math.max(0, -rect.top);
+        const progress = Math.min(1, scrolled / total);
+        hero.style.setProperty('--reveal', String(progress));
+      }
+      tick();
+      window.addEventListener('scroll', tick, { passive: true });
+      window.addEventListener('resize', tick);
+    })();
+  </script>
+</BaseLayout>
