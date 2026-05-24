@@ -14,12 +14,12 @@ metrics:
   - value: "3"
     label: "Content phases"
 cover: "/images/work/greybrook-inside-track-2025.jpg"
-featured: true
+featured: false
 socials:
   - type: linkedin
     url: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387201543516774401"
     caption: "Inside Track post on LinkedIn"
-order: 5
+order: 6
 accent: "#232323"
 accentSecondary: "#929292"
 ---
