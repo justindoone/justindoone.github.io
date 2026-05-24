@@ -725,6 +725,13 @@ article .prose blockquote {
   padding-top: 1px; /* preserve layout offset that the 1px border was providing */
 }
 
+/* Skip the draw-in animation on work cards — a cascading list of
+   per-card line reveals reads as messy. Show as a static line instead. */
+.work-card.rule-top::before {
+  transform: scaleX(1);
+  transition: none;
+}
+
 /* ========================================
    CASE BODY IMAGE CAPTIONS
    Inline images in markdown become figures with the alt text as caption.
