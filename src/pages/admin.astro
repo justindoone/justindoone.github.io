@@ -183,6 +183,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       justify-content: center;
       padding: 2rem;
     }
+    /* Explicit .hidden overrides — beats Tailwind's lower-specificity
+       .hidden rule that was being trumped by .admin-gate's display:flex */
+    .admin-gate.hidden,
+    .admin-dash.hidden {
+      display: none;
+    }
     .admin-gate-inner {
       max-width: 400px;
       width: 100%;
