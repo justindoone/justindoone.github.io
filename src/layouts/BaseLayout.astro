@@ -109,17 +109,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       <span aria-hidden="true">↑</span>
     </button>
 
-    <!-- Demo controls: replay + back. Shown only on /demos/* (not the index) -->
-    <div id="demoControls" class="demo-controls" aria-hidden="true">
-      <button type="button" class="demo-ctrl" data-action="replay" aria-label="Replay animation">
-        <span aria-hidden="true">↻</span>
-        <span>Replay</span>
-      </button>
-      <a href="/demos" class="demo-ctrl" aria-label="Back to mockups">
-        <span aria-hidden="true">←</span>
-        <span>All mockups</span>
-      </a>
-    </div>
 
     <script>
       import Lenis from 'lenis';
@@ -185,23 +174,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
           figure.appendChild(caption);
           img.setAttribute('data-cap-ready', 'true');
         });
-      }
-
-      function setupDemoControls() {
-        const wrap = document.getElementById('demoControls');
-        if (!wrap) return;
-        const path = location.pathname;
-        // Show on /demos/something but not on /demos itself
-        const onDemo = path.indexOf('/demos/') === 0;
-        if (!onDemo) {
-          wrap.style.display = 'none';
-          return;
-        }
-        wrap.style.display = '';
-        const replay = wrap.querySelector('[data-action="replay"]');
-        if (replay) {
-          replay.addEventListener('click', () => location.reload());
-        }
       }
 
       function setupBackToTop() {
@@ -629,7 +601,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       setupAnimatedRules();
       setupImageCaptions();
       setupBackToTop();
-      setupDemoControls();
       setupEventTracking();
       setupHeroParallax();
       setupReveal();
