@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /demos/
 
 Sitemap: https://justindoone.github.io/sitemap-index.xml

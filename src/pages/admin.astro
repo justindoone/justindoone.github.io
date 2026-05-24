@@ -1,0 +1,405 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Admin - Justin Doone"
+  description="Private analytics"
+  noindex={true}
+>
+  <!-- Password gate: appears first, hides dashboard until correct password -->
+  <section id="adminGate" class="admin-gate">
+    <div class="admin-gate-inner">
+      <p class="eyebrow mb-6">Private</p>
+      <h1 class="heading-display text-3xl md:text-4xl mb-8 text-ink">Enter password</h1>
+      <form id="adminGateForm" class="flex flex-col gap-4 max-w-sm">
+        <input
+          type="password"
+          id="adminPwInput"
+          class="admin-pw-input"
+          placeholder="Password"
+          autocomplete="current-password"
+          autofocus
+        />
+        <button type="submit" class="admin-pw-submit">Enter</button>
+        <p id="adminGateError" class="text-sm text-red-500 hidden">Wrong password.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Dashboard (hidden until unlocked) -->
+  <section id="adminDash" class="admin-dash hidden">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12 pt-24 pb-16">
+
+      <header class="flex flex-wrap items-end justify-between gap-4 mb-10">
+        <div>
+          <p class="eyebrow mb-2">Analytics</p>
+          <h1 class="heading-display text-3xl md:text-4xl text-ink">Portfolio overview</h1>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="admin-range-label">Range:</span>
+          <button class="admin-range-btn is-active" data-range="7d">7d</button>
+          <button class="admin-range-btn" data-range="30d">30d</button>
+          <button class="admin-range-btn" data-range="90d">90d</button>
+        </div>
+      </header>
+
+      <p class="admin-banner mb-8">
+        <strong>UI preview.</strong> All numbers below are placeholder data — wiring up live GA4 data in Phase 2.
+      </p>
+
+      <!-- KPI strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="admin-kpi">
+          <p class="admin-kpi-label">Visitors</p>
+          <p class="admin-kpi-value">312</p>
+          <p class="admin-kpi-delta admin-up">+18% vs prior 7d</p>
+        </div>
+        <div class="admin-kpi">
+          <p class="admin-kpi-label">Pageviews</p>
+          <p class="admin-kpi-value">947</p>
+          <p class="admin-kpi-delta admin-up">+22%</p>
+        </div>
+        <div class="admin-kpi">
+          <p class="admin-kpi-label">Avg session</p>
+          <p class="admin-kpi-value">2m 14s</p>
+          <p class="admin-kpi-delta admin-down">−8%</p>
+        </div>
+        <div class="admin-kpi">
+          <p class="admin-kpi-label">Live now</p>
+          <p class="admin-kpi-value">
+            <span class="admin-live-dot"></span>3
+          </p>
+          <p class="admin-kpi-delta">on Cricket Park, BANK, Home</p>
+        </div>
+      </div>
+
+      <!-- Two-column: time series + geography -->
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <p class="eyebrow mb-3">Visitors over time</p>
+          <div class="admin-card">
+            <!-- Simple SVG line chart placeholder -->
+            <svg viewBox="0 0 600 200" class="w-full h-auto" preserveAspectRatio="none">
+              <polyline
+                points="0,150 60,135 120,160 180,140 240,110 300,95 360,80 420,90 480,70 540,55 600,40"
+                fill="none"
+                stroke="var(--color-accent)"
+                stroke-width="2"
+              />
+              <polyline
+                points="0,150 60,135 120,160 180,140 240,110 300,95 360,80 420,90 480,70 540,55 600,40 600,200 0,200"
+                fill="var(--color-accent)"
+                fill-opacity="0.08"
+                stroke="none"
+              />
+            </svg>
+            <div class="flex justify-between text-xs text-ink-mute mt-3">
+              <span>Apr 17</span><span>May 24</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow mb-3">Top locations</p>
+          <div class="admin-card">
+            <ul class="admin-list">
+              <li><span>Toronto, CA</span><span class="admin-list-num">87</span></li>
+              <li><span>New York, US</span><span class="admin-list-num">42</span></li>
+              <li><span>London, UK</span><span class="admin-list-num">28</span></li>
+              <li><span>Hong Kong, HK</span><span class="admin-list-num">19</span></li>
+              <li><span>Vancouver, CA</span><span class="admin-list-num">14</span></li>
+              <li><span>San Francisco, US</span><span class="admin-list-num">11</span></li>
+              <li><span>Singapore, SG</span><span class="admin-list-num">9</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top pages + Top events -->
+      <div class="grid md:grid-cols-2 gap-8 mb-10">
+        <div>
+          <p class="eyebrow mb-3">Top pages</p>
+          <div class="admin-card">
+            <ul class="admin-list">
+              <li><span>/ (home)</span><span class="admin-list-num">312</span></li>
+              <li><span>/work</span><span class="admin-list-num">187</span></li>
+              <li><span>/work/cricket-park-campaign</span><span class="admin-list-num">94</span></li>
+              <li><span>/work/evolve-reddit-bank-takeover</span><span class="admin-list-num">76</span></li>
+              <li><span>/about</span><span class="admin-list-num">68</span></li>
+              <li><span>/work/clifton-blake-website</span><span class="admin-list-num">51</span></li>
+              <li><span>/contact</span><span class="admin-list-num">42</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow mb-3">Engagement events</p>
+          <div class="admin-card">
+            <ul class="admin-list">
+              <li><span>case_click → cricket-park</span><span class="admin-list-num">38</span></li>
+              <li><span>case_click → bank</span><span class="admin-list-num">31</span></li>
+              <li><span>case_read 75% → bank</span><span class="admin-list-num">22</span></li>
+              <li><span>contact_click → email</span><span class="admin-list-num">12</span></li>
+              <li><span>contact_click → linkedin</span><span class="admin-list-num">9</span></li>
+              <li><span>filter_use → Paid media</span><span class="admin-list-num">7</span></li>
+              <li><span>case_read 75% → cricket-park</span><span class="admin-list-num">6</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent activity feed -->
+      <div>
+        <p class="eyebrow mb-3">Recent activity</p>
+        <div class="admin-card">
+          <table class="admin-table">
+            <thead>
+              <tr><th>Time</th><th>Location</th><th>Page</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>just now</td><td>Toronto, CA</td><td>/work/cricket-park-campaign</td><td>linkedin.com</td></tr>
+              <tr><td>2m ago</td><td>New York, US</td><td>/</td><td>direct</td></tr>
+              <tr><td>14m ago</td><td>London, UK</td><td>/work</td><td>google.com</td></tr>
+              <tr><td>31m ago</td><td>Hong Kong, HK</td><td>/about</td><td>linkedin.com</td></tr>
+              <tr><td>1h ago</td><td>Toronto, CA</td><td>/work/evolve-reddit-bank-takeover</td><td>direct</td></tr>
+              <tr><td>2h ago</td><td>Vancouver, CA</td><td>/</td><td>twitter.com</td></tr>
+              <tr><td>3h ago</td><td>Boston, US</td><td>/work/clifton-blake-website</td><td>linkedin.com</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style is:inline>
+    /* Hide demo controls + back-to-top + nav on this page — admin standalone */
+    body { background-color: var(--color-paper); }
+
+    .admin-gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .admin-gate-inner {
+      max-width: 400px;
+      width: 100%;
+    }
+    .admin-pw-input {
+      background-color: var(--color-paper-soft);
+      border: 1px solid var(--color-rule);
+      color: var(--color-ink);
+      padding: 0.85rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .admin-pw-input:focus {
+      border-color: var(--color-accent);
+    }
+    .admin-pw-submit {
+      background-color: var(--color-accent);
+      color: var(--color-paper);
+      padding: 0.7rem 1.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.2s ease;
+    }
+    .admin-pw-submit:hover {
+      background-color: var(--color-accent-warm);
+    }
+
+    .admin-dash {
+      min-height: 100vh;
+    }
+
+    .admin-banner {
+      padding: 0.85rem 1rem;
+      background-color: rgba(212, 165, 116, 0.12);
+      border-left: 3px solid #d4a574;
+      color: var(--color-ink-soft);
+      font-size: 0.85rem;
+    }
+
+    .admin-range-btn {
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid var(--color-rule);
+      background: transparent;
+      color: var(--color-ink-soft);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .admin-range-btn:hover { color: var(--color-ink); border-color: var(--color-ink-soft); }
+    .admin-range-btn.is-active {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-paper);
+    }
+    .admin-range-label {
+      color: var(--color-ink-mute);
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-right: 0.25rem;
+    }
+
+    .admin-kpi {
+      padding: 1.25rem 1.5rem;
+      background-color: var(--color-paper-soft);
+      border: 1px solid var(--color-rule);
+    }
+    .admin-kpi-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-mute);
+      margin-bottom: 0.4rem;
+    }
+    .admin-kpi-value {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .admin-kpi-delta {
+      font-size: 0.72rem;
+      margin-top: 0.4rem;
+      color: var(--color-ink-mute);
+    }
+    .admin-up { color: #87a06b; }
+    .admin-down { color: #b94c3a; }
+    .admin-live-dot {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #87a06b;
+      animation: live-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes live-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .admin-card {
+      padding: 1.5rem;
+      background-color: var(--color-paper-soft);
+      border: 1px solid var(--color-rule);
+    }
+
+    .admin-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .admin-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--color-rule);
+      font-size: 0.88rem;
+      color: var(--color-ink);
+    }
+    .admin-list li:last-child { border-bottom: none; }
+    .admin-list-num {
+      color: var(--color-ink-mute);
+      font-family: var(--font-mono);
+    }
+
+    .admin-table {
+      width: 100%;
+      font-size: 0.85rem;
+    }
+    .admin-table th {
+      text-align: left;
+      padding: 0.5rem 0.8rem 0.5rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-mute);
+      font-weight: 500;
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .admin-table td {
+      padding: 0.65rem 0.8rem 0.65rem 0;
+      color: var(--color-ink);
+      border-bottom: 1px solid var(--color-rule);
+    }
+    .admin-table tr:last-child td { border-bottom: none; }
+  </style>
+
+  <script>
+    // Cosmetic password gate. SHA-256 hash of "preview" (placeholder).
+    // To change: run `python -c "import hashlib; print(hashlib.sha256('NEWPW'.encode()).hexdigest())"`
+    // and paste the result here. The plaintext password never appears in the bundle.
+    const PASSWORD_HASH = '5975cf1bba432391c94667f5886225f69377c0aa8b9fa21fddfb21c89bcf9092';
+
+    async function sha256(text: string) {
+      const buf = new TextEncoder().encode(text);
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(digest))
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
+    }
+
+    function setupAdminGate() {
+      const form = document.getElementById('adminGateForm');
+      const input = document.getElementById('adminPwInput') as HTMLInputElement | null;
+      const errorEl = document.getElementById('adminGateError');
+      const gate = document.getElementById('adminGate');
+      const dash = document.getElementById('adminDash');
+      if (!form || !input || !gate || !dash) return;
+
+      // Persist unlock for the session so reloads don't re-prompt
+      if (sessionStorage.getItem('jd-admin-unlocked') === '1') {
+        gate.classList.add('hidden');
+        dash.classList.remove('hidden');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const pw = input.value;
+        const hash = await sha256(pw);
+        if (hash === PASSWORD_HASH) {
+          sessionStorage.setItem('jd-admin-unlocked', '1');
+          gate.classList.add('hidden');
+          dash.classList.remove('hidden');
+        } else {
+          if (errorEl) errorEl.classList.remove('hidden');
+          input.value = '';
+          input.focus();
+        }
+      });
+
+      // Range buttons (placeholder behavior — just toggles active state)
+      document.querySelectorAll('.admin-range-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.admin-range-btn').forEach((b) =>
+            b.classList.remove('is-active')
+          );
+          btn.classList.add('is-active');
+        });
+      });
+    }
+
+    setupAdminGate();
+    document.addEventListener('astro:page-load', setupAdminGate);
+  </script>
+</BaseLayout>
