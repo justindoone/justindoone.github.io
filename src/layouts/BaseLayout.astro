@@ -29,7 +29,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0||p.indexOf('/about')===0){document.documentElement.classList.add('nav-on-dark');}})();`}</script>
+    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0||p.indexOf('/about')===0){document.documentElement.classList.add('nav-on-dark');}try{if(sessionStorage.getItem('jd-splash-shown')){document.documentElement.classList.add('no-splash');}else{sessionStorage.setItem('jd-splash-shown','true');}}catch(e){document.documentElement.classList.add('no-splash');}})();`}</script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -318,17 +318,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         els.forEach((el) => observer.observe(el));
       }
 
-      function handleSplash() {
-        // No splash overlay anymore — the home hero has its own cinematic
-        // entrance animation that runs on first visit. We still use the
-        // .no-splash class to gate that animation: present = skip,
-        // absent = first visit, run the entrance.
-        if (sessionStorage.getItem('jd-splash-shown')) {
-          document.documentElement.classList.add('no-splash');
-          return;
-        }
-        sessionStorage.setItem('jd-splash-shown', 'true');
-      }
+      // handleSplash logic moved to the inline head script — runs
+      // synchronously before CSS to avoid a flash of animation on
+      // repeat visits.
 
       function trackPageView() {
         if (typeof window.gtag === 'function') {
@@ -487,7 +479,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       }
 
       // ============ BOOT ============
-      handleSplash();
       initLenis();
       setupDropcapClass();
       setupLetterReveal();
@@ -502,9 +493,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       setupCountUp();
       setupNavContext();
       document.addEventListener('astro:page-load', () => {
-        // Splash never returns on subsequent navigations within the session.
-        const splash = document.getElementById('splash');
-        if (splash) splash.remove();
+        // First-visit entrance only fires on initial load; SPA navs use
+        // the collapsed stagger via the .no-splash class.
         document.documentElement.classList.add('no-splash');
         // Lenis persists; just re-init the per-page systems
         setupLetterReveal();
