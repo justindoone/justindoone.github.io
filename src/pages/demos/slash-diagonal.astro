@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Demo: diagonal slash reveal - Justin Doone"
+  description="Hero entrance mockup"
+  noindex={true}
+>
+  <section class="sd-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32 overflow-hidden">
+    <div class="hero-bg-image"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 sd-content">
+      <p class="eyebrow mb-8">Toronto. Marketing strategist.</p>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10 text-on-dark">
+        Marketing for <em class="text-accent" style="font-style: italic;">high-trust products</em> and complex B2B.
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl leading-relaxed mb-6 text-on-dark">
+        I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12 text-on-dark-soft">
+        Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
+      </p>
+    </div>
+  </section>
+
+  <!-- Two triangular halves split along the diagonal from top-left to bottom-right.
+       Each slides perpendicular to the diagonal, opening like a paper cut. -->
+  <div class="sd-overlay sd-upper" aria-hidden="true"></div>
+  <div class="sd-overlay sd-lower" aria-hidden="true"></div>
+
+  <style is:inline>
+    .sd-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--color-paper);
+      z-index: 90;
+      pointer-events: none;
+      will-change: transform;
+    }
+    /* Upper-right triangle (above the diagonal y=x) */
+    .sd-upper {
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      animation: sd-slide-up 1.6s cubic-bezier(0.65, 0, 0.2, 1) forwards;
+    }
+    /* Lower-left triangle (below the diagonal) */
+    .sd-lower {
+      clip-path: polygon(0 0, 100% 100%, 0 100%);
+      animation: sd-slide-down 1.6s cubic-bezier(0.65, 0, 0.2, 1) forwards;
+    }
+    @keyframes sd-slide-up {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(110vw, -110vh); }
+    }
+    @keyframes sd-slide-down {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(-110vw, 110vh); }
+    }
+    .sd-content {
+      opacity: 0;
+      animation: sd-content-in 1.2s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes sd-content-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sd-overlay { display: none; }
+      .sd-content { animation: none; opacity: 1; }
+    }
+  </style>
+</BaseLayout>
