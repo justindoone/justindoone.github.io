@@ -121,21 +121,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         });
       }
 
-      function setupCardImageMasks() {
-        // Inject a sage mask overlay into each work card's image container
-        // so the card image reveals via mask-sweep when the card enters view.
-        const cards = document.querySelectorAll(
-          '.work-card [class*="aspect-"]:not([data-mask-ready])'
-        );
-        cards.forEach((box) => {
-          const mask = document.createElement('span');
-          mask.className = 'card-image-mask';
-          mask.setAttribute('aria-hidden', 'true');
-          box.appendChild(mask);
-          box.setAttribute('data-mask-ready', 'true');
-        });
-      }
-
       function setupReveal() {
         const targets = document.querySelectorAll(
           '[data-reveal]:not(.in-view)'
@@ -307,23 +292,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
             path.indexOf('/about') === 0;
           document.documentElement.classList.toggle('nav-on-dark', startsDark);
           document.documentElement.classList.remove('is-scrolled');
-          // Trigger sage sweep overlay for the duration of the transition
-          document.documentElement.classList.add('is-transitioning');
         } catch (e) {}
-      });
-
-      document.addEventListener('astro:after-swap', () => {
-        // Remove the sweep class after the new page is in place — sweep
-        // animation has forwards fill so it stays at end-state, then we strip
-        // the class so it's ready to re-trigger on the next navigation.
-        setTimeout(() => {
-          document.documentElement.classList.remove('is-transitioning');
-        }, 800);
       });
 
       handleSplash();
       setupLetterReveal();
-      setupCardImageMasks();
       setupReveal();
       loadInstagram();
       setupCountUp();
