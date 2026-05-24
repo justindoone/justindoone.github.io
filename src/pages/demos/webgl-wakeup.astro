@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Demo: WebGL wake-up under mask - Justin Doone"
+  description="Hero entrance mockup"
+  noindex={true}
+>
+  <section class="ww-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32 overflow-hidden">
+    <!-- WebGL fluid/grain layer starts BEFORE the mask opens; user catches mid-motion -->
+    <canvas id="wwBgCanvas" class="ww-bg-canvas" aria-hidden="true"></canvas>
+    <div class="hero-bg-image ww-bg"></div>
+    <div class="hero-bg-overlay"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 ww-content">
+      <p class="eyebrow mb-8">Toronto. Marketing strategist.</p>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" style="color: var(--color-on-dark);">
+        Marketing for <em style="color: var(--color-accent); font-style: italic;">financial services</em> and complex B2B.
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl leading-relaxed mb-6" style="color: var(--color-on-dark);">
+        I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
+        Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
+      </p>
+      <p><a href="/demos" class="link-underline text-sm" style="color: var(--color-on-dark-soft);">← Back to mockups</a></p>
+    </div>
+  </section>
+
+  <!-- Mask that opens AFTER the WebGL layer has already been animating for 400ms -->
+  <svg class="ww-mask" aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <defs>
+      <mask id="wwMask">
+        <rect width="100" height="100" fill="white" />
+        <rect x="49.5" y="49" width="1" height="2" fill="black">
+          <animate attributeName="x"      dur="2.0s" begin="0.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.3;0.6;1"
+                   values="49.5;48;25;0"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="y"      dur="2.0s" begin="0.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.3;0.6;1"
+                   values="49;48;45;0"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="width"  dur="2.0s" begin="0.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.3;0.6;1"
+                   values="1;4;50;100"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+          <animate attributeName="height" dur="2.0s" begin="0.4s" fill="freeze" calcMode="spline"
+                   keyTimes="0;0.3;0.6;1"
+                   values="2;4;10;100"
+                   keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.65 0 0.2 1" />
+        </rect>
+      </mask>
+    </defs>
+    <rect width="100" height="100" fill="#14161a" mask="url(#wwMask)" />
+  </svg>
+
+  <style is:inline>
+    .ww-bg-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .ww-bg {
+      animation: ww-bg-zoom 3.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+    @keyframes ww-bg-zoom {
+      from { transform: scale(1.12); }
+      to   { transform: scale(1); }
+    }
+    .ww-mask {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 90;
+      pointer-events: none;
+    }
+    .ww-content {
+      opacity: 0;
+      animation: ww-content-in 1.4s 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes ww-content-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ww-bg-canvas, .ww-mask { display: none; }
+      .ww-content { animation: none; opacity: 1; }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const canvas = document.getElementById('wwBgCanvas');
+      if (!canvas) return;
+      const gl = canvas.getContext('webgl', { premultipliedAlpha: false, alpha: true });
+      if (!gl) { canvas.remove(); return; }
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = canvas.offsetWidth * dpr;
+        canvas.height = canvas.offsetHeight * dpr;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const vsSrc = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+      // Fluid noise: layered sin/cos with time to create slow ripples
+      const fsSrc = [
+        'precision highp float;',
+        'uniform vec2 u_res;',
+        'uniform float u_time;',
+        'vec3 palette(float t){',
+        '  vec3 a = vec3(0.30, 0.40, 0.55);',
+        '  vec3 b = vec3(0.55, 0.65, 0.45);', // sage green tones
+        '  return mix(a, b, smoothstep(0.0, 1.0, t));',
+        '}',
+        'void main(){',
+        '  vec2 uv = (gl_FragCoord.xy - 0.5 * u_res) / min(u_res.x, u_res.y);',
+        '  float t = u_time * 0.18;',
+        '  // Three layered ripples drifting at different speeds',
+        '  float r1 = sin(uv.x * 2.2 + t * 1.3) * cos(uv.y * 1.7 - t * 0.7);',
+        '  float r2 = sin((uv.x + uv.y) * 3.1 + t * 0.9);',
+        '  float r3 = cos(length(uv) * 4.0 - t * 1.1);',
+        '  float v = (r1 * 0.45 + r2 * 0.35 + r3 * 0.20) * 0.5 + 0.5;',
+        '  vec3 col = palette(v);',
+        '  float alpha = smoothstep(0.2, 0.85, v) * 0.55;',
+        '  gl_FragColor = vec4(col, alpha);',
+        '}'
+      ].join('\n');
+
+      function compile(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      }
+      const vs = compile(gl.VERTEX_SHADER, vsSrc);
+      const fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+      const prog = gl.createProgram();
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1,  1, -1,  -1, 1,
+        -1,  1,  1, -1,   1, 1,
+      ]), gl.STATIC_DRAW);
+      const pLoc = gl.getAttribLocation(prog, 'p');
+      gl.enableVertexAttribArray(pLoc);
+      gl.vertexAttribPointer(pLoc, 2, gl.FLOAT, false, 0, 0);
+
+      const uRes = gl.getUniformLocation(prog, 'u_res');
+      const uTime = gl.getUniformLocation(prog, 'u_time');
+
+      gl.enable(gl.BLEND);
+      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+      const start = performance.now();
+      function frame(now) {
+        const t = (now - start) / 1000;
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, t);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</BaseLayout>

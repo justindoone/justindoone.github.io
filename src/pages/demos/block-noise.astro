@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Demo: block-noise shader reveal - Justin Doone"
+  description="Hero entrance mockup"
+  noindex={true}
+>
+  <section class="bn-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
+    <div class="hero-bg-image"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 bn-content">
+      <p class="eyebrow mb-8">Toronto. Marketing strategist.</p>
+      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10" style="color: var(--color-on-dark);">
+        Marketing for <em style="color: var(--color-accent); font-style: italic;">financial services</em> and complex B2B.
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl leading-relaxed mb-6" style="color: var(--color-on-dark);">
+        I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
+      </p>
+      <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
+        Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
+      </p>
+      <p><a href="/demos" class="link-underline text-sm" style="color: var(--color-on-dark-soft);">← Back to mockups</a></p>
+    </div>
+  </section>
+
+  <canvas id="bnCanvas" class="bn-canvas" aria-hidden="true"></canvas>
+
+  <style is:inline>
+    .bn-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 95;
+      pointer-events: none;
+    }
+    .bn-content {
+      opacity: 0;
+      animation: bn-content-in 1.2s 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes bn-content-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bn-canvas { display: none; }
+      .bn-content { animation: none; opacity: 1; }
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      const canvas = document.getElementById('bnCanvas');
+      if (!canvas) return;
+      const gl = canvas.getContext('webgl', { premultipliedAlpha: false, alpha: true });
+      if (!gl) { canvas.remove(); return; }
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const vsSrc = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+      const fsSrc = [
+        'precision highp float;',
+        'uniform vec2 u_res;',
+        'uniform float u_threshold;',
+        'uniform float u_blockSize;',
+        'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }',
+        'void main(){',
+        '  vec2 uv = gl_FragCoord.xy / u_res;',
+        '  // Stretch blocks slightly so they read more like halftone bars than squares',
+        '  vec2 grid = vec2(u_blockSize, u_blockSize * 0.55);',
+        '  vec2 blocks = floor(uv * grid);',
+        '  float n = hash(blocks);',
+        '  // Per-block delay: each block reveals at its own noise value',
+        '  float mask = step(n, u_threshold);',
+        '  // Soft edge per block for slight grain',
+        '  float fade = smoothstep(n - 0.04, n + 0.04, u_threshold);',
+        '  float alpha = 1.0 - fade;',
+        '  gl_FragColor = vec4(0.078, 0.086, 0.102, alpha);',
+        '}'
+      ].join('\n');
+
+      function compile(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+          console.warn('Shader compile error:', gl.getShaderInfoLog(s));
+        }
+        return s;
+      }
+      const vs = compile(gl.VERTEX_SHADER, vsSrc);
+      const fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+      const prog = gl.createProgram();
+      gl.attachShader(prog, vs);
+      gl.attachShader(prog, fs);
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      // Fullscreen quad
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1,  1, -1,  -1, 1,
+        -1,  1,  1, -1,   1, 1,
+      ]), gl.STATIC_DRAW);
+      const pLoc = gl.getAttribLocation(prog, 'p');
+      gl.enableVertexAttribArray(pLoc);
+      gl.vertexAttribPointer(pLoc, 2, gl.FLOAT, false, 0, 0);
+
+      const uRes = gl.getUniformLocation(prog, 'u_res');
+      const uThr = gl.getUniformLocation(prog, 'u_threshold');
+      const uBs  = gl.getUniformLocation(prog, 'u_blockSize');
+
+      gl.enable(gl.BLEND);
+      gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+      const start = performance.now();
+      const duration = 2200;
+      function frame(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uThr, eased);
+        gl.uniform1f(uBs, 32.0);
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+        if (t < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          canvas.remove();
+        }
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</BaseLayout>
