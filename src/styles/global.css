@@ -385,6 +385,14 @@ html.nav-on-dark .nav-button.is-active {
   border-color: rgba(240, 235, 225, 0.5);
 }
 
+@media (max-width: 480px) {
+  .nav-button {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.005em;
+  }
+}
+
 /* ========================================
    CASE STUDY HERO
    ======================================== */
