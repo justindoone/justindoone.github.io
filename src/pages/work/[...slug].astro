@@ -21,6 +21,21 @@ const idx = all.findIndex((e) => e.id === entry.id);
 const next = all.length > 0 ? all[((idx === -1 ? 0 : idx + 1) % all.length)] : null;
 const num = String(entry.data.order).padStart(2, '0');
 
+// Related cases: rank others by shared tag count, fall back to chronological
+const currentTags = new Set(entry.data.tags);
+const related = all
+  .filter((e) => e.id !== entry.id)
+  .map((e) => ({
+    entry: e,
+    shared: e.data.tags.filter((t) => currentTags.has(t)).length,
+  }))
+  .sort((a, b) => {
+    if (b.shared !== a.shared) return b.shared - a.shared;
+    return a.entry.data.order - b.entry.data.order;
+  })
+  .slice(0, 3)
+  .map((r) => r.entry);
+
 const caseImage = entry.data.ogImage ?? entry.data.cover ?? entry.data.cardCover;
 const caseSchema = {
   '@context': 'https://schema.org',
@@ -57,6 +72,22 @@ const caseSchema = {
     is:inline
     set:html={JSON.stringify(caseSchema)}
   />
+
+  <!-- Sticky case meta strip — appears when scrolled past the inline meta -->
+  <div
+    class="case-meta-sticky"
+    id="caseMetaSticky"
+    style={`--accent: ${entry.data.accent}; --accent-secondary: ${entry.data.accentSecondary ?? entry.data.accent};`}
+    aria-hidden="true"
+  >
+    <div class="mx-auto max-w-7xl px-6 lg:px-12 flex items-center gap-6 text-xs">
+      <span class="case-meta-sticky-title">{entry.data.title}</span>
+      <span class="case-meta-sticky-sep" aria-hidden="true">·</span>
+      <span class="case-meta-sticky-client">{entry.data.client}</span>
+      <span class="case-meta-sticky-sep" aria-hidden="true">·</span>
+      <span class="case-meta-sticky-year">{entry.data.year}</span>
+    </div>
+  </div>
 
   <article style={`--accent: ${entry.data.accent}; --accent-secondary: ${entry.data.accentSecondary ?? entry.data.accent};`}>
     <!-- HERO (dark only — cover image renders below the meta strip) -->
@@ -111,7 +142,7 @@ const caseSchema = {
     }
 
     <!-- META STRIP -->
-    <section class="mx-auto max-w-4xl px-6 lg:px-12 pt-12 pb-8" data-reveal>
+    <section id="caseMetaInline" class="mx-auto max-w-4xl px-6 lg:px-12 pt-12 pb-8" data-reveal>
       <div
         class="grid grid-cols-3 gap-6 text-sm"
       >
@@ -232,28 +263,31 @@ const caseSchema = {
       )
     }
 
-    <!-- NEXT -->
-    {next && (
-    <section class="mx-auto max-w-4xl px-6 lg:px-12 py-16 rule-top" data-reveal>
-      <p class="eyebrow mb-4">Next case study</p>
-      <a
-        href={`/work/${next.id}`}
-        class="group block"
-      >
-        <p class="eyebrow mb-2 flex flex-wrap gap-x-3">
-          <span>{next.data.client}</span>
-          <span class="text-rule">/</span>
-          <span>{next.data.date}</span>
-        </p>
-        <h2 class="heading-display text-3xl md:text-5xl text-ink group-hover:text-accent transition-colors duration-300">
-          {next.data.title}
-          <span
-            aria-hidden="true"
-            class="inline-block transition-transform duration-300 group-hover:translate-x-2"
-            >→</span
+    <!-- RELATED CASES -->
+    {related.length > 0 && (
+    <section class="mx-auto max-w-7xl px-6 lg:px-12 py-16 rule-top" data-reveal>
+      <p class="eyebrow mb-8">Keep reading</p>
+      <div class="grid gap-8 md:grid-cols-3">
+        {related.map((r) => (
+          <a
+            href={`/work/${r.id}`}
+            class="related-card group block"
+            style={`--accent: ${r.data.accent}; --accent-secondary: ${r.data.accentSecondary ?? r.data.accent};`}
           >
-        </h2>
-      </a>
+            <p class="eyebrow mb-3 flex flex-wrap gap-x-3">
+              <span>{r.data.client}</span>
+              <span class="text-rule">/</span>
+              <span>{r.data.year}</span>
+            </p>
+            <h3 class="heading-display text-xl md:text-2xl text-ink mb-3 transition-colors duration-300 group-hover:text-[var(--accent-secondary)]">
+              {r.data.title}
+            </h3>
+            <p class="text-ink-soft text-sm leading-relaxed line-clamp-3">
+              {r.data.summary}
+            </p>
+          </a>
+        ))}
+      </div>
     </section>
     )}
   </article>

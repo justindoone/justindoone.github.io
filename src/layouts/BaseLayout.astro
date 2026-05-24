@@ -77,8 +77,101 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     </main>
     <Footer />
 
+    <!-- Back-to-top button -->
+    <button
+      type="button"
+      id="backToTop"
+      class="back-to-top"
+      aria-label="Back to top"
+    >
+      <span aria-hidden="true">↑</span>
+    </button>
+
     <script>
       import Lenis from 'lenis';
+      function setupStickyCaseMeta() {
+        const inline = document.getElementById('caseMetaInline');
+        const sticky = document.getElementById('caseMetaSticky');
+        if (!inline || !sticky) return;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              // Show sticky once inline meta has scrolled OUT of view above
+              const above = e.boundingClientRect.bottom < 0;
+              sticky.classList.toggle('is-visible', above);
+            });
+          },
+          { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
+        );
+        observer.observe(inline);
+      }
+
+      function setupAnimatedRules() {
+        const rules = document.querySelectorAll(
+          '.rule-top:not([data-rule-ready])'
+        );
+        if (!rules.length) return;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('rule-drawn');
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        rules.forEach((r) => {
+          r.setAttribute('data-rule-ready', 'true');
+          observer.observe(r);
+        });
+      }
+
+      function setupImageCaptions() {
+        // Wrap each case-body inline image in a figure with the alt as caption
+        document.querySelectorAll('.case-body img:not([data-cap-ready])').forEach((img) => {
+          const alt = img.getAttribute('alt');
+          if (!alt) {
+            img.setAttribute('data-cap-ready', 'true');
+            return;
+          }
+          // If already inside a figure, skip
+          if (img.parentElement && img.parentElement.tagName === 'FIGURE') {
+            img.setAttribute('data-cap-ready', 'true');
+            return;
+          }
+          const figure = document.createElement('figure');
+          figure.className = 'case-figure';
+          const caption = document.createElement('figcaption');
+          caption.className = 'case-figcaption';
+          caption.textContent = alt;
+          img.parentNode.insertBefore(figure, img);
+          figure.appendChild(img);
+          figure.appendChild(caption);
+          img.setAttribute('data-cap-ready', 'true');
+        });
+      }
+
+      function setupBackToTop() {
+        const btn = document.getElementById('backToTop');
+        if (!btn || btn.dataset.btReady) return;
+        btn.dataset.btReady = 'true';
+        const onScroll = () => {
+          btn.classList.toggle('is-visible', window.scrollY > 600);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        btn.addEventListener('click', () => {
+          // Use Lenis if active for smooth scroll, otherwise native
+          if (lenisInstance) {
+            lenisInstance.scrollTo(0, { duration: 1.2 });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      }
+
       function setupDropcapClass() {
         // Tag each case-body with the first paragraph's first letter so
         // CSS can apply per-letter alignment adjustments for overshoot.
@@ -409,6 +502,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       setupDropcapClass();
       setupLetterReveal();
       setupMagnetic();
+      setupStickyCaseMeta();
+      setupAnimatedRules();
+      setupImageCaptions();
+      setupBackToTop();
       setupHeroParallax();
       setupReveal();
       loadInstagram();
