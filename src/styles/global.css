@@ -526,10 +526,10 @@ html.nav-on-dark .nav-button.is-active {
 .case-body > p:first-of-type::first-letter {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: 3.6em;
-  line-height: 0.82;
+  font-size: 3.4em;
+  line-height: 0.92;
   float: left;
-  margin: -0.05em 0.1em 0 0;
+  margin: 0 0.12em 0 0;
   padding: 0;
   color: var(--accent-secondary, var(--accent, var(--color-accent)));
 }
