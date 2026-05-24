@@ -26,6 +26,7 @@ const work = defineCollection({
     accentSecondary: z.string().optional(),
     cover: z.string().optional(),
     cardCover: z.string().optional(),
+    ogImage: z.string().optional(),
     video: z.string().optional(),
     socials: z
       .array(

@@ -20,13 +20,44 @@ const all = (await getCollection('work'))
 const idx = all.findIndex((e) => e.id === entry.id);
 const next = all.length > 0 ? all[((idx === -1 ? 0 : idx + 1) % all.length)] : null;
 const num = String(entry.data.order).padStart(2, '0');
+
+const caseImage = entry.data.ogImage ?? entry.data.cover ?? entry.data.cardCover;
+const caseSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: entry.data.title,
+  about: entry.data.summary,
+  creator: {
+    '@type': 'Person',
+    name: 'Justin Doone',
+    url: 'https://justindoone.github.io',
+  },
+  ...(entry.data.client && {
+    sourceOrganization: {
+      '@type': 'Organization',
+      name: entry.data.client,
+    },
+  }),
+  dateCreated: String(entry.data.year),
+  keywords: entry.data.tags.join(', '),
+  ...(caseImage && {
+    image: new URL(caseImage, Astro.site).toString(),
+  }),
+};
 ---
 
 <BaseLayout
   title={`${entry.data.title} - Justin Doone`}
   description={entry.data.summary}
   noindex={entry.data.hidden}
+  ogImage={entry.data.ogImage ?? entry.data.cover ?? entry.data.cardCover}
 >
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(caseSchema)}
+  />
+
   <article style={`--accent: ${entry.data.accent}; --accent-secondary: ${entry.data.accentSecondary ?? entry.data.accent};`}>
     <!-- HERO (dark only — cover image renders below the meta strip) -->
     <section class="case-hero pt-32 md:pt-44 pb-24 md:pb-36">

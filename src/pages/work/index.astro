@@ -6,6 +6,15 @@ import WorkCard from '../../components/WorkCard.astro';
 const entries = (await getCollection('work'))
   .filter((e) => !e.data.hidden)
   .sort((a, b) => a.data.order - b.data.order);
+
+// Count tag occurrences across visible cases; keep tags that span 2+ cases
+const tagCounts = new Map<string, number>();
+entries.forEach((e) =>
+  e.data.tags.forEach((t) => tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1))
+);
+const tags = Array.from(tagCounts.entries())
+  .filter(([, count]) => count >= 2)
+  .map(([tag]) => tag);
 ---
 
 <BaseLayout
@@ -22,27 +31,94 @@ const entries = (await getCollection('work'))
     </p>
   </section>
 
-  <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-24">
-    {
-      entries.map((entry, i) => (
-        <div data-reveal data-reveal-delay={Math.min(i + 1, 4)}>
-          <WorkCard
-            title={entry.data.title}
-            client={entry.data.client}
-            role={entry.data.role}
-            date={entry.data.date}
-            summary={entry.data.summary}
-            href={`/work/${entry.id}`}
-            tags={entry.data.tags}
-            accent={entry.data.accent}
-            accentSecondary={entry.data.accentSecondary}
-            cover={entry.data.cover}
-            cardCover={entry.data.cardCover}
-            index={i}
-          />
-        </div>
-      ))
-    }
-    <div class="rule-top"></div>
+  <!-- TAG FILTERS -->
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-6" data-reveal>
+    <div class="work-filters flex flex-wrap items-center gap-2" role="group" aria-label="Filter case studies by category">
+      <button
+        type="button"
+        class="filter-chip is-active"
+        data-filter="*"
+        aria-pressed="true"
+      >
+        All
+      </button>
+      {
+        tags.map((tag) => (
+          <button
+            type="button"
+            class="filter-chip"
+            data-filter={tag}
+            aria-pressed="false"
+          >
+            {tag}
+          </button>
+        ))
+      }
+    </div>
   </section>
+
+  <section class="mx-auto max-w-7xl px-6 lg:px-12 pb-24">
+    <div id="workList">
+      {
+        entries.map((entry, i) => (
+          <div
+            class="work-card-wrap"
+            data-tags={entry.data.tags.join('|')}
+            data-reveal
+            data-reveal-delay={Math.min(i + 1, 4)}
+          >
+            <WorkCard
+              title={entry.data.title}
+              client={entry.data.client}
+              role={entry.data.role}
+              date={entry.data.date}
+              summary={entry.data.summary}
+              href={`/work/${entry.id}`}
+              tags={entry.data.tags}
+              accent={entry.data.accent}
+              accentSecondary={entry.data.accentSecondary}
+              cover={entry.data.cover}
+              cardCover={entry.data.cardCover}
+              index={i}
+            />
+          </div>
+        ))
+      }
+      <div class="rule-top"></div>
+    </div>
+
+    <p id="workEmpty" class="text-ink-mute text-sm pt-8 hidden">
+      No case studies with that tag.
+    </p>
+  </section>
+
+  <script>
+    function setupWorkFilters() {
+      const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+      const cards = document.querySelectorAll<HTMLElement>('.work-card-wrap');
+      const empty = document.getElementById('workEmpty');
+      if (!chips.length || !cards.length) return;
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const tag = chip.getAttribute('data-filter') || '*';
+          chips.forEach((c) => {
+            const isActive = c === chip;
+            c.classList.toggle('is-active', isActive);
+            c.setAttribute('aria-pressed', String(isActive));
+          });
+          let visible = 0;
+          cards.forEach((card) => {
+            const cardTags = (card.getAttribute('data-tags') || '').split('|');
+            const show = tag === '*' || cardTags.includes(tag);
+            card.classList.toggle('hidden', !show);
+            if (show) visible++;
+          });
+          if (empty) empty.classList.toggle('hidden', visible > 0);
+        });
+      });
+    }
+    setupWorkFilters();
+    document.addEventListener('astro:page-load', setupWorkFilters);
+  </script>
 </BaseLayout>

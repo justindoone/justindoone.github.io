@@ -8,9 +8,35 @@ const featured = all
   .filter((w) => w.data.featured)
   .sort((a, b) => a.data.order - b.data.order);
 const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.order - b.data.order).slice(0, 4);
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Justin Doone',
+  jobTitle: 'Marketing Strategist',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Evolve ETFs',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Toronto',
+    addressRegion: 'ON',
+    addressCountry: 'CA',
+  },
+  url: 'https://justindoone.github.io',
+  sameAs: ['https://www.linkedin.com/in/jdoone'],
+  email: 'mailto:justindoone@gmail.com',
+};
 ---
 
 <BaseLayout>
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify(personSchema)}
+  />
+
   <!-- HERO (layered: bg image + dark overlay + drifting orbs) -->
   <section class="dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
     <div class="hero-bg-image"></div>
