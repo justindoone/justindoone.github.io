@@ -560,8 +560,18 @@ article .prose a:hover {
   background-size: 100% 1px;
 }
 
+/* Utility: pick up the per-case accent-secondary CSS var set on the
+   article wrapper. Avoids inline style="color: var(--accent-secondary)"
+   repeated all over the case template. */
+.text-accent-secondary {
+  color: var(--accent-secondary, var(--accent, var(--color-accent)));
+}
+
+/* Article-scoped blockquote: define border-left inline here instead of
+   relying on Tailwind's prose-blockquote:border-l-4 + a separate color
+   rule with !important. Two compass directions, one source of truth. */
 article .prose blockquote {
-  border-left-color: var(--accent-secondary, var(--accent, var(--color-accent))) !important;
+  border-left: 4px solid var(--accent-secondary, var(--accent, var(--color-accent)));
 }
 
 /* ========================================

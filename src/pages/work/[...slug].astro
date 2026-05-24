@@ -17,8 +17,6 @@ const { Content } = await render(entry);
 const all = (await getCollection('work'))
   .filter((e) => !e.data.hidden)
   .sort((a, b) => a.data.order - b.data.order);
-const idx = all.findIndex((e) => e.id === entry.id);
-const next = all.length > 0 ? all[((idx === -1 ? 0 : idx + 1) % all.length)] : null;
 
 // Related cases: rank others by shared tag count, fall back to chronological
 const currentTags = new Set(entry.data.tags);
@@ -94,29 +92,19 @@ const caseSchema = {
       <div class="mx-auto max-w-5xl px-6 lg:px-12">
         <a
           href="/work"
-          class="eyebrow inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
-          style="color: var(--accent-secondary);"
+          class="eyebrow text-accent-secondary inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
         >
           ← All work
         </a>
-        <p
-          class="eyebrow mb-6 flex flex-wrap gap-x-3"
-          style="color: var(--accent-secondary);"
-        >
+        <p class="eyebrow text-accent-secondary mb-6 flex flex-wrap gap-x-3">
           <span>{entry.data.client}</span>
           <span class="opacity-50">/</span>
           <span>{entry.data.date}</span>
         </p>
-        <h1
-          class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95]"
-          style="color: var(--color-on-dark);"
-        >
+        <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95] text-on-dark">
           {entry.data.title}
         </h1>
-        <p
-          class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90"
-          style="color: var(--color-on-dark);"
-        >
+        <p class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90 text-on-dark">
           {entry.data.summary}
         </p>
       </div>
@@ -176,12 +164,11 @@ const caseSchema = {
                 <div data-reveal data-reveal-delay={i + 1}>
                   <p
                     class:list={[
-                      'heading-display mb-2',
+                      'heading-display text-accent-secondary mb-2',
                       isNumeric
                         ? 'text-5xl md:text-6xl'
                         : 'text-3xl md:text-4xl',
                     ]}
-                    style="color: var(--accent-secondary);"
                     data-animate-value={m.value}
                   >
                     {m.value}
@@ -207,7 +194,7 @@ const caseSchema = {
               controls
               preload="metadata"
               playsinline
-              poster={entry.data.cover}
+              {...(entry.data.cover ? { poster: entry.data.cover } : {})}
               class="w-full h-auto block"
             >
               <source src={entry.data.video} type="video/mp4" />
@@ -227,8 +214,7 @@ const caseSchema = {
           prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
           prose-p:text-ink-soft prose-p:leading-relaxed
           prose-strong:text-ink prose-strong:font-medium
-          prose-blockquote:border-l-4 prose-blockquote:text-ink
-          prose-blockquote:font-serif prose-blockquote:not-italic
+          prose-blockquote:text-ink prose-blockquote:font-serif prose-blockquote:not-italic
           prose-blockquote:text-3xl md:prose-blockquote:text-4xl
           prose-blockquote:leading-[1.15] prose-blockquote:font-normal
           prose-blockquote:tracking-tight prose-blockquote:my-12
