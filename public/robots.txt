@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://justindoone.github.io/sitemap-index.xml
