@@ -492,10 +492,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       loadInstagram();
       setupCountUp();
       setupNavContext();
-      document.addEventListener('astro:page-load', () => {
-        // First-visit entrance only fires on initial load; SPA navs use
-        // the collapsed stagger via the .no-splash class.
+      // astro:after-swap fires only on SPA navigation (not initial render),
+      // so we can safely add .no-splash here to suppress the entrance on
+      // subsequent home visits without killing it on the first load.
+      document.addEventListener('astro:after-swap', () => {
         document.documentElement.classList.add('no-splash');
+      });
+
+      document.addEventListener('astro:page-load', () => {
         // Lenis persists; just re-init the per-page systems
         setupLetterReveal();
         setupMagnetic();
