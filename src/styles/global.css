@@ -128,6 +128,12 @@ body {
   color: var(--color-accent);
 }
 
+/* Body text on cream: warm dark gray, not the harsh paper-color */
+.light-section .text-ink-soft,
+.light-section [class*="text-ink-soft"] {
+  color: #3a3530;
+}
+
 /* layered hero bg: image + dark overlay + drifting orbs */
 .hero-bg-image {
   position: absolute;
