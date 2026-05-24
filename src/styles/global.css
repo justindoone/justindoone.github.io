@@ -108,6 +108,26 @@ body {
   border-top-color: var(--color-rule-dark);
 }
 
+/* Cream/light section — breaks dark monotony, flips eyebrow/text/rule colors */
+.light-section {
+  background-color: var(--color-on-dark);
+  color: var(--color-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.light-section .eyebrow {
+  color: #5b574e;
+}
+
+.light-section .rule-top {
+  border-top-color: rgba(20, 22, 26, 0.12);
+}
+
+.light-section a.link-underline:hover {
+  color: var(--color-accent);
+}
+
 /* layered hero bg: image + dark overlay + drifting orbs */
 .hero-bg-image {
   position: absolute;
