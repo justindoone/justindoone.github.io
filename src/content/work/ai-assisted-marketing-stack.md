@@ -11,7 +11,8 @@ metrics:
     label: "Ad platforms unified"
   - value: "5+"
     label: "Tools in stack"
-cardCover: "/images/work/evolve-logo-cover.svg"
+cover: "/images/work/ai-stack/cover.png"
+cardCover: "/images/work/ai-stack/cover.png"
 featured: true
 order: 0
 accent: "#1B3D6E"
