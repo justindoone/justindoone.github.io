@@ -19,7 +19,6 @@ const all = (await getCollection('work'))
   .sort((a, b) => a.data.order - b.data.order);
 const idx = all.findIndex((e) => e.id === entry.id);
 const next = all.length > 0 ? all[((idx === -1 ? 0 : idx + 1) % all.length)] : null;
-const num = String(entry.data.order).padStart(2, '0');
 
 // Related cases: rank others by shared tag count, fall back to chronological
 const currentTags = new Set(entry.data.tags);
@@ -92,7 +91,6 @@ const caseSchema = {
   <article style={`--accent: ${entry.data.accent}; --accent-secondary: ${entry.data.accentSecondary ?? entry.data.accent};`}>
     <!-- HERO (dark only — cover image renders below the meta strip) -->
     <section class="case-hero pt-32 md:pt-44 pb-24 md:pb-36">
-      <span class="case-hero-num" aria-hidden="true">{num}</span>
       <div class="mx-auto max-w-5xl px-6 lg:px-12">
         <a
           href="/work"
