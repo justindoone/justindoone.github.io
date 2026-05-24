@@ -264,33 +264,53 @@ body {
 .no-splash .hero-line[data-line="4"] { animation-delay: 1.05s; }
 
 /* ========================================
-   HOME HERO ENTRANCE (first visit only)
-   Bg image starts heavily blurred + slightly scaled; defocuses to
-   sharpness while text reveals on top. Reads as a camera focusing in.
+   HOME HERO ENTRANCE — diagonal slash reveal (first visit only)
+   Two triangular halves of a dark overlay slide apart perpendicular
+   to the diagonal axis, revealing the hero. Letter cascade fires
+   while the overlay is opening so by the time the slash is done,
+   text is in place.
    ======================================== */
-html:not(.no-splash) .home-hero .hero-bg-image {
-  animation: hero-defocus 1.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-             ken-burns 36s 1.8s ease-in-out infinite alternate;
+.slash-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-paper);
+  z-index: 95;
+  pointer-events: none;
+  will-change: transform;
+  /* Default: hidden (repeat visits, .no-splash) */
+  display: none;
 }
 
-html:not(.no-splash) .home-hero .hero-bg-overlay {
-  animation: hero-overlay-in 1.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+html:not(.no-splash) .slash-overlay {
+  display: block;
+}
+
+.slash-upper {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  animation: slash-up 1.6s cubic-bezier(0.65, 0, 0.2, 1) forwards;
+}
+
+.slash-lower {
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  animation: slash-down 1.6s cubic-bezier(0.65, 0, 0.2, 1) forwards;
+}
+
+@keyframes slash-up {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(110vw, -110vh); }
+}
+
+@keyframes slash-down {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-110vw, 110vh); }
 }
 
 html:not(.no-splash) .home-hero .hero-orb-b {
   opacity: 0;
-  animation: hero-orb-in 2s 1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+  animation: hero-orb-in 1.5s 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards,
              orb-drift-b 90s 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes hero-defocus {
-  0%   { filter: blur(18px); transform: scale(1.08); }
-  100% { filter: blur(0); transform: scale(1); }
-}
-
-@keyframes hero-overlay-in {
-  0%   { opacity: 0.4; }
-  100% { opacity: 1; }
 }
 
 @keyframes hero-orb-in {
@@ -299,13 +319,12 @@ html:not(.no-splash) .home-hero .hero-orb-b {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:not(.no-splash) .home-hero .hero-bg-image,
-  html:not(.no-splash) .home-hero .hero-bg-overlay,
+  .slash-overlay {
+    display: none !important;
+  }
   html:not(.no-splash) .home-hero .hero-orb-b {
     animation: none;
-    opacity: 1;
-    filter: none;
-    transform: none;
+    opacity: 0.25;
   }
 }
 

@@ -30,4 +30,4 @@ The 2025 edition framed Toronto's housing future from two angles. Benjamin Tal f
 
 The work ran in three phases. Pre-event was the save-the-date and reminder sequence, plus a teaser piece a couple of weeks out. The day itself ran on content capture from the panels and the conversations around them. Post-event sequenced edited highlights and interviews across the firm's owned channels over the two to three weeks following. The day's recording was also the source material for Boardroom Brief EP 10.
 
-The day itself ran on tight day-of coordination. Post-event distribution took as much sequencing work across the two to three weeks following.
+Post-event took as much work as the event itself.

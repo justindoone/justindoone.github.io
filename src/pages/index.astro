@@ -42,6 +42,10 @@ const personSchema = {
     set:html={JSON.stringify(personSchema)}
   />
 
+  <!-- Diagonal slash entrance overlay (first visit only — gated via .no-splash) -->
+  <div class="slash-overlay slash-upper" aria-hidden="true"></div>
+  <div class="slash-overlay slash-lower" aria-hidden="true"></div>
+
   <!-- HERO (layered: bg image + dark overlay + drifting orbs) -->
   <section class="home-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
     <div class="hero-bg-image"></div>
