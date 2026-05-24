@@ -247,16 +247,16 @@ body {
   animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* On first visit, the splash holds for ~1.5s before fading. Hero animations
-   start after that so they're not happening behind the cover. On subsequent
-   pages (or repeat visits where splash is skipped), the .no-splash class is
-   set and the delay collapses to the original short stagger. */
-.hero-line[data-line="0"] { animation-delay: 1.6s; }
-.hero-line[data-line="1"] { animation-delay: 1.8s; }
-.hero-line[data-line="2"] { animation-delay: 2.05s; }
-.hero-line[data-line="3"] { animation-delay: 2.3s; }
-.hero-line[data-line="4"] { animation-delay: 2.55s; }
-.hero-line[data-line="5"] { animation-delay: 2.8s; }
+/* On first visit, hero entrance defocus runs ~1.7s starting at 0.1s.
+   Hero text animations stagger in alongside it (starting around 0.7s)
+   so by the time the bg is sharp, the text is in place too. On repeat
+   visits (.no-splash set), delays collapse to a tight stagger. */
+.hero-line[data-line="0"] { animation-delay: 0.7s; }
+.hero-line[data-line="1"] { animation-delay: 0.85s; }
+.hero-line[data-line="2"] { animation-delay: 1.7s; }
+.hero-line[data-line="3"] { animation-delay: 1.95s; }
+.hero-line[data-line="4"] { animation-delay: 2.15s; }
+.hero-line[data-line="5"] { animation-delay: 2.35s; }
 
 .no-splash .hero-line[data-line="0"] { animation-delay: 0.1s; }
 .no-splash .hero-line[data-line="1"] { animation-delay: 0.3s; }
@@ -266,45 +266,47 @@ body {
 .no-splash .hero-line[data-line="5"] { animation-delay: 1.3s; }
 
 /* ========================================
-   SPLASH OVERLAY
+   HOME HERO ENTRANCE (first visit only)
+   Bg image starts heavily blurred + slightly scaled; defocuses to
+   sharpness while text reveals on top. Reads as a camera focusing in.
    ======================================== */
-.splash-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background-color: var(--color-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+html:not(.no-splash) .home-hero .hero-bg-image {
+  animation: hero-defocus 1.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             ken-burns 36s 1.8s ease-in-out infinite alternate;
 }
 
-.splash-overlay.hidden {
+html:not(.no-splash) .home-hero .hero-bg-overlay {
+  animation: hero-overlay-in 1.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+html:not(.no-splash) .home-hero .hero-orb-b {
   opacity: 0;
-  pointer-events: none;
+  animation: hero-orb-in 2s 1s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             orb-drift-b 90s 2.5s ease-in-out infinite alternate;
 }
 
-.splash-mark {
-  width: min(14vw, 110px);
-  height: auto;
-  opacity: 0;
-  transform: translateY(8px);
-  animation: splash-mark-enter 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes hero-defocus {
+  0%   { filter: blur(18px); transform: scale(1.08); }
+  100% { filter: blur(0); transform: scale(1); }
 }
 
-@keyframes splash-mark-enter {
-  0%   { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes hero-overlay-in {
+  0%   { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
-.no-splash .splash-overlay {
-  display: none;
+@keyframes hero-orb-in {
+  0%   { opacity: 0; }
+  100% { opacity: 0.25; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash-mark {
+  html:not(.no-splash) .home-hero .hero-bg-image,
+  html:not(.no-splash) .home-hero .hero-bg-overlay,
+  html:not(.no-splash) .home-hero .hero-orb-b {
     animation: none;
     opacity: 1;
+    filter: none;
     transform: none;
   }
 }
@@ -620,7 +622,7 @@ article .prose blockquote {
   opacity: 0;
   transform: translateY(0.4em);
   animation: letter-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--char-i, 0) * 22ms + var(--char-base, 1.7s));
+  animation-delay: calc(var(--char-i, 0) * 22ms + var(--char-base, 0.85s));
 }
 
 .no-splash .letter-char {
