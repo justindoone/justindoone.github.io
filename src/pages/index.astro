@@ -32,6 +32,7 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
       <div class="hero-line flex flex-wrap gap-6 items-center" data-line="4">
         <a
           href="/work"
+          data-magnetic
           class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
         >
           See work
@@ -45,6 +46,30 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
           justindoone@gmail.com
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE BAND (continuous specialties scroll) -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Paid media</span>
+      <span class="marquee-item">Content strategy</span>
+      <span class="marquee-item">Investor relations</span>
+      <span class="marquee-item">Brand campaigns</span>
+      <span class="marquee-item">AEO &amp; schema</span>
+      <span class="marquee-item">OOH</span>
+      <span class="marquee-item">Analytics tooling</span>
+      <span class="marquee-item">Financial services</span>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span class="marquee-item">Paid media</span>
+      <span class="marquee-item">Content strategy</span>
+      <span class="marquee-item">Investor relations</span>
+      <span class="marquee-item">Brand campaigns</span>
+      <span class="marquee-item">AEO &amp; schema</span>
+      <span class="marquee-item">OOH</span>
+      <span class="marquee-item">Analytics tooling</span>
+      <span class="marquee-item">Financial services</span>
     </div>
   </section>
 
@@ -109,6 +134,7 @@ const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.orde
       </p>
       <a
         href="mailto:justindoone@gmail.com"
+        data-magnetic
         class="inline-flex items-center gap-2 mt-10 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
       >
         Start a conversation

@@ -77,7 +77,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     </main>
     <Footer />
 
+    <!-- Custom cursor (hidden on touch + reduced-motion via CSS) -->
+    <div class="custom-cursor" id="customCursor" aria-hidden="true">
+      <div class="custom-cursor-dot"></div>
+      <div class="custom-cursor-ring"></div>
+    </div>
+
     <script>
+      import Lenis from 'lenis';
       function setupLetterReveal() {
         const containers = document.querySelectorAll(
           '[data-letter-reveal]:not([data-letter-ready])'
@@ -295,8 +302,120 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         } catch (e) {}
       });
 
+      // ============ LENIS SMOOTH SCROLL ============
+      const prefersReducedMotion =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let lenisInstance = null;
+      function initLenis() {
+        if (prefersReducedMotion) return;
+        if (lenisInstance) return; // persist across navigations
+        lenisInstance = new Lenis({
+          duration: 1.15,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          wheelMultiplier: 1.0,
+          touchMultiplier: 1.5,
+        });
+        function raf(time) {
+          lenisInstance.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      }
+
+      // ============ CUSTOM CURSOR ============
+      let cursorRAF = null;
+      function setupCursor() {
+        const cursor = document.getElementById('customCursor');
+        if (!cursor) return;
+        // Disable on touch-only inputs
+        if (window.matchMedia('(hover: none)').matches) {
+          cursor.style.display = 'none';
+          return;
+        }
+        let targetX = window.innerWidth / 2;
+        let targetY = window.innerHeight / 2;
+        let currentX = targetX;
+        let currentY = targetY;
+        let ringX = targetX;
+        let ringY = targetY;
+
+        const onMove = (e) => {
+          targetX = e.clientX;
+          targetY = e.clientY;
+        };
+        window.addEventListener('mousemove', onMove, { passive: true });
+
+        // Hover-target interaction
+        const interactiveSel = 'a, button, [data-magnetic], .work-card, .nav-button';
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.closest && e.target.closest(interactiveSel)) {
+            cursor.classList.add('is-hover');
+          }
+        });
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.closest && e.target.closest(interactiveSel)) {
+            cursor.classList.remove('is-hover');
+          }
+        });
+
+        function tick() {
+          // Dot follows tighter, ring follows looser for parallax feel
+          currentX += (targetX - currentX) * 0.5;
+          currentY += (targetY - currentY) * 0.5;
+          ringX += (targetX - ringX) * 0.15;
+          ringY += (targetY - ringY) * 0.15;
+          cursor.style.setProperty('--cx', `${currentX}px`);
+          cursor.style.setProperty('--cy', `${currentY}px`);
+          cursor.style.setProperty('--rx', `${ringX}px`);
+          cursor.style.setProperty('--ry', `${ringY}px`);
+          cursorRAF = requestAnimationFrame(tick);
+        }
+        if (!cursorRAF) tick();
+      }
+
+      // ============ MAGNETIC CTAS ============
+      function setupMagnetic() {
+        const els = document.querySelectorAll('[data-magnetic]:not([data-magnetic-ready])');
+        els.forEach((el) => {
+          el.setAttribute('data-magnetic-ready', 'true');
+          const strength = parseFloat(el.getAttribute('data-magnetic-strength') || '0.25');
+          const range = 80; // px from element edge
+          let hovering = false;
+          const onMove = (e) => {
+            const rect = el.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = e.clientX - cx;
+            const dy = e.clientY - cy;
+            const dist = Math.hypot(dx, dy);
+            const maxDist = Math.max(rect.width, rect.height) / 2 + range;
+            if (dist < maxDist) {
+              hovering = true;
+              const pull = (1 - dist / maxDist) * strength;
+              el.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
+            } else if (hovering) {
+              hovering = false;
+              el.style.transform = '';
+            }
+          };
+          const reset = () => {
+            hovering = false;
+            el.style.transform = '';
+          };
+          window.addEventListener('mousemove', onMove, { passive: true });
+          el.addEventListener('mouseleave', reset);
+        });
+      }
+
+      // ============ BOOT ============
       handleSplash();
+      initLenis();
+      setupCursor();
       setupLetterReveal();
+      setupMagnetic();
       setupReveal();
       loadInstagram();
       setupCountUp();
@@ -306,8 +425,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         const splash = document.getElementById('splash');
         if (splash) splash.remove();
         document.documentElement.classList.add('no-splash');
+        // Lenis persists; just re-init the per-page systems
         setupLetterReveal();
-        setupCardImageMasks();
+        setupMagnetic();
         setupReveal();
         loadInstagram();
         setupCountUp();

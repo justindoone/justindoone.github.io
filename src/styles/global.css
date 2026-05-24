@@ -624,6 +624,140 @@ article .prose blockquote {
 }
 
 
+/* ========================================
+   CUSTOM CURSOR
+   Small dot follows position tight; ring follows looser. Both expand
+   on interactive elements. Hidden on touch (no hover) + reduced motion.
+   ======================================== */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f0ebe1;
+  transform: translate(var(--cx, -50px), var(--cy, -50px)) translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
+  pointer-events: none;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 235, 225, 0.4);
+  transform: translate(var(--rx, -50px), var(--ry, -50px)) translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.custom-cursor.is-hover .custom-cursor-dot {
+  width: 0;
+  height: 0;
+}
+
+.custom-cursor.is-hover .custom-cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(135, 160, 107, 0.9);
+}
+
+/* Hide on touch/coarse pointers and reduced-motion */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+/* On capable browsers, hide native cursor on interactive elements so the
+   custom cursor reads as the primary indicator. Keep native cursor on
+   body so users with the custom cursor disabled (touch, reduced-motion)
+   still get a normal pointer. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  body, a, button {
+    cursor: none;
+  }
+  /* Restore caret in form fields */
+  input, textarea, select {
+    cursor: text;
+  }
+}
+
+/* ========================================
+   MAGNETIC CTAS
+   Add data-magnetic to any element to enable cursor-pull. JS handles
+   the transform; CSS just provides the smoothing on reset.
+   ======================================== */
+[data-magnetic] {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* ========================================
+   MARQUEE BAND (infinite specialties scroll)
+   ======================================== */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  border-top: 1px solid var(--color-rule-dark);
+  border-bottom: 1px solid var(--color-rule-dark);
+  padding: 2.5rem 0;
+  background-color: var(--color-paper);
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4rem;
+  padding-right: 4rem;
+  animation: marquee-scroll 38s linear infinite;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--color-on-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.marquee-item::after {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Hero image: WebP with JPG fallback for older browsers */
 .hero-bg-image {
   background-image: image-set(
