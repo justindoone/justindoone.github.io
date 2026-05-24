@@ -29,7 +29,13 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0||p.indexOf('/about')===0){document.documentElement.classList.add('nav-on-dark');}try{if(sessionStorage.getItem('jd-splash-shown')){document.documentElement.classList.add('no-splash');}else{sessionStorage.setItem('jd-splash-shown','true');}}catch(e){document.documentElement.classList.add('no-splash');}})();`}</script>
+    <script is:inline>{`(function(){var p=window.location.pathname;if(p==='/'||p.indexOf('/work/')===0||p.indexOf('/about')===0){document.documentElement.classList.add('nav-on-dark');}})();`}</script>
+    <style is:inline>
+      /* Critical hiding styles inline — prevents FOUC before main CSS loads */
+      .hero-line { opacity: 0; }
+      [data-letter-reveal] { opacity: 0; }
+      [data-letter-reveal][data-letter-ready] { opacity: 1; }
+    </style>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
