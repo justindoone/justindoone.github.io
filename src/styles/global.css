@@ -534,6 +534,24 @@ html.nav-on-dark .nav-button.is-active {
   color: var(--accent-secondary, var(--accent, var(--color-accent)));
 }
 
+/* Per-letter alignment: letters with curved/peaked tops have intrinsic
+   overshoot above cap-height, so they sit visually higher than flat-tops.
+   Push them down so all dropcaps land flush with body text top. */
+.case-body[data-first="A"] > p:first-of-type::first-letter,
+.case-body[data-first="C"] > p:first-of-type::first-letter,
+.case-body[data-first="G"] > p:first-of-type::first-letter,
+.case-body[data-first="M"] > p:first-of-type::first-letter,
+.case-body[data-first="N"] > p:first-of-type::first-letter,
+.case-body[data-first="O"] > p:first-of-type::first-letter,
+.case-body[data-first="Q"] > p:first-of-type::first-letter,
+.case-body[data-first="R"] > p:first-of-type::first-letter,
+.case-body[data-first="S"] > p:first-of-type::first-letter,
+.case-body[data-first="U"] > p:first-of-type::first-letter,
+.case-body[data-first="V"] > p:first-of-type::first-letter,
+.case-body[data-first="W"] > p:first-of-type::first-letter {
+  margin-top: 0.05em;
+}
+
 article .prose a {
   color: var(--accent-secondary, var(--accent, var(--color-accent)));
   text-decoration: none;

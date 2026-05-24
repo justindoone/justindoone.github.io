@@ -79,6 +79,17 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
 
     <script>
       import Lenis from 'lenis';
+      function setupDropcapClass() {
+        // Tag each case-body with the first paragraph's first letter so
+        // CSS can apply per-letter alignment adjustments for overshoot.
+        document.querySelectorAll('.case-body:not([data-first])').forEach((body) => {
+          const firstP = body.querySelector('p:first-of-type');
+          if (!firstP) return;
+          const firstChar = (firstP.textContent || '').trim().charAt(0).toUpperCase();
+          if (firstChar) body.setAttribute('data-first', firstChar);
+        });
+      }
+
       function setupLetterReveal() {
         const containers = document.querySelectorAll(
           '[data-letter-reveal]:not([data-letter-ready])'
@@ -395,6 +406,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       // ============ BOOT ============
       handleSplash();
       initLenis();
+      setupDropcapClass();
       setupLetterReveal();
       setupMagnetic();
       setupHeroParallax();
