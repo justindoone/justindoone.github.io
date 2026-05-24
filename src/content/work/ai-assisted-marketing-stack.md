@@ -7,6 +7,8 @@ year: 2026
 summary: "Most marketing functions run on several SaaS subscriptions. AI assist makes it possible to build equivalent tools in-house, so Evolve operates on one AI subscription instead of several recurring SaaS bills."
 tags: ["Marketing tech", "Infrastructure", "AI-assisted"]
 metrics:
+  - value: "180+"
+    label: "Reddit assets per refresh"
   - value: "4"
     label: "Ad platforms unified"
   - value: "5+"
@@ -37,7 +39,7 @@ The clearest impact is on the recurring chores. Month-end updates that used to t
 
 ![PLU DIUO Update tab: drop zone for the monthly performance and marketing-data files, with auto-filled as-at date and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 
-The Reddit monthly-update flow follows the same shape. Drop the month's ABMs folder, the tool groups creative by fund using the ticker convention in the filenames, and generates the per-fund refresh.
+The Reddit monthly-update flow follows the same shape. A refresh cycle touches around 180 creative assets. Six fund campaigns, two ad groups each (keyword and retargeting), three Reddit sizes per ad group, five or six images per size. Drop the month's ABMs folder, the tool groups creative by fund using the ticker convention in the filenames, and generates the per-fund refresh in one pass.
 
 ![Reddit Monthly Update tab: drop zone for the month's ABMs folder or files, with a known-funds counter, local-path option, and auto-split logic for CTR and impression thresholds](/images/work/ai-stack/reddit-monthly.png)
 
