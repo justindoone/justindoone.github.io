@@ -475,7 +475,7 @@ html.nav-on-dark .nav-button.is-active {
   top: 8px;
   bottom: 8px;
   width: 3px;
-  background: var(--accent, var(--color-accent));
+  background: var(--accent-secondary, var(--accent, var(--color-accent)));
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
