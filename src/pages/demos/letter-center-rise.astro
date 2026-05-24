@@ -23,7 +23,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="lcr-line text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
         Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
       </p>
-      <p class="lcr-line"><a href="/demos" class="link-underline text-sm" style="color: var(--color-on-dark-soft);">← Back to mockups</a></p>
     </div>
   </section>
 
@@ -42,17 +41,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     @keyframes lcr-rise {
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Line stagger: eyebrow leads, body lines start as the H1 letters
+       are settling (~1.7s, just before center letters peak). */
     .lcr-line[data-line-i] {
       opacity: 0;
       transform: translateY(16px);
       animation: lcr-line-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .lcr-line[data-line-i="0"] { animation-delay: 0.05s; }
-    .lcr-line[data-line-i="1"] { animation-delay: 1.5s; }
-    .lcr-line[data-line-i="2"] { animation-delay: 1.7s; }
-    .lcr-line[data-line-i="3"] { animation-delay: 1.85s; }
+    .lcr-line[data-line-i="1"] { animation-delay: 1.7s; }
+    .lcr-line[data-line-i="2"] { animation-delay: 1.95s; }
     @keyframes lcr-line-in {
       to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lcr-line, [data-lcr-h1], .lcr-char {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
     }
   </style>
 

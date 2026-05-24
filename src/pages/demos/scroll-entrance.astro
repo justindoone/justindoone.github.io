@@ -23,31 +23,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
         Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
       </p>
-      <p class="se-hint" style="color: var(--color-on-dark-mute); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;">
-        Scroll to reveal ↓
-      </p>
     </div>
   </section>
 
   <!-- Sentinel space so there's room to scroll and watch the reveal -->
   <section class="mx-auto max-w-4xl px-6 lg:px-12 py-32">
-    <p class="text-ink-soft mb-6">You've scrolled. The reveal completes as you progress.</p>
-    <a href="/demos" class="link-underline text-sm text-ink-soft">← Back to mockups</a>
+    <p class="text-ink-soft">You've scrolled past the hero. The reveal completes as you progress.</p>
   </section>
 
   <style is:inline>
     .se-bg {
-      transform: scale(calc(1 + (1 - var(--reveal, 0)) * 0.1));
-      filter: blur(calc((1 - var(--reveal, 0)) * 8px));
+      transform: scale(calc(1 + (1 - var(--reveal, 0)) * 0.08));
+      filter: blur(calc((1 - var(--reveal, 0)) * 6px));
       transition: none;
     }
     .se-content {
-      opacity: calc(0.35 + var(--reveal, 0) * 0.65);
-      transform: translateY(calc((1 - var(--reveal, 0)) * 12px));
+      opacity: calc(0.6 + var(--reveal, 0) * 0.4);
+      transform: translateY(calc((1 - var(--reveal, 0)) * 10px));
       transition: none;
     }
-    .se-hint {
-      opacity: calc(1 - var(--reveal, 0));
+    @media (prefers-reduced-motion: reduce) {
+      .se-bg { transform: none; filter: none; }
+      .se-content { opacity: 1; transform: none; }
     }
   </style>
 

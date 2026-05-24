@@ -23,13 +23,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <p class="wr-line text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="color: var(--color-on-dark-soft);">
         Currently at Evolve ETFs, running digital marketing on the 41-fund lineup. Greybrook Realty Partners, Clifton Blake Asset Management, and Hong Kong financial communications before that.
       </p>
-      <p class="wr-line"><a href="/demos" class="link-underline text-sm" style="color: var(--color-on-dark-soft);">← Back to mockups</a></p>
     </div>
   </section>
 
   <style is:inline>
     .wr-line { opacity: 0; }
-    [data-wr-h1] { opacity: 0; }
+    [data-wr-h1] {
+      opacity: 0;
+      /* Clip the random scatter so chars don't push viewport scroll */
+      overflow: hidden;
+    }
     [data-wr-h1][data-wr-ready] { opacity: 1; }
     .wr-char {
       display: inline-block;
@@ -42,17 +45,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     @keyframes wr-assemble {
       to { opacity: 1; transform: translate(0, 0) rotate(0); }
     }
+    /* Body lines start as the H1 finishes assembling (~1.6s for last char) */
     .wr-line[data-line-i] {
       opacity: 0;
       transform: translateY(16px);
       animation: wr-line-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .wr-line[data-line-i="0"] { animation-delay: 0.05s; }
-    .wr-line[data-line-i="1"] { animation-delay: 1.5s; }
-    .wr-line[data-line-i="2"] { animation-delay: 1.7s; }
-    .wr-line[data-line-i="3"] { animation-delay: 1.85s; }
+    .wr-line[data-line-i="1"] { animation-delay: 1.6s; }
+    .wr-line[data-line-i="2"] { animation-delay: 1.85s; }
     @keyframes wr-line-in {
       to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wr-line, [data-wr-h1], .wr-char {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
     }
   </style>
 
