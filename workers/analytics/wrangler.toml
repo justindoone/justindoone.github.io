@@ -1,0 +1,9 @@
+name = "portfolio-analytics"
+main = "worker.js"
+compatibility_date = "2026-05-24"
+
+# Plain variables (non-secret). The service account JSON goes in a SECRET
+# (set via `wrangler secret put GA_SERVICE_ACCOUNT_JSON` — never in here).
+[vars]
+GA_PROPERTY_ID = "538201658"
+ALLOWED_ORIGIN = "https://justindoone.github.io"

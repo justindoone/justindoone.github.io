@@ -45,33 +45,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </header>
 
-      <p class="admin-banner mb-8">
-        <strong>UI preview.</strong> All numbers below are placeholder data — wiring up live GA4 data in Phase 2.
-      </p>
+      <!-- Loading / error banner -->
+      <p id="adminStatus" class="admin-status mb-8 hidden"></p>
 
       <!-- KPI strip -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
         <div class="admin-kpi">
           <p class="admin-kpi-label">Visitors</p>
-          <p class="admin-kpi-value">312</p>
-          <p class="admin-kpi-delta admin-up">+18% vs prior 7d</p>
+          <p class="admin-kpi-value" id="kpiVisitors">—</p>
+          <p class="admin-kpi-delta">unique users</p>
         </div>
         <div class="admin-kpi">
           <p class="admin-kpi-label">Pageviews</p>
-          <p class="admin-kpi-value">947</p>
-          <p class="admin-kpi-delta admin-up">+22%</p>
+          <p class="admin-kpi-value" id="kpiPageviews">—</p>
+          <p class="admin-kpi-delta">total views</p>
         </div>
         <div class="admin-kpi">
           <p class="admin-kpi-label">Avg session</p>
-          <p class="admin-kpi-value">2m 14s</p>
-          <p class="admin-kpi-delta admin-down">−8%</p>
+          <p class="admin-kpi-value" id="kpiAvgSession">—</p>
+          <p class="admin-kpi-delta"><span id="kpiSessions">—</span> sessions</p>
         </div>
         <div class="admin-kpi">
           <p class="admin-kpi-label">Live now</p>
           <p class="admin-kpi-value">
-            <span class="admin-live-dot"></span>3
+            <span class="admin-live-dot"></span><span id="kpiLive">—</span>
           </p>
-          <p class="admin-kpi-delta">on Cricket Park, BANK, Home</p>
+          <p class="admin-kpi-delta">last 30 min</p>
         </div>
       </div>
 
@@ -80,23 +79,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="md:col-span-2">
           <p class="eyebrow mb-3">Visitors over time</p>
           <div class="admin-card">
-            <!-- Simple SVG line chart placeholder -->
-            <svg viewBox="0 0 600 200" class="w-full h-auto" preserveAspectRatio="none">
-              <polyline
-                points="0,150 60,135 120,160 180,140 240,110 300,95 360,80 420,90 480,70 540,55 600,40"
-                fill="none"
-                stroke="var(--color-accent)"
-                stroke-width="2"
-              />
-              <polyline
-                points="0,150 60,135 120,160 180,140 240,110 300,95 360,80 420,90 480,70 540,55 600,40 600,200 0,200"
-                fill="var(--color-accent)"
-                fill-opacity="0.08"
-                stroke="none"
-              />
+            <svg id="chartVisitors" viewBox="0 0 600 200" class="w-full h-auto" preserveAspectRatio="none">
+              <polyline id="chartLine" points="" fill="none" stroke="var(--color-accent)" stroke-width="2" />
+              <polyline id="chartArea" points="" fill="var(--color-accent)" fill-opacity="0.08" stroke="none" />
             </svg>
             <div class="flex justify-between text-xs text-ink-mute mt-3">
-              <span>Apr 17</span><span>May 24</span>
+              <span id="chartStart">—</span><span id="chartEnd">—</span>
             </div>
           </div>
         </div>
@@ -104,70 +92,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div>
           <p class="eyebrow mb-3">Top locations</p>
           <div class="admin-card">
-            <ul class="admin-list">
-              <li><span>Toronto, CA</span><span class="admin-list-num">87</span></li>
-              <li><span>New York, US</span><span class="admin-list-num">42</span></li>
-              <li><span>London, UK</span><span class="admin-list-num">28</span></li>
-              <li><span>Hong Kong, HK</span><span class="admin-list-num">19</span></li>
-              <li><span>Vancouver, CA</span><span class="admin-list-num">14</span></li>
-              <li><span>San Francisco, US</span><span class="admin-list-num">11</span></li>
-              <li><span>Singapore, SG</span><span class="admin-list-num">9</span></li>
+            <ul class="admin-list" id="listLocations">
+              <li class="admin-empty">Loading…</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Top pages + Top events -->
+      <!-- Top pages + Top sources -->
       <div class="grid md:grid-cols-2 gap-8 mb-10">
         <div>
           <p class="eyebrow mb-3">Top pages</p>
           <div class="admin-card">
-            <ul class="admin-list">
-              <li><span>/ (home)</span><span class="admin-list-num">312</span></li>
-              <li><span>/work</span><span class="admin-list-num">187</span></li>
-              <li><span>/work/cricket-park-campaign</span><span class="admin-list-num">94</span></li>
-              <li><span>/work/evolve-reddit-bank-takeover</span><span class="admin-list-num">76</span></li>
-              <li><span>/about</span><span class="admin-list-num">68</span></li>
-              <li><span>/work/clifton-blake-website</span><span class="admin-list-num">51</span></li>
-              <li><span>/contact</span><span class="admin-list-num">42</span></li>
+            <ul class="admin-list" id="listPages">
+              <li class="admin-empty">Loading…</li>
             </ul>
           </div>
         </div>
 
         <div>
-          <p class="eyebrow mb-3">Engagement events</p>
+          <p class="eyebrow mb-3">Traffic sources</p>
           <div class="admin-card">
-            <ul class="admin-list">
-              <li><span>case_click → cricket-park</span><span class="admin-list-num">38</span></li>
-              <li><span>case_click → bank</span><span class="admin-list-num">31</span></li>
-              <li><span>case_read 75% → bank</span><span class="admin-list-num">22</span></li>
-              <li><span>contact_click → email</span><span class="admin-list-num">12</span></li>
-              <li><span>contact_click → linkedin</span><span class="admin-list-num">9</span></li>
-              <li><span>filter_use → Paid media</span><span class="admin-list-num">7</span></li>
-              <li><span>case_read 75% → cricket-park</span><span class="admin-list-num">6</span></li>
+            <ul class="admin-list" id="listSources">
+              <li class="admin-empty">Loading…</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Recent activity feed -->
+      <!-- Engagement events (custom + GA4 automatic) -->
       <div>
-        <p class="eyebrow mb-3">Recent activity</p>
+        <p class="eyebrow mb-3">Engagement events</p>
         <div class="admin-card">
-          <table class="admin-table">
-            <thead>
-              <tr><th>Time</th><th>Location</th><th>Page</th><th>Source</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>just now</td><td>Toronto, CA</td><td>/work/cricket-park-campaign</td><td>linkedin.com</td></tr>
-              <tr><td>2m ago</td><td>New York, US</td><td>/</td><td>direct</td></tr>
-              <tr><td>14m ago</td><td>London, UK</td><td>/work</td><td>google.com</td></tr>
-              <tr><td>31m ago</td><td>Hong Kong, HK</td><td>/about</td><td>linkedin.com</td></tr>
-              <tr><td>1h ago</td><td>Toronto, CA</td><td>/work/evolve-reddit-bank-takeover</td><td>direct</td></tr>
-              <tr><td>2h ago</td><td>Vancouver, CA</td><td>/</td><td>twitter.com</td></tr>
-              <tr><td>3h ago</td><td>Boston, US</td><td>/work/clifton-blake-website</td><td>linkedin.com</td></tr>
-            </tbody>
-          </table>
+          <ul class="admin-list" id="listEvents">
+            <li class="admin-empty">Loading…</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -234,6 +193,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border-left: 3px solid #d4a574;
       color: var(--color-ink-soft);
       font-size: 0.85rem;
+    }
+
+    /* Status banner for loading/error messages */
+    .admin-status {
+      padding: 0.75rem 1rem;
+      background-color: var(--color-paper-soft);
+      border-left: 3px solid var(--color-rule);
+      color: var(--color-ink-soft);
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+    .admin-status.admin-status-error {
+      border-left-color: #b94c3a;
+      color: #d4837a;
+    }
+
+    /* Empty state inside list cards */
+    .admin-empty {
+      color: var(--color-ink-mute);
+      font-style: italic;
+      font-size: 0.85rem;
+      padding: 0.55rem 0;
+      border-bottom: none !important;
     }
 
     .admin-range-btn {
@@ -413,6 +396,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           sessionStorage.setItem('jd-admin-unlocked', '1');
           gate.classList.add('hidden');
           dash.classList.remove('hidden');
+          loadDashboard('7d');
         } else if (TRAP_HASHES.indexOf(hash) !== -1) {
           // Caught the obvious-guess attempt — redirect to the joke page
           window.location.href = '/nice-try';
@@ -437,15 +421,173 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
       }
 
-      // Range buttons (placeholder behavior — just toggles active state)
+      // Range buttons — change the data range and refetch
       document.querySelectorAll('.admin-range-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('.admin-range-btn').forEach((b) =>
             b.classList.remove('is-active')
           );
           btn.classList.add('is-active');
+          const range = btn.getAttribute('data-range') || '7d';
+          loadDashboard(range);
         });
       });
+
+      // Initial load if already unlocked
+      if (sessionStorage.getItem('jd-admin-unlocked') === '1') {
+        loadDashboard('7d');
+      }
+    }
+
+    // ============ LIVE GA4 DATA ============
+    const WORKER_URL = 'https://portfolio-analytics.justindoone.workers.dev';
+
+    async function loadDashboard(range) {
+      const statusEl = document.getElementById('adminStatus');
+      setStatus(statusEl, 'Loading…', false);
+      try {
+        const res = await fetch(`${WORKER_URL}?range=${encodeURIComponent(range)}`, {
+          method: 'GET',
+          mode: 'cors',
+        });
+        const data = await res.json();
+        if (!res.ok || data.error) {
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        renderDashboard(data, range);
+        setStatus(statusEl, '', false);
+      } catch (err) {
+        setStatus(statusEl, `Failed to load: ${(err as Error).message}`, true);
+      }
+    }
+
+    function setStatus(el, msg, isError) {
+      if (!el) return;
+      if (!msg) {
+        el.classList.add('hidden');
+        el.textContent = '';
+        return;
+      }
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      el.classList.toggle('admin-status-error', !!isError);
+    }
+
+    function renderDashboard(data, range) {
+      // KPI strip
+      const ov = data.overview?.rows?.[0]?.metricValues || [];
+      setText('kpiVisitors', formatNumber(parseInt(ov[0]?.value || '0')));
+      setText('kpiPageviews', formatNumber(parseInt(ov[1]?.value || '0')));
+      setText('kpiAvgSession', formatDuration(parseFloat(ov[2]?.value || '0')));
+      setText('kpiSessions', formatNumber(parseInt(ov[3]?.value || '0')));
+
+      // Live now
+      const liveRows = data.realtime?.rows || [];
+      const liveCount = liveRows.reduce((sum, r) => sum + parseInt(r.metricValues?.[0]?.value || '0'), 0);
+      setText('kpiLive', String(liveCount));
+
+      // Time series chart
+      renderChart(data.timeSeries, range);
+
+      // Top locations
+      renderList('listLocations', data.locations, (row) => {
+        const country = row.dimensionValues?.[0]?.value || '';
+        const city = row.dimensionValues?.[1]?.value || '';
+        const label = city && city !== '(not set)' ? `${city}, ${country}` : country;
+        return { label, value: parseInt(row.metricValues?.[0]?.value || '0') };
+      });
+
+      // Top pages
+      renderList('listPages', data.pages, (row) => ({
+        label: row.dimensionValues?.[0]?.value || '',
+        value: parseInt(row.metricValues?.[0]?.value || '0'),
+      }));
+
+      // Top sources
+      renderList('listSources', data.sources, (row) => ({
+        label: row.dimensionValues?.[0]?.value || '',
+        value: parseInt(row.metricValues?.[0]?.value || '0'),
+      }));
+
+      // Events
+      renderList('listEvents', data.events, (row) => ({
+        label: row.dimensionValues?.[0]?.value || '',
+        value: parseInt(row.metricValues?.[0]?.value || '0'),
+      }));
+    }
+
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function formatNumber(n) {
+      if (n >= 10000) return (n / 1000).toFixed(1) + 'K';
+      return n.toLocaleString('en-US');
+    }
+
+    function formatDuration(secs) {
+      if (!secs || isNaN(secs)) return '0s';
+      const m = Math.floor(secs / 60);
+      const s = Math.round(secs % 60);
+      return m > 0 ? `${m}m ${s}s` : `${s}s`;
+    }
+
+    function renderList(id, report, mapFn) {
+      const ul = document.getElementById(id);
+      if (!ul) return;
+      const rows = report?.rows || [];
+      if (rows.length === 0) {
+        ul.innerHTML = '<li class="admin-empty">No data yet for this range.</li>';
+        return;
+      }
+      ul.innerHTML = rows.map((row) => {
+        const { label, value } = mapFn(row);
+        const safeLabel = escapeHtml(label);
+        return `<li><span>${safeLabel}</span><span class="admin-list-num">${formatNumber(value)}</span></li>`;
+      }).join('');
+    }
+
+    function renderChart(report, range) {
+      const lineEl = document.getElementById('chartLine');
+      const areaEl = document.getElementById('chartArea');
+      const startEl = document.getElementById('chartStart');
+      const endEl = document.getElementById('chartEnd');
+      const rows = report?.rows || [];
+      if (rows.length === 0) {
+        if (lineEl) lineEl.setAttribute('points', '');
+        if (areaEl) areaEl.setAttribute('points', '');
+        if (startEl) startEl.textContent = '—';
+        if (endEl) endEl.textContent = '—';
+        return;
+      }
+      const values = rows.map((r) => parseInt(r.metricValues?.[0]?.value || '0'));
+      const dates = rows.map((r) => r.dimensionValues?.[0]?.value || '');
+      const max = Math.max(...values, 1);
+      const W = 600, H = 200, padTop = 20, padBottom = 30;
+      const usableH = H - padTop - padBottom;
+      const points = values.map((v, i) => {
+        const x = (i / Math.max(values.length - 1, 1)) * W;
+        const y = padTop + usableH - (v / max) * usableH;
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      }).join(' ');
+      if (lineEl) lineEl.setAttribute('points', points);
+      if (areaEl) areaEl.setAttribute('points', `${points} ${W},${H} 0,${H}`);
+      if (startEl) startEl.textContent = formatDate(dates[0]);
+      if (endEl) endEl.textContent = formatDate(dates[dates.length - 1]);
+    }
+
+    function formatDate(d) {
+      // GA4 returns dates as YYYYMMDD strings
+      if (!d || d.length !== 8) return '';
+      const month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(d.slice(4, 6)) - 1];
+      return `${month} ${parseInt(d.slice(6, 8))}`;
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      })[c]);
     }
 
     setupAdminGate();
