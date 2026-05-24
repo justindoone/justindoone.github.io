@@ -84,8 +84,11 @@ const tags = Array.from(tagCounts.entries())
           </div>
         ))
       }
-      <div class="rule-top"></div>
     </div>
+
+    <!-- Closing rule outside #workList so it sits beneath either the
+         card list or the empty state, never above the empty state -->
+    <div id="workListRule" class="rule-top"></div>
 
     <p id="workEmpty" class="text-ink-mute text-sm pt-8 hidden">
       No case studies with that tag.
@@ -94,9 +97,10 @@ const tags = Array.from(tagCounts.entries())
 
   <script>
     function setupWorkFilters() {
-      const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
-      const cards = document.querySelectorAll<HTMLElement>('.work-card-wrap');
+      const chips = document.querySelectorAll('.filter-chip');
+      const cards = document.querySelectorAll('.work-card-wrap');
       const empty = document.getElementById('workEmpty');
+      const rule = document.getElementById('workListRule');
       if (!chips.length || !cards.length) return;
 
       chips.forEach((chip) => {
@@ -115,6 +119,8 @@ const tags = Array.from(tagCounts.entries())
             if (show) visible++;
           });
           if (empty) empty.classList.toggle('hidden', visible > 0);
+          // Hide the closing rule when there are no cards above it
+          if (rule) rule.classList.toggle('hidden', visible === 0);
         });
       });
     }
