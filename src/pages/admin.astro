@@ -507,8 +507,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       // Top locations
       renderList('listLocations', data.locations, (row) => {
         const country = row.dimensionValues?.[0]?.value || '';
-        const city = row.dimensionValues?.[1]?.value || '';
-        const label = city && city !== '(not set)' ? `${city}, ${country}` : country;
+        const region = row.dimensionValues?.[1]?.value || '';
+        const city = row.dimensionValues?.[2]?.value || '';
+        const label = formatLocation(city, region, country);
         return { label, value: parseInt(row.metricValues?.[0]?.value || '0') };
       });
 
@@ -546,10 +547,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         const dvs = row.dimensionValues || [];
         const dateHourMin = dvs[0]?.value || '';
         const country = dvs[1]?.value || '';
-        const city = dvs[2]?.value || '';
-        const page = dvs[3]?.value || '';
-        const source = dvs[4]?.value || '';
-        const loc = city && city !== '(not set)' ? `${city}, ${country}` : country;
+        const region = dvs[2]?.value || '';
+        const city = dvs[3]?.value || '';
+        const page = dvs[4]?.value || '';
+        const source = dvs[5]?.value || '';
+        const loc = formatLocation(city, region, country);
         const time = formatRelativeTime(dateHourMin);
         const cleanSource = source === '(direct)' ? 'direct' : (source === '(not set)' ? '—' : source);
         return `<tr>
@@ -559,6 +561,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <td>${escapeHtml(cleanSource)}</td>
         </tr>`;
       }).join('');
+    }
+
+    function formatLocation(city, region, country) {
+      // Build "City, Region, Country" but drop pieces that are empty/(not set)
+      const parts = [];
+      if (city && city !== '(not set)') parts.push(city);
+      if (region && region !== '(not set)' && region !== city) parts.push(region);
+      if (country && country !== '(not set)') parts.push(country);
+      return parts.length > 0 ? parts.join(', ') : 'Unknown';
     }
 
     function formatRelativeTime(dateHourMin) {

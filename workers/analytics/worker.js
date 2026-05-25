@@ -154,7 +154,7 @@ async function buildDashboard(env, range) {
       // Top locations
       ga4Report(propertyId, token, {
         dateRanges,
-        dimensions: [{ name: 'country' }, { name: 'city' }],
+        dimensions: [{ name: 'country' }, { name: 'region' }, { name: 'city' }],
         metrics: [{ name: 'totalUsers' }],
         orderBys: [
           { metric: { metricName: 'totalUsers' }, desc: true },
@@ -197,6 +197,7 @@ async function buildDashboard(env, range) {
         dimensions: [
           { name: 'dateHourMinute' },
           { name: 'country' },
+          { name: 'region' },
           { name: 'city' },
           { name: 'pagePath' },
           { name: 'sessionSource' },
