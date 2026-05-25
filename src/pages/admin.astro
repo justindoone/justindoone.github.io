@@ -121,12 +121,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- Engagement events (custom + GA4 automatic) -->
-      <div>
+      <div class="mb-10">
         <p class="eyebrow mb-3">Engagement events</p>
         <div class="admin-card">
           <ul class="admin-list" id="listEvents">
             <li class="admin-empty">Loading…</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Recent activity log -->
+      <div>
+        <p class="eyebrow mb-3">Recent activity</p>
+        <div class="admin-card">
+          <table class="admin-table">
+            <thead>
+              <tr><th>Time</th><th>Location</th><th>Page</th><th>Source</th></tr>
+            </thead>
+            <tbody id="tableRecent">
+              <tr><td colspan="4" class="admin-empty">Loading…</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -514,6 +529,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         label: row.dimensionValues?.[0]?.value || '',
         value: parseInt(row.metricValues?.[0]?.value || '0'),
       }));
+
+      // Recent activity table
+      renderRecent('tableRecent', data.recent);
+    }
+
+    function renderRecent(id, report) {
+      const tbody = document.getElementById(id);
+      if (!tbody) return;
+      const rows = report?.rows || [];
+      if (rows.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" class="admin-empty">No activity yet for this range.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = rows.map((row) => {
+        const dvs = row.dimensionValues || [];
+        const dateHourMin = dvs[0]?.value || '';
+        const country = dvs[1]?.value || '';
+        const city = dvs[2]?.value || '';
+        const page = dvs[3]?.value || '';
+        const source = dvs[4]?.value || '';
+        const loc = city && city !== '(not set)' ? `${city}, ${country}` : country;
+        const time = formatRelativeTime(dateHourMin);
+        const cleanSource = source === '(direct)' ? 'direct' : (source === '(not set)' ? '—' : source);
+        return `<tr>
+          <td>${escapeHtml(time)}</td>
+          <td>${escapeHtml(loc)}</td>
+          <td>${escapeHtml(page)}</td>
+          <td>${escapeHtml(cleanSource)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function formatRelativeTime(dateHourMin) {
+      // GA4 returns YYYYMMDDHHMM in the property's timezone (America/Toronto here).
+      // Parsed as local time below — accurate for any viewer also in Toronto.
+      if (!dateHourMin || dateHourMin.length !== 12) return '—';
+      const y = parseInt(dateHourMin.slice(0, 4));
+      const mo = parseInt(dateHourMin.slice(4, 6)) - 1;
+      const d = parseInt(dateHourMin.slice(6, 8));
+      const h = parseInt(dateHourMin.slice(8, 10));
+      const mi = parseInt(dateHourMin.slice(10, 12));
+      const local = new Date(y, mo, d, h, mi);
+      const diff = Math.floor((Date.now() - local.getTime()) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+      if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
+      const month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][mo];
+      return `${month} ${d}`;
     }
 
     function setText(id, text) {

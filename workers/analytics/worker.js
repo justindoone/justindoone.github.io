@@ -132,7 +132,7 @@ async function buildDashboard(env, range) {
   const sa = JSON.parse(env.GA_SERVICE_ACCOUNT_JSON);
   const token = await getAccessToken(sa);
 
-  const [overview, timeSeries, locations, pages, events, sources, realtime] =
+  const [overview, timeSeries, locations, pages, events, sources, recent, realtime] =
     await Promise.all([
       // KPIs: visitors, pageviews, avg session, paid-vs-organic-ish summary
       ga4Report(propertyId, token, {
@@ -189,13 +189,29 @@ async function buildDashboard(env, range) {
         orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
         limit: 10,
       }),
+      // Recent activity log: chronological feed of recent pageviews
+      // (GA4 doesn't expose per-user session data via the Data API, so this
+      // is per-pageview grouped by minute + location + page + source.)
+      ga4Report(propertyId, token, {
+        dateRanges,
+        dimensions: [
+          { name: 'dateHourMinute' },
+          { name: 'country' },
+          { name: 'city' },
+          { name: 'pagePath' },
+          { name: 'sessionSource' },
+        ],
+        metrics: [{ name: 'screenPageViews' }],
+        orderBys: [{ dimension: { dimensionName: 'dateHourMinute', orderType: 'NUMERIC' }, desc: true }],
+        limit: 50,
+      }),
       // Live: active users right now (last 30 min)
       ga4RealtimeReport(propertyId, token, {
         metrics: [{ name: 'activeUsers' }],
       }),
     ]);
 
-  return { overview, timeSeries, locations, pages, events, sources, realtime };
+  return { overview, timeSeries, locations, pages, events, sources, recent, realtime };
 }
 
 // ----------------------------------------------------------------------------
