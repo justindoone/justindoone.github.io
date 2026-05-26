@@ -126,6 +126,31 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
       #faq-gate .err { color: #c02b0a; font-size: 13px; min-height: 18px; margin-bottom: 4px; }
       body.faq-locked { overflow: hidden; }
       body.faq-locked > *:not(#faq-gate) { filter: blur(8px); pointer-events: none; user-select: none; }
+
+      /* Header scroll state — mirrors the live evolveetfs.com transition.
+         The theme stylesheet already has header.scrolled rules; we restate the
+         critical ones inline with !important so they win regardless of cascade
+         order between the cross-origin theme sheet and any per-page styles. */
+      header.scrolled {
+        background-color: #fff !important;
+        padding: 0 !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        transition: background-color .25s ease, padding .25s ease;
+      }
+      header.scrolled a svg.img-logo { fill: #134e9b !important; max-height: 45px !important; }
+      header.scrolled .navbar .collapse ul li a:link,
+      header.scrolled .navbar .collapse ul li a:visited,
+      header.scrolled .navbar .collapse ul li.menu-item a,
+      header.scrolled .navbar .collapse ul li.menu-item span,
+      header.scrolled .navbar .collapse div.newsletter-signup-wrapper a {
+        color: #1d2126 !important;
+      }
+      header.scrolled .navbar .collapse ul#menu-top-menu li.menu-item.search-button:before {
+        filter: invert(1);
+      }
+      /* The hamburger / language toggle stays the right color too */
+      header.scrolled .nav-button { color: #1d2126 !important; }
+      header.scrolled .nav-button .menu-hamburger { fill: #1d2126 !important; }
     </style>
   </head>
   <body class={`${bodyClass} faq-locked`}>
@@ -260,6 +285,29 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
     </div>
 
     <Fragment set:html={evolveFooter} />
+
+    <script is:inline>
+      // Header scroll transition — mirrors the live evolveetfs.com behavior.
+      // Theme CSS already defines header.scrolled { background:#fff; ... } and
+      // header.scrolled a svg.img-logo { fill:#134e9b }, etc. We just need to
+      // add/remove the class as the user scrolls.
+      (function () {
+        const THRESHOLD = 60;
+        const header = document.querySelector('header');
+        if (!header) return;
+        let raf = null;
+        function update() {
+          raf = null;
+          const scrolled = window.scrollY > THRESHOLD;
+          header.classList.toggle('scrolled', scrolled);
+        }
+        function onScroll() {
+          if (raf == null) raf = requestAnimationFrame(update);
+        }
+        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      })();
+    </script>
 
     <script is:inline define:vars={{ PASSWORD_HASH }}>
       (async function () {
