@@ -1,0 +1,191 @@
+---
+/**
+ * Mockup layout that drops the live evolveetfs.com chrome (header + footer + CSS)
+ * around an FAQ page body so the team can preview what the published version will
+ * look like.
+ *
+ * Hosts at justindoone.github.io/faqs/. Gated by a client-side password (SHA-256
+ * hash check + sessionStorage) and noindex'd so it doesn't get crawled.
+ *
+ * Password is "evolve2026". To rotate it, compute the new SHA-256 hex digest
+ * (e.g. `python -c "import hashlib; print(hashlib.sha256(b'newpw').hexdigest())"`)
+ * and replace PASSWORD_HASH below.
+ */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const chromeDir = resolve(__dirname, '../data/faq-chrome');
+const headExtra = readFileSync(resolve(chromeDir, 'head.html'), 'utf-8');
+const evolveHeader = readFileSync(resolve(chromeDir, 'header.html'), 'utf-8');
+const evolveFooter = readFileSync(resolve(chromeDir, 'footer.html'), 'utf-8');
+
+interface Props {
+  title: string;
+  /** H1 shown in the orange header-title-section banner */
+  pageHeading: string;
+  /** "FAQs" eyebrow above the heading (matches the existing post pattern) */
+  eyebrow?: string;
+}
+const { title, pageHeading, eyebrow } = Astro.props;
+
+// SHA-256("evolve2026") — change this hash to rotate the password
+const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320b5b4e20';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title}</title>
+    <meta name="description" content="Internal mockup preview. Not for external distribution." />
+    <link rel="icon" type="image/x-icon" href="https://evolveetfs.com/wp-content/uploads/2017/09/cropped-evolve-favicon-32x32.png" />
+    <Fragment set:html={headExtra} />
+    <style is:inline>
+      /* Override Evolve theme's body{opacity:0} (their CSS expects theme JS to fade it in;
+         we don't load that JS) */
+      body { opacity: 1 !important; }
+      /* The Nitro layer adds .nitro-cover { visibility: hidden } — neutralize so SVG icons
+         (logo etc.) stay visible */
+      .nitro-cover { visibility: visible !important; }
+      /* Lazy-loaded images on the live site have nitro-lazy class — force them visible */
+      .nitro-lazy { background-image: inherit !important; }
+      img.nitro-lazy { opacity: 1 !important; }
+
+      /* Mockup-only chrome — disclosure ribbon + password gate overlay */
+      .faq-mockup-ribbon {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        background: #1B3D63;
+        color: #fff;
+        font: 600 12px/1.4 -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        text-align: center;
+      }
+      .faq-mockup-ribbon span { color: #F05A22; font-weight: 700; }
+      #faq-gate {
+        position: fixed; inset: 0; z-index: 100000;
+        background: #1B3D63; color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      #faq-gate.unlocked { display: none; }
+      #faq-gate .gate-card {
+        background: #fff; color: #1B3D63;
+        padding: 40px 36px; border-radius: 4px; max-width: 360px; width: 90%;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+        text-align: center;
+      }
+      #faq-gate h1 { font: 700 22px/1.2 inherit; margin: 0 0 8px; color: #1B3D63; }
+      #faq-gate p { font: 400 14px/1.5 inherit; color: #4a5568; margin: 0 0 20px; }
+      #faq-gate input[type=password] {
+        width: 100%; padding: 12px 14px; border: 1px solid #cdd3d6; border-radius: 4px;
+        font-size: 15px; box-sizing: border-box; margin: 0 0 12px;
+      }
+      #faq-gate input[type=password]:focus { outline: 2px solid #F05A22; outline-offset: -1px; }
+      #faq-gate button {
+        background: #F05A22; color: #fff; border: 0; padding: 12px 24px; border-radius: 4px;
+        font: 700 13px/1 inherit; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+        width: 100%;
+      }
+      #faq-gate button:hover { background: #d44d1b; }
+      #faq-gate .err { color: #c02b0a; font-size: 13px; min-height: 18px; margin-bottom: 4px; }
+      body.faq-locked { overflow: hidden; }
+      body.faq-locked > *:not(#faq-gate) { filter: blur(8px); pointer-events: none; user-select: none; }
+    </style>
+  </head>
+  <body class="wp-singular page-template page-template-page-about-us-timeline page-template-page-about-us-timeline-php page page-id-187887 wp-theme-framework wp-child-theme-evolve-funds-full-site desktop nitro-nojs faq-locked">
+    <!-- Password gate -->
+    <div id="faq-gate">
+      <div class="gate-card">
+        <h1>FAQ Mockup Preview</h1>
+        <p>Internal preview for the Evolve marketing team. Enter the password to view.</p>
+        <form id="faq-gate-form" autocomplete="off">
+          <input type="password" id="faq-gate-pw" placeholder="Password" autofocus autocomplete="off" />
+          <div class="err" id="faq-gate-err">&nbsp;</div>
+          <button type="submit">Unlock</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="faq-mockup-ribbon">
+      <span>Mockup preview</span> · justindoone.github.io · not the live Evolve site
+    </div>
+
+    <Fragment set:html={evolveHeader} />
+
+    <div class="header-title-section product-singular-featured-image" style="">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            {eyebrow && <p style="color:#F05A22; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 8px;">{eyebrow}</p>}
+            <h1 class="float-left">{pageHeading}</h1>
+            <div class="w-100 float-left d-md-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="site-content">
+      <div class="container page-content about-page-content">
+        <div class="row">
+          <div class="col-12">
+            <slot />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Fragment set:html={evolveFooter} />
+
+    <script is:inline define:vars={{ PASSWORD_HASH }}>
+      (async function () {
+        const STORAGE_KEY = 'evolve_faq_mockup_unlocked_v1';
+        const gate = document.getElementById('faq-gate');
+        const form = document.getElementById('faq-gate-form');
+        const input = document.getElementById('faq-gate-pw');
+        const err = document.getElementById('faq-gate-err');
+
+        async function sha256(str) {
+          const buf = new TextEncoder().encode(str);
+          const hash = await crypto.subtle.digest('SHA-256', buf);
+          return Array.from(new Uint8Array(hash))
+            .map((b) => b.toString(16).padStart(2, '0'))
+            .join('');
+        }
+
+        function unlock() {
+          document.body.classList.remove('faq-locked');
+          gate.classList.add('unlocked');
+        }
+
+        // Already unlocked?
+        if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH) {
+          unlock();
+          return;
+        }
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const pw = input.value.trim();
+          if (!pw) return;
+          const h = await sha256(pw);
+          if (h === PASSWORD_HASH) {
+            sessionStorage.setItem(STORAGE_KEY, h);
+            unlock();
+          } else {
+            err.textContent = 'Incorrect password.';
+            input.value = '';
+            input.focus();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

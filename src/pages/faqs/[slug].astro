@@ -1,0 +1,40 @@
+---
+import FaqMockupLayout from '../../layouts/FaqMockupLayout.astro';
+import faqs from '../../data/faqs.json';
+
+interface Topic {
+  slug: string;
+  title: string;
+  blurb: string;
+  questions: string[];
+  style: string;
+  wrap: string;
+  schema: string;
+}
+
+export function getStaticPaths() {
+  // Cast to satisfy Astro's typing of the JSON import
+  return (faqs as unknown as Topic[]).map((t) => ({
+    params: { slug: t.slug },
+    props: { topic: t },
+  }));
+}
+
+const { topic } = Astro.props as { topic: Topic };
+---
+
+<FaqMockupLayout
+  title={`${topic.title} - FAQ (Mockup)`}
+  pageHeading={topic.title}
+  eyebrow="FAQs"
+>
+  <Fragment set:html={topic.style} />
+  <Fragment set:html={topic.wrap} />
+
+  <!-- Back-to-hub link -->
+  <p style="margin-top: 32px; font-size: 14px;">
+    <a href="/faqs/" style="color: #F05A22; font-weight: 600; text-decoration: none;">
+      ← All FAQ topics
+    </a>
+  </p>
+</FaqMockupLayout>

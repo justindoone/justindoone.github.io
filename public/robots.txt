@@ -3,5 +3,7 @@ Allow: /
 Disallow: /admin
 Disallow: /nice-try
 Disallow: /demos/
+Disallow: /faqs
+Disallow: /faqs/
 
 Sitemap: https://justindoone.github.io/sitemap-index.xml

@@ -1,0 +1,165 @@
+---
+import FaqMockupLayout from '../../layouts/FaqMockupLayout.astro';
+import faqs from '../../data/faqs.json';
+
+interface Topic {
+  slug: string;
+  title: string;
+  blurb: string;
+  questions: string[];
+}
+const topics = (faqs as Topic[]).map((t) => ({
+  slug: t.slug,
+  title: t.title,
+  blurb: t.blurb,
+  questionCount: t.questions.length,
+  firstThree: t.questions.slice(0, 3),
+}));
+---
+
+<FaqMockupLayout
+  title="FAQs - Evolve ETFs (Mockup)"
+  pageHeading="FAQs"
+  eyebrow="Investor Education"
+>
+  <style is:inline>
+    .faq-hub-intro {
+      font-size: 1.7rem;
+      line-height: 1.6;
+      color: #4a5568;
+      max-width: 720px;
+      margin: 0 0 48px;
+    }
+    .faq-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 0;
+      margin: 0 0 60px;
+      list-style: none;
+    }
+    .faq-hub-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid rgba(27, 61, 99, 0.1);
+      border-radius: 6px;
+      padding: 28px 28px 24px;
+      text-decoration: none !important;
+      color: #1B3D63;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #F05A22;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .faq-hub-card:hover {
+      border-color: rgba(240, 90, 34, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(27, 61, 99, 0.08);
+    }
+    .faq-hub-card:hover::before { transform: scaleX(1); }
+    .faq-hub-card .card-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #F05A22;
+      margin: 0 0 10px;
+    }
+    .faq-hub-card .card-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      color: #1B3D63;
+    }
+    .faq-hub-card .card-blurb {
+      font-size: 15px;
+      line-height: 1.55;
+      color: #4a5568;
+      margin: 0 0 18px;
+      flex: 1 1 auto;
+    }
+    .faq-hub-card .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #F05A22;
+      margin-top: auto;
+    }
+    .faq-hub-card .card-cta::after {
+      content: '→';
+      font-size: 16px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+    .faq-hub-card:hover .card-cta::after { transform: translateX(3px); }
+    .faq-hub-questions {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      border-top: 1px solid rgba(27, 61, 99, 0.08);
+      padding-top: 14px;
+    }
+    .faq-hub-questions li {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #718096;
+      padding: 4px 0;
+      position: relative;
+      padding-left: 16px;
+    }
+    .faq-hub-questions li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: #F05A22;
+      font-weight: 700;
+    }
+    .faq-hub-questions .more {
+      font-style: italic;
+      color: #a0aec0;
+      padding-left: 16px;
+    }
+    @media (max-width: 600px) {
+      .faq-hub-grid { grid-template-columns: 1fr; }
+      .faq-hub-intro { font-size: 1.5rem; }
+    }
+  </style>
+
+  <p class="faq-hub-intro">
+    Common questions about ETF investing and the Evolve lineup. Pick a topic to read the full answers.
+  </p>
+
+  <ul class="faq-hub-grid">
+    {topics.map((t) => (
+      <li>
+        <a href={`/faqs/${t.slug}/`} class="faq-hub-card">
+          <p class="card-eyebrow">{t.questionCount} questions</p>
+          <h2 class="card-title">{t.title}</h2>
+          <p class="card-blurb">{t.blurb}</p>
+          <ul class="faq-hub-questions">
+            {t.firstThree.map((q) => <li>{q}</li>)}
+            {t.questionCount > 3 && (
+              <li class="more">+ {t.questionCount - 3} more</li>
+            )}
+          </ul>
+          <span class="card-cta">View FAQs</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</FaqMockupLayout>
