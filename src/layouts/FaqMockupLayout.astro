@@ -256,10 +256,18 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
     <script is:inline define:vars={{ PASSWORD_HASH }}>
       (async function () {
         const STORAGE_KEY = 'evolve_faq_mockup_unlocked_v1';
+        const PW_STORAGE = 'evolve_faq_mockup_pw_v1';
         const gate = document.getElementById('faq-gate');
         const form = document.getElementById('faq-gate-form');
         const input = document.getElementById('faq-gate-pw');
         const err = document.getElementById('faq-gate-err');
+
+        function b64decode(s) {
+          const bin = atob(s);
+          const buf = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+          return buf;
+        }
 
         async function sha256(str) {
           const buf = new TextEncoder().encode(str);
@@ -269,13 +277,58 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
             .join('');
         }
 
+        // Cache of fetched encrypted blob + derived key, per page load
+        let cachedBlob = null;
+        let cachedKey = null;
+
+        async function loadBlob() {
+          if (cachedBlob) return cachedBlob;
+          const r = await fetch('/faqs/data/encrypted.json', { cache: 'force-cache' });
+          if (!r.ok) throw new Error('encrypted blob load failed: ' + r.status);
+          cachedBlob = await r.json();
+          return cachedBlob;
+        }
+
+        async function deriveKey(password, blob) {
+          if (cachedKey) return cachedKey;
+          const pwBuf = new TextEncoder().encode(password);
+          const salt = b64decode(blob.kdf.salt);
+          const baseKey = await crypto.subtle.importKey('raw', pwBuf, { name: 'PBKDF2' }, false, ['deriveKey']);
+          cachedKey = await crypto.subtle.deriveKey(
+            { name: 'PBKDF2', salt, iterations: blob.kdf.iterations, hash: 'SHA-256' },
+            baseKey,
+            { name: 'AES-GCM', length: blob.kdf.key_length * 8 },
+            false,
+            ['decrypt']
+          );
+          return cachedKey;
+        }
+
+        async function decryptTopic(slug) {
+          const blob = await loadBlob();
+          const pw = sessionStorage.getItem(PW_STORAGE);
+          if (!pw) throw new Error('not unlocked');
+          const key = await deriveKey(pw, blob);
+          const t = blob.topics[slug];
+          if (!t) throw new Error('unknown slug: ' + slug);
+          const iv = b64decode(t.iv);
+          const ct = b64decode(t.ciphertext);
+          const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct);
+          return JSON.parse(new TextDecoder().decode(pt));
+        }
+
+        // Expose for topic pages
+        window.__faqDecrypt = decryptTopic;
+
         function unlock() {
           document.body.classList.remove('faq-locked');
           gate.classList.add('unlocked');
+          // Tell any page-specific script we're unlocked
+          window.dispatchEvent(new Event('faq-unlocked'));
         }
 
-        // Already unlocked?
-        if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH) {
+        // Already unlocked this session?
+        if (sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH && sessionStorage.getItem(PW_STORAGE)) {
           unlock();
           return;
         }
@@ -287,6 +340,8 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
           const h = await sha256(pw);
           if (h === PASSWORD_HASH) {
             sessionStorage.setItem(STORAGE_KEY, h);
+            // Stash the password so __faqDecrypt can re-derive the key on revisit
+            sessionStorage.setItem(PW_STORAGE, pw);
             unlock();
           } else {
             err.textContent = 'Incorrect password.';

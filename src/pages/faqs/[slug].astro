@@ -1,15 +1,12 @@
 ---
 import FaqMockupLayout from '../../layouts/FaqMockupLayout.astro';
-import faqs from '../../data/faqs.json';
+import faqs from '../../data/faqs-public.json';
 
 interface Topic {
   slug: string;
   title: string;
   blurb: string;
-  questions: string[];
-  style: string;
-  wrap: string;
-  schema: string;
+  question_titles: string[];
   image_url?: string;
 }
 
@@ -31,7 +28,6 @@ const { topic, prev, next } = Astro.props as {
   next: Topic | null;
 };
 
-// Approximate post date — uses today's date since live posts are dated 2026-05
 const postDate = 'May 5, 2026';
 ---
 
@@ -44,6 +40,57 @@ const postDate = 'May 5, 2026';
   prevPost={prev ? { slug: prev.slug, title: prev.title } : null}
   nextPost={next ? { slug: next.slug, title: next.title } : null}
 >
-  <Fragment set:html={topic.style} />
-  <Fragment set:html={topic.wrap} />
+  <!-- Skeleton: empty containers + loading state. Real content (style + wrap)
+       is encrypted in /faqs/data/encrypted.json and decrypted client-side after
+       the password gate unlocks. -->
+  <div id="faq-content-placeholder" data-slug={topic.slug}>
+    <div id="faq-content-loading" style="padding: 80px 0; text-align: center; color: #898d8f; font-size: 14px;">
+      Loading FAQ content&hellip;
+    </div>
+    <div id="faq-content-error" style="display: none; padding: 24px; background: #fee; color: #c02b0a; border-radius: 4px;"></div>
+    <div id="faq-content-target"></div>
+  </div>
+
+  <script is:inline define:vars={{ slug: topic.slug }}>
+    (function () {
+      const target = document.getElementById('faq-content-target');
+      const loading = document.getElementById('faq-content-loading');
+      const errBox = document.getElementById('faq-content-error');
+
+      async function renderTopic() {
+        try {
+          if (typeof window.__faqDecrypt !== 'function') {
+            // Layout script hasn't loaded yet — try again next tick
+            setTimeout(renderTopic, 50);
+            return;
+          }
+          const data = await window.__faqDecrypt(slug);
+          // Inject the style + wrap markup (set innerHTML executes any inline
+          // <style> but does NOT auto-execute <script>; we re-run the wrap's
+          // toggle script manually below)
+          target.innerHTML = (data.style || '') + (data.wrap || '');
+          loading.style.display = 'none';
+          // Re-execute inline scripts inside the injected wrap (the accordion
+          // toggle script)
+          target.querySelectorAll('script').forEach((oldScript) => {
+            const s = document.createElement('script');
+            for (const attr of oldScript.attributes) s.setAttribute(attr.name, attr.value);
+            s.text = oldScript.text;
+            oldScript.parentNode.replaceChild(s, oldScript);
+          });
+        } catch (e) {
+          loading.style.display = 'none';
+          errBox.style.display = 'block';
+          errBox.textContent = 'Could not load FAQ content: ' + (e && e.message ? e.message : e);
+        }
+      }
+
+      // Wait for the password gate to unlock first
+      if (sessionStorage.getItem('evolve_faq_mockup_pw_v1')) {
+        renderTopic();
+      } else {
+        window.addEventListener('faq-unlocked', renderTopic, { once: true });
+      }
+    })();
+  </script>
 </FaqMockupLayout>

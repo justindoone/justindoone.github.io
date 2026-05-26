@@ -25,3 +25,9 @@ Thumbs.db
 # OS
 *.swp
 *.swo
+
+# FAQ mockup — plaintext source is NEVER committed (encrypted blob is committed
+# instead, derived via scripts/encrypt-faqs.py). Regenerate locally with:
+#   python scripts/encrypt-faqs.py
+src/data/faqs.json
+

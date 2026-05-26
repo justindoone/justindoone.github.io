@@ -1,13 +1,13 @@
 ---
 import FaqMockupLayout from '../../layouts/FaqMockupLayout.astro';
-import faqs from '../../data/faqs.json';
+import faqs from '../../data/faqs-public.json';
 import hero from '../../data/faqs-hero.json';
 
 interface Topic {
   slug: string;
   title: string;
   blurb: string;
-  questions: string[];
+  question_titles: string[];
   image_url?: string;
 }
 const topics = faqs as unknown as Topic[];
