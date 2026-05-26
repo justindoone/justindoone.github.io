@@ -149,53 +149,61 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
     <Fragment set:html={evolveHeader} />
 
     <div
-      class={heroImage ? "header-title-section blog-header product-singular-featured-image featured-image-bottom" : "header-title-section product-singular-featured-image"}
+      class={
+        pageType === 'topic'
+          ? 'header-title-section product-singular-featured-image featured-image-bottom'
+          : heroImage
+            ? 'header-title-section blog-header product-singular-featured-image featured-image-bottom'
+            : 'header-title-section product-singular-featured-image'
+      }
       style={heroImage ? `background-image: url('${heroImage}') !important; background-repeat: no-repeat; background-position: center center; background-size: cover;` : ''}
     >
       {heroImage && <div class="banner-overlay"></div>}
-      {pageType === 'hub' && (
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              {eyebrow && <p style="color:#F05A22; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 8px;">{eyebrow}</p>}
-              <h1 class="float-left">{pageHeading}</h1>
-              <div class="w-100 float-left d-md-none"></div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            {pageType === 'hub' && (
+              <Fragment>
+                {eyebrow && <p style="color:#F05A22; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 8px;">{eyebrow}</p>}
+                <h1 class="float-left">{pageHeading}</h1>
+                <div class="w-100 float-left d-md-none"></div>
+              </Fragment>
+            )}
+            {pageType === 'topic' && (
+              <Fragment>
+                <div class="back-to-parent-section">
+                  <div class="container new">
+                    <div class="row">
+                      <div class="col-12">
+                        <a href="/faqs/">
+                          <h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12.049" height="9.731" viewBox="0 0 12.049 9.731">
+                              <g transform="translate(1364.549 1253.205) rotate(180)">
+                                <line x2="11" transform="translate(1352.5 1248.343)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                                <path d="M0,4.246,4.284,0l4.4,4.246" transform="translate(1363.5 1244.002) rotate(90)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                              </g>
+                            </svg>
+                            Back to FAQs
+                          </h4>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="article-header">{pageHeading}</h1>
+                {postDate && (
+                  <div class="post-header-lower">
+                    <p class="post-date">{postDate}</p>
+                  </div>
+                )}
+              </Fragment>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </div>
 
     <div id="content" class="site-content">
-      {pageType === 'topic' && (
-        <Fragment>
-          <div class="back-to-parent-section">
-            <div class="container new">
-              <div class="row">
-                <div class="col-12">
-                  <a href="/faqs/">
-                    <h4>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12.049" height="9.731" viewBox="0 0 12.049 9.731">
-                        <g transform="translate(1364.549 1253.205) rotate(180)">
-                          <line x2="11" transform="translate(1352.5 1248.343)" fill="none" stroke="#fff" stroke-width="1.5"/>
-                          <path d="M0,4.246,4.284,0l4.4,4.246" transform="translate(1363.5 1244.002) rotate(90)" fill="none" stroke="#fff" stroke-width="1.5"/>
-                        </g>
-                      </svg>
-                      Back to FAQs
-                    </h4>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <h1 class="article-header">{pageHeading}</h1>
-          {postDate && (
-            <div class="post-header-lower">
-              <p class="post-date">{postDate}</p>
-            </div>
-          )}
-        </Fragment>
-      )}
       <div class={pageType === 'topic' ? 'container page-content' : 'container page-content about-page-content'}>
         <div class="row">
           <div class="col-12">
@@ -283,7 +291,10 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
 
         async function loadBlob() {
           if (cachedBlob) return cachedBlob;
-          const r = await fetch('/faqs/data/encrypted.json', { cache: 'force-cache' });
+          // cache: 'no-cache' = always revalidate with the server (cheap 304 if
+          // the blob is unchanged), so re-encryption propagates without forcing
+          // every visitor to hard-refresh.
+          const r = await fetch('/faqs/data/encrypted.json', { cache: 'no-cache' });
           if (!r.ok) throw new Error('encrypted blob load failed: ' + r.status);
           cachedBlob = await r.json();
           return cachedBlob;

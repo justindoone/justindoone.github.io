@@ -75,8 +75,9 @@ def main():
             "question_titles": topic.get("questions", []),
             "wp_modified": topic.get("wp_modified"),
         })
-        # Encrypted payload — the full answer markup + schema
+        # Encrypted payload — the CSS, the full answer markup, and the schema
         payload = json.dumps({
+            "style": topic.get("style", ""),
             "wrap": topic.get("wrap", ""),
             "schema": topic.get("schema", ""),
         }, ensure_ascii=False).encode("utf-8")
