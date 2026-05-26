@@ -1,0 +1,255 @@
+---
+// Joke landing page — the FAQ gate redirects here when someone tries
+// "admin" or "password" as the gate password.
+// Standalone HTML: not gated, not part of any layout, no theme chrome.
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Access denied</title>
+    <link rel="icon" type="image/x-icon" href="https://evolveetfs.com/wp-content/uploads/2017/09/cropped-evolve-favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0d12;
+        --panel: #11151c;
+        --text: #d8dee9;
+        --muted: #6b7280;
+        --accent: #ef4444;
+        --accent-soft: rgba(239, 68, 68, 0.12);
+        --green: #34d399;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; min-height: 100%; }
+      body {
+        background:
+          radial-gradient(ellipse at top, rgba(239, 68, 68, 0.06), transparent 50%),
+          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px),
+          var(--bg);
+        color: var(--text);
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 14px;
+        line-height: 1.6;
+        display: flex; align-items: center; justify-content: center;
+        min-height: 100vh;
+        padding: 32px 16px;
+      }
+      .wrap { max-width: 640px; width: 100%; }
+      .banner {
+        background: var(--accent);
+        color: #0a0d12;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 6px 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 3px;
+        margin-bottom: 20px;
+      }
+      .banner::before {
+        content: "";
+        width: 8px; height: 8px;
+        background: #0a0d12;
+        border-radius: 50%;
+        animation: blink 0.9s steps(2) infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+      h1 {
+        font-size: 30px; font-weight: 700; line-height: 1.15;
+        color: #f4f6fa; margin: 0 0 6px;
+        letter-spacing: -0.5px;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 28px;
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-left: 3px solid var(--accent);
+        padding: 18px 22px;
+        border-radius: 4px;
+        margin: 0 0 18px;
+      }
+      .panel .label {
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 0 0 4px;
+      }
+      .panel .value {
+        color: #f4f6fa;
+        font-size: 16px;
+        font-weight: 500;
+        word-break: break-all;
+      }
+      .panel .quip {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 10px 0 0;
+        font-style: italic;
+      }
+      .log {
+        background: #060810;
+        border: 1px solid rgba(255,255,255,0.04);
+        padding: 16px 18px;
+        border-radius: 4px;
+        font-size: 12.5px;
+        line-height: 1.7;
+        color: #b0b7c3;
+        margin: 0 0 24px;
+      }
+      .log .line { display: flex; gap: 10px; }
+      .log .line::before {
+        content: ">";
+        color: var(--accent);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .log .meta {
+        color: var(--muted);
+        font-size: 11px;
+        margin: 12px 0 0;
+        padding-top: 10px;
+        border-top: 1px dashed rgba(255,255,255,0.05);
+        display: flex; justify-content: space-between;
+      }
+      .actions {
+        display: flex; flex-wrap: wrap; gap: 10px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 12px 18px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 12.5px; font-weight: 600;
+        letter-spacing: 1px; text-transform: uppercase;
+        font-family: inherit;
+        border: 0;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.05s ease;
+      }
+      .btn.primary {
+        background: var(--accent); color: #0a0d12;
+      }
+      .btn.primary:hover { background: #f87171; }
+      .btn.primary:active { transform: translateY(1px); }
+      .btn.secondary {
+        background: transparent; color: var(--muted);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .btn.secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+      .small-print {
+        color: #3f4654;
+        font-size: 10.5px;
+        margin: 24px 0 0;
+        line-height: 1.5;
+      }
+      .status-row {
+        display: flex; align-items: center; gap: 14px;
+        margin-bottom: 18px;
+        font-size: 11px;
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
+      .status-row .dot { display: inline-flex; align-items: center; gap: 6px; }
+      .status-row .dot::before {
+        content: "";
+        width: 7px; height: 7px; border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 6px rgba(52, 211, 153, 0.5);
+      }
+      .status-row .dot.red::before { background: var(--accent); box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="banner">Access denied</div>
+      <h1>Did you really think that was going to work?</h1>
+      <p class="subtitle">Incident #<span id="incident">47291</span> &middot; logged at <span id="timestamp">--:--:--</span></p>
+
+      <div class="status-row">
+        <span class="dot">Imaginary firewall: holding</span>
+        <span class="dot red">Common sense: somewhere else</span>
+      </div>
+
+      <div class="panel">
+        <p class="label">Attempted credential</p>
+        <p class="value" id="attempted">&laquo;redacted&raquo;</p>
+        <p class="quip" id="quip">Inspired choice.</p>
+      </div>
+
+      <div class="log">
+        <div class="line">Subject attempted to brute-force the site by guessing <span id="logpw" style="color:#f4f6fa;font-weight:500;">a popular password</span>.</div>
+        <div class="line">No actual security system was breached, harmed, or even mildly inconvenienced.</div>
+        <div class="line">A stern, fictional letter has been drafted to your imaginary HR department.</div>
+        <div class="line">Your guess has been added to the &ldquo;please no&rdquo; hall of fame.</div>
+        <div class="meta">
+          <span>Source: <span id="ip">127.0.0.1</span> (you&rsquo;re talking to yourself)</span>
+          <span>Severity: cosmic</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="/faqs/">&larr; Back to the gate</a>
+        <a class="btn secondary" href="javascript:history.back()">Pretend this never happened</a>
+      </div>
+
+      <p class="small-print">
+        No incident was actually logged. There is no imaginary security team. There is no HR.
+        This page exists because somebody on the FAQ password gate tried <em>admin</em> or <em>password</em>.
+        That somebody, statistically, is you.
+      </p>
+    </main>
+
+    <script is:inline>
+      (function () {
+        const params = new URLSearchParams(location.search);
+        const pw = (params.get('pw') || '').toLowerCase();
+        const QUIPS = {
+          admin:    'Inspired choice. Nobody has ever tried that.',
+          password: 'Took my breath away. Truly.',
+        };
+        const PWS = { admin: '"admin"', password: '"password"' };
+        if (pw && QUIPS[pw]) {
+          document.getElementById('attempted').textContent = PWS[pw];
+          document.getElementById('quip').textContent = QUIPS[pw];
+          document.getElementById('logpw').textContent = PWS[pw];
+        } else if (pw) {
+          document.getElementById('attempted').textContent = '"' + pw + '"';
+          document.getElementById('quip').textContent = 'Bold strategy.';
+          document.getElementById('logpw').textContent = '"' + pw + '"';
+        }
+
+        // Incident number = stable hash from the attempted pw (so refresh keeps the same number)
+        let n = 0;
+        for (const c of (pw || 'unknown')) n = ((n << 5) - n + c.charCodeAt(0)) | 0;
+        document.getElementById('incident').textContent = Math.abs(n % 99999) || 47291;
+
+        const d = new Date();
+        const pad = (n) => String(n).padStart(2, '0');
+        document.getElementById('timestamp').textContent =
+          pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+
+        // Fake "IP" — make it look plausible but local-loopback
+        const octets = [127, ...Array.from({length: 3}, () => Math.floor(Math.random() * 250) + 1)];
+        document.getElementById('ip').textContent = octets.join('.');
+      })();
+    </script>
+  </body>
+</html>

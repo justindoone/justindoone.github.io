@@ -396,6 +396,12 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
           e.preventDefault();
           const pw = input.value.trim();
           if (!pw) return;
+          // Easter egg — if someone tries the two laziest passwords, send them
+          // to the joke "did you really think that would work" page.
+          if (/^(admin|password)$/i.test(pw)) {
+            window.location.href = '/faqs/nice-try/?pw=' + encodeURIComponent(pw.toLowerCase());
+            return;
+          }
           const h = await sha256(pw);
           if (h === PASSWORD_HASH) {
             sessionStorage.setItem(STORAGE_KEY, h);
