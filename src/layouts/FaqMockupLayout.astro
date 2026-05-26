@@ -392,6 +392,17 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
           return;
         }
 
+        const REJECTIONS = [
+          'Mm-mm. Not it.',
+          'Try again. I&rsquo;ll wait.',
+          'Closer? Not really, no.',
+          'I should mention: I am a brick wall.',
+          'You&rsquo;ve been at this a minute now.',
+          'Past performance does not guarantee future guesses.',
+          'Have you considered asking the person who sent you this link?',
+          'We have not approved your guesses for distribution.',
+        ];
+        let attempts = 0;
         form.addEventListener('submit', async (e) => {
           e.preventDefault();
           const pw = input.value.trim();
@@ -409,7 +420,8 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
             sessionStorage.setItem(PW_STORAGE, pw);
             unlock();
           } else {
-            err.textContent = 'Incorrect password.';
+            err.innerHTML = REJECTIONS[Math.min(attempts, REJECTIONS.length - 1)];
+            attempts++;
             input.value = '';
             input.focus();
           }
