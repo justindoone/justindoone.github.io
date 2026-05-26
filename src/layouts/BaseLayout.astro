@@ -45,12 +45,46 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       .hero-line { opacity: 0; }
       [data-letter-reveal] { opacity: 0; }
       [data-letter-reveal][data-letter-ready] { opacity: 1; }
+
+      /* Portfolio gate — see #site-gate <script> below */
+      body.site-locked { overflow: hidden; }
+      body.site-locked > *:not(#site-gate) { filter: blur(10px); pointer-events: none; user-select: none; }
+      #site-gate {
+        position: fixed; inset: 0; z-index: 100000;
+        background: #0a0f1a; color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      #site-gate.unlocked { display: none; }
+      #site-gate .card {
+        background: #fff; color: #1a1a1a;
+        padding: 36px 32px; border-radius: 6px; max-width: 380px; width: 90%;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+        text-align: center;
+      }
+      #site-gate h1 { font: 700 22px/1.2 inherit; margin: 0 0 8px; }
+      #site-gate p { font: 400 14px/1.5 inherit; color: #555; margin: 0 0 20px; }
+      #site-gate input[type=password] {
+        width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 4px;
+        font-size: 15px; box-sizing: border-box; margin: 0 0 12px;
+      }
+      #site-gate input[type=password]:focus { outline: 2px solid #1a1a1a; outline-offset: -1px; }
+      #site-gate button {
+        background: #1a1a1a; color: #fff; border: 0; padding: 12px 24px; border-radius: 4px;
+        font: 700 13px/1 inherit; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+        width: 100%;
+      }
+      #site-gate button:hover { background: #333; }
+      #site-gate .err { color: #c02b0a; font-size: 13px; min-height: 18px; margin-bottom: 4px; }
     </style>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {/* Portfolio is gated — block all crawlers regardless of per-page noindex flag */}
+    <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+    <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+    <meta name="referrer" content="no-referrer" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -92,7 +126,76 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     )}
     <ClientRouter />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col site-locked">
+    <!-- Site-wide password gate. Persists in sessionStorage for the tab.
+         Password rotation: compute SHA-256 of the new password and replace the
+         hash in the script below. -->
+    <div id="site-gate">
+      <div class="card">
+        <h1>Private preview</h1>
+        <p>This portfolio is not public yet. Enter the password to continue.</p>
+        <form id="site-gate-form" autocomplete="off">
+          <input type="password" id="site-gate-pw" placeholder="Password" autofocus autocomplete="off" />
+          <div class="err" id="site-gate-err">&nbsp;</div>
+          <button type="submit">Unlock</button>
+        </form>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        const STORAGE_KEY = 'jd_portfolio_unlock_v1';
+        // SHA-256 of the current portfolio password
+        const PASSWORD_HASH = '04d3413c21fc3bc096d2fc469a99fa44b104d17ceb651ae39dd12239ad6bc813';
+
+        async function sha256(str) {
+          const buf = new TextEncoder().encode(str);
+          const hash = await crypto.subtle.digest('SHA-256', buf);
+          return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function applyState() {
+          const ok = sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH;
+          const gate = document.getElementById('site-gate');
+          if (!gate) return;
+          if (ok) {
+            document.body.classList.remove('site-locked');
+            gate.classList.add('unlocked');
+          } else {
+            document.body.classList.add('site-locked');
+            gate.classList.remove('unlocked');
+          }
+        }
+
+        function wireForm() {
+          const form = document.getElementById('site-gate-form');
+          if (!form || form.dataset.wired) return;
+          form.dataset.wired = '1';
+          const input = document.getElementById('site-gate-pw');
+          const err = document.getElementById('site-gate-err');
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const pw = (input.value || '').trim();
+            if (!pw) return;
+            const h = await sha256(pw);
+            if (h === PASSWORD_HASH) {
+              sessionStorage.setItem(STORAGE_KEY, h);
+              applyState();
+            } else {
+              err.textContent = 'Incorrect password.';
+              input.value = '';
+              input.focus();
+            }
+          });
+        }
+
+        // Run on initial load AND on every Astro client-router navigation, because
+        // the body element is swapped between pages.
+        function init() { applyState(); wireForm(); }
+        init();
+        document.addEventListener('astro:page-load', init);
+      })();
+    </script>
+
     <Nav />
     <main class="flex-1">
       <slot />
