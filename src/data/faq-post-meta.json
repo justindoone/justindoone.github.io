@@ -1,0 +1,32 @@
+{
+  "about-evolve-etfs": {
+    "slug": "about-evolve-etfs",
+    "body_class": "wp-singular post-template-default single single-post postid-187907 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191449_fda8f034-944c-48b4-8258-36d6cbfd39b5-scaled.png"
+  },
+  "etf-basics": {
+    "slug": "etf-basics",
+    "body_class": "wp-singular post-template-default single single-post postid-188053 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_185922_34484d59-5a40-4e5a-9fab-60c847e2d072-scaled.png"
+  },
+  "our-strategies": {
+    "slug": "our-strategies",
+    "body_class": "wp-singular post-template-default single single-post postid-188054 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191514_f5d668dd-a191-45e8-96d2-427407ae27f4-1-scaled.png"
+  },
+  "how-to-buy": {
+    "slug": "how-to-buy",
+    "body_class": "wp-singular post-template-default single single-post postid-188055 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_203055_049d2825-cf15-4f50-b996-5e9886547887-scaled.png"
+  },
+  "distributions-and-tax": {
+    "slug": "distributions-and-tax",
+    "body_class": "wp-singular post-template-default single single-post postid-188056 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_185621_787a802f-18f2-4308-a7f6-d513cb83f908-scaled.png"
+  },
+  "fees-and-performance": {
+    "slug": "fees-and-performance",
+    "body_class": "wp-singular post-template-default single single-post postid-188057 single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop",
+    "featured_image": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191534_a55981cd-3e81-4ee0-8f1e-6da0e57767b3-scaled.png"
+  }
+}

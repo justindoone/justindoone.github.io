@@ -18,14 +18,42 @@ import headExtra from '../data/faq-chrome/head.html?raw';
 import evolveHeader from '../data/faq-chrome/header.html?raw';
 import evolveFooter from '../data/faq-chrome/footer.html?raw';
 
+interface PostNavLink { slug: string; title: string }
 interface Props {
   title: string;
   /** H1 shown in the orange header-title-section banner */
   pageHeading: string;
   /** "FAQs" eyebrow above the heading (matches the existing post pattern) */
   eyebrow?: string;
+  /** Optional background image URL for the page banner (used on the hub) */
+  heroImage?: string;
+  /** Body class to apply — must match the live Evolve theme's class for the
+   *  same page type so its scoped CSS rules apply. */
+  bodyClass?: string;
+  /** 'hub' renders the page-template layout (banner with H1 inside).
+   *  'topic' renders the single-post layout (image banner, "Back to FAQs"
+   *  link, article-header H1, post date, prev/next nav). */
+  pageType?: 'hub' | 'topic';
+  /** For topic pages: the date shown in post-header-lower */
+  postDate?: string;
+  /** For topic pages: prev/next post navigation */
+  prevPost?: PostNavLink | null;
+  nextPost?: PostNavLink | null;
 }
-const { title, pageHeading, eyebrow } = Astro.props;
+const {
+  title,
+  pageHeading,
+  eyebrow,
+  heroImage,
+  pageType = 'hub',
+  postDate,
+  prevPost,
+  nextPost,
+  // Default to the FAQ hub's live body class; topic pages override with the post body class
+  bodyClass = pageType === 'topic'
+    ? 'wp-singular post-template-default single single-post single-format-standard wp-theme-framework wp-child-theme-evolve-funds-full-site desktop'
+    : 'wp-singular page-template page-template-page-templates page-template-investor_education page-template-page-templatesinvestor_education-php page page-id-187887 wp-theme-framework wp-child-theme-evolve-funds-full-site desktop',
+} = Astro.props;
 
 // SHA-256("evolve2026") — change this hash to rotate the password
 const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320b5b4e20';
@@ -100,7 +128,7 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
       body.faq-locked > *:not(#faq-gate) { filter: blur(8px); pointer-events: none; user-select: none; }
     </style>
   </head>
-  <body class="wp-singular page-template page-template-page-about-us-timeline page-template-page-about-us-timeline-php page page-id-187887 wp-theme-framework wp-child-theme-evolve-funds-full-site desktop nitro-nojs faq-locked">
+  <body class={`${bodyClass} faq-locked`}>
     <!-- Password gate -->
     <div id="faq-gate">
       <div class="gate-card">
@@ -120,26 +148,107 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
 
     <Fragment set:html={evolveHeader} />
 
-    <div class="header-title-section product-singular-featured-image" style="">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            {eyebrow && <p style="color:#F05A22; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 8px;">{eyebrow}</p>}
-            <h1 class="float-left">{pageHeading}</h1>
-            <div class="w-100 float-left d-md-none"></div>
+    <div
+      class={heroImage ? "header-title-section blog-header product-singular-featured-image featured-image-bottom" : "header-title-section product-singular-featured-image"}
+      style={heroImage ? `background-image: url('${heroImage}') !important; background-repeat: no-repeat; background-position: center center; background-size: cover;` : ''}
+    >
+      {heroImage && <div class="banner-overlay"></div>}
+      {pageType === 'hub' && (
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              {eyebrow && <p style="color:#F05A22; font-size:12px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 8px;">{eyebrow}</p>}
+              <h1 class="float-left">{pageHeading}</h1>
+              <div class="w-100 float-left d-md-none"></div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
 
     <div id="content" class="site-content">
-      <div class="container page-content about-page-content">
+      {pageType === 'topic' && (
+        <Fragment>
+          <div class="back-to-parent-section">
+            <div class="container new">
+              <div class="row">
+                <div class="col-12">
+                  <a href="/faqs/">
+                    <h4>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12.049" height="9.731" viewBox="0 0 12.049 9.731">
+                        <g transform="translate(1364.549 1253.205) rotate(180)">
+                          <line x2="11" transform="translate(1352.5 1248.343)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                          <path d="M0,4.246,4.284,0l4.4,4.246" transform="translate(1363.5 1244.002) rotate(90)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                        </g>
+                      </svg>
+                      Back to FAQs
+                    </h4>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1 class="article-header">{pageHeading}</h1>
+          {postDate && (
+            <div class="post-header-lower">
+              <p class="post-date">{postDate}</p>
+            </div>
+          )}
+        </Fragment>
+      )}
+      <div class={pageType === 'topic' ? 'container page-content' : 'container page-content about-page-content'}>
         <div class="row">
           <div class="col-12">
             <slot />
           </div>
         </div>
       </div>
+      {pageType === 'topic' && (prevPost || nextPost) && (
+        <div class="desktop-post-nav">
+          <div class="post-nav-container">
+            <div class="container">
+              <div class="row direction-row">
+                <div class="col left">
+                  {prevPost && (
+                    <div class="post-nav prev-container">
+                      <a href={`/faqs/${prevPost.slug}/`} class="prev-post arrow-button" aria-label={`Previous: ${prevPost.title}`} title={prevPost.title}>
+                        <span class="arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12.049 9.731">
+                            <g transform="translate(1364.549 1253.205) rotate(180)">
+                              <line x2="11" transform="translate(1352.5 1248.343)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                              <path d="M0,4.246,4.284,0l4.4,4.246" transform="translate(1363.5 1244.002) rotate(90)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                            </g>
+                          </svg>
+                        </span>
+                        <span class="post-nav-label">Previous</span>
+                        <span class="post-nav-title">{prevPost.title}</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+                <div class="col right">
+                  {nextPost && (
+                    <div class="post-nav next-container">
+                      <a href={`/faqs/${nextPost.slug}/`} class="next-post arrow-button" aria-label={`Next: ${nextPost.title}`} title={nextPost.title}>
+                        <span class="post-nav-label">Next</span>
+                        <span class="post-nav-title">{nextPost.title}</span>
+                        <span class="arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12.049 9.731">
+                            <g>
+                              <line x2="11" transform="translate(0 4.862)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                              <path d="M0,4.246,4.284,0l4.4,4.246" transform="translate(11 0) rotate(90)" fill="none" stroke="#fff" stroke-width="1.5"/>
+                            </g>
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
 
     <Fragment set:html={evolveFooter} />

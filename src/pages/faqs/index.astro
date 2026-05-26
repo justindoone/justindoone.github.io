@@ -1,165 +1,118 @@
 ---
 import FaqMockupLayout from '../../layouts/FaqMockupLayout.astro';
 import faqs from '../../data/faqs.json';
+import hero from '../../data/faqs-hero.json';
 
 interface Topic {
   slug: string;
   title: string;
   blurb: string;
   questions: string[];
+  image_url?: string;
 }
-const topics = (faqs as Topic[]).map((t) => ({
-  slug: t.slug,
-  title: t.title,
-  blurb: t.blurb,
-  questionCount: t.questions.length,
-  firstThree: t.questions.slice(0, 3),
-}));
+const topics = faqs as unknown as Topic[];
 ---
 
 <FaqMockupLayout
   title="FAQs - Evolve ETFs (Mockup)"
   pageHeading="FAQs"
-  eyebrow="Investor Education"
+  heroImage={hero.hub_hero_image}
 >
-  <style is:inline>
-    .faq-hub-intro {
-      font-size: 1.7rem;
-      line-height: 1.6;
-      color: #4a5568;
-      max-width: 720px;
-      margin: 0 0 48px;
-    }
-    .faq-hub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      padding: 0;
-      margin: 0 0 60px;
-      list-style: none;
-    }
-    .faq-hub-card {
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      border: 1px solid rgba(27, 61, 99, 0.1);
-      border-radius: 6px;
-      padding: 28px 28px 24px;
-      text-decoration: none !important;
-      color: #1B3D63;
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .faq-hub-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: #F05A22;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-    .faq-hub-card:hover {
-      border-color: rgba(240, 90, 34, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(27, 61, 99, 0.08);
-    }
-    .faq-hub-card:hover::before { transform: scaleX(1); }
-    .faq-hub-card .card-eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #F05A22;
-      margin: 0 0 10px;
-    }
-    .faq-hub-card .card-title {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin: 0 0 12px;
-      color: #1B3D63;
-    }
-    .faq-hub-card .card-blurb {
-      font-size: 15px;
-      line-height: 1.55;
-      color: #4a5568;
-      margin: 0 0 18px;
-      flex: 1 1 auto;
-    }
-    .faq-hub-card .card-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #F05A22;
-      margin-top: auto;
-    }
-    .faq-hub-card .card-cta::after {
-      content: '→';
-      font-size: 16px;
-      line-height: 1;
-      transition: transform 0.2s ease;
-    }
-    .faq-hub-card:hover .card-cta::after { transform: translateX(3px); }
-    .faq-hub-questions {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px;
-      border-top: 1px solid rgba(27, 61, 99, 0.08);
-      padding-top: 14px;
-    }
-    .faq-hub-questions li {
-      font-size: 13px;
-      line-height: 1.5;
-      color: #718096;
-      padding: 4px 0;
-      position: relative;
-      padding-left: 16px;
-    }
-    .faq-hub-questions li::before {
-      content: '·';
-      position: absolute;
-      left: 4px;
-      color: #F05A22;
-      font-weight: 700;
-    }
-    .faq-hub-questions .more {
-      font-style: italic;
-      color: #a0aec0;
-      padding-left: 16px;
-    }
-    @media (max-width: 600px) {
-      .faq-hub-grid { grid-template-columns: 1fr; }
-      .faq-hub-intro { font-size: 1.5rem; }
-    }
-  </style>
+  <!-- Mirrors the live evolveetfs.com/faqs/ hub markup exactly: product-filters
+       toolbar with grid/list view toggle, then a grid of .news-single cards
+       with featured images + a list-view alternative. -->
 
-  <p class="faq-hub-intro">
-    Common questions about ETF investing and the Evolve lineup. Pick a topic to read the full answers.
-  </p>
+  <div id="product-filters">
+    <div class="container no-overflow">
+      <div class="row flex-md-row-reverse">
+        <div id="view-modes" class="col col-12 col-lg-4 archive-view">
+          <div class="row">
+            <div class="button-col">
+              <button data-view-mode="grid" class="active" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14.5" height="14.494" viewBox="0 0 14.5 14.494">
+                  <g transform="translate(0.045 0.045)">
+                    <rect width="5.348" height="5.346" rx="1" transform="translate(0.705 8.353)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    <rect width="5.348" height="5.346" rx="1" transform="translate(8.357 8.353)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    <rect width="5.348" height="5.347" rx="1" transform="translate(0.705 0.705)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    <rect width="5.348" height="5.347" rx="1" transform="translate(8.357 0.705)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                  </g>
+                </svg>
+                <span class="p">Grid View</span>
+              </button>
+            </div>
+            <div class="button-col">
+              <button data-view-mode="list" class="" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+                  <g>
+                    <line x1="3" y1="2" x2="14" y2="2" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                    <line x1="3" y1="7" x2="14" y2="7" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                    <line x1="3" y1="12" x2="14" y2="12" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+                    <circle cx="0.75" cy="2" r="0.75" fill="#fff"/>
+                    <circle cx="0.75" cy="7" r="0.75" fill="#fff"/>
+                    <circle cx="0.75" cy="12" r="0.75" fill="#fff"/>
+                  </g>
+                </svg>
+                <span class="p">List View</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <ul class="faq-hub-grid">
-    {topics.map((t) => (
-      <li>
-        <a href={`/faqs/${t.slug}/`} class="faq-hub-card">
-          <p class="card-eyebrow">{t.questionCount} questions</p>
-          <h2 class="card-title">{t.title}</h2>
-          <p class="card-blurb">{t.blurb}</p>
-          <ul class="faq-hub-questions">
-            {t.firstThree.map((q) => <li>{q}</li>)}
-            {t.questionCount > 3 && (
-              <li class="more">+ {t.questionCount - 3} more</li>
-            )}
-          </ul>
-          <span class="card-cta">View FAQs</span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div class="container page-content">
+    <div class="row">
+      <div class="grid-view blog-grid" id="grid-view">
+        {topics.map((t) => (
+          <div class="news-single col col-12 col-md-4 col-sm-6">
+            <div class="image-container">
+              <div
+                class="featured-image"
+                style={t.image_url ? `background-image: url('${t.image_url}'); background-size: cover; background-position: center;` : ''}
+              ></div>
+            </div>
+            <a class="news-single-container white-box" href={`/faqs/${t.slug}/`} target="_self">
+              <h3 set:html={t.title} />
+              <h4 class="read-pop">READ MORE</h4>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div class="list-view blog-list" id="list-view" style="display: none;">
+        {topics.map((t) => (
+          <div class="news-single col-12">
+            <a class="news-single-container white-box" href={`/faqs/${t.slug}/`} target="_self">
+              <div class="row">
+                <div class="col col-7 col-sm-9">
+                  <h3 set:html={t.title} />
+                </div>
+                <div class="col col-5 col-sm-3">
+                  <h4 class="read-pop">READ MORE</h4>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Grid/list view toggle (the live site has full theme JS; here's the minimum)
+    (function () {
+      const buttons = document.querySelectorAll('#view-modes button[data-view-mode]');
+      const grid = document.getElementById('grid-view');
+      const list = document.getElementById('list-view');
+      buttons.forEach((b) => {
+        b.addEventListener('click', () => {
+          const mode = b.getAttribute('data-view-mode');
+          buttons.forEach((x) => x.classList.toggle('active', x === b));
+          if (mode === 'grid') { grid.style.display = ''; list.style.display = 'none'; }
+          else { grid.style.display = 'none'; list.style.display = ''; }
+        });
+      });
+    })();
+  </script>
 </FaqMockupLayout>

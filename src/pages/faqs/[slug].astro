@@ -10,31 +10,40 @@ interface Topic {
   style: string;
   wrap: string;
   schema: string;
+  image_url?: string;
 }
 
 export function getStaticPaths() {
-  // Cast to satisfy Astro's typing of the JSON import
-  return (faqs as unknown as Topic[]).map((t) => ({
-    params: { slug: t.slug },
-    props: { topic: t },
-  }));
+  const topics = faqs as unknown as Topic[];
+  return topics.map((t, i) => {
+    const prev = i > 0 ? topics[i - 1] : null;
+    const next = i < topics.length - 1 ? topics[i + 1] : null;
+    return {
+      params: { slug: t.slug },
+      props: { topic: t, prev, next },
+    };
+  });
 }
 
-const { topic } = Astro.props as { topic: Topic };
+const { topic, prev, next } = Astro.props as {
+  topic: Topic;
+  prev: Topic | null;
+  next: Topic | null;
+};
+
+// Approximate post date — uses today's date since live posts are dated 2026-05
+const postDate = 'May 5, 2026';
 ---
 
 <FaqMockupLayout
   title={`${topic.title} - FAQ (Mockup)`}
   pageHeading={topic.title}
-  eyebrow="FAQs"
+  pageType="topic"
+  heroImage={topic.image_url}
+  postDate={postDate}
+  prevPost={prev ? { slug: prev.slug, title: prev.title } : null}
+  nextPost={next ? { slug: next.slug, title: next.title } : null}
 >
   <Fragment set:html={topic.style} />
   <Fragment set:html={topic.wrap} />
-
-  <!-- Back-to-hub link -->
-  <p style="margin-top: 32px; font-size: 14px;">
-    <a href="/faqs/" style="color: #F05A22; font-weight: 600; text-decoration: none;">
-      ← All FAQ topics
-    </a>
-  </p>
 </FaqMockupLayout>
