@@ -17,7 +17,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !HIDDEN_SLUGS.some((slug) => page.includes(`/work/${slug}`)),
+        !HIDDEN_SLUGS.some((slug) => page.includes(`/work/${slug}`)) &&
+        !page.includes('/faqs'),
     }),
   ],
   vite: {

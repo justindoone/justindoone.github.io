@@ -6,4 +6,69 @@ Disallow: /demos/
 Disallow: /faqs
 Disallow: /faqs/
 
+# AI / LLM crawlers — block entirely from /faqs (internal mockup; not yet public)
+User-agent: GPTBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: ChatGPT-User
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: OAI-SearchBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: ClaudeBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Claude-Web
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: anthropic-ai
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Google-Extended
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: PerplexityBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: CCBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Bytespider
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Amazonbot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Applebot-Extended
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: cohere-ai
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Diffbot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: ImagesiftBot
+Disallow: /faqs
+Disallow: /faqs/
+
+User-agent: Meta-ExternalAgent
+Disallow: /faqs
+Disallow: /faqs/
+
 Sitemap: https://justindoone.github.io/sitemap-index.xml
