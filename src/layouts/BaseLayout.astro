@@ -128,14 +128,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         background: #ff7a59; color: #0a0f1a; border: 0;
         padding: 11px 14px; border-radius: 4px;
         font: 600 12px/1 inherit; letter-spacing: 1.2px; text-transform: uppercase;
-        cursor: pointer; width: 100%; margin-top: 4px;
+        cursor: pointer; width: 100%; margin-top: 0;
         transition: background 0.15s ease, transform 0.05s ease;
       }
       #site-gate button:hover { background: #ff9170; }
       #site-gate button:active { transform: translateY(1px); }
       #site-gate .err {
-        color: #f87171; font-size: 12px; min-height: 16px;
-        margin: 0 0 4px; font-style: italic;
+        color: #f87171; font-size: 12px; line-height: 1.4; min-height: 16px;
+        margin: 0 0 10px; font-style: italic;
       }
       #site-gate .meta {
         display: flex; justify-content: space-between; align-items: center;
