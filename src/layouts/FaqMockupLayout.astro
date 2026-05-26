@@ -11,15 +11,12 @@
  * (e.g. `python -c "import hashlib; print(hashlib.sha256(b'newpw').hexdigest())"`)
  * and replace PASSWORD_HASH below.
  */
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const chromeDir = resolve(__dirname, '../data/faq-chrome');
-const headExtra = readFileSync(resolve(chromeDir, 'head.html'), 'utf-8');
-const evolveHeader = readFileSync(resolve(chromeDir, 'header.html'), 'utf-8');
-const evolveFooter = readFileSync(resolve(chromeDir, 'footer.html'), 'utf-8');
+// Vite's ?raw imports inline the file contents at build time, so they survive
+// astro build's bundling (readFileSync at render time breaks because __dirname
+// shifts inside the bundle).
+import headExtra from '../data/faq-chrome/head.html?raw';
+import evolveHeader from '../data/faq-chrome/header.html?raw';
+import evolveFooter from '../data/faq-chrome/footer.html?raw';
 
 interface Props {
   title: string;
