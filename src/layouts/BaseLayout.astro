@@ -227,7 +227,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       (function () {
         const STORAGE_KEY = 'jd_portfolio_unlock_v1';
         // SHA-256 of the current portfolio password
-        const PASSWORD_HASH = 'e8d9b1db1d3f9b8e0c7f5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5';
+        const PASSWORD_HASH = '2c4d04c3e9e5e5c5b4a3d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f';
 
         async function sha256(str) {
           const buf = new TextEncoder().encode(str);
@@ -694,7 +694,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       // ============ LENIS SMOOTH SCROLL ============
       const prefersReducedMotion =
         window.matchMedia &&
-        window.matchMedia('(prefers-motion: reduce)').matches;
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       let lenisInstance = null;
       function initLenis() {
