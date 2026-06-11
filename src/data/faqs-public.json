@@ -52,14 +52,15 @@
     "blurb": "How distributions work, frequency, tax treatment, and reinvestment.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_185621_787a802f-18f2-4308-a7f6-d513cb83f908-scaled.png",
     "question_titles": [
+      "Do ETFs pay dividends or distributions?",
       "How often do Evolve ETFs pay distributions?",
-      "What is an ex-distribution date?",
-      "What is a DRIP and does Evolve offer one?",
-      "What is Return of Capital (ROC)?",
-      "What is the tax treatment of Evolve ETF distributions?",
-      "Where do I find tax slips for my Evolve ETF holdings?"
+      "Which Evolve ETFs pay distributions twice per month?",
+      "What happens if I buy an Evolve ETF on its ex-distribution date?",
+      "Where can I find historical distribution data for an Evolve ETF?",
+      "How are Evolve ETF distributions taxed?",
+      "What is Return of Capital (ROC)?"
     ],
-    "wp_modified": "2026-05-26T10:19:29"
+    "wp_modified": "2026-06-11T15:59:21"
   },
   {
     "slug": "how-to-buy",
@@ -80,16 +81,13 @@
   {
     "slug": "fees-and-performance",
     "title": "Fees & Performance",
-    "blurb": "MERs, trading expense ratios, and where to find performance data.",
+    "blurb": "MERs, NAV vs market price, and performance disclosure.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191534_a55981cd-3e81-4ee0-8f1e-6da0e57767b3-scaled.png",
     "question_titles": [
-      "What is the difference between management fee and MER?",
-      "Why do some Evolve ETFs include borrowing costs in their MER?",
-      "Why does an ETF's market price differ from its NAV?",
-      "How is ETF performance calculated?",
-      "Where can I find performance data for Evolve ETFs?",
-      "Do Evolve ETFs have trailing commissions?"
+      "What’s the difference between an Evolve ETF’s management fee and its MER?",
+      "Why might an Evolve ETF’s MER change year over year?",
+      "How is Evolve ETF performance calculated?"
     ],
-    "wp_modified": "2026-05-26T10:19:31"
+    "wp_modified": "2026-06-11T15:59:24"
   }
 ]
