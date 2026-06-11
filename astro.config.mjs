@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 // Hidden case studies — kept out of the sitemap so crawlers don't get nudged
 // toward URLs that already carry a page-level noindex.
 const HIDDEN_SLUGS = [
-  'evolve-worldcup-billboard',
   'greybrook-boardroom-brief',
   'minihotel-hk',
   'saturnbird-marketing-plan',

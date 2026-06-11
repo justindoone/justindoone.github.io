@@ -9,7 +9,6 @@ tags: ["OOH", "Brand", "Financial services"]
 cover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 cardCover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 featured: false
-hidden: true
 order: 10
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
