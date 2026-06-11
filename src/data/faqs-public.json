@@ -31,25 +31,26 @@
   {
     "slug": "our-strategies",
     "title": "Our Strategies",
-    "blurb": "Enhanced Yield, UltraYield, cryptocurrency, thematic, and fixed income.",
+    "blurb": "Covered call, leverage, cryptocurrency, cash management, fixed income, and thematic strategies.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191514_f5d668dd-a191-45e8-96d2-427407ae27f4-1-scaled.png",
     "question_titles": [
-      "What is an Evolve Enhanced Yield (covered call) ETF?",
-      "How does Evolve's UltraYield strategy differ from Enhanced Yield?",
+      "What is a covered call ETF?",
+      "What is leverage in ETFs?",
       "Which Evolve ETFs use leverage?",
-      "How do Evolve's cryptocurrency ETFs work?",
-      "How does Evolve store the cryptocurrency held in its crypto ETFs?",
-      "What is the difference between EBIT and LBIT?",
+      "How do Evolve’s cryptocurrency ETFs work?",
+      "Can I hold a cryptocurrency ETF in a TFSA or RRSP?",
       "What does Evolve offer for cash management?",
+      "What is the difference between a HISA ETF and a savings account?",
       "Does Evolve offer fixed income ETFs?",
-      "What thematic ETFs does Evolve offer?"
+      "What is a thematic ETF?",
+      "What is a currency-hedged ETF?"
     ],
-    "wp_modified": "2026-05-26T10:19:24"
+    "wp_modified": "2026-06-11T16:21:17"
   },
   {
     "slug": "distributions-and-tax",
     "title": "Distributions & Tax",
-    "blurb": "How distributions work, frequency, tax treatment, and reinvestment.",
+    "blurb": "How distributions work, frequency, tax treatment, and return of capital.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_185621_787a802f-18f2-4308-a7f6-d513cb83f908-scaled.png",
     "question_titles": [
       "Do ETFs pay dividends or distributions?",
@@ -65,23 +66,24 @@
   {
     "slug": "how-to-buy",
     "title": "How to Buy & Account Eligibility",
-    "blurb": "Where Evolve ETFs trade, what accounts can hold them, and how to buy.",
+    "blurb": "How to buy Evolve ETFs, account eligibility, ticker suffixes, and where to find regulatory documents.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260506_203055_049d2825-cf15-4f50-b996-5e9886547887-scaled.png",
     "question_titles": [
       "How do I buy Evolve ETFs?",
       "Can I buy Evolve ETFs directly from Evolve?",
-      "Are Evolve ETFs eligible for RRSPs and TFSAs?",
-      "Can I hold Evolve ETFs in an FHSA?",
-      "Can I hold Evolve ETFs in a corporate account?",
-      "Are Evolve's USD-denominated funds only for U.S. investors?",
-      "What is the minimum investment to buy an Evolve ETF?"
+      "Can I hold Evolve ETFs in registered accounts like a TFSA or RRSP?",
+      "Can non-residents of Canada invest in Evolve ETFs?",
+      "What does the “.U” mean in tickers like QQQT.U or LIFE.U?",
+      "What does the “.B” mean in tickers like QQQT.B or LIFE.B?",
+      "Does Evolve offer an all-in-one ETF?",
+      "Where can I find an Evolve ETF’s prospectus and regulatory documents?"
     ],
-    "wp_modified": "2026-05-26T10:19:27"
+    "wp_modified": "2026-06-11T16:21:19"
   },
   {
     "slug": "fees-and-performance",
     "title": "Fees & Performance",
-    "blurb": "MERs, NAV vs market price, and performance disclosure.",
+    "blurb": "Management fee vs MER, why MER changes, and how performance is calculated.",
     "image_url": "https://evolveetfs.com/wp-content/uploads/2026/05/hf_20260505_191534_a55981cd-3e81-4ee0-8f1e-6da0e57767b3-scaled.png",
     "question_titles": [
       "What’s the difference between an Evolve ETF’s management fee and its MER?",
