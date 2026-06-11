@@ -14,7 +14,7 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-The placement is a single billboard south of the 401 near Yorkdale in Toronto. Super-wide format because the headline has to read at road speeds from a distance.
+The placement is a single billboard on Highway 400. Super-wide format because the headline has to read at road speeds from a distance.
 
 The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headline.
 
