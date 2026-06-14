@@ -86,6 +86,22 @@ def main():
         encrypted_topics[slug] = {"iv": b64(iv), "ciphertext": b64(ct)}
         print(f"  {slug}: plaintext={len(payload)} B -> ciphertext={len(ct)} B")
 
+    # Optional standalone glossary page — encrypted under key "glossary" so the
+    # /faqs/glossary/ page can decrypt it, but deliberately NOT added to
+    # public_topics (keeps it out of the hub grid + prev/next topic nav).
+    glossary_file = DATA / "glossary.json"
+    if glossary_file.exists():
+        g = json.loads(glossary_file.read_text(encoding="utf-8"))
+        payload = json.dumps({
+            "style": g.get("style", ""),
+            "wrap": g.get("wrap", ""),
+            "schema": g.get("schema", ""),
+        }, ensure_ascii=False).encode("utf-8")
+        iv = secrets.token_bytes(12)
+        ct = aes_gcm_encrypt(key, iv, payload)
+        encrypted_topics["glossary"] = {"iv": b64(iv), "ciphertext": b64(ct)}
+        print(f"  glossary: plaintext={len(payload)} B -> ciphertext={len(ct)} B")
+
     PUBLIC.write_text(json.dumps(public_topics, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nWrote {PUBLIC} ({PUBLIC.stat().st_size} B)")
 

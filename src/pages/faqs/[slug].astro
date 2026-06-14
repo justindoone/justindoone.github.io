@@ -78,6 +78,39 @@ const postDate = 'May 5, 2026';
             s.text = oldScript.text;
             oldScript.parentNode.replaceChild(s, oldScript);
           });
+          // Deep-link support: if the URL has a #anchor matching an accordion
+          // item (e.g. from a glossary cross-reference), open it and scroll to
+          // it. On production this same behavior lives in a WPCode snippet.
+          // The target opens INSTANTLY (transition suppressed for the initial
+          // open) so a deep-link landing shows the answer immediately; the
+          // transition is restored afterward so manual close still animates.
+          function openHashTarget() {
+            var id = decodeURIComponent((location.hash || '').slice(1));
+            if (!id) return;
+            var item = document.getElementById(id);
+            if (!item || (item.className || '').indexOf('efaq-item') === -1) return;
+            var a = item.querySelector('.efaq-a');
+            var q = item.querySelector('.efaq-q');
+            if ((item.className || '').indexOf('eopen') === -1) {
+              item.classList.add('eopen');
+              if (q) q.setAttribute('aria-expanded', 'true');
+              if (a) {
+                var prevTransition = a.style.transition;
+                a.style.transition = 'none';
+                a.style.maxHeight = a.scrollHeight + 'px';
+                void a.offsetHeight; // force reflow so the value sticks
+                a.style.transition = prevTransition || '';
+              }
+            }
+            // scroll-margin-top clears the sticky header; scrollIntoView finds
+            // the correct scroll container automatically.
+            item.style.scrollMarginTop = '100px';
+            item.scrollIntoView({ block: 'start' });
+          }
+          // setTimeout (not rAF — rAF is throttled in background tabs) gives the
+          // injected <style> time to apply so scrollHeight is accurate.
+          setTimeout(openHashTarget, 250);
+          window.addEventListener('hashchange', openHashTarget);
         } catch (e) {
           loading.style.display = 'none';
           errBox.style.display = 'block';

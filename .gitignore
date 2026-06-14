@@ -30,4 +30,5 @@ Thumbs.db
 # instead, derived via scripts/encrypt-faqs.py). Regenerate locally with:
 #   python scripts/encrypt-faqs.py
 src/data/faqs.json
+src/data/glossary.json
 
