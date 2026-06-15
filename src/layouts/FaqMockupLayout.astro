@@ -151,6 +151,11 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
       /* The hamburger / language toggle stays the right color too */
       header.scrolled .nav-button { color: #1d2126 !important; }
       header.scrolled .nav-button .menu-hamburger { fill: #1d2126 !important; }
+
+      /* Back-to-FAQs arrow: the theme's orange ::before circle centers a few px
+         below the text baseline the arrow aligns to, leaving the arrow sitting
+         high in the circle. Nudge it down to sit concentric with the circle. */
+      .back-to-parent-section h4 svg { top: 6px !important; }
     </style>
   </head>
   <body class={`${bodyClass} faq-locked`}>
