@@ -1,11 +1,11 @@
 ---
-title: "World Cup Billboard"
+title: "World Cup Campaign"
 client: "Evolve ETFs"
 role: "Designer and campaign lead"
 date: "2026"
 year: 2026
-summary: "Highway billboard timed to the 2026 World Cup tournament window. Goal mark substitutes for the soccer ball. '40+' framing on the lineup count so the creative survives lineup changes."
-tags: ["OOH", "Brand", "Financial services"]
+summary: "Multi-channel push for the 2026 World Cup. A super-wide highway billboard with the Evolve mark standing in for the ball, paired with 'An ETF for Every Fan,' a per-nation social series that ran through the tournament window."
+tags: ["OOH", "Social", "Brand", "Financial services"]
 cover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 cardCover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 featured: false
@@ -22,4 +22,15 @@ The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headl
 
 Lineup pitch uses "40+" instead of an exact count. The lineup shifts occasionally with fund adds or closures, and "40+" survives those.
 
-The billboard runs alongside a social campaign through the tournament window.
+The billboard runs alongside a social campaign through the tournament window. The social concept is "An ETF for Every Fan": one creative per nation, each carrying the same line, whoever you root for, we've got an ETF for you. It borrows the tournament's national energy and points it back at the breadth of the Evolve lineup, and it does that without naming a single fund, so it reads as brand support rather than a product pitch.
+
+<div class="case-gallery">
+  <img src="/images/work/evolve/fan-series/canada.webp" alt="An ETF for Every Fan, Canada edition" loading="lazy" width="760" height="950" />
+  <img src="/images/work/evolve/fan-series/brazil.webp" alt="An ETF for Every Fan, Brazil edition" loading="lazy" width="760" height="950" />
+  <img src="/images/work/evolve/fan-series/netherlands.webp" alt="An ETF for Every Fan, Netherlands edition" loading="lazy" width="760" height="950" />
+  <img src="/images/work/evolve/fan-series/argentina.webp" alt="An ETF for Every Fan, Argentina edition" loading="lazy" width="760" height="950" />
+  <img src="/images/work/evolve/fan-series/mexico.webp" alt="An ETF for Every Fan, Mexico edition" loading="lazy" width="760" height="950" />
+  <img src="/images/work/evolve/fan-series/japan.webp" alt="An ETF for Every Fan, Japan edition" loading="lazy" width="760" height="950" />
+</div>
+
+A set of sixteen ran in all, one per nation, each built for the Instagram feed.

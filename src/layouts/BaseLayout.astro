@@ -353,6 +353,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       function setupImageCaptions() {
         // Wrap each case-body inline image in a figure with the alt as caption
         document.querySelectorAll('.case-body img:not([data-cap-ready])').forEach((img) => {
+          // Gallery images render in a grid, not as individual captioned figures
+          if (img.closest('.case-gallery')) {
+            img.setAttribute('data-cap-ready', 'true');
+            return;
+          }
           const alt = img.getAttribute('alt');
           if (!alt) {
             img.setAttribute('data-cap-ready', 'true');

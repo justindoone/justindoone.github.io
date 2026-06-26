@@ -824,6 +824,35 @@ article .prose blockquote {
 }
 
 /* ========================================
+   CASE GALLERY (grid of a creative series)
+   For showing a set of related creatives at a glance — e.g. a
+   per-nation social series — instead of stacking full-width figures.
+   Images inside .case-gallery are skipped by the figcaption wrapper.
+   ======================================== */
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.case-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 2px;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .case-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* ========================================
    RELATED CASE CARDS (end of case study)
    ======================================== */
 .related-card {
