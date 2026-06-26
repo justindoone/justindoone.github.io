@@ -27,10 +27,11 @@ The billboard runs alongside a social campaign through the tournament window. Th
 <div class="case-gallery">
   <img src="/images/work/evolve/fan-series/canada.webp" alt="An ETF for Every Fan, Canada edition" loading="lazy" width="760" height="950" />
   <img src="/images/work/evolve/fan-series/brazil.webp" alt="An ETF for Every Fan, Brazil edition" loading="lazy" width="760" height="950" />
-  <img src="/images/work/evolve/fan-series/netherlands.webp" alt="An ETF for Every Fan, Netherlands edition" loading="lazy" width="760" height="950" />
   <img src="/images/work/evolve/fan-series/argentina.webp" alt="An ETF for Every Fan, Argentina edition" loading="lazy" width="760" height="950" />
-  <img src="/images/work/evolve/fan-series/mexico.webp" alt="An ETF for Every Fan, Mexico edition" loading="lazy" width="760" height="950" />
-  <img src="/images/work/evolve/fan-series/japan.webp" alt="An ETF for Every Fan, Japan edition" loading="lazy" width="760" height="950" />
 </div>
 
 A set of sixteen ran in all, one per nation, each built for the Instagram feed.
+
+The match-day cut is where it gets specific. Same system, pointed at the home side: Canada's group-stage opener against Qatar at BC Place.
+
+![Match-day graphic for Canada vs Qatar at BC Place, Vancouver.](/images/work/evolve/worldcup-matchday-canada.webp)
