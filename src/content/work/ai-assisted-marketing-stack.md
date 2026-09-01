@@ -11,8 +11,8 @@ metrics:
     label: "Reddit assets per refresh"
   - value: "4"
     label: "Ad platforms unified"
-  - value: "5+"
-    label: "Tools in stack"
+  - value: "860+"
+    label: "Commits since April"
 cardCover: "/images/work/ai-stack/cover.png"
 featured: true
 order: 0
@@ -24,7 +24,11 @@ Most marketing functions pay for several SaaS subscriptions to cover reporting, 
 
 The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle.
 
+It is not a weekend script that got lucky. It has taken more than 860 commits since April to get here, and it is now the surface the marketing function actually runs its month on.
+
 ![Performance dashboard: primary KPI tiles (total spend, website sessions, paid CTR, conversions, paid-vs-organic split), secondary row with top organic query and top landing page, and the charts panel below — 12-month sessions trend plus a donut of traffic mix by channel group](/images/work/ai-stack/dashboard.png)
+
+In August the monthly reporting deck was retired outright. The monthly marketing presentation had been a PowerPoint that someone rebuilt every cycle; it is now a dashboard page inside the tool, published from a sidecar data file written by the same run that produces the figures. The page is deliberately frozen rather than live, because GA4 and Search Console keep restating recent days, and a live page drifts away from the numbers that were actually presented in the meeting.
 
 Other pieces in the stack:
 
@@ -34,7 +38,7 @@ Other pieces in the stack:
 - **AEO and schema audits** that identify FAQ-schema and structured-data gaps competitors aren't filling, so the fund pages get picked up by answer engines and AI search
 - **Funnel diagnostics** built ad-hoc when the GA4 setup is doing something I don't trust
 
-The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two, which is a big enough piece of work to have [its own case study](/work/evolve-production-automation). The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
 
 ![PLU DIUO Update interface: drop zone for the two monthly source files, auto-filled as-at date, and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 
