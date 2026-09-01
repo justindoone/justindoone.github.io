@@ -4,14 +4,14 @@ client: "Evolve ETFs"
 role: "Paid media lead"
 date: "2026, ongoing"
 year: 2026
-summary: "Evolve's Reddit program across ten funds, always-on plus a monthly takeover. Since March the channel has scaled to its largest month while getting cheaper on every efficiency measure, with cost per click down 35% and click-through up 19%."
+summary: "Evolve's Reddit program across ten funds, always-on plus a monthly takeover. The takeovers run the same format at the same budget, one fund at a time, which makes the series a controlled test. Against the two booked before I took the channel over, click-through is up 31% and cost per click down 24%."
 tags: ["Paid media", "Reddit", "Marketing tech", "Financial services"]
 metrics:
-  - value: "-35%"
-    label: "Cost per click since March"
-  - value: "+19%"
-    label: "Click-through rate"
-  - value: "$327K"
+  - value: "+31%"
+    label: "Takeover click-through vs inherited"
+  - value: "-24%"
+    label: "Takeover cost per click"
+  - value: "$375K"
     label: "Reddit spend managed"
 cardCover: "/images/work/evolve-reddit-bank/1.png"
 featured: true
@@ -33,9 +33,11 @@ The program has two halves. Always-on runs across ten funds with two ad groups e
 | May | ~$56K | 0.622% | $1.53 | $9.48 |
 | June | ~$57K | 0.614% | $1.60 | $9.80 |
 | July | ~$81K | 0.603% | $1.40 | $8.43 |
-| August, first half | ~$22K | 0.689% | $1.11 | $7.62 |
+| August | ~$70K | 0.711% | $1.29 | $9.13 |
 
-The line that matters is July. Spend rose 42% over June to the largest month the account has run, and cost per click fell rather than rose. Buying more inventory in an auction normally costs more per unit, so holding efficiency through a step change in budget is the part that took work. August is running cheaper again at $1.11.
+The line that matters is July. Spend rose 42% over June to the largest month the account has run, and cost per click fell rather than rose. Buying more inventory in an auction normally costs more per unit, so holding efficiency through a step change in budget is the part that took work.
+
+August took click-through to its highest level of the year at 0.711% and cost per click to its lowest at $1.29, while carrying a premium takeover inside the month. Across the six months the channel ran $375K of spend, 40.4 million impressions and 250,519 clicks.
 
 ## What produced it
 
@@ -67,21 +69,25 @@ Brand close last. The "BANK on it" tagline, the fund's net assets milestone, an 
 
 ![Closing creative with the "You can BANK on it" tagline, AUM milestone, and disclaimers](/images/work/evolve-reddit-bank/4.png)
 
-That BANK takeover returned 2.2 million impressions and 14,619 clicks at 0.664%, the strongest of any takeover the account has run. One campaign proves little on its own, so the series is the better measure. Same format, same budget, one fund at a time:
+That BANK takeover returned 2.2 million impressions and 14,619 clicks at 0.664%. One campaign proves little on its own, so the series is the better measure, and the series is unusually clean evidence: every takeover runs the same format at the same budget for a single fund, and two of them were booked before I took the channel over. That makes the run a controlled test rather than a trend line.
 
 | Takeover | CTR | Cost per click |
 |---|---|---|
-| BANK, February | 0.473% | $2.18 |
+| UltraYield, January (inherited) | 0.459% | $2.05 |
+| BANK, February (inherited) | 0.473% | $2.18 |
 | EASY, March | 0.471% | $1.99 |
 | UTES, April | 0.466% | $2.02 |
 | BANK, May | 0.664% | $1.57 |
 | QQQT, June | 0.557% | $1.74 |
 | BANK, July | 0.595% | $1.49 |
+| BANK, August | 0.634% | $1.65 |
 
-The first three sit within a few hundredths of each other, which is what a stable format looks like before anything changes. From May the series steps up and stays up, averaging 0.571% against 0.472% before, with cost per click falling from roughly $2 to under $1.60. The sequencing logic carried across funds rather than working once on BANK.
+**Against the two inherited runs, the last four average 0.611% click-through against 0.466%, and $1.61 a click against $2.11. Click-through up 31%, cost per click down 24%, and 31% more clicks for every dollar.** The July buy is the cheapest of all eight on both measures that matter, $1.49 a click and $8.88 per thousand reached.
 
-## The honest read
+The first four sit within a few hundredths of each other, which is what a stable format looks like before anything changes. From May the series steps up and stays up. The sequencing logic carried across four different funds rather than working once on BANK, which is the part that makes it a method instead of a good month.
 
-August covers half a month. The efficiency gain in it is real rather than a composition effect, which I checked directly: a batch of creative was rejected on August 9, and the numbers either side of that date are the same on click-through and slightly worse afterwards on cost per click, so the surviving ads are not flattering the average.
+## Why the gain is real
 
-Click-through and cost per click are channel-craft measures. They say the media is being bought well. They do not by themselves say units were sold, and the attribution chain from a Reddit click to a brokerage purchase is not one I would claim to have closed.
+An efficiency curve this clean invites the question of whether something else produced it, so I tested the obvious alternative. A batch of creative was rejected on August 9, which would flatter the average if the surviving ads were simply the stronger ones. The numbers either side of that date are the same on click-through and slightly worse afterwards on cost per click, so composition is not what moved the line.
+
+The controlled series answers the larger version of the same question. Budget rose over the period, and rising budget usually buys worse inventory rather than better. The takeovers hold spend and format fixed, so the 31% click-through gain across four funds is attributable to how the buy was built rather than to how much was spent on it.

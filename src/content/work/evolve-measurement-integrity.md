@@ -11,8 +11,8 @@ metrics:
     label: "Of 'organic social' was actually paid"
   - value: "5 months"
     label: "Of published figures re-audited"
-  - value: "+49%"
-    label: "Sessions, March to July"
+  - value: "+29%"
+    label: "Users vs the equal window prior"
 cover: "/images/work/measurement/cover.png"
 cardCover: "/images/work/measurement/cover.png"
 featured: true
@@ -21,7 +21,9 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-Traffic to evolveetfs.com grew from 93,852 sessions in March to 140,235 in July, and engagement rate went from 61.4% to 67.2%. Those are real, and they are also the least interesting part of this.
+Across my first 162 days at Evolve, evolveetfs.com reached 408,972 users against 317,249 in the equal window before I started, up 29%, and August 2026 became the highest-traffic month in the site's recorded history. Those are real, and they are also the least interesting part of this.
+
+They are stated against a matched prior window rather than against my first calendar month for a reason that is the whole subject of this case study. I started on 23 March, so nine of that month's thirty-one days were mine. Measuring from the March total would produce a much larger number describing mostly someone else's work.
 
 The more useful work was discovering that several of the numbers the marketing function reported on every month were wrong in ways nobody had caught, and that decisions were being made on them.
 
