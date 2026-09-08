@@ -2,18 +2,33 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WorkCard from '../components/WorkCard.astro';
+import FeaturePanels from '../components/FeaturePanels.astro';
 
 const all = (await getCollection('work')).filter((w) => !w.data.hidden);
-const featured = all
-  .filter((w) => w.data.featured)
-  .sort((a, b) => a.data.order - b.data.order);
-const showcase = featured.length > 0 ? featured : all.sort((a, b) => a.data.order - b.data.order).slice(0, 4);
+const byOrder = (a, b) => a.data.order - b.data.order;
+
+// The three that get full-bleed panels. Promote or demote a case by toggling
+// `hero:` in its frontmatter — nothing here is hardcoded to a slug.
+const heroes = all.filter((w) => w.data.hero).sort(byOrder).slice(0, 3);
+const heroIds = new Set(heroes.map((h) => h.id));
+
+// The list below the band deliberately excludes whatever is already in it.
+// Repeating a case as a row directly under its own panel reads as padding,
+// and a duplicate `transition:name` on one page breaks the shared-element
+// morph outright.
+const featured = all.filter((w) => w.data.featured && !heroIds.has(w.id)).sort(byOrder);
+const showcase =
+  featured.length > 0
+    ? featured
+    : all.filter((w) => !heroIds.has(w.id)).sort(byOrder).slice(0, 4);
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Justin Doone',
-  jobTitle: 'Marketing Strategist',
+  // Factual field, unlike the display copy above it — this should carry the
+  // actual current title and is the one place to edit on a promotion.
+  jobTitle: 'Digital Marketing Manager',
   worksFor: {
     '@type': 'Organization',
     name: 'Evolve ETFs',
@@ -46,16 +61,17 @@ const personSchema = {
   <div class="slash-overlay slash-upper" aria-hidden="true"></div>
   <div class="slash-overlay slash-lower" aria-hidden="true"></div>
 
-  <!-- HERO (layered: bg image + dark overlay + drifting orbs) -->
-  <section class="home-hero dark-section relative pt-24 md:pt-36 pb-24 md:pb-32">
+  <!-- HERO — full height so the scroll cue at its foot means something -->
+  <section
+    class="home-hero dark-section relative flex flex-col justify-center min-h-screen pt-32 md:pt-36 pb-32 md:pb-36"
+  >
     <div class="hero-bg-image"></div>
     <div class="hero-bg-overlay"></div>
-    <div class="hero-orb hero-orb-b" style="bottom: -10%; left: 5%; opacity: 0.25; background: radial-gradient(circle, var(--color-accent-cool), transparent 60%);"></div>
 
-    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-      <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing strategist.</p>
-      <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10 text-on-dark" data-letter-reveal>
-        <span data-letter-text>Marketing for </span><em data-letter-text data-letter-accent class="text-accent" style="font-style: italic;">high-trust products</em><span data-letter-text> and complex B2B.</span>
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-12">
+      <p class="hero-line eyebrow mb-8" data-line="0">Toronto. Marketing leadership.</p>
+      <h1 class="hero-line heading-display text-5xl md:text-7xl lg:text-8xl max-w-5xl mb-10 text-on-dark" data-line="1">
+        Marketing for <em class="text-accent" style="font-style: italic;">high-trust products</em> and complex B2B.
       </h1>
       <p class="hero-line text-lg md:text-xl max-w-3xl leading-relaxed mb-6 text-on-dark" data-line="2">
         I write the copy and run the paid campaigns. The dashboards fall to me too because the teams I've been on have run lean and someone has to wire them up.
@@ -66,7 +82,6 @@ const personSchema = {
       <div class="hero-line flex flex-wrap gap-6 items-center" data-line="4">
         <a
           href="/work"
-          data-magnetic
           class="inline-flex items-center gap-2 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
         >
           See work
@@ -80,7 +95,12 @@ const personSchema = {
         </a>
       </div>
     </div>
+
+    <div class="scroll-cue" aria-hidden="true"></div>
   </section>
+
+  <!-- FRONT DOOR — three full-bleed panels -->
+  <FeaturePanels entries={heroes} />
 
   <!-- SELECTED WORK (light) -->
   <section class="mx-auto max-w-7xl px-6 lg:px-12 pt-20 md:pt-28 pb-20">
@@ -115,6 +135,7 @@ const personSchema = {
               accentSecondary={entry.data.accentSecondary}
               cover={entry.data.cover}
               cardCover={entry.data.cardCover}
+              id={entry.id}
               index={i}
             />
           </div>
@@ -142,7 +163,6 @@ const personSchema = {
       </p>
       <a
         href="mailto:justindoone@gmail.com"
-        data-magnetic
         class="inline-flex items-center gap-2 mt-10 bg-accent text-paper px-6 py-3 text-sm font-medium hover:bg-accent-warm transition-colors"
       >
         Start a conversation

@@ -15,6 +15,7 @@ metrics:
     label: "Reddit spend managed"
 cardCover: "/images/work/evolve-reddit-bank/1.png"
 featured: true
+hero: true
 order: 4
 accent: "#1B3D6E"
 accentSecondary: "#e57725"

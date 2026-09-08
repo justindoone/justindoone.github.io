@@ -13,6 +13,7 @@ metrics:
     label: "Active cadence"
   - value: "5"
     label: "Distribution surfaces"
+panelFit: cover
 cover: "/images/work/greybrook-boardroom-brief.jpg"
 featured: false
 hidden: true

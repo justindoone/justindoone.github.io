@@ -6,6 +6,7 @@ date: "2019 to 2021"
 year: 2020
 summary: "Boutique Hong Kong hotel under a larger hotel group. I was stationed at minihotel for the rebrand, which wrapped just before COVID. The pivot to staycation positioning came right after."
 tags: ["Brand", "Hospitality", "Pandemic-era"]
+panelFit: cover
 cover: "/images/work/minihotel-hk.jpg"
 featured: false
 hidden: true

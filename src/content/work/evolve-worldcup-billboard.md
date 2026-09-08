@@ -6,6 +6,7 @@ date: "2026"
 year: 2026
 summary: "Multi-channel push for the 2026 World Cup. A super-wide highway billboard with the Evolve mark standing in for the ball, paired with 'An ETF for Every Fan,' a per-nation social series that ran through the tournament window."
 tags: ["OOH", "Social", "Brand", "Financial services"]
+panelFit: cover
 cover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 cardCover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 featured: false

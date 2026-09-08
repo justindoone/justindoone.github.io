@@ -1,0 +1,63 @@
+---
+/**
+ * Full-bleed split panel band — the homepage front door.
+ *
+ * Three cases sit side by side across the full viewport width. Pointing at one
+ * grows it and squeezes its neighbours, and the "View case study" line only
+ * exists on the panel under the cursor. Clicking hands off to Astro's view
+ * transitions: the panel artwork carries a `transition:name` that the case
+ * study hero re-declares, so the image flies from panel to hero instead of the
+ * page cutting.
+ *
+ * The artwork is contained rather than cropped by default — see `panelFit` in
+ * content.config.ts for why.
+ */
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entries: CollectionEntry<'work'>[];
+}
+
+const { entries } = Astro.props;
+---
+
+{
+  entries.length > 0 && (
+    <section class="feature-panels" aria-label="Selected work">
+      {entries.map((entry) => {
+        const art = entry.data.cover ?? entry.data.cardCover;
+        const accentSecondary = entry.data.accentSecondary ?? entry.data.accent;
+        return (
+          <a
+            class="feature-panel"
+            href={`/work/${entry.id}`}
+            style={`--accent: ${entry.data.accent}; --accent-secondary: ${accentSecondary};`}
+          >
+            {art && (
+              <img
+                src={art}
+                alt=""
+                aria-hidden="true"
+                class:list={['feature-panel-art', `is-${entry.data.panelFit}`]}
+                transition:name={`case-art-${entry.id}`}
+              />
+            )}
+            <div class="feature-panel-scrim" />
+            <div class="feature-panel-body">
+              <p class="feature-panel-client">{entry.data.client}</p>
+              <h3 class="feature-panel-title heading-display">
+                {entry.data.title}
+              </h3>
+              <span class="feature-panel-cta">
+                View case study
+                <svg viewBox="0 0 448 512" aria-hidden="true">
+                  <path d="M216.464 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L387.887 239H12c-6.627 0-12 5.373-12 12v10c0 6.627 5.373 12 12 12h375.887L209.393 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L233.434 36.465c-4.686-4.687-12.284-4.687-16.97 0z" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        );
+      })}
+    </section>
+  )
+}

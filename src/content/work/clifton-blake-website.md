@@ -6,6 +6,7 @@ date: "September 2024"
 year: 2024
 summary: "Refresh of Clifton Blake's corporate site. The old design was from the firm's launch era. The new site had to match where the company had actually grown to."
 tags: ["Web", "Strategy", "Brand"]
+panelFit: cover
 cover: "/images/work/clifton-blake-website.jpg"
 featured: true
 socials:

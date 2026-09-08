@@ -13,6 +13,7 @@ metrics:
     label: "Distribution surfaces"
   - value: "3"
     label: "Content phases"
+panelFit: cover
 cover: "/images/work/greybrook-inside-track-2025.jpg"
 featured: false
 socials:

@@ -34,6 +34,11 @@ const related = all
   .map((r) => r.entry);
 
 const caseImage = entry.data.ogImage ?? entry.data.cover ?? entry.data.cardCover;
+
+// Artwork for the full-bleed hero. Must resolve the same way FeaturePanels
+// does (cover, then cardCover) or the shared-element transition pairs a
+// `transition:name` against a different image and the morph jumps.
+const heroArt = entry.data.cover ?? entry.data.cardCover;
 const caseSchema = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
@@ -87,42 +92,86 @@ const caseSchema = {
   </div>
 
   <article style={`--accent: ${entry.data.accent}; --accent-secondary: ${entry.data.accentSecondary ?? entry.data.accent};`}>
-    <!-- HERO (dark only — cover image renders below the meta strip) -->
-    <section class="case-hero pt-32 md:pt-44 pb-24 md:pb-36">
-      <div class="mx-auto max-w-5xl px-6 lg:px-12">
-        <a
-          href="/work"
-          class="eyebrow text-accent-secondary inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
-        >
-          ← All work
-        </a>
-        <p class="eyebrow text-accent-secondary mb-6 flex flex-wrap gap-x-3">
-          <span>{entry.data.client}</span>
-          <span class="opacity-50">/</span>
-          <span>{entry.data.date}</span>
-        </p>
-        <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95] text-on-dark">
-          {entry.data.title}
-        </h1>
-        <p class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90 text-on-dark">
-          {entry.data.summary}
-        </p>
-      </div>
-    </section>
-
-    <!-- COVER IMAGE (wider container, taller cap, cinematic) -->
+    <!-- HERO — full-bleed artwork with the title over it. This is the landing
+         point for the homepage panel morph; the old layout put the cover in a
+         separate section below, which left the flying image nothing to become. -->
     {
-      entry.data.cover && (
+      heroArt ? (
         <section
-          class="mx-auto max-w-7xl px-6 lg:px-12 pt-12 md:pt-16"
-          data-reveal
+          class:list={[
+            'case-hero-full',
+            entry.data.panelFit === 'contain' ? 'is-split' : 'is-full',
+          ]}
         >
-          <img
-            src={entry.data.cover}
-            alt={entry.data.title}
-            loading="lazy"
-            class="block w-full max-h-[80vh] object-cover rounded-sm shadow-2xl"
-          />
+          {/* Photographic covers fill the frame behind the copy. Flat brand
+              covers sit in their own column instead — a centred lockup behind
+              a headline is two things fighting for the same pixels. */}
+          {entry.data.panelFit === 'cover' && (
+            <img
+              src={heroArt}
+              alt=""
+              aria-hidden="true"
+              class="case-hero-art is-cover"
+              transition:name={`case-art-${entry.id}`}
+            />
+          )}
+          <div class="case-hero-scrim" />
+
+          <div class="case-hero-grid mx-auto max-w-7xl px-6 lg:px-12">
+            <div class="case-hero-copy">
+              <a
+                href="/work"
+                class="eyebrow text-accent-secondary inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
+              >
+                ← All work
+              </a>
+              <p class="eyebrow text-accent-secondary mb-6 flex flex-wrap gap-x-3">
+                <span>{entry.data.client}</span>
+                <span class="opacity-50">/</span>
+                <span>{entry.data.date}</span>
+              </p>
+              <h1 class="heading-display text-5xl md:text-7xl mb-10 leading-[0.95] text-on-dark">
+                {entry.data.title}
+              </h1>
+              <p class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90 text-on-dark">
+                {entry.data.summary}
+              </p>
+            </div>
+
+            {entry.data.panelFit === 'contain' && (
+              <img
+                src={heroArt}
+                alt=""
+                aria-hidden="true"
+                class="case-hero-art is-contain"
+                transition:name={`case-art-${entry.id}`}
+              />
+            )}
+          </div>
+
+          <div class="scroll-cue" aria-hidden="true" />
+        </section>
+      ) : (
+        <section class="case-hero pt-32 md:pt-44 pb-24 md:pb-36">
+          <div class="mx-auto max-w-5xl px-6 lg:px-12">
+            <a
+              href="/work"
+              class="eyebrow text-accent-secondary inline-block mb-8 opacity-70 hover:opacity-100 transition-opacity"
+            >
+              ← All work
+            </a>
+            <p class="eyebrow text-accent-secondary mb-6 flex flex-wrap gap-x-3">
+              <span>{entry.data.client}</span>
+              <span class="opacity-50">/</span>
+              <span>{entry.data.date}</span>
+            </p>
+            <h1 class="heading-display text-5xl md:text-7xl lg:text-8xl mb-10 leading-[0.95] text-on-dark">
+              {entry.data.title}
+            </h1>
+            <p class="text-xl md:text-2xl leading-relaxed max-w-3xl opacity-90 text-on-dark">
+              {entry.data.summary}
+            </p>
+          </div>
         </section>
       )
     }

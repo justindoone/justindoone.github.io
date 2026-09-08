@@ -13,6 +13,7 @@ metrics:
     label: "Cost per click"
   - value: "3 mo"
     label: "Campaign run"
+panelFit: cover
 cover: "/images/work/clifton-blake-bnn-ad.jpg"
 video: "/videos/clifton-blake-bnn-spot.mp4"
 featured: false

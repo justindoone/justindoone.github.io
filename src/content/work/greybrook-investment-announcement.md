@@ -11,6 +11,7 @@ metrics:
     label: "Pieces per release"
   - value: "$31.5M"
     label: "Example deal size"
+panelFit: cover
 cover: "/images/work/greybrook-investment-announcement.jpg"
 featured: false
 order: 8

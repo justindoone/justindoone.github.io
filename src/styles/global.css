@@ -135,7 +135,11 @@ body {
   color: #3a3530;
 }
 
-/* layered hero bg: image + dark overlay + drifting orbs */
+/* Layered hero bg: image + dark overlay.
+   The ken-burns drift, the two blurred accent orbs and their cursor parallax
+   were removed deliberately. They ran continuously without communicating
+   anything, and the motion budget now belongs to the panel-to-hero transition,
+   which is doing navigational work. */
 .hero-bg-image {
   position: absolute;
   inset: 0;
@@ -143,7 +147,6 @@ body {
   background-position: center 25%;
   background-repeat: no-repeat;
   z-index: 0;
-  animation: ken-burns 36s ease-in-out infinite alternate;
 }
 
 .hero-bg-overlay {
@@ -156,63 +159,6 @@ body {
     rgba(14, 16, 26, 0.88) 55%,
     rgba(14, 16, 26, 0.96) 100%
   );
-}
-
-@keyframes ken-burns {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.08) translate(-1.5%, -1.5%); }
-}
-
-/* ambient accent orb for hero / CTA sections */
-.hero-orb {
-  position: absolute;
-  width: 50vw;
-  height: 50vw;
-  max-width: 700px;
-  max-height: 700px;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.45;
-  pointer-events: none;
-  background: radial-gradient(
-    circle,
-    var(--color-accent),
-    transparent 60%
-  );
-  z-index: 2;
-}
-
-.hero-orb-a {
-  animation: orb-drift-a 38s ease-in-out infinite alternate;
-}
-
-/* Cool-blue orb: bigger and slower, more "drifting gradient" than orb */
-.hero-orb-b {
-  width: 80vw;
-  height: 80vw;
-  max-width: 1100px;
-  max-height: 1100px;
-  filter: blur(110px);
-  animation: orb-drift-b 90s ease-in-out infinite alternate;
-}
-
-@keyframes orb-drift-a {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-6%, 8%); }
-}
-
-@keyframes orb-drift-b {
-  0% { transform: translate(-4%, 2%) scale(1); }
-  50% { transform: translate(6%, -3%) scale(1.06); }
-  100% { transform: translate(-2%, 5%) scale(1.02); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-image,
-  .hero-orb-a,
-  .hero-orb-b {
-    animation: none;
-  }
 }
 
 /* ========================================
@@ -307,17 +253,6 @@ html:not(.no-splash) .slash-overlay {
   100% { transform: translate(-110vw, 110vh); }
 }
 
-html:not(.no-splash) .home-hero .hero-orb-b {
-  opacity: 0;
-  animation: hero-orb-in 1.5s 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-             orb-drift-b 90s 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes hero-orb-in {
-  0%   { opacity: 0; }
-  100% { opacity: 0.25; }
-}
-
 /* Nav fades in alongside the slash reveal completing — without this the
    nav (logo + buttons) snaps to full opacity as soon as the overlay
    slides off, while the hero text is still cascading underneath. */
@@ -333,10 +268,6 @@ html.is-home:not(.no-splash) .site-nav {
 @media (prefers-reduced-motion: reduce) {
   .slash-overlay {
     display: none !important;
-  }
-  html:not(.no-splash) .home-hero .hero-orb-b {
-    animation: none;
-    opacity: 0.25;
   }
   html.is-home:not(.no-splash) .site-nav {
     animation: none;
@@ -648,42 +579,10 @@ article .prose blockquote {
   }
 }
 
-/* Letter-by-letter reveal on H1 — clean translateY only, no blur/rotate.
-   Container is hidden via inline critical CSS (head <style>) until JS
-   wraps text and sets data-letter-ready. No need for an opacity override
-   here — that just fought with the inline rule. */
-
-.letter-word {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.letter-char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(0.4em);
-  animation: letter-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--char-i, 0) * 22ms + var(--char-base, 0.85s));
-}
-
-.no-splash .letter-char {
-  animation-delay: calc(var(--char-i, 0) * 22ms + 0.2s);
-}
-
-@keyframes letter-rise {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* Magnetic CTAs — JS handles cursor-pull transform, CSS smooths reset */
-[data-magnetic] {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
+/* The per-letter H1 cascade and the magnetic-pull CTAs lived here. Both were
+   cut with the orbs: a headline that assembles itself letter by letter delays
+   the one sentence a visitor most needs, and cursor-pull on a button is motion
+   that reacts to the pointer without telling it anything. */
 
 /* ========================================
    STICKY CASE META BAR
@@ -958,9 +857,320 @@ article .prose blockquote {
 }
 
 /* ========================================
+   FEATURE PANELS (homepage front door)
+   Three full-bleed panels side by side. Pointing at one grows it and
+   squeezes its neighbours; the CTA line only exists on the hovered panel,
+   so the band reads as one image until the cursor asks a question of it.
+   ======================================== */
+.feature-panels {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 78vh;
+  min-height: 520px;
+  max-height: 900px;
+  background-color: var(--color-paper);
+}
+
+.feature-panel {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  /* flex-basis 0 so the three share the row evenly; grow is what animates */
+  flex: 1 1 0;
+  background-color: var(--accent, var(--color-dark));
+  transition: flex-grow 0.55s cubic-bezier(0.65, 0.02, 0.23, 1);
+}
+
+.feature-panel + .feature-panel {
+  border-left: 1px solid rgba(20, 22, 26, 0.55);
+}
+
+.feature-panel-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.65, 0.02, 0.23, 1);
+}
+
+/* Flat brand covers sit whole on the accent field. Insetting them keeps the
+   lockup clear of the title block that overlays the bottom third. */
+.feature-panel-art.is-contain {
+  object-fit: contain;
+  padding: 12% 12% 32%;
+}
+
+.feature-panel-art.is-cover {
+  object-fit: cover;
+  object-position: center;
+}
+
+.feature-panel-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 16, 26, 0.15) 0%,
+    rgba(14, 16, 26, 0.4) 55%,
+    rgba(14, 16, 26, 0.88) 100%
+  );
+}
+
+.feature-panel-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem 1.75rem 2.5rem;
+  color: var(--color-on-dark);
+}
+
+.feature-panel-client {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-on-dark-soft);
+  margin-bottom: 0.65rem;
+}
+
+.feature-panel-title {
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+  line-height: 1;
+  color: var(--color-on-dark);
+  text-wrap: balance;
+}
+
+/* Collapsed to zero height at rest, so the label genuinely does not occupy
+   the panel until you point at it. */
+.feature-panel-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-on-dark);
+  transition: height 0.35s cubic-bezier(0.65, 0.02, 0.23, 1),
+    opacity 0.3s ease, padding-top 0.35s cubic-bezier(0.65, 0.02, 0.23, 1);
+}
+
+.feature-panel-cta svg {
+  width: 16px;
+  flex: 0 0 auto;
+  fill: var(--accent-secondary, var(--color-accent));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-panel:hover {
+    flex-grow: 1.5;
+  }
+
+  .feature-panel:hover .feature-panel-art.is-cover {
+    transform: scale(1.06);
+  }
+
+  .feature-panel:hover .feature-panel-cta,
+  .feature-panel:focus-visible .feature-panel-cta {
+    height: 1.6rem;
+    padding-top: 0.35rem;
+    opacity: 1;
+  }
+}
+
+.feature-panel:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -4px;
+}
+
+/* Touch: no hover to reveal the CTA, so it is always shown and the band
+   stacks into three full-width rows. */
+@media (max-width: 900px) {
+  .feature-panels {
+    flex-wrap: wrap;
+    height: auto;
+    max-height: none;
+  }
+
+  .feature-panel {
+    flex: 1 1 100%;
+    height: 46vh;
+    min-height: 300px;
+  }
+
+  .feature-panel + .feature-panel {
+    border-left: 0;
+    border-top: 1px solid rgba(20, 22, 26, 0.55);
+  }
+
+  .feature-panel-art.is-contain {
+    padding: 8% 10% 26%;
+  }
+
+  .feature-panel-cta {
+    height: 1.6rem;
+    padding-top: 0.35rem;
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   SCROLL CUE
+   Sits at the bottom of a full-height frame. The wheel drops and fades on
+   a loop; the frame itself is static.
+   ======================================== */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 2.25rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(240, 235, 225, 0.55);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.scroll-cue::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin-left: -2px;
+  top: 6px;
+  width: 4px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: var(--color-on-dark);
+  animation: scroll-cue-drop 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes scroll-cue-drop {
+  0% { top: 6px; opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { top: 24px; opacity: 0; }
+}
+
+/* On a phone the copy pushes these sections past the viewport, which would
+   put the cue below the fold — an invitation to scroll that you have to
+   scroll to find. Touch users need no such prompt anyway. */
+@media (max-width: 900px) {
+  .scroll-cue {
+    display: none;
+  }
+}
+
+/* ========================================
+   CASE STUDY FULL-BLEED HERO
+   When a case has artwork, the hero is that artwork at full bleed with the
+   title over it — which also gives the panel-to-hero view transition
+   something to land on. Cases without artwork keep the flat accent hero.
+   ======================================== */
+.case-hero-full {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--accent, var(--color-dark));
+}
+
+/* Content grid. One column by default — the artwork, when it has its own
+   column, drops below the copy on narrow screens. */
+.case-hero-grid {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 7rem;
+}
+
+.case-hero-full.is-split .case-hero-grid {
+  gap: 3.5rem;
+}
+
+@media (min-width: 901px) {
+  .case-hero-full.is-split .case-hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* Photographic covers fill the frame and take the title on top of them. */
+.case-hero-art.is-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Flat brand covers sit whole in their own column. */
+.case-hero-art.is-contain {
+  width: 100%;
+  max-height: 58vh;
+  object-fit: contain;
+  justify-self: center;
+}
+
+/* Photo heroes carry the eyebrow and back-link over whatever the image
+   happens to be doing up there, so the top of the gradient has to hold a
+   readable floor against a bright sky or waterline. */
+.case-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 16, 26, 0.74) 0%,
+    rgba(14, 16, 26, 0.56) 38%,
+    rgba(14, 16, 26, 0.94) 100%
+  );
+}
+
+/* Nothing is behind the copy on a split hero, so the scrim only needs to
+   settle the accent field rather than rescue legibility. */
+.case-hero-full.is-split .case-hero-scrim {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 16, 26, 0.28) 0%,
+    rgba(14, 16, 26, 0.12) 45%,
+    rgba(14, 16, 26, 0.55) 100%
+  );
+}
+
+/* ========================================
+   SHARED ELEMENT: panel/card art → case hero art
+   Astro pairs these by transition:name. The default root cross-fade would
+   fight the morph, so the paired element gets its own smooth curve.
+   ======================================== */
+::view-transition-group(*) {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.65, 0.02, 0.23, 1);
+}
+
+/* ========================================
    REDUCED MOTION
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
+  .feature-panel,
+  .feature-panel-art,
+  .feature-panel-cta {
+    transition: none;
+  }
+  .scroll-cue::after {
+    animation: none;
+    opacity: 1;
+    top: 14px;
+  }
   [data-reveal],
   .hero-line {
     opacity: 1;
@@ -979,11 +1189,6 @@ article .prose blockquote {
   }
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation: none;
-  }
-  .letter-char {
-    opacity: 1;
-    transform: none;
     animation: none;
   }
   .rule-top::before {

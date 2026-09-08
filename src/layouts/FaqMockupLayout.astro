@@ -112,11 +112,14 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
       }
       #faq-gate h1 { font: 700 22px/1.2 inherit; margin: 0 0 8px; color: #1B3D63; }
       #faq-gate p { font: 400 14px/1.5 inherit; color: #4a5568; margin: 0 0 20px; }
-      #faq-gate input[type=password] {
+      /* Matched on position, not on [type=password]: the show/hide control flips the
+         input to type=text, and a type-scoped rule would drop all of this the moment
+         the eye is clicked. */
+      #faq-gate .gate-card input {
         width: 100%; padding: 12px 14px; border: 1px solid #cdd3d6; border-radius: 4px;
         font-size: 15px; box-sizing: border-box; margin: 0 0 10px;
       }
-      #faq-gate input[type=password]:focus { outline: 2px solid #F05A22; outline-offset: -1px; }
+      #faq-gate .gate-card input:focus { outline: 2px solid #F05A22; outline-offset: -1px; }
       #faq-gate button {
         background: #F05A22; color: #fff; border: 0; padding: 12px 24px; border-radius: 4px;
         font: 700 13px/1 inherit; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
@@ -157,6 +160,9 @@ const PASSWORD_HASH = '41675798a414400ea55a25e680380c55634387e67788ba3f3cdfcd320
          high in the circle. Nudge it down to sit concentric with the circle. */
       .back-to-parent-section h4 svg { top: 6px !important; }
     </style>
+    {/* Show/hide control for the FAQ preview gate. This layout does not go
+        through BaseLayout, so it needs its own tag. */}
+    <script src="/pw-toggle.js?v=2" defer is:inline></script>
   </head>
   <body class={`${bodyClass} faq-locked`}>
     <!-- Password gate -->

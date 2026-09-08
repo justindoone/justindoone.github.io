@@ -13,8 +13,10 @@ interface Props {
 }
 
 const {
-  title = 'Justin Doone - Marketing Strategist',
-  description = 'Marketing strategist for high-trust products and complex B2B. Based in Toronto.',
+  // Scope, not rank. "Strategist" reads junior against the actual remit and
+  // would need rewriting on a promotion; "leadership" holds at any level.
+  title = 'Justin Doone - Marketing Leadership, Toronto',
+  description = 'Marketing leadership for high-trust products and complex B2B. Based in Toronto.',
   pathname = Astro.url.pathname,
   noindex = false,
   ogImage = '/og-image.png?v=12',
@@ -43,8 +45,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <style is:inline>
       /* Critical hiding styles inline — prevents FOUC before main CSS loads */
       .hero-line { opacity: 0; }
-      [data-letter-reveal] { opacity: 0; }
-      [data-letter-reveal][data-letter-ready] { opacity: 1; }
 
       /* Portfolio gate — see #site-gate <script> below */
       body.site-locked { overflow: hidden; }
@@ -117,13 +117,16 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         color: #ff7a59; padding: 11px 0 11px 12px;
         font-size: 14px; user-select: none;
       }
-      #site-gate input[type=password] {
+      /* Matched on position, not on [type=password]: the show/hide control flips the
+         input to type=text, and a type-scoped rule would drop all of this the moment
+         the eye is clicked. */
+      #site-gate .input-row input {
         flex: 1; padding: 11px 12px 11px 8px;
         border: 0; background: transparent; color: #f4f6fa;
         font: 400 14px/1 inherit;
         outline: none;
       }
-      #site-gate input[type=password]::placeholder { color: #4a5468; }
+      #site-gate .input-row input::placeholder { color: #4a5468; }
       #site-gate button {
         background: #ff7a59; color: #0a0f1a; border: 0;
         padding: 11px 14px; border-radius: 4px;
@@ -199,6 +202,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       </>
     )}
     <ClientRouter />
+    {/* Show/hide control for every password field (the site gate here, and the
+        admin page's gate, which renders through this layout). Served from
+        public/, so is:inline keeps Astro from trying to bundle it. */}
+    <script src="/pw-toggle.js?v=2" defer is:inline></script>
   </head>
   <body class="min-h-screen flex flex-col site-locked">
     <!-- Site-wide password gate. Persists in sessionStorage for the tab.
@@ -315,6 +322,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         const inline = document.getElementById('caseMetaInline');
         const sticky = document.getElementById('caseMetaSticky');
         if (!inline || !sticky) return;
+        // Runs again on every SPA navigation, so guard against stacking a
+        // second observer on the same element each time a case is opened.
+        if (inline.dataset.stickyReady) return;
+        inline.dataset.stickyReady = 'true';
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((e) => {
@@ -407,49 +418,6 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
           if (!firstP) return;
           const firstChar = (firstP.textContent || '').trim().charAt(0).toUpperCase();
           if (firstChar) body.setAttribute('data-first', firstChar);
-        });
-      }
-
-      function setupLetterReveal() {
-        const containers = document.querySelectorAll(
-          '[data-letter-reveal]:not([data-letter-ready])'
-        );
-        if (!containers.length) return;
-        containers.forEach((h) => {
-          let i = 0;
-          const splitNode = (node) => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              const frag = document.createDocumentFragment();
-              const text = node.textContent || '';
-              // Split into runs of whitespace vs. word characters so we can
-              // wrap each word in an atomic nowrap container — prevents the
-              // browser from breaking mid-word at our inline-block char spans.
-              const parts = text.split(/(\s+)/);
-              for (const part of parts) {
-                if (!part) continue;
-                if (/^\s+$/.test(part)) {
-                  frag.appendChild(document.createTextNode(part));
-                } else {
-                  const wordSpan = document.createElement('span');
-                  wordSpan.className = 'letter-word';
-                  for (const ch of part) {
-                    const charSpan = document.createElement('span');
-                    charSpan.className = 'letter-char';
-                    charSpan.style.setProperty('--char-i', String(i++));
-                    charSpan.textContent = ch;
-                    wordSpan.appendChild(charSpan);
-                  }
-                  frag.appendChild(wordSpan);
-                }
-              }
-              node.parentNode.replaceChild(frag, node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-              // recurse into element children (preserves <em> etc)
-              Array.from(node.childNodes).forEach(splitNode);
-            }
-          };
-          Array.from(h.childNodes).forEach(splitNode);
-          h.setAttribute('data-letter-ready', 'true');
         });
       }
 
@@ -721,92 +689,18 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         requestAnimationFrame(raf);
       }
 
-      // ============ HERO ORB PARALLAX ============
-      // Subtle cursor-tracked offset on hero orbs for depth without noise.
-      function setupHeroParallax() {
-        if (prefersReducedMotion) return;
-        // Skip on demo pages so it doesn't fight with their custom animations
-        if (location.pathname.indexOf('/demos') === 0) return;
-        const hero = document.querySelector('.dark-section .hero-bg-image')
-          ?.parentElement;
-        if (!hero) return;
-        const orbA = hero.querySelector('.hero-orb-a');
-        const orbB = hero.querySelector('.hero-orb-b');
-        const bg = hero.querySelector('.hero-bg-image');
-        if (!orbA && !orbB && !bg) return;
-        let raf = null;
-        let tx = 0, ty = 0; // target
-        let cx = 0, cy = 0; // current
-        const onMove = (e) => {
-          const rect = hero.getBoundingClientRect();
-          if (e.clientY > rect.bottom || e.clientY < rect.top) return;
-          // -1..1 from center
-          const nx = (e.clientX / window.innerWidth) * 2 - 1;
-          const ny = (e.clientY / rect.height) * 2 - 1;
-          tx = nx;
-          ty = ny;
-          if (!raf) raf = requestAnimationFrame(tick);
-        };
-        function tick() {
-          cx += (tx - cx) * 0.08;
-          cy += (ty - cy) * 0.08;
-          if (orbA) orbA.style.transform = `translate(${cx * 22}px, ${cy * 16}px)`;
-          if (orbB) orbB.style.transform = `translate(${-cx * 18}px, ${-cy * 14}px)`;
-          if (bg) bg.style.transform = `scale(1.04) translate(${-cx * 6}px, ${-cy * 5}px)`;
-          if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
-            raf = requestAnimationFrame(tick);
-          } else {
-            raf = null;
-          }
-        }
-        window.addEventListener('mousemove', onMove, { passive: true });
-      }
-
-      // ============ MAGNETIC CTAS ============
-      function setupMagnetic() {
-        const els = document.querySelectorAll('[data-magnetic]:not([data-magnetic-ready])');
-        els.forEach((el) => {
-          el.setAttribute('data-magnetic-ready', 'true');
-          const strength = parseFloat(el.getAttribute('data-magnetic-strength') || '0.25');
-          const range = 80; // px from element edge
-          let hovering = false;
-          const onMove = (e) => {
-            const rect = el.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = e.clientX - cx;
-            const dy = e.clientY - cy;
-            const dist = Math.hypot(dx, dy);
-            const maxDist = Math.max(rect.width, rect.height) / 2 + range;
-            if (dist < maxDist) {
-              hovering = true;
-              const pull = (1 - dist / maxDist) * strength;
-              el.style.transform = `translate(${dx * pull}px, ${dy * pull}px)`;
-            } else if (hovering) {
-              hovering = false;
-              el.style.transform = '';
-            }
-          };
-          const reset = () => {
-            hovering = false;
-            el.style.transform = '';
-          };
-          window.addEventListener('mousemove', onMove, { passive: true });
-          el.addEventListener('mouseleave', reset);
-        });
-      }
+      // The hero-orb cursor parallax and the magnetic-CTA pull lived here.
+      // Both were removed with their CSS: two permanent mousemove listeners
+      // driving decoration that never told the visitor anything.
 
       // ============ BOOT ============
       initLenis();
       setupDropcapClass();
-      setupLetterReveal();
-      setupMagnetic();
       setupStickyCaseMeta();
       setupAnimatedRules();
       setupImageCaptions();
       setupBackToTop();
       setupEventTracking();
-      setupHeroParallax();
       setupReveal();
       loadInstagram();
       setupCountUp();
@@ -819,10 +713,17 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       });
 
       document.addEventListener('astro:page-load', () => {
-        // Lenis persists; just re-init the per-page systems
-        setupLetterReveal();
-        setupMagnetic();
-        setupHeroParallax();
+        // Lenis persists; just re-init the per-page systems.
+        // The case-study systems below used to run only at boot, so opening a
+        // case via client-side navigation left it without its dropcap, image
+        // captions, rule draw-in or sticky meta bar. Clicking a panel is now
+        // the main way in, which made that path the common one. All of these
+        // guard their own targets, so re-running is a no-op once applied.
+        setupDropcapClass();
+        setupStickyCaseMeta();
+        setupAnimatedRules();
+        setupImageCaptions();
+        setupBackToTop();
         setupReveal();
         loadInstagram();
         setupCountUp();
