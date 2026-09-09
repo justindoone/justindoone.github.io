@@ -15,7 +15,7 @@ metrics:
     label: "Commits since April"
 cardCover: "/images/work/ai-stack/cover.png"
 featured: true
-order: 0
+order: 4
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---

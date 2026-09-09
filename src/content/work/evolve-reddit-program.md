@@ -16,7 +16,7 @@ metrics:
 cardCover: "/images/work/evolve-reddit-bank/1.png"
 featured: true
 hero: true
-order: 4
+order: 1
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---

@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/aeo/cover.png"
 cardCover: "/images/work/aeo/cover.png"
 featured: true
-order: 2
+order: 3
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---

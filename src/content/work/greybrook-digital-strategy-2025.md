@@ -16,7 +16,7 @@ metrics:
 cardCover: "/images/work/greybrook-logo-cover.png"
 featured: true
 hero: true
-order: 2
+order: 8
 accent: "#232323"
 accentSecondary: "#929292"
 ---

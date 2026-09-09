@@ -16,7 +16,7 @@ metrics:
 cover: "/images/work/measurement/cover.png"
 cardCover: "/images/work/measurement/cover.png"
 featured: true
-order: 3
+order: 2
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---

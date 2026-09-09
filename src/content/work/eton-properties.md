@@ -17,7 +17,7 @@ panelFit: cover
 cover: "/images/work/minihotel-hk.jpg"
 cardCover: "/images/work/minihotel-hk.jpg"
 featured: true
-order: 1
+order: 12
 accent: "#2b2724"
 accentSecondary: "#f47654"
 ---

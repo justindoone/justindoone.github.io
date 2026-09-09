@@ -15,7 +15,7 @@ metrics:
     label: "Videos older than a year still public"
 cardCover: "/images/work/evolve-logo-cover.png"
 featured: true
-order: 1
+order: 6
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
