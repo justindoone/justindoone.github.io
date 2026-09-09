@@ -9,8 +9,8 @@ tags: ["Leadership", "Real estate", "Brand", "Marketing technology", "Hospitalit
 metrics:
   - value: "8"
     label: "Marketing team led"
-  - value: "$4M"
-    label: "Revenue uplift, funnel redesign"
+  - value: "+40%"
+    label: "Lead inquiries"
   - value: "+50%"
     label: "Conversion lift"
 panelFit: cover
@@ -30,7 +30,7 @@ The portfolio was over a thousand residential and commercial units, sold and lea
 
 Eight marketing professionals, reporting to the SVP, Properties. The job was the ordinary shape of a functional lead: deciding what the team worked on, defending that against what sales wanted this week, and owning the number at the end of it.
 
-The largest piece of work was the customer journey. The funnel was long, the drop-off was in the middle of it, and the redesign shortened the path and lifted conversion 50%. That work generated roughly $4M in revenue uplift.
+The largest piece of work was the customer journey. The funnel was long, the drop-off was in the middle of it, and the redesign shortened the path and lifted conversion 50%.
 
 ## Rebuilding the stack
 

@@ -8,9 +8,9 @@ summary: "Evolve's marketing reporting was built on numbers that were quietly wr
 tags: ["Analytics", "GA4", "Reporting", "Financial services"]
 metrics:
   - value: "96%"
-    label: "Of 'organic social' was actually paid"
+    label: "Of a channel line was misattributed"
   - value: "5 months"
-    label: "Of published figures re-audited"
+    label: "Of reporting re-audited"
   - value: "+29%"
     label: "Users vs the equal window prior"
 cover: "/images/work/measurement/cover.png"
@@ -21,42 +21,42 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-Across my first 162 days at Evolve, evolveetfs.com reached 408,972 users against 317,249 in the equal window before I started, up 29%, and August 2026 became the highest-traffic month in the site's recorded history. Those are real, and they are also the least interesting part of this.
+Across my first 162 days at Evolve the site's users were up 29% against the equal window before I started, and August 2026 became the highest-traffic month in the site's recorded history. Those are real, and they are the least interesting part of this.
 
 They are stated against a matched prior window rather than against my first calendar month for a reason that is the whole subject of this case study. I started on 23 March, so nine of that month's thirty-one days were mine. Measuring from the March total would produce a much larger number describing mostly someone else's work.
 
-The more useful work was discovering that several of the numbers the marketing function reported on every month were wrong in ways nobody had caught, and that decisions were being made on them.
+The more useful work was finding that some of the numbers the function ran on every month could not support the weight being put on them, and rebuilding the reporting so they could.
 
 ## The biggest paid channel was filed as organic
 
-Reddit is Evolve's single largest paid session driver. In GA4 it was landing in Organic Social, because the campaign tagging used a custom medium the platform does not recognize as paid.
+Reddit is the single largest paid session driver. In GA4 it was landing in Organic Social, because the campaign tagging used a custom medium the platform does not recognise as paid.
 
-Measured across a three-week window in July, Organic Social showed 10,955 sessions. Of those, 10,560 were paid Reddit. Genuine organic social was running at roughly 395 sessions a month. The mislabelled paid traffic was about 14% of all site traffic, and it had been tagged that way for as long as the convention had existed, so every historical deck carried it too.
+Measured across a three-week window, about 96% of everything in the Organic Social line was in fact paid Reddit. Genuine organic social was a rounding error beside it. The mislabelled traffic was a meaningful share of all site sessions, and it had been tagged that way for as long as the convention had existed, so the historical series carried it too.
 
-Session totals were never wrong. The paid-versus-organic mix was, which is worse in a way, because the totals looked trustworthy enough that nobody questioned the split. The read the team was getting was that organic social was performing extraordinarily and that the largest paid channel was invisible.
+Session totals were never wrong. The paid-versus-organic mix was, which is worse in a way, because the totals looked trustworthy enough that nobody had reason to question the split. The read coming out of it was that organic social was performing extraordinarily and that the largest paid channel was invisible.
 
-The fix went in at the source, so new campaigns tag correctly, plus a reclassification step in the reporting tool that moves legacy traffic to Paid Social without disturbing session totals. Historical snapshots back to January 2025 were rebuilt against it and verified lossless.
+The fix went in at the source so new campaigns tag correctly, plus a reclassification step in the reporting tool that moves legacy traffic to Paid Social without disturbing session totals. Historical snapshots were rebuilt against it and verified lossless.
 
 ## The paid search line was mostly not search
 
-The Paid Search channel carried a large block of Microsoft traffic that had been read as search all year. Roughly 97% of it was a single Microsoft Audience Network campaign, a native and display placement, sitting in Paid Search only because it was tagged with a search-style medium.
+The Paid Search channel carried a large block of Microsoft traffic that had been read as search. Almost all of it was a single Microsoft Audience Network campaign, a native and display placement, sitting in Paid Search only because it was tagged with a search-style medium.
 
-It also was not buying anything. Engagement rate 36%, 1.22 pages per session, and an average duration long enough against that page count to be the signature of background tabs and accidental taps on native inventory. Across the year the account produced 21 conversions at roughly $460 each.
+It also was not buying anything. Engagement rate 36%, 1.22 pages per session, and an average duration long enough against that page count to be the signature of background tabs and accidental taps on native inventory.
 
 Two false readings came out of that at once: paid search looked bigger than it was, and it looked worse than it was, because display performance was being averaged into it.
 
-## Five months of published figures, checked one at a time
+## Five months of reporting, checked one at a time
 
-In August I audited every monthly marketing figure published from March to July against live GA4. Every month's headline session total was exactly right. Most things derived from those totals were not.
+I audited every monthly marketing figure from March to July against live GA4. Every month's headline session total was exactly right. Several things derived from those totals were not.
 
-Six recurring causes came out of it, and they are the ordinary ones rather than anything exotic. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto three different bases, which produced sign flips: one fund published as down 31.7% for June had actually risen 11.2%. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. One fund's cost per click published against a different fund's campaign, which made a "lowest cost per click" claim false.
+Six recurring causes came out of it, and they are the ordinary ones rather than anything exotic. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto different bases, which is how a sign flip happens and a decline gets reported where there was a rise. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. A per-fund cost figure lined up against the wrong campaign.
 
-The audit was applied to my own published figures on the same terms as everyone else's, which is where one of the six causes surfaced: a dimensional query left on its default row limit had silently truncated, turning a 41% increase into a reported 134%. That one became a standing pre-publish check.
+The audit was applied to my own figures on the same terms as everyone else's, which is where one of the six surfaced: a dimensional query left on its default row limit had silently truncated, overstating a genuine increase by a wide margin. That one became a standing pre-publish check.
 
 The output was not just corrections. It was a checklist that runs before anything is published, plus a documented set of date windows where the data is known to be unusable, so a future analyst does not quietly build on a month that cannot support it.
 
 ## Why this belongs in a marketing role
 
-The instinct is to treat this as an analyst's job rather than a marketer's. It is the opposite. Every channel decision at Evolve, where to put the next dollar, which surface is working, what to tell the team is compounding, was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display.
+The instinct is to treat this as an analyst's job rather than a marketer's. It is the opposite. Every channel decision — where the next dollar goes, which surface is working, what to tell the team is compounding — was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display.
 
 Reporting that survives someone checking it is what makes the rest of the marketing arguable on the merits.

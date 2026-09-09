@@ -4,15 +4,15 @@ client: "Evolve ETFs"
 role: "Content strategy lead"
 date: "2026, ongoing"
 year: 2026
-summary: "Evolve's YouTube channel draws real audience and keeps almost none of it. Of the fifty most-watched videos of the past two years, four are public, holding 1.4% of the views those fifty earned. The cause is a 45-day creative-refresh rule written for paid ad units being applied to owned-channel content, and the work is making the case to change it."
+summary: "A channel can draw a large audience and retain almost none of it. On the set I looked at, four of the fifty most-watched videos were still public, holding 1.4% of the views the set had earned. The strategy work is making the case for treating owned video as an asset that compounds rather than as creative on a rotation."
 tags: ["Content", "Strategy", "YouTube", "Compliance"]
 metrics:
   - value: "4 of 50"
     label: "Most-watched videos still public"
   - value: "1.4%"
     label: "Of channel views publicly visible"
-  - value: "53 days"
-    label: "Age of the newest surviving video"
+  - value: "1"
+    label: "Videos older than a year still public"
 cardCover: "/images/work/evolve-logo-cover.png"
 featured: true
 order: 1
@@ -20,29 +20,29 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-Evolve's longer-form surfaces are not being treated as compounding assets. YouTube most of all. The brand has steady output across paid social and the firm's site, but the channel accumulates nothing, and the reason is a policy interpretation rather than a content problem.
+Long-form owned surfaces are usually the last thing a marketing function treats as an asset. Output is steady, the videos perform, and then the back catalogue quietly disappears — not through neglect, but because the cadence governing it was designed for something else.
 
-## What the channel actually retains
+## What a channel retains
 
-I pulled the fifty most-watched videos on the channel over a trailing two-year window through the YouTube Analytics API. Those fifty drew 1,726,655 views between them. Four are public.
+I pulled the fifty most-watched videos on Evolve's channel over a trailing two-year window through the YouTube Analytics API and looked at how many were still publicly visible.
 
-Those four hold 24,189 views, or 1.4% of what the set earned. Three of them went up on the same day in July and are 53 days old. Twenty-eight of the fifty were published before 2026, and exactly one of those is still public: an educational piece on covered-call ETFs from December 2025.
+Four. Those four held about 1.4% of the views the set had earned between them. Three of them had gone up on the same day some weeks earlier. Of the videos published more than a year before the pull, exactly one was still public: an educational piece on covered-call ETFs.
 
-So the channel is not short of audience. It draws the audience and then removes the thing that drew it.
+So the channel was not short of audience. It drew the audience and then removed the thing that drew it.
 
-## Why it happens
+## Why it happens, and why it is a strategy question
 
-The firm applies a 45-day creative-refresh rule to organic YouTube content, pulling videos down and re-publishing fresh on the assumption that the refresh cadence governing paid ad units also governs owned-channel content.
+A 45-day creative-refresh cadence is a sensible safeguard for paid ad units. An ad running unattended past its useful life is a real risk, and rotation is the standard control for it.
 
-The two are different instruments. A 45-day rotation on paid creative is a marketing-conduct safeguard against a stale ad running unattended. An organic video on an owned channel is the opposite kind of asset: it earns its position over time, and its value is precisely that it stays where the search index and the subscriber base can find it. Taking it down every six weeks resets subscriber compounding and discards whatever ranking equity it had built.
+An organic video on an owned channel is a different instrument. It earns its position over time, and its value is precisely that it stays where the search index and the subscriber base can find it. Cycling it on a paid-creative clock resets subscriber compounding and discards whatever ranking equity it had built. The two are different asset classes wearing the same file format, which is exactly the kind of distinction that gets lost when one policy has to cover both.
 
-The one exception in the data supports the point. The only pre-2026 video still public is the covered-call explainer, which is also the only one of the four that is not product creative. It is the piece with the longest useful life and it is the piece that survived.
+The one survivor makes the point better than the argument does. The only older video still public was the educational explainer, and it is also the only one of the four that is not product creative. The piece with the longest useful life is the piece that lasted.
 
-## Where it stands
+## What I built while the question was open
 
-The policy question is open. I have been making the case internally that the 45-day rule is a paid-creative standard rather than a blanket content policy, and that evergreen educational video should be scoped out of it. That decision is not mine to make and it has not been made.
+Policy interpretation in a regulated firm is a compliance decision, not a marketing one, and it moves on its own timeline. The useful thing to do in the meantime is build what is needed under either outcome.
 
-What I have been doing in the meantime is building the thing that is needed under either outcome: recurring formats tied to fund themes, an editorial calendar built around quarterly market windows, and a filming schedule and backlog deep enough to absorb whichever interpretation lands without restarting the work.
+That is recurring formats tied to fund themes, an editorial calendar built around quarterly market windows, and a filming schedule and backlog deep enough to absorb whichever interpretation lands without restarting the work.
 
 The same compounding logic drives the answer-engine work, where the surfaces that get cited are the ones that stay put long enough to be indexed and quoted. That has its own measured results and its own [case study](/work/evolve-aeo-visibility).
 
