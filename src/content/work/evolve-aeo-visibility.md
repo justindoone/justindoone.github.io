@@ -69,9 +69,7 @@ Sentiment ran at 60, the joint highest in the field, so the extra exposure did n
 
 ## How the result was tested
 
-A visibility gain has two obvious innocent explanations, and both were checked before the number was reported.
-
-The first is that the engines simply got more generous. Retrieval of evolveetfs.com rose from 16% of non-branded answers to 26%, but every domain in the set rose over the same period, so part of that is engines pulling more sources per answer. That is why the headline is stated as visibility against a tracked competitive field, not as a raw retrieval count: eight of ten issuers falling in the same window is what rules the generosity explanation out.
+A visibility gain has two obvious innocent explanations, and both were checked before the number was reported. The first is that the engines simply got more generous. Retrieval of evolveetfs.com rose from 16% of non-branded answers to 26%, but every domain in the set rose over the same period, so part of that is engines pulling more sources per answer. That is why the headline is stated as visibility against a tracked competitive field, not as a raw retrieval count: eight of ten issuers falling in the same window is what rules the generosity explanation out.
 
 The second is filter choice. Answer-engine tools report a much friendlier number if branded and comparison questions are left in, and that looser cut is the default almost everywhere. Holding to the strict filter costs about two points and one rank position, and it is the reason these figures reconcile when someone reruns them.
 

@@ -24,9 +24,7 @@ Most marketing functions pay for several SaaS subscriptions to cover reporting, 
 
 ## The tool the month runs on
 
-The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle.
-
-It is not a weekend script that got lucky. It has taken more than 860 commits since April to get here, and it is now the surface the marketing function actually runs its month on.
+The headliner is the monthly-update-tool. It consolidates ad-spend and performance data from Google Ads, Reddit Ads, Facebook, and LinkedIn into a single view, generates the monthly performance summary, and exposes scheduler-gated endpoints that other automations can hit. Cloud Run-deployed, touched a few times a week, replacing what would otherwise be manual data-pulling across four platforms every reporting cycle. It is not a weekend script that got lucky. It has taken more than 860 commits since April to get here, and it is now the surface the marketing function actually runs its month on.
 
 ![Performance dashboard: primary KPI tiles (total spend, website sessions, paid CTR, conversions, paid-vs-organic split), secondary row with top organic query and top landing page, and the charts panel below, with a 12-month sessions trend plus a donut of traffic mix by channel group](/images/work/ai-stack/dashboard.png)
 

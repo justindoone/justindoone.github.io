@@ -33,17 +33,13 @@ The content strategy that came out of it organised around three objectives: thou
 
 ## Four workstreams
 
-The video programme got a social-cuts layer that took each Boardroom Brief recording from two distribution surfaces to five, plus a stand-alone short-form pipeline for market commentary, executive interviews and team behind-the-scenes content.
-
-The social calendar adopted a content-pillar playbook that broke the monotonous post cycle while holding the editorial line. The pillars were Greybrook's View, Strategy Snapshot, Deal Spotlight and Mythbuster, among others.
+The video programme got a social-cuts layer that took each Boardroom Brief recording from two distribution surfaces to five, plus a stand-alone short-form pipeline for market commentary, executive interviews and team behind-the-scenes content. The social calendar adopted a content-pillar playbook that broke the monotonous post cycle while holding the editorial line. The pillars were Greybrook's View, Strategy Snapshot, Deal Spotlight and Mythbuster, among others.
 
 The third was Inside Track, the year's set piece. The fourth was the investment-announcement package, which shipped on its own trigger.
 
 ## Inside Track
 
-Inside Track is Greybrook's annual invite-only investor event, roughly 400 people in the room in October 2025. I produced it and ran the content programme around the day.
-
-The 2025 edition framed Toronto's housing future from two angles. Benjamin Tal from CIBC anchored the economist read on inflation, condo cycle timing and demographic pressure on supply. A policy panel with Tyler Meredith, BILD's Justin Sherwood and Toronto City Councillor Brad Bradford worked through development charge reform, the federal Build Canada Homes initiative, and the supply-side regulatory environment.
+Inside Track is Greybrook's annual invite-only investor event, roughly 400 people in the room in October 2025. I produced it and ran the content programme around the day. The 2025 edition framed Toronto's housing future from two angles. Benjamin Tal from CIBC anchored the economist read on inflation, condo cycle timing and demographic pressure on supply. A policy panel with Tyler Meredith, BILD's Justin Sherwood and Toronto City Councillor Brad Bradford worked through development charge reform, the federal Build Canada Homes initiative, and the supply-side regulatory environment.
 
 The content ran in three phases. Pre-event was the save-the-date and reminder sequence plus a teaser a couple of weeks out. The day itself ran on capture from the panels and the conversations around them. Post-event sequenced edited highlights and interviews across the firm's owned channels over the following two to three weeks, and the day's recording became the source material for Boardroom Brief EP 10.
 
@@ -60,16 +56,12 @@ For actual closings the package was always the same four pieces:
 - A leadership LinkedIn post from whichever executive the announcement was attributed to
 - A blog post on Greybrook's site, hosting the full narrative for readers arriving from search or email
 
-The $31.525M Markham investment in August 2025 is one example, with LP-side communications going to limited partners across thirty-plus countries. Larger and smaller deals followed the same structure.
-
-I drafted and edited the release and the LP email, then ran both through in-house counsel for sign-off. The LinkedIn posts and blog versions I wrote myself. Owned channels do not carry the same compliance posture as a wire release, which allowed more latitude on tone and structure there.
+The $31.525M Markham investment in August 2025 is one example, with LP-side communications going to limited partners across thirty-plus countries. Larger and smaller deals followed the same structure. I drafted and edited the release and the LP email, then ran both through in-house counsel for sign-off. The LinkedIn posts and blog versions I wrote myself. Owned channels do not carry the same compliance posture as a wire release, which allowed more latitude on tone and structure there.
 
 Most of that job was operational. Four pieces shipping the same day, all aligned to the same facts, after legal had read every word of every version.
 
 ## Mid-year correction, and where it finished
 
-Mid-year I ran a Q1-versus-Q2 performance review. LinkedIn engagement rates had moved up. Instagram engagement had softened under higher posting volume.
-
-The H2 plan cut volume and raised the bar: platform-native video formats, shareability-focused content like carousels and quote cards, and a tighter publishing cadence to avoid follower fatigue. Targets were specific: plus 150 Instagram followers and plus 700 on LinkedIn, 5.0% engagement on Instagram and 12.5% on LinkedIn, and a 25% lift on combined shares.
+Mid-year I ran a Q1-versus-Q2 performance review. LinkedIn engagement rates had moved up. Instagram engagement had softened under higher posting volume. The H2 plan cut volume and raised the bar: platform-native video formats, shareability-focused content like carousels and quote cards, and a tighter publishing cadence to avoid follower fatigue. Targets were specific: plus 150 Instagram followers and plus 700 on LinkedIn, 5.0% engagement on Instagram and 12.5% on LinkedIn, and a 25% lift on combined shares.
 
 By the year-end window, LinkedIn engagement on Greybrook's corporate channel was up roughly 300% year over year, share volume up 152%, and reach up 164%.

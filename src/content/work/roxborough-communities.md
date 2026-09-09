@@ -34,8 +34,6 @@ The audience is renters. That is a different job from the institutional and accr
 
 Cricket Park was the first launch under the brand and the test of whether it worked. The campaign ran March to August 2024, anchored on Instagram with paid alongside, and I led it with an agency partner.
 
-Instagram carried it because the product is visual and local. The creative leaned on the building and the neighbourhood, not floor plans, and paid ran underneath to hold reach while the organic account was still small.
-
-It went from pre-launch to over 90% occupancy in six months.
+Instagram carried it because the product is visual and local. The creative leaned on the building and the neighbourhood, not floor plans, and paid ran underneath to hold reach while the organic account was still small. It went from pre-launch to over 90% occupancy in six months.
 
 That result is the argument for the brand. The next property started with a site that already ranked, an audience that already existed, and creative conventions that were already tested.

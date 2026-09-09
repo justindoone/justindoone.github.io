@@ -15,9 +15,7 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-The placement is a single billboard on Highway 400. Super-wide format because the headline has to read at road speeds from a distance.
-
-The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headline.
+The placement is a single billboard on Highway 400. Super-wide format because the headline has to read at road speeds from a distance. The Evolve "O" mark stands in for the soccer ball inside the GOOOOOAAAALLL headline.
 
 ![The campaign artwork up close. The Evolve O-mark stands in for the ball, with the 40+ lineup line set above the headline.](/images/work/evolve/worldcup-billboard.png)
 
@@ -31,8 +29,6 @@ The billboard runs alongside a social campaign through the tournament window. Th
   <img src="/images/work/evolve/fan-series/argentina.webp" alt="An ETF for Every Fan, Argentina edition" loading="lazy" width="760" height="950" />
 </div>
 
-A set of sixteen ran in all, one per nation, each built for the Instagram feed.
-
-The match-day cut is where it gets specific. Same system, pointed at the home side: Canada's group-stage opener against Qatar at BC Place.
+A set of sixteen ran in all, one per nation, each built for the Instagram feed. The match-day cut is where it gets specific. Same system, pointed at the home side: Canada's group-stage opener against Qatar at BC Place.
 
 ![Match-day graphic for Canada vs Qatar at BC Place, Vancouver.](/images/work/evolve/worldcup-matchday-canada.webp)

@@ -21,15 +21,11 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-An ETF issuer republishes its whole document set every month. Performance changes, so the fund overview changes, and so does the fund summary, the covered-call commentary, the sales deck, and every ad creative carrying a yield figure. Multiply that by a lineup of more than forty funds in two languages and the first week of every month disappears into it.
-
-That is the boring version of the problem. The real one is that documents assembled by hand at that volume develop errors, and in this business the errors are printed, filed, and distributed to advisors.
+An ETF issuer republishes its whole document set every month. Performance changes, so the fund overview changes, and so does the fund summary, the covered-call commentary, the sales deck, and every ad creative carrying a yield figure. Multiply that by a lineup of more than forty funds in two languages and the first week of every month disappears into it. That is the boring version of the problem. The real one is that documents assembled by hand at that volume develop errors, and in this business the errors are printed, filed, and distributed to advisors.
 
 ## One source file, every document
 
-Everything downstream reads from the same monthly data merge file. Nothing is typed twice.
-
-That file carries 5,068 fields in a single row, which rules out the obvious approach immediately: Word's mail merge data source caps at 255. So the fund summaries builder does direct substitution against `<<field>>` placeholders instead, with format specifiers for the cases where a raw value is not what should print, such as trimming a distribution figure to significant digits rather than rounding it to two.
+Everything downstream reads from the same monthly data merge file. Nothing is typed twice. That file carries 5,068 fields in a single row, which rules out the obvious approach immediately: Word's mail merge data source caps at 255. So the fund summaries builder does direct substitution against `<<field>>` placeholders instead, with format specifiers for the cases where a raw value is not what should print, such as trimming a distribution figure to significant digits rather than rounding it to two.
 
 The InDesign side runs as a batch: point every matching template at the one master data file, merge, export. A name filter scopes it to the current month's natives so re-running one fund's build does not re-merge the whole lineup and lock InDesign for seven minutes.
 
@@ -41,9 +37,7 @@ The monthly ad-creative refresh is the step most likely to publish a wrong numbe
 
 Targeting those elements by ID alone is not safe. A designer may have edited a card since last month, or a card may already be stale, and an ID-based write would overwrite either without noticing. So every write is gated on the element currently holding exactly the value last month's merge produced. Zero matches means the card disagrees with the data it was supposedly built from. More than one match means two figures are indistinguishable and the tool cannot tell which it is looking at. Both refuse rather than guess.
 
-That gate is what caught a transposed figure on a 160x600 unit before it went out. A tool that had simply written by ID would have replaced the wrong number with a different wrong number and reported success.
-
-The same instinct runs through the rest of it. The link audit that checks shared assets across the overview files opens every document, reads its link table, and writes nothing, because a read-only audit can be run against production files without a backup step first. It exists because one shared gradient asset had scattered across several source folders and broken, and the audit finds that pattern before it breaks something else.
+That gate is what caught a transposed figure on a 160x600 unit before it went out. A tool that had simply written by ID would have replaced the wrong number with a different wrong number and reported success. The same instinct runs through the rest of it. The link audit that checks shared assets across the overview files opens every document, reads its link table, and writes nothing, because a read-only audit can be run against production files without a backup step first. It exists because one shared gradient asset had scattered across several source folders and broken, and the audit finds that pattern before it breaks something else.
 
 ## Reporting that refuses to flatter itself
 
@@ -57,8 +51,6 @@ And month-end risk is measured as headroom. A naive projection extrapolates the 
 
 ## What changed
 
-Month-end went from consuming the first week to a day or two. That is the headline, and it is the less important half.
-
-The more important half is that every figure on every document now traces to one source file, and the steps most likely to introduce an error refuse to proceed when their assumptions do not hold. In a regulated context the cost of a wrong number is not an embarrassing correction, it is a document that has already been filed and distributed.
+Month-end went from consuming the first week to a day or two. That is the headline, and it is the less important half. The more important half is that every figure on every document now traces to one source file, and the steps most likely to introduce an error refuse to proceed when their assumptions do not hold. In a regulated context the cost of a wrong number is not an embarrassing correction, it is a document that has already been filed and distributed.
 
 Building the tools cost less than checking the work harder.

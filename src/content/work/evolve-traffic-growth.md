@@ -52,9 +52,7 @@ The flat months matter to the claim. A growth number measured from a low startin
 
 ## What produced the step
 
-The paid programme was rebuilt underneath it, and Reddit is where most of the volume came from. Monthly Reddit spend rose 42% from June to July, the largest month the account had run, and impressions went up about two thirds with it. That is the single largest input to the July inflection, and it is the same channel work described in the [Reddit case study](/work/evolve-reddit-program).
-
-The efficiency moved in the right direction at the same time. Across the account, click-through went from 0.58% in March to 0.71% in August, and cost per click fell about a quarter over the same stretch. August delivered more clicks than June on a lower cost base, and the traffic held into a second month instead of falling back when the July push ended.
+The paid programme was rebuilt underneath it, and Reddit is where most of the volume came from. Monthly Reddit spend rose 42% from June to July, the largest month the account had run, and impressions went up about two thirds with it. That is the single largest input to the July inflection, and it is the same channel work described in the [Reddit case study](/work/evolve-reddit-program). The efficiency moved in the right direction at the same time. Across the account, click-through went from 0.58% in March to 0.71% in August, and cost per click fell about a quarter over the same stretch. August delivered more clicks than June on a lower cost base, and the traffic held into a second month instead of falling back when the July push ended.
 
 ## What the number is and is not
 
