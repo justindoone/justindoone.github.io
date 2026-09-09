@@ -23,7 +23,7 @@ accentSecondary: "#e57725"
 
 Across my first 162 days at Evolve the site's users were up 29% against the equal window before I started, and August 2026 became the highest-traffic month in the site's recorded history. Those are real, and they are the least interesting part of this.
 
-They are stated against a matched prior window rather than against my first calendar month for a reason that is the whole subject of this case study. I started on 23 March, so nine of that month's thirty-one days were mine. Measuring from the March total would produce a much larger number describing mostly someone else's work.
+They are stated against a matched prior window, not against my first calendar month for a reason that is the whole subject of this case study. I started on 23 March, so nine of that month's thirty-one days were mine. Measuring from the March total would produce a much larger number describing mostly someone else's work.
 
 The more useful work was finding that some of the numbers the function ran on every month could not support the weight being put on them, and rebuilding the reporting so they could.
 
@@ -33,7 +33,7 @@ Reddit is the single largest paid session driver. In GA4 it was landing in Organ
 
 Measured across a three-week window, about 96% of everything in the Organic Social line was in fact paid Reddit. Genuine organic social was a rounding error beside it. The mislabelled traffic was a meaningful share of all site sessions, and it had been tagged that way for as long as the convention had existed, so the historical series carried it too.
 
-Session totals were never wrong. The paid-versus-organic mix was, which is worse in a way, because the totals looked trustworthy enough that nobody had reason to question the split. The read coming out of it was that organic social was performing extraordinarily and that the largest paid channel was invisible.
+Session totals were never wrong. The paid-versus-organic mix was. That is the worse failure. The totals looked trustworthy, so nobody had reason to question the split. The read coming out of it was that organic social was performing extraordinarily and that the largest paid channel was invisible.
 
 The fix went in at the source so new campaigns tag correctly, plus a reclassification step in the reporting tool that moves legacy traffic to Paid Social without disturbing session totals. Historical snapshots were rebuilt against it and verified lossless.
 
@@ -49,14 +49,12 @@ Two false readings came out of that at once: paid search looked bigger than it w
 
 I audited every monthly marketing figure from March to July against live GA4. Every month's headline session total was exactly right. Several things derived from those totals were not.
 
-Six recurring causes came out of it, and they are the ordinary ones rather than anything exotic. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto different bases, which is how a sign flip happens and a decline gets reported where there was a rise. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. A per-fund cost figure lined up against the wrong campaign.
+Six recurring causes came out of it, and they are the ordinary ones, not anything exotic. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto different bases. That is how a decline gets reported where there was a rise. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. A per-fund cost figure lined up against the wrong campaign.
 
-The audit was applied to my own figures on the same terms as everyone else's, which is where one of the six surfaced: a dimensional query left on its default row limit had silently truncated, overstating a genuine increase by a wide margin. That one became a standing pre-publish check.
+The audit was applied to my own figures on the same terms as everyone else's. That is where one of the six surfaced: a dimensional query left on its default row limit had silently truncated, overstating a genuine increase by a wide margin. That one became a standing pre-publish check.
 
 The output was not just corrections. It was a checklist that runs before anything is published, plus a documented set of date windows where the data is known to be unusable, so a future analyst does not quietly build on a month that cannot support it.
 
 ## Why this belongs in a marketing role
 
-The instinct is to treat this as an analyst's job rather than a marketer's. It is the opposite. Every channel decision — where the next dollar goes, which surface is working, what to tell the team is compounding — was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display.
-
-Reporting that survives someone checking it is what makes the rest of the marketing arguable on the merits.
+The instinct is to treat this as an analyst's job, not a marketer's. It is the opposite. Every channel decision — where the next dollar goes, which surface is working, what to tell the team is compounding — was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display.

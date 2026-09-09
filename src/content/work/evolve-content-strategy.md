@@ -4,7 +4,7 @@ client: "Evolve ETFs"
 role: "Content strategy lead"
 date: "2026, ongoing"
 year: 2026
-summary: "A channel can draw a large audience and retain almost none of it. On the set I looked at, four of the fifty most-watched videos were still public, holding 1.4% of the views the set had earned. The strategy work is making the case for treating owned video as an asset that compounds rather than as creative on a rotation."
+summary: "A channel can draw a large audience and retain almost none of it. On the set I looked at, four of the fifty most-watched videos were still public, holding 1.4% of the views the set had earned. The strategy work is making the case for treating owned video as an asset that compounds, not as creative on a rotation."
 tags: ["Content", "Strategy", "YouTube", "Compliance"]
 metrics:
   - value: "4 of 50"
@@ -28,13 +28,13 @@ I pulled the fifty most-watched videos on Evolve's channel over a trailing two-y
 
 Four. Those four held about 1.4% of the views the set had earned between them. Three of them had gone up on the same day some weeks earlier. Of the videos published more than a year before the pull, exactly one was still public: an educational piece on covered-call ETFs.
 
-So the channel was not short of audience. It drew the audience and then removed the thing that drew it.
+The channel was not short of audience. The videos that earned it were taken down.
 
 ## Why it happens, and why it is a strategy question
 
 A 45-day creative-refresh cadence is a sensible safeguard for paid ad units. An ad running unattended past its useful life is a real risk, and rotation is the standard control for it.
 
-An organic video on an owned channel is a different instrument. It earns its position over time, and its value is precisely that it stays where the search index and the subscriber base can find it. Cycling it on a paid-creative clock resets subscriber compounding and discards whatever ranking equity it had built. The two are different asset classes wearing the same file format, which is exactly the kind of distinction that gets lost when one policy has to cover both.
+An organic video on an owned channel is a different instrument. It earns its position over time, and its value is precisely that it stays where the search index and the subscriber base can find it. Cycling it on a paid-creative clock resets subscriber compounding and discards whatever ranking equity it had built. The two are different asset classes wearing the same file format.
 
 The one survivor makes the point better than the argument does. The only older video still public was the educational explainer, and it is also the only one of the four that is not product creative. The piece with the longest useful life is the piece that lasted.
 
@@ -45,5 +45,3 @@ Policy interpretation in a regulated firm is a compliance decision, not a market
 That is recurring formats tied to fund themes, an editorial calendar built around quarterly market windows, and a filming schedule and backlog deep enough to absorb whichever interpretation lands without restarting the work.
 
 The same compounding logic drives the answer-engine work, where the surfaces that get cited are the ones that stay put long enough to be indexed and quoted. That has its own measured results and its own [case study](/work/evolve-aeo-visibility).
-
-The aim in both places is the same. Content that is still working a year after it ships.

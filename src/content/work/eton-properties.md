@@ -52,4 +52,4 @@ We kept the new identity and changed who we were selling to. With foreign travel
 
 ![A piece of the staycation-era creative, with the brand's "much more than the size" tagline](/images/work/minihotel-hk-tagline.png)
 
-The new identity carried the brand through the pandemic and the staycation positioning brought in local revenue. It is the clearest case I have of a brand built for one set of conditions holding up when those conditions disappeared entirely, which is mostly an argument for building identity around what a place actually is rather than around who currently happens to be booking it.
+The new identity carried the brand through the pandemic and the staycation positioning brought in local revenue. It is the clearest case I have of a brand built for one set of conditions holding up when those conditions disappeared entirely.

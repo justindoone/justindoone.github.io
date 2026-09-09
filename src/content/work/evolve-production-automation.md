@@ -53,7 +53,7 @@ Month-to-date pacing is bounded to complete days only. Today is excluded, becaus
 
 Spend on the largest paid channel is pulled in one report call broken down by campaign, not by looping over days. The per-day loop is the obvious implementation and it double-counts, inflating the total by roughly 1.87 times. That is written in the file, in the comment above the function, because it is exactly the kind of thing a future maintainer would helpfully "fix" back.
 
-And month-end risk is measured as headroom rather than projection. A naive projection extrapolates the current daily spend rate and will happily predict an overspend. That misreads the configuration: the spend cap is a lifetime accumulating ceiling, so a campaign stops serving the moment lifetime spend reaches it. The failure mode in the history of this account is not overspending, it is campaigns going dark before month end. So the tool answers the question that matches the actual risk.
+And month-end risk is measured as headroom, not projection. A naive projection extrapolates the current daily spend rate and will happily predict an overspend. That misreads the configuration: the spend cap is a lifetime accumulating ceiling, so a campaign stops serving the moment lifetime spend reaches it. The failure mode in the history of this account is not overspending, it is campaigns going dark before month end. So the tool answers the question that matches the actual risk.
 
 ## What changed
 
@@ -61,4 +61,4 @@ Month-end went from consuming the first week to a day or two. That is the headli
 
 The more important half is that every figure on every document now traces to one source file, and the steps most likely to introduce an error refuse to proceed when their assumptions do not hold. In a regulated context the cost of a wrong number is not an embarrassing correction, it is a document that has already been filed and distributed.
 
-Building the tools was the cheaper way to get there than checking the work harder.
+Building the tools cost less than checking the work harder.

@@ -48,19 +48,19 @@ The shape matters more than the endpoint. My first four months are the flat stre
 
 Then July did 140,235 and August did 144,866. Two consecutive months above a record that had stood since October 2025, and 23% clear of it.
 
-I am pointing at the flat part deliberately. A growth claim measured from a low starting month is the easiest number in marketing to manufacture, and if I only showed March against August the honest reading would be that I picked my baseline. The flat stretch is what makes the step credible: nothing happened for four months, then something did.
+The flat months matter to the claim. A growth number measured from a low starting month is the easiest thing in marketing to manufacture, and March against August on its own would look like a picked baseline. Nothing moved for four months, then it did.
 
 ## What produced the step
 
 The paid programme was rebuilt underneath it, and Reddit is where most of the volume came from. Monthly Reddit spend rose 42% from June to July, the largest month the account had run, and impressions went up about two thirds with it. That is the single largest input to the July inflection, and it is the same channel work described in the [Reddit case study](/work/evolve-reddit-program).
 
-The efficiency moved in the right direction at the same time, which is the part that makes it more than a spending story. Across the account, click-through went from 0.58% in March to 0.71% in August, and cost per click fell about a quarter over the same stretch. August delivered more clicks than June on a lower cost base, which is why the traffic held into a second month rather than falling back when the July push ended.
+The efficiency moved in the right direction at the same time. Across the account, click-through went from 0.58% in March to 0.71% in August, and cost per click fell about a quarter over the same stretch. August delivered more clicks than June on a lower cost base, and the traffic held into a second month instead of falling back when the July push ended.
 
 ## What the number is and is not
 
 These are GA4 sessions on the same basis at both ends, pulled from the Data API. Three things a reader should know before leaning on them.
 
-April 2026 is shown at 91,422 rather than the 69,478 GA4 reports raw. A collection outage between the 13th and the 19th lost roughly five days of data. 91,422 is the restated figure of record used in the April reporting, and it is the one used everywhere downstream.
+April 2026 is shown at 91,422, not the 69,478 GA4 reports raw. A collection outage between the 13th and the 19th lost roughly five days of data. 91,422 is the restated figure of record used in the April reporting, and it is the one used everywhere downstream.
 
 GA4's session counts carry a modelled floor that inflates the absolute level. It is present in both the March and the August figures, so the percentage change holds, but the absolute numbers should be read as GA4 sessions rather than as verified humans.
 

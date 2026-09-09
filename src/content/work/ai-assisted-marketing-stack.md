@@ -32,7 +32,7 @@ It is not a weekend script that got lucky. It has taken more than 860 commits si
 
 ## Retiring the reporting deck
 
-In August the monthly reporting deck was retired outright. The monthly marketing presentation had been a PowerPoint that someone rebuilt every cycle; it is now a dashboard page inside the tool, published from a sidecar data file written by the same run that produces the figures. The page is deliberately frozen rather than live, because GA4 and Search Console keep restating recent days, and a live page drifts away from the numbers that were actually presented in the meeting.
+In August the monthly reporting deck was retired outright. The monthly marketing presentation had been a PowerPoint that someone rebuilt every cycle; it is now a dashboard page inside the tool, published from a sidecar data file written by the same run that produces the figures. The page is deliberately frozen, not live, because GA4 and Search Console keep restating recent days, and a live page drifts away from the numbers that were actually presented in the meeting.
 
 ## The rest of the stack
 
@@ -46,7 +46,7 @@ Other pieces in the stack:
 
 ## Where the hours actually went
 
-The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two, which is a big enough piece of work to have [its own case study](/work/evolve-production-automation). The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. It has [its own case study](/work/evolve-production-automation). The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
 
 ![PLU DIUO Update interface: drop zone for the two monthly source files, auto-filled as-at date, and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 

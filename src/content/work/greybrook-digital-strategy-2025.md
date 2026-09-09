@@ -37,7 +37,7 @@ The video programme got a social-cuts layer that took each Boardroom Brief recor
 
 The social calendar adopted a content-pillar playbook — Greybrook's View, Strategy Snapshot, Deal Spotlight, Mythbuster, among others — that broke the monotonous post cycle while holding the editorial line.
 
-The third was Inside Track, the year's set piece. The fourth was the investment-announcement package, which shipped on its own trigger rather than on a calendar.
+The third was Inside Track, the year's set piece. The fourth was the investment-announcement package, which shipped on its own trigger, not a calendar.
 
 ## Inside Track
 
@@ -68,7 +68,7 @@ Most of that job was operational. Four pieces shipping the same day, all aligned
 
 ## Mid-year correction, and where it finished
 
-Mid-year I ran a Q1-versus-Q2 performance review. LinkedIn engagement rates had moved up. Instagram engagement had softened under higher posting volume, which is the ordinary failure mode of a calendar that solves for cadence.
+Mid-year I ran a Q1-versus-Q2 performance review. LinkedIn engagement rates had moved up. Instagram engagement had softened under higher posting volume.
 
 The H2 plan cut volume and raised the bar: platform-native video formats, shareability-focused content like carousels and quote cards, and a tighter publishing cadence to avoid follower fatigue. Targets were specific — plus 150 Instagram followers and plus 700 on LinkedIn, 5.0% engagement on Instagram and 12.5% on LinkedIn, and a 25% lift on combined shares.
 
