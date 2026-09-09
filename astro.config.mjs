@@ -13,6 +13,14 @@ const HIDDEN_SLUGS = [
 // https://astro.build/config
 export default defineConfig({
   site: 'https://justindoone.github.io',
+  // Cases folded into a parent rather than deleted. Each was a component of a
+  // story the parent now tells in full, so the old URL should land on that
+  // parent instead of 404ing.
+  redirects: {
+    '/work/greybrook-inside-track-2025': '/work/greybrook-digital-strategy-2025',
+    '/work/greybrook-investment-announcement': '/work/greybrook-digital-strategy-2025',
+    '/work/cricket-park-campaign': '/work/roxborough-communities',
+  },
   integrations: [
     sitemap({
       filter: (page) =>

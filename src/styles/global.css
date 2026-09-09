@@ -1200,3 +1200,21 @@ article .prose blockquote {
     transition: none;
   }
 }
+
+/* ========================================
+   INLINE CHARTS IN CASE BODIES
+   An SVG chart scales its text with its viewBox, so a 960-wide chart squeezed
+   into a 375px phone renders its 12px labels at about 4px. Hold a legible
+   floor and let the chart scroll sideways in its own track instead, so the
+   page itself never scrolls horizontally.
+   ======================================== */
+.chart-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  margin: 2rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.chart-scroll > svg {
+  min-width: 660px;
+}
