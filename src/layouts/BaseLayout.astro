@@ -46,119 +46,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       /* Critical hiding styles inline — prevents FOUC before main CSS loads */
       .hero-line { opacity: 0; }
 
-      /* Portfolio gate — see #site-gate <script> below */
-      body.site-locked { overflow: hidden; }
-      body.site-locked > *:not(#site-gate) { filter: blur(10px); pointer-events: none; user-select: none; }
-      #site-gate {
-        position: fixed; inset: 0; z-index: 100000;
-        background: #0a0f1a; color: #d0d6e0;
-        display: flex; align-items: center; justify-content: center;
-        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        background-image:
-          radial-gradient(ellipse at top, rgba(70, 90, 130, 0.18), transparent 60%),
-          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
-      }
-      #site-gate.unlocked { display: none; }
-      #site-gate .card {
-        background: #0f1626; color: #d8dee9;
-        padding: 28px 28px 22px; border-radius: 8px; max-width: 440px; width: 92%;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(120, 140, 180, 0.05);
-        text-align: left;
-      }
-      #site-gate .badge {
-        display: inline-flex; align-items: center; gap: 6px;
-        font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase;
-        color: #ff7a59; font-weight: 600;
-        margin-bottom: 14px;
-      }
-      #site-gate .badge::before {
-        content: ""; display: inline-block;
-        width: 7px; height: 7px; border-radius: 50%;
-        background: #ff7a59;
-        box-shadow: 0 0 8px rgba(255, 122, 89, 0.7);
-        animation: site-gate-pulse 1.8s ease-in-out infinite;
-      }
-      @keyframes site-gate-pulse {
-        0%, 100% { opacity: 0.45; }
-        50% { opacity: 1; }
-      }
-      #site-gate h1 {
-        font: 600 19px/1.3 inherit; color: #f4f6fa;
-        margin: 0 0 6px; letter-spacing: -0.3px;
-      }
-      #site-gate h1 .cursor {
-        display: inline-block; width: 8px; height: 16px;
-        background: #ff7a59; vertical-align: -2px;
-        margin-left: 4px; animation: site-gate-blink 1s steps(2) infinite;
-      }
-      @keyframes site-gate-blink { 50% { opacity: 0; } }
-      #site-gate p {
-        font: 400 13px/1.55 inherit; color: #98a0b3; margin: 0 0 4px;
-      }
-      #site-gate p.tagline { margin-bottom: 20px; }
-      #site-gate p.tagline em {
-        color: #c8cfdc; font-style: normal; background: rgba(255, 122, 89, 0.12);
-        padding: 1px 5px; border-radius: 3px;
-      }
-      #site-gate .input-row {
-        display: flex; align-items: stretch; gap: 0;
-        margin: 0 0 10px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 4px;
-        background: #0a0f1a;
-        transition: border-color 0.15s ease, box-shadow 0.15s ease;
-      }
-      #site-gate .input-row:focus-within {
-        border-color: #ff7a59;
-        box-shadow: 0 0 0 3px rgba(255, 122, 89, 0.15);
-      }
-      #site-gate .prompt {
-        color: #ff7a59; padding: 11px 0 11px 12px;
-        font-size: 14px; user-select: none;
-      }
-      /* Matched on position, not on [type=password]: the show/hide control flips the
-         input to type=text, and a type-scoped rule would drop all of this the moment
-         the eye is clicked. */
-      #site-gate .input-row input {
-        flex: 1; padding: 11px 12px 11px 8px;
-        border: 0; background: transparent; color: #f4f6fa;
-        font: 400 14px/1 inherit;
-        outline: none;
-      }
-      #site-gate .input-row input::placeholder { color: #4a5468; }
-      #site-gate button {
-        background: #ff7a59; color: #0a0f1a; border: 0;
-        padding: 11px 14px; border-radius: 4px;
-        font: 600 12px/1 inherit; letter-spacing: 1.2px; text-transform: uppercase;
-        cursor: pointer; width: 100%; margin-top: 0;
-        transition: background 0.15s ease, transform 0.05s ease;
-      }
-      #site-gate button:hover { background: #ff9170; }
-      #site-gate button:active { transform: translateY(1px); }
-      #site-gate .err {
-        color: #f87171; font-size: 12px; line-height: 1.4; min-height: 16px;
-        margin: 0 0 10px; font-style: italic;
-      }
-      #site-gate .meta {
-        display: flex; justify-content: space-between; align-items: center;
-        margin-top: 18px; padding-top: 14px;
-        border-top: 1px dashed rgba(255, 255, 255, 0.07);
-        font-size: 10.5px; color: #4a5468; letter-spacing: 0.4px;
-      }
-      #site-gate .meta span { font-variant-numeric: tabular-nums; }
-      #site-gate .uptime::before {
-        content: ""; display: inline-block;
-        width: 6px; height: 6px; border-radius: 50%;
-        background: #34d399; margin-right: 6px;
-        box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
-      }
     </style>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {/* Portfolio is gated — block all crawlers regardless of per-page noindex flag */}
+    {/* Deliberate and load-bearing: this is the ONLY thing keeping the portfolio
+        out of search results now that the password gate is gone. Justin's call is
+        that it stays while he is at Evolve. Do not remove it to "fix SEO". */}
     <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
     <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
     <meta name="referrer" content="no-referrer" />
@@ -207,97 +102,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         public/, so is:inline keeps Astro from trying to bundle it. */}
     <script src="/pw-toggle.js?v=2" defer is:inline></script>
   </head>
-  <body class="min-h-screen flex flex-col site-locked">
-    <!-- Site-wide password gate. Persists in sessionStorage for the tab.
-         Password rotation: compute SHA-256 of the new password and replace the
-         hash in the script below. -->
-    <div id="site-gate">
-      <div class="card">
-        <div class="badge">Restricted area</div>
-        <h1>Hold on a second<span class="cursor"></span></h1>
-        <p>Justin&rsquo;s portfolio. Not public yet.</p>
-        <form id="site-gate-form" autocomplete="off">
-          <div class="input-row">
-            <span class="prompt">$</span>
-            <input type="password" id="site-gate-pw" placeholder="say the magic word" autofocus autocomplete="off" />
-          </div>
-          <div class="err" id="site-gate-err">&nbsp;</div>
-          <button type="submit">Let me in</button>
-        </form>
-        <div class="meta">
-          <span class="uptime">Bouncer online</span>
-          <span>v0.2.1 &middot; held together with hope</span>
-        </div>
-      </div>
-    </div>
-    <script is:inline>
-      (function () {
-        const STORAGE_KEY = 'jd_portfolio_unlock_v1';
-        // SHA-256 of the current portfolio password
-        const PASSWORD_HASH = '51f6c69911e1cd1d26d7934acd08a4fb712103f10b3e2a3a9830c40f0c3b5c37';
-
-        async function sha256(str) {
-          const buf = new TextEncoder().encode(str);
-          const hash = await crypto.subtle.digest('SHA-256', buf);
-          return Array.from(new Uint8Array(hash)).map((b) => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        function applyState() {
-          const ok = sessionStorage.getItem(STORAGE_KEY) === PASSWORD_HASH;
-          const gate = document.getElementById('site-gate');
-          if (!gate) return;
-          if (ok) {
-            document.body.classList.remove('site-locked');
-            gate.classList.add('unlocked');
-          } else {
-            document.body.classList.add('site-locked');
-            gate.classList.remove('unlocked');
-          }
-        }
-
-        const REJECTIONS = [
-          'Nope. Not it.',
-          'That was a guess and a bad one.',
-          'Cold. Like, ice cold.',
-          'Are you just typing whatever?',
-          'I&rsquo;m starting to think you don&rsquo;t actually know it.',
-          'Three strikes and I start judging you.',
-          'You ok? You&rsquo;ve been at this a while.',
-          'Honestly impressive commitment to being wrong.',
-        ];
-
-        function wireForm() {
-          const form = document.getElementById('site-gate-form');
-          if (!form || form.dataset.wired) return;
-          form.dataset.wired = '1';
-          const input = document.getElementById('site-gate-pw');
-          const err = document.getElementById('site-gate-err');
-          let attempts = 0;
-          form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const pw = (input.value || '').trim();
-            if (!pw) return;
-            const h = await sha256(pw);
-            if (h === PASSWORD_HASH) {
-              sessionStorage.setItem(STORAGE_KEY, h);
-              applyState();
-            } else {
-              const msg = REJECTIONS[Math.min(attempts, REJECTIONS.length - 1)];
-              err.innerHTML = msg;
-              attempts++;
-              input.value = '';
-              input.focus();
-            }
-          });
-        }
-
-        // Run on initial load AND on every Astro client-router navigation, because
-        // the body element is swapped between pages.
-        function init() { applyState(); wireForm(); }
-        init();
-        document.addEventListener('astro:page-load', init);
-      })();
-    </script>
+  <body class="min-h-screen flex flex-col">
 
     <Nav />
     <main class="flex-1">
