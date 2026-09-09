@@ -48,7 +48,7 @@ The shape matters more than the endpoint. My first four months are the flat stre
 
 Then July did 140,235 and August did 144,866. Two consecutive months above a record that had stood since October 2025, and 23% clear of it.
 
-The flat months matter to the claim. A growth number measured from a low starting month is the easiest thing in marketing to manufacture, and March against August on its own would look like a picked baseline. Nothing moved for four months, then it did.
+The flat months matter to the claim. A growth number measured from a low starting month is the easiest thing in marketing to manufacture, and March against August on its own would look like a picked baseline. Nothing moved for four months.
 
 ## What produced the step
 
@@ -60,7 +60,7 @@ The efficiency moved in the right direction at the same time. Across the account
 
 These are GA4 sessions on the same basis at both ends, pulled from the Data API. Three things a reader should know before leaning on them.
 
-April 2026 is shown at 91,422, not the 69,478 GA4 reports raw. A collection outage between the 13th and the 19th lost roughly five days of data. 91,422 is the restated figure of record used in the April reporting, and it is the one used everywhere downstream.
+April 2026 is shown at its restated 91,422. GA4 reports 69,478 raw. A collection outage between the 13th and the 19th lost roughly five days of data. 91,422 is the restated figure of record used in the April reporting, and it is the one used everywhere downstream.
 
 GA4's session counts carry a modelled floor that inflates the absolute level. It is present in both the March and the August figures, so the percentage change holds, but the absolute numbers should be read as GA4 sessions rather than as verified humans.
 

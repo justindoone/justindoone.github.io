@@ -49,7 +49,7 @@ Two false readings came out of that at once: paid search looked bigger than it w
 
 I audited every monthly marketing figure from March to July against live GA4. Every month's headline session total was exactly right. Several things derived from those totals were not.
 
-Six recurring causes came out of it, and they are the ordinary ones, not anything exotic. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto different bases. That is how a decline gets reported where there was a rise. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. A per-fund cost figure lined up against the wrong campaign.
+Six recurring causes came out of it, and they are ordinary. Growth percentages computed on a partial window and never recomputed once the month settled. Comparison columns hand-carried between decks until they drifted onto different bases. That is how a decline gets reported where there was a rise. A GA4 `(not set)` row folded into a real page, making a table sum exceed the site total. A rounded planning target reported as a measurement. A per-fund cost figure lined up against the wrong campaign.
 
 The audit was applied to my own figures on the same terms as everyone else's. That is where one of the six surfaced: a dimensional query left on its default row limit had silently truncated, overstating a genuine increase by a wide margin. That one became a standing pre-publish check.
 
@@ -57,4 +57,4 @@ The output was not just corrections. It was a checklist that runs before anythin
 
 ## Why this belongs in a marketing role
 
-The instinct is to treat this as an analyst's job, not a marketer's. It is the opposite. Every channel decision — where the next dollar goes, which surface is working, what to tell the team is compounding — was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display.
+The instinct is to treat this as an analyst's job. It is the opposite. Every channel decision was being made against a paid-versus-organic split that was materially wrong and a paid search line that was mostly display. That covers where the next dollar goes, which surface is working, and what the team is told is compounding.

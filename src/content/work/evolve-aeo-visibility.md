@@ -29,11 +29,11 @@ Evolve competes there against BMO, iShares and Global X, all of whom carry more 
 
 In the week of July 20, across a fixed set of questions where no issuer is named, Evolve appeared in 24.7% of answers. That put the firm 5th of the ten issuers tracked, behind the three bank and giant-issuer brands and behind Vanguard. The pattern underneath was consistent. Evolve won its own thematic niches comfortably and lost the broad category questions, which are the ones with volume.
 
-The diagnosis that mattered came from the citation data, not the mention data. Evolve's own site was being pulled into answers far less often than competitors' sites, but when it did get pulled it was quoted at one of the highest rates in the field. The pages were convincing the engines and not reaching them. That pointed the work at retrieval instead of rewriting.
+The diagnosis that mattered came from the citation data. Evolve's own site was being pulled into answers far less often than competitors' sites, but when it did get pulled it was quoted at one of the highest rates in the field. The pages were convincing the engines and not reaching them. That pointed the work at retrieval instead of rewriting.
 
 ## What changed
 
-**Fund-specific FAQ accordions went live on the product pages.** The batch order was set by which funds had real search and page demand, measured in Search Console and GA4, not by which funds were easiest to write about. Answer engines pull question-shaped content, and the product pages had none.
+**Fund-specific FAQ accordions went live on the product pages.** The batch order was set by which funds had real search and page demand, measured in Search Console and GA4. Answer engines pull question-shaped content, and the product pages had none.
 
 **Fund overview copy was rewritten against the block the engines actually quote.** Not the hero, not the marketing headline, the description text that gets lifted verbatim into an answer.
 
@@ -43,7 +43,7 @@ All of it inside a constraint most content programs do not carry, where educatio
 
 ## What moved
 
-The number worth reporting is the one that holds across every engine, not the best one in the set. All six surfaces measured for brand mentions moved the same direction over the same four weeks.
+The number worth reporting is the one that holds across every engine. All six surfaces measured for brand mentions moved the same direction over the same four weeks.
 
 | Engine | Week of July 20 | Week of August 10 |
 |---|---|---|
@@ -55,9 +55,9 @@ The number worth reporting is the one that holds across every engine, not the be
 | Claude | 33% | 42% |
 | **Aggregate** | **23.3%** | **28.3%** |
 
-Every figure here excludes both branded questions, where an Evolve fund is named in the prompt, and head-to-head comparison questions, where Evolve features by construction. Either one left in raises the aggregate by roughly two points and moves the rank. The looser cut is the one most tools report by default, so the filter is stated, not assumed.
+Every figure here excludes both branded questions, where an Evolve fund is named in the prompt, and head-to-head comparison questions, where Evolve features by construction. Either one left in raises the aggregate by roughly two points and moves the rank. The looser cut is the one most tools report by default, so the filter is stated.
 
-![Share of non-branded AI answers naming Evolve, by engine, week of August 10. Claude's figure comes from the separate in-house routine, not the tracker that produced the other five.](/images/work/aeo/engines-by-visibility.png)
+![Share of non-branded AI answers naming Evolve, by engine, week of August 10. Claude's figure comes from the separate in-house routine. The other five come from the tracker.](/images/work/aeo/engines-by-visibility.png)
 
 The aggregate is the weighted figure across the five tracked engines, running roughly 250 questions each per week. Claude sits outside it because it comes from a separate routine built in-house, running a different method against the same questions, and it is reported alongside rather than blended in. Copilot is not in the table at all. It can be measured for citations but not reliably for mentions, and a number that cannot be verified does not belong in an aggregate.
 
@@ -75,4 +75,4 @@ The first is that the engines simply got more generous. Retrieval of evolveetfs.
 
 The second is filter choice. Answer-engine tools report a much friendlier number if branded and comparison questions are left in, and that looser cut is the default almost everywhere. Holding to the strict filter costs about two points and one rank position, and it is the reason these figures reconcile when someone reruns them.
 
-Average position sits at about 3.7, which says Evolve is named more often but not yet named earlier. That is the next gain, and it is a different job: position moves on being the obvious answer to a category question, not on being present in the consideration set. The program reports citation and visibility evidence against a frozen baseline, not a traffic number, because answer engines resolve questions instead of routing them, and a traffic claim here would be the kind of figure this case study exists to argue against.
+Average position sits at about 3.7, which says Evolve is named more often but not yet named earlier. That is the next gain, and it is a different job: position moves on being the obvious answer to a category question. The program reports citation and visibility evidence against a frozen baseline, not a traffic number, because answer engines resolve questions instead of routing them, and a traffic claim here would be the kind of figure this case study exists to argue against.

@@ -22,11 +22,11 @@ accent: "#0f7a52"
 accentSecondary: "#f4c542"
 ---
 
-Clifton Blake's residential holdings had no shared identity. Each building marketed itself, which meant every new lease-up started from nothing and none of the spend compounded. Roxborough Communities was the answer: one brand across the portfolio, with a website built to carry the whole set, not a single address.
+Clifton Blake's residential holdings had no shared identity. Each building marketed itself, which meant every new lease-up started from nothing and none of the spend compounded. Roxborough Communities was the answer: one brand across the portfolio, with a website built to carry the whole set.
 
 ## The brand and the site
 
-The site launched in August 2024 as the permanent home for the portfolio: Cricket Park, College West, and the rest. Individual buildings get their own pages inside it, so a new property inherits a working site, an existing search footprint and an audience, instead of starting cold.
+The site launched in August 2024 as the permanent home for the portfolio: Cricket Park, College West, and the rest. Individual buildings get their own pages inside it, so a new property inherits a working site, an existing search footprint and an audience.
 
 The audience is renters. That is a different job from the institutional and accredited-investor work on the rest of Clifton Blake's marketing. Shorter consideration window, mobile-first, and a decision made on photos and location far more than on a thesis.
 
@@ -38,4 +38,4 @@ Instagram carried it because the product is visual and local. The creative leane
 
 It went from pre-launch to over 90% occupancy in six months.
 
-That result is the argument for the brand, not the campaign. The next property started with a site that already ranked, an audience that already existed, and creative conventions that were already tested.
+That result is the argument for the brand. The next property started with a site that already ranked, an audience that already existed, and creative conventions that were already tested.

@@ -45,13 +45,13 @@ August took click-through to its highest level of the year at 0.711% and cost pe
 
 ## What produced it
 
-**Pacing was rebuilt around how Reddit actually spends.** Lifetime spend caps accumulate, so a campaign that underspends early will front-load later and burn a month's budget in a week. The pacing model re-anchors caps against elapsed time, instead of treating the cap as a target.
+**Pacing was rebuilt around how Reddit actually spends.** Lifetime spend caps accumulate, so a campaign that underspends early will front-load later and burn a month's budget in a week. The pacing model re-anchors caps against elapsed time.
 
 **Creative refreshes on a monthly cycle across roughly 180 assets.** Ten funds, two ad groups each, three Reddit formats per group, several images per format. Done by hand this is a week of work, so in practice it would not get done. The refresh tool groups the month's creative by fund from the filename convention and generates the whole set in one pass.
 
-**Ad group status is checked, not assumed.** An ad can report itself as active while the group above it sits paused, so a fund can go dark while the dashboard looks healthy. That check is now part of every cycle.
+**Ad group status is checked.** An ad can report itself as active while the group above it sits paused, so a fund can go dark while the dashboard looks healthy. That check is now part of every cycle.
 
-**Conversion events fire through the pixel.** Four events run through the tag manager, so the channel reports against site actions, not clicks alone.
+**Conversion events fire through the pixel.** Four events run through the tag manager, so the channel reports against site actions.
 
 ## The takeover, worked through
 
@@ -73,7 +73,7 @@ Brand close last. The "BANK on it" tagline, the fund's net assets milestone, an 
 
 ![Closing creative with the "You can BANK on it" tagline, AUM milestone, and disclaimers](/images/work/evolve-reddit-bank/4.png)
 
-That BANK takeover returned 2.2 million impressions at 0.664%. One campaign proves little on its own, so the series is the better measure, and the series is unusually clean evidence: every takeover runs the same format at the same budget for a single fund, and two of them were booked before I took the channel over. That makes the run a controlled test, not a trend line.
+That BANK takeover returned 2.2 million impressions at 0.664%. One campaign proves little on its own, so the series is the better measure, and the series is unusually clean evidence: every takeover runs the same format at the same budget for a single fund, and two of them were booked before I took the channel over. That makes the run a controlled test.
 
 Cost per click is indexed to the two inherited runs, which average 100.
 
@@ -90,10 +90,10 @@ Cost per click is indexed to the two inherited runs, which average 100.
 
 **Against the two inherited runs, the last four average 0.611% click-through against 0.466%. Click-through up 31%, cost per click down 24%, and 31% more clicks for every dollar.** The July buy is the cheapest of all eight on both measures that matter, 30% below the inherited baseline per click.
 
-The first four sit within a few hundredths of each other. From May the series steps up and stays up. The sequencing logic carried across four different funds, not just BANK.
+The first four sit within a few hundredths of each other. From May the series steps up and stays up. The sequencing logic carried across four different funds.
 
 ## Why the gain is real
 
 An efficiency curve this clean invites the question of whether something else produced it, so I tested the obvious alternative. A batch of creative was rejected on August 9, which would flatter the average if the surviving ads were simply the stronger ones. The numbers either side of that date are the same on click-through and slightly worse afterwards on cost per click, so composition is not what moved the line.
 
-The controlled series answers the larger version of the same question. Budget rose over the period, and rising budget usually buys worse inventory rather than better. The takeovers hold spend and format fixed, so the 31% click-through gain across four funds is attributable to how the buy was built, not to how much was spent on it.
+The controlled series answers the larger version of the same question. Budget rose over the period, and rising budget usually buys worse inventory rather than better. The takeovers hold spend and format fixed, so the 31% click-through gain across four funds is attributable to how the buy was built.

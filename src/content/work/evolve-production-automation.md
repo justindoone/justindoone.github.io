@@ -51,9 +51,9 @@ Two of these tools exist specifically to stop a plausible number from being repo
 
 Month-to-date pacing is bounded to complete days only. Today is excluded, because GA4 is still collecting and Google keeps re-flagging clicks as invalid for a day or two afterward. Including a part-day inflates the elapsed-days denominator while under-reporting spend, which biases the pacing estimate low in both directions at once.
 
-Spend on the largest paid channel is pulled in one report call broken down by campaign, not by looping over days. The per-day loop is the obvious implementation and it double-counts, inflating the total by roughly 1.87 times. That is written in the file, in the comment above the function, because it is exactly the kind of thing a future maintainer would helpfully "fix" back.
+Spend on the largest paid channel is pulled in one report call, broken down by campaign. The per-day loop is the obvious implementation and it double-counts, inflating the total by roughly 1.87 times. That is written in the file, in the comment above the function, because it is exactly the kind of thing a future maintainer would helpfully "fix" back.
 
-And month-end risk is measured as headroom, not projection. A naive projection extrapolates the current daily spend rate and will happily predict an overspend. That misreads the configuration: the spend cap is a lifetime accumulating ceiling, so a campaign stops serving the moment lifetime spend reaches it. The failure mode in the history of this account is not overspending, it is campaigns going dark before month end. So the tool answers the question that matches the actual risk.
+And month-end risk is measured as headroom. A naive projection extrapolates the current daily spend rate and will happily predict an overspend. That misreads the configuration: the spend cap is a lifetime accumulating ceiling, so a campaign stops serving the moment lifetime spend reaches it. The failure mode in the history of this account is not overspending, it is campaigns going dark before month end. So the tool answers the question that matches the actual risk.
 
 ## What changed
 

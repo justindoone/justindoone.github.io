@@ -28,7 +28,7 @@ The headliner is the monthly-update-tool. It consolidates ad-spend and performan
 
 It is not a weekend script that got lucky. It has taken more than 860 commits since April to get here, and it is now the surface the marketing function actually runs its month on.
 
-![Performance dashboard: primary KPI tiles (total spend, website sessions, paid CTR, conversions, paid-vs-organic split), secondary row with top organic query and top landing page, and the charts panel below — 12-month sessions trend plus a donut of traffic mix by channel group](/images/work/ai-stack/dashboard.png)
+![Performance dashboard: primary KPI tiles (total spend, website sessions, paid CTR, conversions, paid-vs-organic split), secondary row with top organic query and top landing page, and the charts panel below, with a 12-month sessions trend plus a donut of traffic mix by channel group](/images/work/ai-stack/dashboard.png)
 
 ## Retiring the reporting deck
 

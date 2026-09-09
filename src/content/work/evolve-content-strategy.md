@@ -4,7 +4,7 @@ client: "Evolve ETFs"
 role: "Content strategy lead"
 date: "2026, ongoing"
 year: 2026
-summary: "A channel can draw a large audience and retain almost none of it. On the set I looked at, four of the fifty most-watched videos were still public, holding 1.4% of the views the set had earned. The strategy work is making the case for treating owned video as an asset that compounds, not as creative on a rotation."
+summary: "A channel can draw a large audience and retain almost none of it. On the set I looked at, four of the fifty most-watched videos were still public, holding 1.4% of the views the set had earned. The strategy work is making the case for treating owned video as an asset that compounds."
 tags: ["Content", "Strategy", "YouTube", "Compliance"]
 metrics:
   - value: "4 of 50"
@@ -20,7 +20,7 @@ accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
 
-Long-form owned surfaces are usually the last thing a marketing function treats as an asset. Output is steady, the videos perform, and then the back catalogue quietly disappears — not through neglect, but because the cadence governing it was designed for something else.
+Long-form owned surfaces are usually the last thing a marketing function treats as an asset. Output is steady and the videos perform, and then the back catalogue disappears. The cadence governing it was designed for something else.
 
 ## What a channel retains
 
@@ -40,7 +40,7 @@ The one survivor makes the point better than the argument does. The only older v
 
 ## What I built while the question was open
 
-Policy interpretation in a regulated firm is a compliance decision, not a marketing one, and it moves on its own timeline. The useful thing to do in the meantime is build what is needed under either outcome.
+Policy interpretation in a regulated firm is a compliance decision, and it moves on its own timeline. The useful thing to do in the meantime is build what is needed under either outcome.
 
 That is recurring formats tied to fund themes, an editorial calendar built around quarterly market windows, and a filming schedule and backlog deep enough to absorb whichever interpretation lands without restarting the work.
 
