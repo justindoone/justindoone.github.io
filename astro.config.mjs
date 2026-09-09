@@ -6,7 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 // toward URLs that already carry a page-level noindex.
 const HIDDEN_SLUGS = [
   'greybrook-boardroom-brief',
-  'minihotel-hk',
   'saturnbird-marketing-plan',
 ];
 
@@ -20,6 +19,7 @@ export default defineConfig({
     '/work/greybrook-inside-track-2025': '/work/greybrook-digital-strategy-2025',
     '/work/greybrook-investment-announcement': '/work/greybrook-digital-strategy-2025',
     '/work/cricket-park-campaign': '/work/roxborough-communities',
+    '/work/minihotel-hk': '/work/eton-properties',
   },
   integrations: [
     sitemap({
