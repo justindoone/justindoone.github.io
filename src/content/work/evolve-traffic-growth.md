@@ -13,8 +13,8 @@ metrics:
     label: "Above the previous best month"
   - value: "+54%"
     label: "Sessions, March to August"
-cover: "/images/work/traffic/cover.png"
-cardCover: "/images/work/traffic/cover.png"
+cover: "/images/work/traffic/cover.png?v=2"
+cardCover: "/images/work/traffic/cover.png?v=2"
 featured: true
 hero: true
 order: 0
