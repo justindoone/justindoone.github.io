@@ -7,6 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 const HIDDEN_SLUGS = [
   'greybrook-boardroom-brief',
   'saturnbird-marketing-plan',
+  // Retired from the showcase: an argument with no shipped outcome, and a
+  // document-production case whose substance now sits inside the AI stack.
+  // Kept building so existing links resolve, but out of the lists and the
+  // sitemap.
+  'evolve-content-strategy',
+  'evolve-production-automation',
 ];
 
 // https://astro.build/config

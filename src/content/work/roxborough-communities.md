@@ -17,7 +17,7 @@ panelFit: cover
 cover: "/images/work/cricket-park-campaign.jpg"
 cardCover: "/images/work/cricket-park-campaign.jpg"
 featured: true
-order: 10
+order: 6
 accent: "#0f7a52"
 accentSecondary: "#f4c542"
 ---

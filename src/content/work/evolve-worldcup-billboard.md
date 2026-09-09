@@ -10,7 +10,7 @@ panelFit: cover
 cover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 cardCover: "/images/work/evolve/worldcup-billboard-insitu.webp"
 featured: false
-order: 7
+order: 4
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---

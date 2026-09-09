@@ -15,7 +15,8 @@ metrics:
     label: "Covered-call PDFs, code not InDesign"
 cover: "/images/work/production/cover.png"
 cardCover: "/images/work/production/cover.png"
-featured: true
+featured: false
+hidden: true
 order: 5
 accent: "#1B3D6E"
 accentSecondary: "#e57725"

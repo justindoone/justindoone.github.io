@@ -15,7 +15,7 @@ metrics:
     label: "Commits since April"
 cardCover: "/images/work/ai-stack/cover.png"
 featured: true
-order: 4
+order: 10
 accent: "#1B3D6E"
 accentSecondary: "#e57725"
 ---
@@ -44,7 +44,7 @@ Other pieces in the stack:
 
 ## Where the hours actually went
 
-The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. It has [its own case study](/work/evolve-production-automation). The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
+The clearest impact is on the recurring chores. Month-end updates that used to take the first week of the month (fund overviews, ad performance summaries, distribution data) now ship in a day or two. One monthly build carries 5,068 merge fields, generates all 45 French overviews, and produces the covered-call PDFs from code instead of by hand in InDesign. The PLU DIUO tab takes the two monthly source files (or a folder containing them) and outputs the InDesign-merge file directly. As-at dates auto-detect from the filenames. Trailing 12-month yields, current net yields, and the 1-, 3-, 5-year and since-inception returns flow through per fund without manual entry.
 
 ![PLU DIUO Update interface: drop zone for the two monthly source files, auto-filled as-at date, and InDesign / Illustrator export buttons](/images/work/ai-stack/plu-update.png)
 
